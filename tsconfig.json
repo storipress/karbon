@@ -1,0 +1,9 @@
+{
+  // https://v3.nuxtjs.org/concepts/typescript
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "types": ["node"]
+  }
+}

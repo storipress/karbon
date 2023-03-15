@@ -1,0 +1,20 @@
+{
+  "name": "@storipress/create-karbon",
+  "packageManager": "yarn@3.4.1",
+  "version": "1.0.0",
+  "bin": "./dist/index.mjs",
+  "scripts": {
+    "build": "unbuild",
+    "prepack": "unbuild"
+  },
+  "dependencies": {
+    "consola": "^2.15.3",
+    "giget": "^1.1.2",
+    "minimist": "^1.2.8"
+  },
+  "devDependencies": {
+    "@types/node": "^18.15.3",
+    "unbuild": "^1.1.2"
+  },
+  "gitHead": "5698867d583aaa9567c85c4517b4821953dd7e24"
+}

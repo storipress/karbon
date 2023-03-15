@@ -1,0 +1,29 @@
+{
+  "name": "@storipress/custom-field",
+  "version": "1.0.8",
+  "repository": "git@github.com:storipress/framework-scaffolding.git",
+  "main": "./index.ts",
+  "scripts": {
+    "build": "unbuild",
+    "prepack": "yarn build"
+  },
+  "files": [
+    "model",
+    "dist",
+    "index.ts"
+  ],
+  "publishConfig": {
+    "access": "restricted"
+  },
+  "packageManager": "yarn@3.2.4",
+  "dependencies": {
+    "hookable": "^5.5.1",
+    "remeda": "^1.9.0",
+    "unctx": "^2.1.2",
+    "vue": "^3.2.47"
+  },
+  "devDependencies": {
+    "unbuild": "^1.1.2"
+  },
+  "gitHead": "5698867d583aaa9567c85c4517b4821953dd7e24"
+}

@@ -1,0 +1,11 @@
+{
+  // https://v3.nuxtjs.org/concepts/typescript
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "types": ["node"],
+    "esModuleInterop": true
+  },
+  "include": ["./src/**/*.ts"]
+}

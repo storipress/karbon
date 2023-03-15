@@ -1,0 +1,24 @@
+.article-body {
+  .image {
+    @apply relative px-1;
+
+    width: fit-content;
+    max-width: 100vw;
+
+    &.full,
+    &.wide {
+      @apply px-0;
+
+      margin-left: calc(var(--left-offset, 0) * -1);
+      width: 100vw;
+    }
+
+    &.wide {
+      @apply lg:-ml-[17.5%] lg:w-[135%];
+    }
+
+    img {
+      @apply w-full;
+    }
+  }
+}
