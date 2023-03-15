@@ -57,7 +57,7 @@
     "@storipress/builder-component": "^1.2.4",
     "@storipress/custom-field": "1.0.8",
     "@storipress/jose-browser": "^1.0.0",
-    "@storipress/vue-advertising": "^1.0.2",
+    "@storipress/vue-advertising": "^1.0.0",
     "@vueuse/core": "^9.13.0",
     "@vueuse/head": "^1.1.19",
     "@vueuse/math": "^9.13.0",

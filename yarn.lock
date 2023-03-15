@@ -2931,7 +2931,7 @@ __metadata:
     "@storipress/builder-component": ^1.2.4
     "@storipress/custom-field": 1.0.8
     "@storipress/jose-browser": ^1.0.0
-    "@storipress/vue-advertising": ^1.0.2
+    "@storipress/vue-advertising": ^1.0.0
     "@types/find-cache-dir": ^3.2.1
     "@types/fs-extra": ^11.0.1
     "@types/jszip": ^3.4.1
@@ -3016,18 +3016,6 @@ __metadata:
   peerDependencies:
     vue: ^3.0.0
   checksum: 8cb4004dddfbe65022d74e06bcd71cffa30e915c85b2c8c141a3fc0fead3af94578f1e876ba7ecc39c205aa165b501d552f1d751d1778dc03deb96b2cf8199a9
-  languageName: node
-  linkType: hard
-
-"@storipress/vue-advertising@npm:^1.0.2":
-  version: 1.0.2
-  resolution: "@storipress/vue-advertising@npm:1.0.2::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40storipress%2Fvue-advertising%2F1.0.2%2F1252bd70b4bed5e931da717efe77ac9ace4e20ec"
-  dependencies:
-    "@guanghechen/fast-deep-equal": ^2.2.4
-    "@vueuse/core": ^9.6.0
-  peerDependencies:
-    vue: ^3.0.0
-  checksum: aee5bab878b345ab17bb331cd8e7a6ef2fcc312d039f57978c24f4fa2750b17cb5a3f52e54061d87b0662f2ac8666436d97e3cf38df08b4a594c737aea55242a
   languageName: node
   linkType: hard
 
@@ -3835,7 +3823,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vueuse/core@npm:9.13.0, @vueuse/core@npm:^9.13.0, @vueuse/core@npm:^9.6.0":
+"@vueuse/core@npm:9.13.0, @vueuse/core@npm:^9.13.0":
   version: 9.13.0
   resolution: "@vueuse/core@npm:9.13.0"
   dependencies:
