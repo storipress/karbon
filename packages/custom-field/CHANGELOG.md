@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.3](https://github.com/storipress/karbon/compare/v1.1.2...v1.1.3) (2023-03-15)
+
+### Bug Fixes
+
+- fix config ([a7886c2](https://github.com/storipress/karbon/commit/a7886c22ac9b31414f4dae0acf65f87cadd0941a))
+
 ## [1.1.2](https://github.com/storipress/karbon/compare/v1.1.1...v1.1.2) (2023-03-15)
 
 ### Bug Fixes
