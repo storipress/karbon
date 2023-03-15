@@ -1,0 +1,8 @@
+{
+  "packages": {
+    "packages/create-karbon": {},
+    "packages/custom-field": {},
+    "packages/jose-browser": {},
+    "packages/karbon": {}
+  }
+}
