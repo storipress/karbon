@@ -14,6 +14,8 @@ jobs:
         id: release
         with:
           release-type: node
+          command: manifest
+          default-branch: main
           monorepo-tags: true
           path: packages/karbon
   release-please-jose-browser:
@@ -25,6 +27,8 @@ jobs:
         id: release
         with:
           release-type: node
+          command: manifest
+          default-branch: main
           monorepo-tags: true
           path: packages/jose-browser
   release-please-custom-field:
@@ -36,6 +40,8 @@ jobs:
         id: release
         with:
           release-type: node
+          command: manifest
+          default-branch: main
           monorepo-tags: true
           path: packages/custom-field
   release-please-create-karbon:
@@ -47,6 +53,8 @@ jobs:
         id: release
         with:
           release-type: node
+          command: manifest
+          default-branch: main
           monorepo-tags: true
           path: packages/create-karbon
   publish-npm:
