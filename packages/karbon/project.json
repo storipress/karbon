@@ -1,0 +1,37 @@
+{
+  "namedInputs": {
+    "dist": ["{projectRoot}/dist"]
+  },
+  "targets": {
+    "build-nx": {
+      "executor": "nx:noop",
+      "dependsOn": ["dev:prepare", "bundle:cli", "bundle:helper", "bundle:module"]
+    },
+    "bundle:helper": {
+      "executor": "nx:run-script",
+      "inputs": ["{projectRoot}/dist/helper.mjs"],
+      "outputs": ["{projectRoot}/dist/helper.mjs"],
+      "options": {
+        "script": "bundle:helper"
+      },
+      "dependsOn": ["dev:prepare", "build:module"]
+    },
+    "bundle:module": {
+      "executor": "nx:run-script",
+      "inputs": ["{projectRoot}/dist/module.mjs"],
+      "outputs": ["{projectRoot}/dist/module.mjs"],
+      "options": {
+        "script": "bundle:module"
+      },
+      "dependsOn": ["dev:prepare", "build:module"]
+    },
+    "build:module": {
+      "executor": "nx:run-script",
+      "options": {
+        "script": "build:module"
+      },
+      "outputs": ["dist"],
+      "dependsOn": ["dev:prepare"]
+    }
+  }
+}
