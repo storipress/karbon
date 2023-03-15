@@ -1,8 +1,18 @@
 {
+  "release-type": "node",
+  "plugins": ["node-workspace"],
   "packages": {
-    "packages/create-karbon": {},
-    "packages/custom-field": {},
-    "packages/jose-browser": {},
-    "packages/karbon": {}
+    "packages/create-karbon": {
+      "component": "@storipress/create-karbon"
+    },
+    "packages/custom-field": {
+      "component": "@storipress/custom-field"
+    },
+    "packages/jose-browser": {
+      "component": "@storipress/jose-browser"
+    },
+    "packages/karbon": {
+      "component": "@storipress/karbon"
+    }
   }
 }
