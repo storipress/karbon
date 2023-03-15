@@ -16,7 +16,6 @@ jobs:
           release-type: node
           monorepo-tags: true
           path: packages/karbon
-          package-name: '@storipress/karbon'
   release-please-jose-browser:
     runs-on: ubuntu-latest
     outputs:
@@ -28,7 +27,6 @@ jobs:
           release-type: node
           monorepo-tags: true
           path: packages/jose-browser
-          package-name: '@storipress/jose-browser'
   release-please-custom-field:
     runs-on: ubuntu-latest
     outputs:
@@ -40,7 +38,6 @@ jobs:
           release-type: node
           monorepo-tags: true
           path: packages/custom-field
-          package-name: '@storipress/custom-field'
   release-please-create-karbon:
     runs-on: ubuntu-latest
     outputs:
@@ -52,7 +49,6 @@ jobs:
           release-type: node
           monorepo-tags: true
           path: packages/create-karbon
-          package-name: '@storipress/create-karbon'
   publish-npm:
     runs-on: ubuntu-latest
     needs:

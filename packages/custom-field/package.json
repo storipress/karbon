@@ -22,9 +22,6 @@
     "dist",
     "index.ts"
   ],
-  "publishConfig": {
-    "access": "restricted"
-  },
   "packageManager": "yarn@3.2.4",
   "dependencies": {
     "hookable": "^5.5.1",

@@ -1,5 +1,6 @@
 {
   "release-type": "node",
+  "monorepo-tags": true,
   "plugins": ["node-workspace"],
   "packages": {
     "packages/create-karbon": {

@@ -105,9 +105,6 @@
       }
     }
   },
-  "publishConfig": {
-    "access": "restricted"
-  },
   "dependencies": {
     "@apollo/client": "^3.7.10",
     "@babel/runtime": "^7.21.0",
