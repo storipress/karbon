@@ -1,4 +1,4 @@
-![Karbon 2](https://user-images.githubusercontent.com/53453555/209810463-6b4e56b3-4762-400a-b1ca-9fad8c07c6d7.png)
+![Karbon](https://user-images.githubusercontent.com/53453555/225268246-0f8e1ca6-0f24-4d77-8fa6-c298c00c741e.png)
 
 <p align="center">
     <a href="https://www.npmjs.com/package/[]"><img src="https://img.shields.io/npm/v/[]?sanitize=true" alt="Version"></a>
