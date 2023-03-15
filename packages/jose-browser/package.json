@@ -2,6 +2,11 @@
   "name": "@storipress/jose-browser",
   "version": "1.0.0",
   "packageManager": "yarn@3.4.1",
+  "repository": "git@github.com:storipress/karbon.git",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/storipress/karbon"
+  },
   "files": [
     "./dist"
   ],

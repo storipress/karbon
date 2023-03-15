@@ -8,7 +8,7 @@
 
 <div align="center">
 
-📚 [Docs](https://docs.storipress.com) | 🗣 [Slack](https://join.slack.com/t/storipresscommunity/shared_invite/zt-1krx5nm1d-h_WKy1XF3MSxuY4BQ0VRbQ) | 💬 [Discussions](https://github.com/storipress/karbon/discussions) | 📝 [Changelog](./packages/karbon/CHANGELOG.md)
+📚 [Docs](https://developers.storipress.com) | 🗣 [Slack](https://join.slack.com/t/storipresscommunity/shared_invite/zt-1krx5nm1d-h_WKy1XF3MSxuY4BQ0VRbQ) | 💬 [Discussions](https://github.com/storipress/karbon/discussions) | 📝 [Changelog](./packages/karbon/CHANGELOG.md)
 
 </div>
 

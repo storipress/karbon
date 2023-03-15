@@ -1,6 +1,11 @@
 {
   "name": "@storipress/karbon-playground",
   "private": true,
+  "repository": "git@github.com:storipress/karbon.git",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/storipress/karbon"
+  },
   "scripts": {
     "build": "nuxt build",
     "bundle": "karbon",

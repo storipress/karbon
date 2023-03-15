@@ -1,8 +1,18 @@
 {
   "name": "@storipress/custom-field",
   "version": "1.0.8",
-  "repository": "git@github.com:storipress/framework-scaffolding.git",
-  "main": "./index.ts",
+  "repository": "git@github.com:storipress/karbon.git",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/storipress/karbon"
+  },
+  "main": "./dist/index.mjs",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
   "scripts": {
     "build": "unbuild",
     "prepack": "yarn build"

@@ -2,6 +2,11 @@
   "name": "@storipress/create-karbon",
   "packageManager": "yarn@3.4.1",
   "version": "1.0.0",
+  "repository": "git@github.com:storipress/karbon.git",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/storipress/karbon"
+  },
   "bin": "./dist/index.mjs",
   "scripts": {
     "build": "unbuild",

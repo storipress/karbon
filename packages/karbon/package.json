@@ -1,7 +1,11 @@
 {
   "name": "@storipress/karbon",
   "version": "1.0.43",
-  "repository": "git@github.com:storipress/framework-scaffolding.git",
+  "repository": "git@github.com:storipress/karbon.git",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/storipress/karbon"
+  },
   "exports": {
     ".": {
       "import": "./dist/module.mjs",
