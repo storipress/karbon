@@ -12,15 +12,15 @@
 
 </div>
 
-# *Carbon* /ˈkɑːbən/: the first pigment humans used for ink
+# _Carbon_ /ˈkɑːbən/: the first pigment humans used for ink
 
-**Built on Nuxt 3**, *Karbon* is a **Vue-based framework** for building dynamic, custom publications. [*Why Vue*?](https://developers.storipress.com/karbon/2gLtVFS6QEkdvKF7fkRng1/overview/4P2M8yS9k5s8F7FXgTSyKr#why-vue)
+**Built on Nuxt 3**, _Karbon_ is a **Vue-based framework** for building dynamic, custom publications. [_Why Vue_?](https://developers.storipress.com/karbon/2gLtVFS6QEkdvKF7fkRng1/overview/4P2M8yS9k5s8F7FXgTSyKr#why-vue)
 
 ### Why did we make Karbon? 👇
 
-- 💨 A really, *really* productive headless developer experience
-- ⚡️ Lightning fast load speeds 
-- 🔎 Enterprise SEO utilities 
+- 💨 A really, _really_ productive headless developer experience
+- ⚡️ Lightning fast load speeds
+- 🔎 Enterprise SEO utilities
 - 👨‍👩‍👦‍👦 Large ecosystem: compatable with all Nuxt plugins
 - 🔦 Instant-search, baked in
 - 🌮 Recommended articles out of the box, with extensible custom logic
@@ -30,7 +30,7 @@
 - 🪠 One provider component that handles all the “plumbing” (viewability, load order prioritisation) w/ googletag + pbjs
 - 💤 Ads SSR optimised + lazy load support (even for Prebid), individually configurable per ad slot
 - 😱 Instantly generate collection pages (i.e. category pages, brand pages)
-- 😤 [No AMP]() — ok, you can use AMP if you *really* want, *[but you really don't need to](https://plausible.io/blog/google-amp)*
+- 😤 [No AMP]() — ok, you can use AMP if you _really_ want, _[but you really don't need to](https://plausible.io/blog/google-amp)_
 - And [a bunch more](https://google.com)
 
 Spin up a Karbon app in your browser with our [playground](https://karbon.new/) or set up your local environment with the instructions below ⬇️
@@ -83,4 +83,4 @@ Learn more about [getting started with Karbon](https://docs.storipress.com).
 
 👷‍♀️ Add `npm` packages to your project:
 
-- 
+-
