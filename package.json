@@ -93,5 +93,6 @@
   "msw": {
     "workerDirectory": "public"
   },
-  "name": "framework"
+  "name": "framework",
+  "version": "1.0.0"
 }
