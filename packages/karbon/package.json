@@ -84,9 +84,16 @@
           "build:module"
         ]
       },
+      "bundle:cli": {
+        "outputs": [
+          "{projectRoot}/bin/karbon.mjs"
+        ]
+      },
       "build:module": {
         "outputs": [
-          "dist"
+          "{projectRoot}/dist/**",
+          "!{projectRoot}/dist/module.mjs",
+          "!{projectRoot}/dist/helper.mjs"
         ],
         "dependsOn": [
           "dev:prepare"
