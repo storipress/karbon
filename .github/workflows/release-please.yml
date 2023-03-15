@@ -5,7 +5,7 @@ on:
 
 name: release-please
 jobs:
-  release-please:
+  release-please-karbon:
     runs-on: ubuntu-latest
     outputs:
       release_created: ${{ steps.release.outputs.release_created }}
@@ -15,11 +15,55 @@ jobs:
         with:
           release-type: node
           monorepo-tags: true
+          path: packages/karbon
+          package-name: '@storipress/karbon'
+  release-please-jose-browser:
+    runs-on: ubuntu-latest
+    outputs:
+      release_created: ${{ steps.release.outputs.release_created }}
+    steps:
+      - uses: google-github-actions/release-please-action@v3
+        id: release
+        with:
+          release-type: node
+          monorepo-tags: true
+          path: packages/jose-browser
+          package-name: '@storipress/jose-browser'
+  release-please-custom-field:
+    runs-on: ubuntu-latest
+    outputs:
+      release_created: ${{ steps.release.outputs.release_created }}
+    steps:
+      - uses: google-github-actions/release-please-action@v3
+        id: release
+        with:
+          release-type: node
+          monorepo-tags: true
+          path: packages/custom-field
+          package-name: '@storipress/custom-field'
+  release-please-create-karbon:
+    runs-on: ubuntu-latest
+    outputs:
+      release_created: ${{ steps.release.outputs.release_created }}
+    steps:
+      - uses: google-github-actions/release-please-action@v3
+        id: release
+        with:
+          release-type: node
+          monorepo-tags: true
+          path: packages/create-karbon
+          package-name: '@storipress/create-karbon'
   publish-npm:
     runs-on: ubuntu-latest
     needs:
-      - release-please
-    if: ${{ needs.release-please.outputs.release_created }}
+      - release-please-karbon
+      - release-please-create-karbon
+      - release-please-jose-browser
+      - release-please-custom-field
+    if: ${{ needs.release-please-karbon.outputs.release_created ||
+          needs.release-please-create-karbon.outputs.release_created ||
+          needs.release-please-custom-field.outputs.release_created ||
+          needs.release-please-jose-browser.outputs.release_created }}
     steps:
       - uses: actions/checkout@v3
       - name: Cache Nx
