@@ -21,5 +21,8 @@
     "@types/node": "^18.15.3",
     "unbuild": "^1.1.2"
   },
-  "gitHead": "5698867d583aaa9567c85c4517b4821953dd7e24"
+  "publishConfig": {
+    "access": "public"
+  },
+  "gitHead": "17d0dca218410e7863509903533238b0e8328cca"
 }
