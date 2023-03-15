@@ -2,7 +2,7 @@
   "private": true,
   "scripts": {
     "dev:prepare": "yarn workspace @storipress/karbon-playground nuxt prepare",
-    "build": "lerna run build --scope='@storipress/*' && yarn dev:prepare",
+    "build": "lerna run build --ignore='@storipress/karbon-playground' && yarn dev:prepare",
     "test": "lerna run test --scope='@storipress/*'",
     "publish:all": "lerna exec --no-private -- yarn npm publish --tolerate-republish --access restricted",
     "postinstall": "yarn build"
