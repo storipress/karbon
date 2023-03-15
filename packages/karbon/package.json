@@ -54,7 +54,7 @@
     "@rudderstack/rudder-sdk-node": "^2.0.2",
     "@sentry/node": "^7.42.0",
     "@sentry/tracing": "^7.42.0",
-    "@storipress/builder-component": "^1.1.3",
+    "@storipress/builder-component": "^1.2.4",
     "@storipress/custom-field": "1.0.8",
     "@storipress/jose-browser": "^1.0.0",
     "@storipress/vue-advertising": "^1.0.2",

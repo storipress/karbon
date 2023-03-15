@@ -99,7 +99,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@apollo/client@npm:^3.6.6, @apollo/client@npm:^3.7.10":
+"@apollo/client@npm:^3.7.10":
   version: 3.7.10
   resolution: "@apollo/client@npm:3.7.10"
   dependencies:
@@ -2761,30 +2761,30 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storipress/builder-component@npm:^1.1.3":
-  version: 1.1.3
-  resolution: "@storipress/builder-component@npm:1.1.3::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40storipress%2Fbuilder-component%2F1.1.3%2Fe62803b50b0d400ee967c822020c41540e71ea3a"
+"@storipress/builder-component@npm:^1.2.4":
+  version: 1.2.4
+  resolution: "@storipress/builder-component@npm:1.2.4"
   dependencies:
-    "@apollo/client": ^3.6.6
+    "@apollo/client": ^3.7.10
     "@headlessui/vue": ^1.7.1
-    "@stripe/stripe-js": ^1.31.0
+    "@stripe/stripe-js": ^1.49.0
     "@types/lodash-es": ^4.17.6
     "@vue/apollo-composable": ^4.0.0-alpha.17
     "@vueuse/core": ^8.7.5
     "@vueuse/head": ^0.7.6
-    dayjs: ^1.11.2
-    graphql: ^16.5.0
+    dayjs: ^1.11.7
+    graphql: ^16.6.0
     graphql-tag: ^2.12.6
     lodash-es: ^4.17.21
-    p-retry: ^5.1.1
-    tiny-invariant: ^1.2.0
-    ts-pattern: ^4.0.3
+    p-retry: ^5.1.2
+    tiny-invariant: ^1.3.1
+    ts-pattern: ^4.2.1
     vee-validate: ^4.6.2
-    vue: ^3.2.37
-    vue-i18n: ^9.1.10
-    vue-router: ^4.0.15
+    vue: ^3.2.47
+    vue-i18n: ^9.2.2
+    vue-router: ^4.1.6
     yup: ^0.32.11
-  checksum: f0e8e498f0a415136a04b34586381a28cf8ce50c6aec2e3ace892cfbdcd4f1b5480e731d3dfc33c7e84d4244bef580a335b728fd9fefae50073213fe1b4791a3
+  checksum: 766658d0b1c97439bc8d470b3fca3dfc3346d7f19124f6475e249007259ffe2005603b62ce441173afe6a558f9410eed6d8de4b8f44811144904bcf61dee33e0
   languageName: node
   linkType: hard
 
@@ -2842,10 +2842,10 @@ __metadata:
     "@rudderstack/rudder-sdk-node": ^2.0.2
     "@sentry/node": ^7.42.0
     "@sentry/tracing": ^7.42.0
-    "@storipress/builder-component": ^1.1.3
+    "@storipress/builder-component": ^1.2.4
     "@storipress/custom-field": "workspace:*"
     "@storipress/karbon": "workspace:*"
-    "@storipress/vue-advertising": ^1.0.2
+    "@storipress/vue-advertising": ^1.0.0
     "@types/find-cache-dir": ^3.2.1
     "@types/fs-extra": ^11.0.1
     "@types/jszip": ^3.4.1
@@ -2928,7 +2928,7 @@ __metadata:
     "@rudderstack/rudder-sdk-node": ^2.0.2
     "@sentry/node": ^7.42.0
     "@sentry/tracing": ^7.42.0
-    "@storipress/builder-component": ^1.1.3
+    "@storipress/builder-component": ^1.2.4
     "@storipress/custom-field": 1.0.8
     "@storipress/jose-browser": ^1.0.0
     "@storipress/vue-advertising": ^1.0.2
@@ -3006,6 +3006,19 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@storipress/vue-advertising@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "@storipress/vue-advertising@npm:1.0.0"
+  dependencies:
+    "@guanghechen/fast-deep-equal": ^2.2.4
+    "@vueuse/core": ^9.13.0
+    vue3-lazy-hydration: ^1.2.1
+  peerDependencies:
+    vue: ^3.0.0
+  checksum: 8cb4004dddfbe65022d74e06bcd71cffa30e915c85b2c8c141a3fc0fead3af94578f1e876ba7ecc39c205aa165b501d552f1d751d1778dc03deb96b2cf8199a9
+  languageName: node
+  linkType: hard
+
 "@storipress/vue-advertising@npm:^1.0.2":
   version: 1.0.2
   resolution: "@storipress/vue-advertising@npm:1.0.2::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40storipress%2Fvue-advertising%2F1.0.2%2F1252bd70b4bed5e931da717efe77ac9ace4e20ec"
@@ -3018,10 +3031,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@stripe/stripe-js@npm:^1.31.0":
-  version: 1.46.0
-  resolution: "@stripe/stripe-js@npm:1.46.0"
-  checksum: e9f1a6c1abc1e9eb5cfe7d604066230078958d3ada61089912829b57d090e768d6310149f054c8da0a8c49d7a313c44418705f91174909c2d2313c9ded781be1
+"@stripe/stripe-js@npm:^1.49.0":
+  version: 1.49.0
+  resolution: "@stripe/stripe-js@npm:1.49.0"
+  checksum: d0dff5cb80052f40fb997501e303389b4267b440035eb1c9837fa754c37e202b1c36c1f53c4d67bc14e1a86de677dedb4fe2a7985d8a03d8bbc4994c45574d97
   languageName: node
   linkType: hard
 
@@ -6051,7 +6064,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dayjs@npm:^1.11.2":
+"dayjs@npm:^1.11.7":
   version: 1.11.7
   resolution: "dayjs@npm:1.11.7"
   checksum: 5003a7c1dd9ed51385beb658231c3548700b82d3548c0cfbe549d85f2d08e90e972510282b7506941452c58d32136d6362f009c77ca55381a09c704e9f177ebb
@@ -8399,7 +8412,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"graphql@npm:^15.0.0 || ^16.0.0, graphql@npm:^16.5.0, graphql@npm:^16.6.0":
+"graphql@npm:^15.0.0 || ^16.0.0, graphql@npm:^16.6.0":
   version: 16.6.0
   resolution: "graphql@npm:16.6.0"
   checksum: bf1d9e3c1938ce3c1a81e909bd3ead1ae4707c577f91cff1ca2eca474bfbc7873d5d7b942e1e9777ff5a8304421dba57a4b76d7a29eb19de8711cb70e3c2415e
@@ -12475,7 +12488,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"p-retry@npm:^5.1.1":
+"p-retry@npm:^5.1.2":
   version: 5.1.2
   resolution: "p-retry@npm:5.1.2"
   dependencies:
@@ -15460,7 +15473,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tiny-invariant@npm:^1.1.0, tiny-invariant@npm:^1.2.0, tiny-invariant@npm:^1.3.1":
+"tiny-invariant@npm:^1.1.0, tiny-invariant@npm:^1.3.1":
   version: 1.3.1
   resolution: "tiny-invariant@npm:1.3.1"
   checksum: 872dbd1ff20a21303a2fd20ce3a15602cfa7fcf9b228bd694a52e2938224313b5385a1078cb667ed7375d1612194feaca81c4ecbe93121ca1baebe344de4f84c
@@ -15645,10 +15658,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ts-pattern@npm:^4.0.3":
-  version: 4.1.4
-  resolution: "ts-pattern@npm:4.1.4"
-  checksum: aecc7a3491ac5f1f32e6680c21f1f413276206a89cab46169d60eb599c9bd1ce78f158804189dad5b52fb3a9a708f074e8c9cb2fd20acb5845cedec94a988669
+"ts-pattern@npm:^4.2.1":
+  version: 4.2.1
+  resolution: "ts-pattern@npm:4.2.1"
+  checksum: bafff4f5fa74cb697b679a3a7a276c5102fa0712570e3fa1cb5ccb1e36aaabbd21d1207878cd9aa3c23a2b87b2b26f90ec32904d98fd8b53c681c41c14e03260
   languageName: node
   linkType: hard
 
@@ -16729,7 +16742,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vue-i18n@npm:^9.1.10":
+"vue-i18n@npm:^9.2.2":
   version: 9.2.2
   resolution: "vue-i18n@npm:9.2.2"
   dependencies:
@@ -16763,7 +16776,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vue-router@npm:^4.0.15, vue-router@npm:^4.1.6":
+"vue-router@npm:^4.1.6":
   version: 4.1.6
   resolution: "vue-router@npm:4.1.6"
   dependencies:
@@ -16783,7 +16796,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vue@npm:^3.2.37, vue@npm:^3.2.47":
+"vue@npm:^3.2.47":
   version: 3.2.47
   resolution: "vue@npm:3.2.47"
   dependencies:
