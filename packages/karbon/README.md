@@ -84,4 +84,3 @@ Learn more about [getting started with Karbon](https://docs.storipress.com).
 👷‍♀️ Add `npm` packages to your project:
 
 -
-
