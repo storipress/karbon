@@ -32,7 +32,8 @@
   "scripts": {
     "prepack": "yarn build",
     "dev": "nuxi dev playground",
-    "build": "nx run karbon:build-nx",
+    "build": "nx run @storipress/karbon:build-nx",
+    "build-nx": "true",
     "build:module": "nuxt-module-build",
     "bundle:cli": "tsup src/cli/karbon.ts -d bin",
     "bundle:helper": "tsup dist/helper.mjs",
@@ -43,6 +44,55 @@
     "lint": "eslint .",
     "test": "vitest",
     "test:watch": "vitest watch"
+  },
+  "nx": {
+    "namedInputs": {
+      "dist": [
+        "{projectRoot}/dist"
+      ]
+    },
+    "targets": {
+      "build-nx": {
+        "dependsOn": [
+          "dev:prepare",
+          "bundle:cli",
+          "bundle:helper",
+          "bundle:module"
+        ]
+      },
+      "bundle:helper": {
+        "inputs": [
+          "{projectRoot}/dist/helper.mjs"
+        ],
+        "outputs": [
+          "{projectRoot}/dist/helper.mjs"
+        ],
+        "dependsOn": [
+          "dev:prepare",
+          "build:module"
+        ]
+      },
+      "bundle:module": {
+        "inputs": [
+          "{projectRoot}/dist/module.mjs"
+        ],
+        "outputs": [
+          "{projectRoot}/dist/module.mjs"
+        ],
+        "dependsOn": [
+          "dev:prepare",
+          "build:module"
+        ]
+      },
+      "build:module": {
+        "outputs": [
+          "dist"
+        ],
+        "dependsOn": [
+          "dev:prepare"
+        ]
+      }
+    }
   },
   "publishConfig": {
     "access": "restricted"
