@@ -2802,7 +2802,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@storipress/custom-field@1.0.8, @storipress/custom-field@workspace:*, @storipress/custom-field@workspace:packages/custom-field":
+"@storipress/custom-field@^1.1.4, @storipress/custom-field@workspace:*, @storipress/custom-field@workspace:packages/custom-field":
   version: 0.0.0-use.local
   resolution: "@storipress/custom-field@workspace:packages/custom-field"
   dependencies:
@@ -2814,7 +2814,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@storipress/jose-browser@^1.0.0, @storipress/jose-browser@workspace:packages/jose-browser":
+"@storipress/jose-browser@^1.1.4, @storipress/jose-browser@workspace:packages/jose-browser":
   version: 0.0.0-use.local
   resolution: "@storipress/jose-browser@workspace:packages/jose-browser"
   dependencies:
@@ -2929,8 +2929,8 @@ __metadata:
     "@sentry/node": ^7.42.0
     "@sentry/tracing": ^7.42.0
     "@storipress/builder-component": ^1.2.4
-    "@storipress/custom-field": 1.0.8
-    "@storipress/jose-browser": ^1.0.0
+    "@storipress/custom-field": ^1.1.4
+    "@storipress/jose-browser": ^1.1.4
     "@storipress/vue-advertising": ^1.0.0
     "@types/find-cache-dir": ^3.2.1
     "@types/fs-extra": ^11.0.1
