@@ -22,15 +22,13 @@
 - ⚡️ Lightning fast load speeds
 - 🔎 Enterprise SEO utilities
 - 👨‍👩‍👦‍👦 Large ecosystem: compatable with all Nuxt plugins
-- 🔦 Instant-search, baked in
 - 🌮 Recommended articles out of the box, with extensible custom logic
 - ∞ SEO friendly infinite scroll
 - 💳 Paywall, checkout and card management
-- 💸 One central config file for all Google Publisher Tags + Prebid (optional) placements
-- 🪠 One provider component that handles all the “plumbing” (viewability, load order prioritisation) w/ googletag + pbjs
-- 💤 Ads SSR optimised + lazy load support (even for Prebid), individually configurable per ad slot
+- 💸 Simply programmatic ad-ops with native integration to [vue-advertising](https://github.com/storipress/vue-advertising)
 - 😱 Instantly generate collection pages (i.e. category pages, brand pages)
 - 😤 [No AMP]() — ok, you can use AMP if you _really_ want, _[but you really don't need to](https://plausible.io/blog/google-amp)_
+- 🔦 Instant-search, baked in
 - And [a bunch more](https://developers.storipress.com)
 
 Spin up a Karbon app in your browser with our [playground](https://karbon.new/) or set up your local environment with the instructions below ⬇️
