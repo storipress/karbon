@@ -1,9 +1,9 @@
 ![Karbon](https://user-images.githubusercontent.com/53453555/225268246-0f8e1ca6-0f24-4d77-8fa6-c298c00c741e.png)
 
 <p align="center">
-    <a href="https://www.npmjs.com/package/[]"><img src="https://img.shields.io/npm/v/[]?sanitize=true" alt="Version"></a>
-    <a href="https://github.com/storipress/karbon/blob/main/LICENSE.md"><img src="https://img.shields.io/npm/l/[].svg?sanitize=true" alt="License"></a>
-    <a href="https://npmcharts.com/compare/[]?minimal=true"><img src="https://img.shields.io/npm/dm/@[]?sanitize=true" alt="Downloads"></a>
+    <a href="https://www.npmjs.com/package/@storipress/karbon"><img src="https://img.shields.io/npm/v/@storipress/karbon?sanitize=true" alt="Version"></a>
+    <a href="https://github.com/storipress/karbon/blob/main/LICENSE.md"><img src="https://img.shields.io/npm/l/@storipress/karbon.svg?sanitize=true" alt="License"></a>
+    <a href="https://npmcharts.com/compare/@storipress/karbon?minimal=true"><img src="https://img.shields.io/npm/dm/@storipress/karbon?sanitize=true" alt="Downloads"></a>
  </p>
 
 <div align="center">
