@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import process from 'node:process'
 import { downloadTemplate } from 'giget'
 import consola from 'consola'
