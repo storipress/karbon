@@ -31,7 +31,7 @@
 - 💤 Ads SSR optimised + lazy load support (even for Prebid), individually configurable per ad slot
 - 😱 Instantly generate collection pages (i.e. category pages, brand pages)
 - 😤 [No AMP]() — ok, you can use AMP if you _really_ want, _[but you really don't need to](https://plausible.io/blog/google-amp)_
-- And [a bunch more](https://google.com)
+- And [a bunch more](https://developers.storipress.com)
 
 Spin up a Karbon app in your browser with our [playground](https://karbon.new/) or set up your local environment with the instructions below ⬇️
 
@@ -71,7 +71,7 @@ npm run dev
 
 2. Visit the development environment running at http://localhost:3000.
 
-Learn more about [getting started with Karbon](https://docs.storipress.com).
+Learn more about [getting started with Karbon](https://developers.storipress.com).
 
 ## Contributing to Karbon
 
@@ -79,8 +79,4 @@ Learn more about [getting started with Karbon](https://docs.storipress.com).
 
 ## Other handy links
 
-[Learn more about Karbon](https://storipress.com/karbon).
-
-👷‍♀️ Add `npm` packages to your project:
-
--
+[Learn more about Karbon](https://developers.storipress.com).
