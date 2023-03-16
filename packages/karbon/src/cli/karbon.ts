@@ -1,5 +1,5 @@
-import { pipeline } from 'stream/promises'
-import process from 'process'
+import { pipeline } from 'node:stream/promises'
+import process from 'node:process'
 import fs from 'fs-extra'
 import path from 'pathe'
 import JSZip from 'jszip'
@@ -10,10 +10,10 @@ import chalk from 'chalk'
 import * as Sentry from '@sentry/node'
 import consola from 'consola'
 import { requestPresignedUploadURL, uploadSiteTemplate } from '../runtime/api/siteTemplate'
+import { EventName, initTrack, track } from '../track'
 import type { Tblock, Tlayout } from './bundle/types'
 import { SummaryType } from './bundle/types'
 import { bundleEditorBlocks, bundleLayouts } from './bundle'
-import { EventName, initTrack, track } from './track'
 import { checkFile } from './checkFile'
 import { karbonMsg, sizeErrorMsg } from './checkFile/setting'
 
@@ -30,7 +30,7 @@ async function runBundle() {
       packOnly: 'pack-only',
     },
   })
-  await initTrack()
+  await initTrack('cli')
   await track(deployStart)
 
   const { layouts, blocks } = await oraPromise(bundle, { text: 'bundling', successText: 'bundled' })

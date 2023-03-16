@@ -5,16 +5,24 @@ import fsDriver from 'unstorage/drivers/fs'
 import findCacheDirectory from 'find-cache-dir'
 import * as Sentry from '@sentry/node'
 import '@sentry/tracing'
+import type { ResourcePage } from './runtime/types'
 
 export enum EventName {
-  deployStart = 'custom_site_deploy_start',
-  deploySuccess = 'custom_site_deploy_success',
-  deployFail = 'custom_site_deploy_fail',
+  deployStart = 'karbon_deploy_start',
+  deploySuccess = 'karbon_deploy_success',
+  deployFail = 'karbon_deploy_fail',
+  project = 'karbon_project',
+  command = 'karbon_command',
 }
 
 interface TemplateAmount {
   articleLayout: number
   editorBlock: number
+}
+
+interface TRoute {
+  resource: string
+  params: string[]
 }
 
 export async function track(event: EventName, amount?: TemplateAmount) {
@@ -33,7 +41,51 @@ export async function track(event: EventName, amount?: TemplateAmount) {
   })
 }
 
-export async function initTrack() {
+export async function trackProject(options: any) {
+  const anonymousId = await getAnonymousId()
+  const client = await createRudderAnalytics()
+  const resources: Record<string, ResourcePage<{ id: string }, unknown>> = options?.karbon?.resources
+  const route: TRoute[] = []
+  if (resources) {
+    Object.keys(resources).forEach((resource) => {
+      if (!resources[resource].enable) {
+        return
+      }
+      const matches = resources[resource].route.match(/:[\w_]+/g)
+      route.push({
+        resource,
+        params: Array.from(matches || []),
+      })
+    })
+  }
+
+  client.track({
+    anonymousId,
+    event: EventName.project,
+    properties: {
+      ...Object.fromEntries(route.map((r) => [r.resource, r.params])),
+      usedRoutes: route.map((r) => r.resource),
+      isSSR: options.mode === 'universal' || options.ssr === true,
+      target: options._generate ? 'static' : 'server',
+    },
+  })
+}
+
+export async function trackCommand() {
+  const anonymousId = await getAnonymousId()
+  const client = await createRudderAnalytics()
+  const command = process.argv[2] || 'unknown'
+
+  client.track({
+    anonymousId,
+    event: EventName.command,
+    properties: {
+      command,
+    },
+  })
+}
+
+export async function initTrack(environment: string) {
   const anonymousId = await getAnonymousId()
   const client = await createRudderAnalytics()
   const { loadNuxtConfig } = await import('@nuxt/kit')
@@ -53,6 +105,7 @@ export async function initTrack() {
 
   Sentry.init({
     dsn: 'https://2f13ed3db07d46f38d41e31e4c90eaa8@o930441.ingest.sentry.io/4504468016201728',
+    environment,
 
     // Set tracesSampleRate to 1.0 to capture 100%
     // of transactions for performance monitoring.
