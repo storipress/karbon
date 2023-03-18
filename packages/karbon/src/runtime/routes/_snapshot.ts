@@ -1,9 +1,11 @@
 import { encodePath } from 'ufo'
+import type { H3Event } from 'h3'
 import { setHeader } from 'h3'
 import type { ResourcePageContext } from '../types'
+// @ts-expect-error generated file
 import urls from '#sp-internal/storipress-urls.mjs'
 // @ts-expect-error no type
-import { defineCachedEventHandler, useRuntimeConfig } from '#imports'
+import { defineCachedEventHandler, useNitroApp, useRuntimeConfig } from '#imports'
 
 const RESOURCE = new Set(['article', 'author', 'desk', 'tag'])
 const payloadScopes = [
@@ -20,13 +22,13 @@ const payloadScopes = [
 const invalidContext: ResourcePageContext = import.meta.env.DEV
   ? new Proxy({} as ResourcePageContext, {
       get(_obj, key) {
-        logger.warn(`Forbid to access internal context object key ${String(key)} without using \`getResourceOption\``)
+        console.warn(`Forbid to access internal context object key ${String(key)} without using \`getResourceOption\``)
         throw new Error('accessing internal context')
       },
     })
   : ({ identity: 'invalid', prefix: '', resource: 'invalid' } as unknown as ResourcePageContext)
 
-export default defineCachedEventHandler(async (event) => {
+export default defineCachedEventHandler(async (event: H3Event) => {
   const runtimeConfig = useRuntimeConfig()
 
   if (!runtimeConfig.storipress?.fullStatic) {
