@@ -1,6 +1,5 @@
-import { CUSTOM_FIELD_STORAGE_KEY } from '@storipress/custom-field/model/ctx'
+import { CUSTOM_FIELD_STORAGE_KEY, wrapFieldAsStorage } from '@storipress/custom-field'
 import { createApp, createSSRApp, warn } from 'vue'
-import { wrapFieldAsStorage } from '@storipress/custom-field'
 import type { Component } from 'vue'
 
 const IS_RENDERED = Symbol('is-rendered')
