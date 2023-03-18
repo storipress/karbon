@@ -7,6 +7,7 @@ export {
   globalCustomFieldCtx,
   wrapFieldAsStorage,
   useProvideFieldStorage,
+  CUSTOM_FIELD_STORAGE_KEY,
 } from './ctx'
 export { FieldType } from './field'
 export { storageHooks } from './hooks'
