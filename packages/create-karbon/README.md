@@ -19,7 +19,7 @@ Create a new Karbon app in seconds.
 - 😱 Instantly generate collection pages (i.e. category pages, brand pages)
 - 😤 [No AMP]() — ok, you can use AMP if you _really_ want, _[but you really don't need to](https://plausible.io/blog/google-amp)_
 - 🔦 Instant-search, baked in
-- And [a bunch more](https://developers.storipress.com)
+- And [a bunch more][documentation]
 
 Spin up a Karbon app in your browser with our [playground](https://karbon.new/) or set up your local environment with the instructions below ⬇️
 
@@ -59,14 +59,16 @@ npm run dev
 
 2. Visit the development environment running at http://localhost:3000.
 
-Learn more about [getting started with Karbon](https://docs.storipress.com).
+Learn more about [getting started with Karbon][documentation].
 
 ## Contributing to Karbon
 
-[Read our contributing guide](./.github/contributing.md)
+[Read our contributing guide](/CONTRIBUTING.md)
 
 ## Other handy links
 
-[Learn more about Karbon](https://storipress.com/karbon).
+[Learn more about Karbon][documentation].
 
 👷‍♀️ Add `npm` packages to your project:
+
+[documentation]: https://developers.storipress.com
