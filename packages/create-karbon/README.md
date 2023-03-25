@@ -59,7 +59,7 @@ npm run dev
 
 2. Visit the development environment running at http://localhost:3000.
 
-Learn more about [getting started with Karbon](https://docs.storipress.com).
+Learn more about [getting started with Karbon](https://developers.storipress.com).
 
 ## Contributing to Karbon
 
