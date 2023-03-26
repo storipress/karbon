@@ -8,7 +8,7 @@
 
 <div align="center">
 
-📚 [Docs](https://developers.storipress.com) | 🗣 [Slack](https://join.slack.com/t/storipresscommunity/shared_invite/zt-1krx5nm1d-h_WKy1XF3MSxuY4BQ0VRbQ) | 💬 [Discussions](https://github.com/storipress/karbon/discussions) | 📝 [Changelog](./packages/karbon/CHANGELOG.md)
+📚 [Docs][documentation] | 🗣 [Slack](https://join.slack.com/t/storipresscommunity/shared_invite/zt-1krx5nm1d-h_WKy1XF3MSxuY4BQ0VRbQ) | 💬 [Discussions](https://github.com/storipress/karbon/discussions) | 📝 [Changelog][changelog]
 
 </div>
 
@@ -29,7 +29,7 @@
 - 😱 Instantly generate collection pages (i.e. category pages, brand pages)
 - 😤 [No AMP]() — ok, you can use AMP if you _really_ want, _[but you really don't need to](https://plausible.io/blog/google-amp)_
 - 🔦 Instant-search, baked in
-- And [a bunch more](https://developers.storipress.com)
+- And [a bunch more][documentation]
 
 Spin up a Karbon app in your browser with our [playground](https://karbon.new/) or set up your local environment with the instructions below ⬇️
 
@@ -73,12 +73,13 @@ Learn more about [getting started with Karbon](https://developers.storipress.com
 
 ## Contributing to Karbon
 
-[Read our contributing guide](./.github/contributing.md)
+[Read our contributing guide](/CONTRIBUTING.md)
 
 ## Other handy links
 
-[Learn more about Karbon](https://storipress.com/karbon).
+[Learn more about Karbon][documentation].
 
 👷‍♀️ Add `npm` packages to your project:
 
--
+[changelog]: CHANGELOG.md
+[documentation]: https://developers.storipress.com
