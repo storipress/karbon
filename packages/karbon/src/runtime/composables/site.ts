@@ -14,7 +14,7 @@ export enum SocialMediaKey {
   Pinterest = 'Pinterest',
 }
 
-interface Site {
+export interface Site {
   name: string
   /**
    * @deprecated use `name`
@@ -26,7 +26,7 @@ interface Site {
    */
   socialLinks: Record<SocialMediaKey, string>
   socials: Record<SocialMediaKey, string>
-  favicon: string | null
+  favicon?: string | null
   timezone: string
   plan: string
 }

@@ -19,26 +19,26 @@ export interface SetupPageInput<Type extends PageType> {
   seo?: boolean
 }
 
-interface PageTypeMap {
+export interface PageTypeMap {
   article: Article
   desk: Desk
   tag: Tag
   author: Author
 }
 
-interface Desk {
+export interface Desk {
   desks: Desk[]
   id: string
   name: string
   slug: string
 }
 
-interface Tag {
+export interface Tag {
   id: string
   name: string
 }
 
-interface Author {
+export interface Author {
   avatar: string
   bio: string
   created_at: string

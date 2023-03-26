@@ -8,3 +8,4 @@ export {
   createDeskRoute,
   createAuthorRoute,
 } from './url'
+export * from './types'
