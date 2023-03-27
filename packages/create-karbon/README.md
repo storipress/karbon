@@ -23,6 +23,21 @@ Create a new Karbon app in seconds.
 
 Spin up a Karbon app in your browser with our [playground](https://karbon.new/) or set up your local environment with the instructions below ⬇️
 
+## Available Templates
+
+Visit the [Karbon Starter Template repo](https://github.com/storipress/karbon-starter) to see all available templates.
+
+## Usage
+
+```bash
+# Use the default template under `karbon-app`
+yarn create @storipress/karbon
+# Use the default template
+yarn create @storipress/karbon <project-name>
+# Full usage
+yarn create @storipress/karbon <template-name> <project-name>
+```
+
 ## Getting Started
 
 **Requirements:**
