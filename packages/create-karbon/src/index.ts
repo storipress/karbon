@@ -10,7 +10,7 @@ let [template, target] = argv._
 
 if (!target) {
   target = template
-  template = 'scratch'
+  template = 'default'
 }
 
 async function main() {
@@ -18,9 +18,9 @@ async function main() {
     const { dir } = await downloadTemplate(`gh:storipress/karbon-starter#${template}`, {
       dir: target || 'karbon-app',
     })
-    consola.info(`Init karbon proejct at ${dir} successfully!`)
+    consola.info(`Init Karbon project with \`${template}\` template at \`${dir}\` successfully!`)
   } catch (err) {
-    consola.error('Init karbon project failed!')
+    consola.error('Init Karbon project failed!')
     consola.error(err)
   }
 }
