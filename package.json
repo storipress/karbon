@@ -89,7 +89,7 @@
     "vue-instantsearch": "^4.8.7",
     "vue3-lazy-hydration": "^1.2.1"
   },
-  "packageManager": "yarn@3.4.1",
+  "packageManager": "yarn@3.5.0",
   "msw": {
     "workerDirectory": "public"
   },
