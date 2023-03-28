@@ -2825,6 +2825,87 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@storipress/karbon-mono-repo@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "@storipress/karbon-mono-repo@workspace:."
+  dependencies:
+    "@antfu/eslint-config-vue": 0.37.0
+    "@apollo/client": ^3.7.10
+    "@babel/runtime": ^7.21.0
+    "@iframely/embed.js": ^1.10.0
+    "@nuxt/devalue": ^2.0.0
+    "@nuxt/image-edge": 1.0.0-27809804.194d2d6
+    "@nuxt/kit": ^3.2.3
+    "@nuxtjs/html-validator": ^1.2.4
+    "@nuxtjs/tailwindcss": 6.4.1
+    "@rollup/plugin-virtual": 3.0.1
+    "@rudderstack/rudder-sdk-node": ^2.0.2
+    "@sentry/node": ^7.42.0
+    "@sentry/tracing": ^7.42.0
+    "@types/find-cache-dir": 3.2.1
+    "@types/fs-extra": 11.0.1
+    "@types/jszip": 3.4.1
+    "@types/lodash.truncate": 4.4.7
+    "@types/serialize-javascript": 5.0.2
+    "@types/tailwindcss": 3.1.0
+    "@types/tar": 6.1.4
+    "@types/uuid": 9.0.1
+    "@vitejs/plugin-vue": 4.0.0
+    "@vueuse/core": ^9.13.0
+    "@vueuse/head": ^1.1.19
+    "@vueuse/nuxt": ^9.13.0
+    "@zhead/schema": ^1.1.0
+    chalk: ^5.2.0
+    cross-fetch: ^3.1.5
+    destr: ^1.2.2
+    eslint: 8.36.0
+    eslint-config-prettier: 8.7.0
+    eslint-plugin-prettier: 4.2.1
+    events: ^3.3.0
+    fast-deep-equal: ^3.1.3
+    find-cache-dir: ^4.0.0
+    fs-extra: 11.1.1
+    globby: 13.1.3
+    graphql: ^16.6.0
+    jose: ^4.13.1
+    jszip: ^3.10.1
+    knitwork: ^1.0.0
+    lerna: 6.5.1
+    lodash.truncate: ^4.4.2
+    micro-aes-gcm: ^0.3.3
+    msw: 1.1.0
+    node-fetch-native: ^1.0.2
+    npm-run-all: 4.1.5
+    nuxt: 3.2.3
+    nuxt-seo-kit: 1.3.4
+    nx: 15.8.6
+    ohash: ^1.0.0
+    ora: ^6.1.2
+    p-whilst: ^3.0.0
+    parse5: ^7.1.2
+    pathe: ^1.1.0
+    prettier: 2.8.4
+    sass: ^1.59.2
+    scule: ^1.0.0
+    serialize-javascript: ^6.0.1
+    tailwindcss: ^3.2.7
+    tiny-invariant: ^1.3.1
+    tsx: 3.12.5
+    type-fest: ^3.6.1
+    typescript: 5.0.2
+    typesense-instantsearch-adapter: ^2.6.0
+    unplugin-auto-import: ^0.15.1
+    unplugin-vue-components: ^0.24.1
+    unstorage: ^1.4.0
+    uuid: ^9.0.0
+    vite: ^4.1.4
+    vite-plugin-css-injected-by-js: ^3.0.1
+    vitest: 0.29.2
+    vue-instantsearch: ^4.8.7
+    vue3-lazy-hydration: ^1.2.1
+  languageName: unknown
+  linkType: soft
+
 "@storipress/karbon-playground@workspace:packages/playground":
   version: 0.0.0-use.local
   resolution: "@storipress/karbon-playground@workspace:packages/playground"
@@ -7797,87 +7878,6 @@ __metadata:
   checksum: 8c76a6e21dedea87109d6171a0ac77afa14205794a565d71cb10d2925f629a3922da61bf45ea52dbc30bce4d8636dc0a27213a88cbd600eab047d82f9a3a94c5
   languageName: node
   linkType: hard
-
-"framework@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "framework@workspace:."
-  dependencies:
-    "@antfu/eslint-config-vue": 0.37.0
-    "@apollo/client": ^3.7.10
-    "@babel/runtime": ^7.21.0
-    "@iframely/embed.js": ^1.10.0
-    "@nuxt/devalue": ^2.0.0
-    "@nuxt/image-edge": 1.0.0-27809804.194d2d6
-    "@nuxt/kit": ^3.2.3
-    "@nuxtjs/html-validator": ^1.2.4
-    "@nuxtjs/tailwindcss": 6.4.1
-    "@rollup/plugin-virtual": 3.0.1
-    "@rudderstack/rudder-sdk-node": ^2.0.2
-    "@sentry/node": ^7.42.0
-    "@sentry/tracing": ^7.42.0
-    "@types/find-cache-dir": 3.2.1
-    "@types/fs-extra": 11.0.1
-    "@types/jszip": 3.4.1
-    "@types/lodash.truncate": 4.4.7
-    "@types/serialize-javascript": 5.0.2
-    "@types/tailwindcss": 3.1.0
-    "@types/tar": 6.1.4
-    "@types/uuid": 9.0.1
-    "@vitejs/plugin-vue": 4.0.0
-    "@vueuse/core": ^9.13.0
-    "@vueuse/head": ^1.1.19
-    "@vueuse/nuxt": ^9.13.0
-    "@zhead/schema": ^1.1.0
-    chalk: ^5.2.0
-    cross-fetch: ^3.1.5
-    destr: ^1.2.2
-    eslint: 8.36.0
-    eslint-config-prettier: 8.7.0
-    eslint-plugin-prettier: 4.2.1
-    events: ^3.3.0
-    fast-deep-equal: ^3.1.3
-    find-cache-dir: ^4.0.0
-    fs-extra: 11.1.1
-    globby: 13.1.3
-    graphql: ^16.6.0
-    jose: ^4.13.1
-    jszip: ^3.10.1
-    knitwork: ^1.0.0
-    lerna: 6.5.1
-    lodash.truncate: ^4.4.2
-    micro-aes-gcm: ^0.3.3
-    msw: 1.1.0
-    node-fetch-native: ^1.0.2
-    npm-run-all: 4.1.5
-    nuxt: 3.2.3
-    nuxt-seo-kit: 1.3.4
-    nx: 15.8.6
-    ohash: ^1.0.0
-    ora: ^6.1.2
-    p-whilst: ^3.0.0
-    parse5: ^7.1.2
-    pathe: ^1.1.0
-    prettier: 2.8.4
-    sass: ^1.59.2
-    scule: ^1.0.0
-    serialize-javascript: ^6.0.1
-    tailwindcss: ^3.2.7
-    tiny-invariant: ^1.3.1
-    tsx: 3.12.5
-    type-fest: ^3.6.1
-    typescript: 5.0.2
-    typesense-instantsearch-adapter: ^2.6.0
-    unplugin-auto-import: ^0.15.1
-    unplugin-vue-components: ^0.24.1
-    unstorage: ^1.4.0
-    uuid: ^9.0.0
-    vite: ^4.1.4
-    vite-plugin-css-injected-by-js: ^3.0.1
-    vitest: 0.29.2
-    vue-instantsearch: ^4.8.7
-    vue3-lazy-hydration: ^1.2.1
-  languageName: unknown
-  linkType: soft
 
 "fresh@npm:0.5.2, fresh@npm:~0.5.2":
   version: 0.5.2

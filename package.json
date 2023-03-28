@@ -93,5 +93,5 @@
   "msw": {
     "workerDirectory": "public"
   },
-  "name": "framework"
+  "name": "@storipress/karbon-mono-repo"
 }
