@@ -127,7 +127,7 @@ const karbon = defineNuxtModule<ModuleOptions>({
     nuxt.options.alias['@storipress/sdk'] = resolver.resolve('.')
 
     nuxt.options.runtimeConfig.storipress = {
-      apiDomain: 'https://api.stori.press',
+      apiHost: 'https://api.stori.press',
       searchDomain: 'search.stori.press',
       ...nuxt.options.runtimeConfig.storipress,
       fallback,
