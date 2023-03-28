@@ -15,7 +15,7 @@
     "dev:prepare": "nuxt prepare"
   },
   "devDependencies": {
-    "@antfu/eslint-config-vue": "0.36.0",
+    "@antfu/eslint-config-vue": "0.37.0",
     "@nuxt/image-edge": "1.0.0-27809804.194d2d6",
     "@nuxtjs/tailwindcss": "6.4.1",
     "@rollup/plugin-virtual": "3.0.1",

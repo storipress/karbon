@@ -169,7 +169,7 @@
     "vue3-lazy-hydration": "^1.2.1"
   },
   "devDependencies": {
-    "@antfu/eslint-config-vue": "0.36.0",
+    "@antfu/eslint-config-vue": "0.37.0",
     "@nuxt/eslint-config": "0.1.1",
     "@nuxt/kit": "3.2.3",
     "@nuxt/module-builder": "0.2.1",
