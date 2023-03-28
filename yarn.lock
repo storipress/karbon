@@ -2890,7 +2890,7 @@ __metadata:
     serialize-javascript: ^6.0.1
     tailwindcss: ^3.2.7
     tiny-invariant: ^1.3.1
-    tsx: 3.12.5
+    tsx: 3.12.6
     type-fest: ^3.6.1
     typescript: 5.0.2
     typesense-instantsearch-adapter: ^2.6.0
@@ -2973,7 +2973,7 @@ __metadata:
     serialize-javascript: ^6.0.1
     tailwindcss: ^3.2.7
     tiny-invariant: ^1.3.1
-    tsx: 3.12.5
+    tsx: 3.12.6
     type-fest: ^3.6.1
     typescript: 5.0.2
     typesense-instantsearch-adapter: ^2.6.0
@@ -3067,7 +3067,7 @@ __metadata:
     tailwindcss: ^3.2.7
     tiny-invariant: ^1.3.1
     tsup: 6.7.0
-    tsx: 3.12.5
+    tsx: 3.12.6
     type-fest: ^3.6.1
     typescript: 5.0.2
     typesense-instantsearch-adapter: ^2.6.0
@@ -15759,9 +15759,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tsx@npm:3.12.5":
-  version: 3.12.5
-  resolution: "tsx@npm:3.12.5"
+"tsx@npm:3.12.6":
+  version: 3.12.6
+  resolution: "tsx@npm:3.12.6"
   dependencies:
     "@esbuild-kit/cjs-loader": ^2.4.2
     "@esbuild-kit/core-utils": ^3.0.0
@@ -15772,7 +15772,7 @@ __metadata:
       optional: true
   bin:
     tsx: dist/cli.js
-  checksum: d8747fb9bf5c615fa8030e88a430ca573f5c77b54d633a1a64220899dca092d7d186e6403f93d9615d8aac6ddd8f80ce1f9db0e2708baad5ee5b586d5c06c480
+  checksum: f503096f3b56ea521eaf8ed65bf7ad6f04749f9251ce168981d7b7483fadd4a6247a35184099c3bc5d43574c6f4eef6f2a58e45e31f002e78ba94120765f95c5
   languageName: node
   linkType: hard
 
