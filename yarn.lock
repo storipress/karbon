@@ -78,7 +78,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@antfu/eslint-config-vue@npm:^0.36.0":
+"@antfu/eslint-config-vue@npm:0.36.0":
   version: 0.36.0
   resolution: "@antfu/eslint-config-vue@npm:0.36.0"
   dependencies:
@@ -1913,7 +1913,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nuxt/eslint-config@npm:^0.1.1":
+"@nuxt/eslint-config@npm:0.1.1":
   version: 0.1.1
   resolution: "@nuxt/eslint-config@npm:0.1.1"
   dependencies:
@@ -2027,7 +2027,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nuxt/module-builder@npm:^0.2.1":
+"@nuxt/module-builder@npm:0.2.1":
   version: 0.2.1
   resolution: "@nuxt/module-builder@npm:0.2.1"
   dependencies:
@@ -2101,7 +2101,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nuxt/schema@npm:3.2.3, @nuxt/schema@npm:^3.2.3":
+"@nuxt/schema@npm:3.2.3":
   version: 3.2.3
   resolution: "@nuxt/schema@npm:3.2.3"
   dependencies:
@@ -2152,7 +2152,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nuxt/test-utils@npm:^3.2.3":
+"@nuxt/test-utils@npm:3.2.3":
   version: 3.2.3
   resolution: "@nuxt/test-utils@npm:3.2.3"
   dependencies:
@@ -2236,7 +2236,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nuxtjs/tailwindcss@npm:^6.4.1":
+"@nuxtjs/tailwindcss@npm:6.4.1":
   version: 6.4.1
   resolution: "@nuxtjs/tailwindcss@npm:6.4.1"
   dependencies:
@@ -2592,7 +2592,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rollup/plugin-virtual@npm:^3.0.1":
+"@rollup/plugin-virtual@npm:3.0.1":
   version: 3.0.1
   resolution: "@rollup/plugin-virtual@npm:3.0.1"
   peerDependencies:
@@ -2792,11 +2792,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@storipress/create-karbon@workspace:packages/create-karbon"
   dependencies:
-    "@types/node": ^18.15.3
+    "@types/node": 18.15.3
     consola: ^2.15.3
     giget: ^1.1.2
     minimist: ^1.2.8
-    unbuild: ^1.1.2
+    unbuild: 1.1.2
   bin:
     create-karbon: ./dist/index.mjs
   languageName: unknown
@@ -2808,7 +2808,7 @@ __metadata:
   dependencies:
     hookable: ^5.5.1
     remeda: ^1.9.0
-    unbuild: ^1.1.2
+    unbuild: 1.1.2
     unctx: ^2.1.2
     vue: ^3.2.47
   languageName: unknown
@@ -2818,10 +2818,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@storipress/jose-browser@workspace:packages/jose-browser"
   dependencies:
-    "@types/node": ^18.15.1
+    "@types/node": 18.15.3
     jose: ^4.13.1
-    typescript: ^4.9.5
-    unbuild: ^1.1.2
+    typescript: 4.9.5
+    unbuild: 1.1.2
   languageName: unknown
   linkType: soft
 
@@ -2829,7 +2829,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@storipress/karbon-playground@workspace:packages/playground"
   dependencies:
-    "@antfu/eslint-config-vue": ^0.36.0
+    "@antfu/eslint-config-vue": 0.36.0
     "@apollo/client": ^3.7.10
     "@babel/runtime": ^7.21.0
     "@iframely/embed.js": ^1.10.0
@@ -2837,8 +2837,8 @@ __metadata:
     "@nuxt/image-edge": 1.0.0-27809804.194d2d6
     "@nuxt/kit": ^3.2.3
     "@nuxtjs/html-validator": ^1.2.4
-    "@nuxtjs/tailwindcss": ^6.4.1
-    "@rollup/plugin-virtual": ^3.0.1
+    "@nuxtjs/tailwindcss": 6.4.1
+    "@rollup/plugin-virtual": 3.0.1
     "@rudderstack/rudder-sdk-node": ^2.0.2
     "@sentry/node": ^7.42.0
     "@sentry/tracing": ^7.42.0
@@ -2846,15 +2846,15 @@ __metadata:
     "@storipress/custom-field": "workspace:*"
     "@storipress/karbon": "workspace:*"
     "@storipress/vue-advertising": ^1.0.0
-    "@types/find-cache-dir": ^3.2.1
-    "@types/fs-extra": ^11.0.1
-    "@types/jszip": ^3.4.1
-    "@types/lodash.truncate": ^4.4.7
-    "@types/serialize-javascript": ^5.0.2
-    "@types/tailwindcss": ^3.1.0
-    "@types/tar": ^6.1.4
-    "@types/uuid": ^9.0.1
-    "@vitejs/plugin-vue": ^4.0.0
+    "@types/find-cache-dir": 3.2.1
+    "@types/fs-extra": 11.0.1
+    "@types/jszip": 3.4.1
+    "@types/lodash.truncate": 4.4.7
+    "@types/serialize-javascript": 5.0.2
+    "@types/tailwindcss": 3.1.0
+    "@types/tar": 6.1.4
+    "@types/uuid": 9.0.1
+    "@vitejs/plugin-vue": 4.0.0
     "@vueuse/core": ^9.13.0
     "@vueuse/head": ^1.1.19
     "@vueuse/nuxt": ^9.13.0
@@ -2862,39 +2862,39 @@ __metadata:
     chalk: ^5.2.0
     cross-fetch: ^3.1.5
     destr: ^1.2.2
-    eslint: ^8.36.0
-    eslint-config-prettier: ^8.7.0
-    eslint-plugin-prettier: ^4.2.1
+    eslint: 8.36.0
+    eslint-config-prettier: 8.7.0
+    eslint-plugin-prettier: 4.2.1
     events: ^3.3.0
     fast-deep-equal: ^3.1.3
     find-cache-dir: ^4.0.0
-    fs-extra: ^11.1.0
-    globby: ^13.1.3
+    fs-extra: 11.1.0
+    globby: 13.1.3
     graphql: ^16.6.0
     jose: ^4.13.1
     jszip: ^3.10.1
     knitwork: ^1.0.0
     lodash.truncate: ^4.4.2
     micro-aes-gcm: ^0.3.3
-    msw: ^1.1.0
+    msw: 1.1.0
     node-fetch-native: ^1.0.2
-    npm-run-all: ^4.1.5
+    npm-run-all: 4.1.5
     nuxt: 3.2.3
-    nuxt-seo-kit: ^1.3.4
+    nuxt-seo-kit: 1.3.4
     ohash: ^1.0.0
     ora: ^6.1.2
     p-whilst: ^3.0.0
     parse5: ^7.1.2
     pathe: ^1.1.0
-    prettier: ^2.8.4
+    prettier: 2.8.4
     sass: ^1.59.2
     scule: ^1.0.0
     serialize-javascript: ^6.0.1
     tailwindcss: ^3.2.7
     tiny-invariant: ^1.3.1
-    tsx: ^3.12.5
+    tsx: 3.12.5
     type-fest: ^3.6.1
-    typescript: ^4.9.5
+    typescript: 4.9.5
     typesense-instantsearch-adapter: ^2.6.0
     unplugin-auto-import: ^0.15.1
     unplugin-vue-components: ^0.24.1
@@ -2902,7 +2902,7 @@ __metadata:
     uuid: ^9.0.0
     vite: ^4.1.4
     vite-plugin-css-injected-by-js: ^3.0.1
-    vitest: ^0.29.2
+    vitest: 0.29.2
     vue-instantsearch: ^4.8.7
     vue3-lazy-hydration: ^1.2.1
   languageName: unknown
@@ -2912,19 +2912,19 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@storipress/karbon@workspace:packages/karbon"
   dependencies:
-    "@antfu/eslint-config-vue": ^0.36.0
+    "@antfu/eslint-config-vue": 0.36.0
     "@apollo/client": ^3.7.10
     "@babel/runtime": ^7.21.0
     "@iframely/embed.js": ^1.10.0
     "@nuxt/devalue": ^2.0.0
-    "@nuxt/eslint-config": ^0.1.1
+    "@nuxt/eslint-config": 0.1.1
     "@nuxt/image-edge": 1.0.0-27809804.194d2d6
-    "@nuxt/kit": ^3.2.3
-    "@nuxt/module-builder": ^0.2.1
-    "@nuxt/schema": ^3.2.3
-    "@nuxt/test-utils": ^3.2.3
+    "@nuxt/kit": 3.2.3
+    "@nuxt/module-builder": 0.2.1
+    "@nuxt/schema": 3.2.3
+    "@nuxt/test-utils": 3.2.3
     "@nuxtjs/html-validator": ^1.2.4
-    "@nuxtjs/tailwindcss": ^6.4.1
+    "@nuxtjs/tailwindcss": 6.4.1
     "@rudderstack/rudder-sdk-node": ^2.0.2
     "@sentry/node": ^7.42.0
     "@sentry/tracing": ^7.42.0
@@ -2932,63 +2932,63 @@ __metadata:
     "@storipress/custom-field": ^1.1.5
     "@storipress/jose-browser": ^1.1.4
     "@storipress/vue-advertising": ^1.0.0
-    "@types/find-cache-dir": ^3.2.1
-    "@types/fs-extra": ^11.0.1
-    "@types/jszip": ^3.4.1
-    "@types/lodash.truncate": ^4.4.7
-    "@types/minimist": ^1.2.2
-    "@types/serialize-javascript": ^5.0.2
-    "@types/tailwindcss": ^3.1.0
-    "@types/tar": ^6.1.4
-    "@types/uuid": ^9.0.1
-    "@vitejs/plugin-vue": ^4.0.0
+    "@types/find-cache-dir": 3.2.1
+    "@types/fs-extra": 11.0.1
+    "@types/jszip": 3.4.1
+    "@types/lodash.truncate": 4.4.7
+    "@types/minimist": 1.2.2
+    "@types/serialize-javascript": 5.0.2
+    "@types/tailwindcss": 3.1.0
+    "@types/tar": 6.1.4
+    "@types/uuid": 9.0.1
+    "@vitejs/plugin-vue": 4.0.0
     "@vueuse/core": ^9.13.0
     "@vueuse/head": ^1.1.19
     "@vueuse/math": ^9.13.0
     "@vueuse/nuxt": ^9.13.0
     "@zhead/schema": ^1.1.0
     chalk: ^5.2.0
-    changelogen: ^0.4.1
+    changelogen: 0.4.1
     cross-fetch: ^3.1.5
     defu: ^6.1.2
     destr: ^1.2.2
-    eslint: ^8.36.0
-    eslint-config-prettier: ^8.7.0
-    eslint-plugin-prettier: ^4.2.1
+    eslint: 8.36.0
+    eslint-config-prettier: 8.7.0
+    eslint-plugin-prettier: 4.2.1
     events: ^3.3.0
     fast-deep-equal: ^3.1.3
     file-type: ^18.2.1
     find-cache-dir: ^4.0.0
-    fs-extra: ^11.1.0
-    globby: ^13.1.3
+    fs-extra: 11.1.0
+    globby: 13.1.3
     graphql: ^16.6.0
     jszip: ^3.10.1
     knitwork: ^1.0.0
     lodash.truncate: ^4.4.2
     micro-aes-gcm: ^0.3.3
     minimist: ^1.2.8
-    msw: ^1.1.0
+    msw: 1.1.0
     node-fetch-native: ^1.0.2
     nuxt: 3.2.3
     nuxt-seo-kit: ^1.3.4
-    nx: ^15.8.6
+    nx: 15.8.6
     ohash: ^1.0.0
     ora: ^6.1.2
     p-defer: ^4.0.0
     p-whilst: ^3.0.0
     parse5: ^7.1.2
     pathe: ^1.1.0
-    prettier: ^2.8.4
+    prettier: 2.8.4
     pretty-bytes: ^6.1.0
     sass: ^1.59.2
     scule: ^1.0.0
     serialize-javascript: ^6.0.1
     tailwindcss: ^3.2.7
     tiny-invariant: ^1.3.1
-    tsup: ^6.6.3
-    tsx: ^3.12.5
+    tsup: 6.6.3
+    tsx: 3.12.5
     type-fest: ^3.6.1
-    typescript: ^4.9.5
+    typescript: 4.9.5
     typesense-instantsearch-adapter: ^2.6.0
     unbuild: ^1.1.2
     unenv: ^1.2.2
@@ -2999,7 +2999,7 @@ __metadata:
     vite: ^4.1.4
     vite-plugin-css-injected-by-js: ^3.0.1
     vite-tsconfig-paths: ^4.0.5
-    vitest: ^0.29.2
+    vitest: 0.29.2
     vue-instantsearch: ^4.8.7
     vue3-lazy-hydration: ^1.2.1
   bin:
@@ -3094,14 +3094,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/find-cache-dir@npm:^3.2.1":
+"@types/find-cache-dir@npm:3.2.1":
   version: 3.2.1
   resolution: "@types/find-cache-dir@npm:3.2.1"
   checksum: bf5c4e96da40247cd9e6327f54dfccda961a0fb2d70e3c71bd05def94de4c2e6fb310fe8ecb0f04ecf5dbc52214e184b55a2337b0f87250d4ae1e2e7d58321e4
   languageName: node
   linkType: hard
 
-"@types/fs-extra@npm:^11.0.1":
+"@types/fs-extra@npm:11.0.1, @types/fs-extra@npm:^11.0.1":
   version: 11.0.1
   resolution: "@types/fs-extra@npm:11.0.1"
   dependencies:
@@ -3155,7 +3155,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jszip@npm:^3.4.1":
+"@types/jszip@npm:3.4.1":
   version: 3.4.1
   resolution: "@types/jszip@npm:3.4.1"
   dependencies:
@@ -3173,7 +3173,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/lodash.truncate@npm:^4.4.7":
+"@types/lodash.truncate@npm:4.4.7":
   version: 4.4.7
   resolution: "@types/lodash.truncate@npm:4.4.7"
   dependencies:
@@ -3205,7 +3205,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/minimist@npm:^1.2.0, @types/minimist@npm:^1.2.2":
+"@types/minimist@npm:1.2.2, @types/minimist@npm:^1.2.0":
   version: 1.2.2
   resolution: "@types/minimist@npm:1.2.2"
   checksum: b8da83c66eb4aac0440e64674b19564d9d86c80ae273144db9681e5eeff66f238ade9515f5006ffbfa955ceff8b89ad2bd8ec577d7caee74ba101431fb07045d
@@ -3229,7 +3229,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:^18.15.1, @types/node@npm:^18.15.3":
+"@types/node@npm:*, @types/node@npm:18.15.3":
   version: 18.15.3
   resolution: "@types/node@npm:18.15.3"
   checksum: 31b1d92475a82c30de29aa6c0771b18a276552d191283b4423ba2d61b3f01159bf0d02576c0b7cc834b043997893800db6bb47f246083ed85aa45e79c80875d7
@@ -3294,7 +3294,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/serialize-javascript@npm:^5.0.2":
+"@types/serialize-javascript@npm:5.0.2":
   version: 5.0.2
   resolution: "@types/serialize-javascript@npm:5.0.2"
   checksum: eb14df7716b88740d6322e1c17863fa08350287d9594fae99e686aae9d584ac9d7f9e5498e06e20f5c292e214bc56a23cbf2a954ff804b97be6ff5b0af642ec8
@@ -3310,7 +3310,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/tailwindcss@npm:^3.1.0":
+"@types/tailwindcss@npm:3.1.0":
   version: 3.1.0
   resolution: "@types/tailwindcss@npm:3.1.0"
   dependencies:
@@ -3319,7 +3319,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/tar@npm:^6.1.4":
+"@types/tar@npm:6.1.4":
   version: 6.1.4
   resolution: "@types/tar@npm:6.1.4"
   dependencies:
@@ -3352,7 +3352,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/uuid@npm:^9.0.1":
+"@types/uuid@npm:9.0.1":
   version: 9.0.1
   resolution: "@types/uuid@npm:9.0.1"
   checksum: c472b8a77cbeded4bc529220b8611afa39bd64677f507838f8083d8aac8033b1f88cb9ddaa2f8589e0dcd2317291d0f6e1379f82d5ceebd6f74f3b4825288e00
@@ -3608,7 +3608,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vitejs/plugin-vue@npm:^4.0.0":
+"@vitejs/plugin-vue@npm:4.0.0, @vitejs/plugin-vue@npm:^4.0.0":
   version: 4.0.0
   resolution: "@vitejs/plugin-vue@npm:4.0.0"
   peerDependencies:
@@ -5015,7 +5015,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"changelogen@npm:^0.4.1":
+"changelogen@npm:0.4.1":
   version: 0.4.1
   resolution: "changelogen@npm:0.4.1"
   dependencies:
@@ -6921,7 +6921,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-prettier@npm:^8.7.0":
+"eslint-config-prettier@npm:8.7.0":
   version: 8.7.0
   resolution: "eslint-config-prettier@npm:8.7.0"
   peerDependencies:
@@ -7088,7 +7088,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-prettier@npm:^4.2.1":
+"eslint-plugin-prettier@npm:4.2.1":
   version: 4.2.1
   resolution: "eslint-plugin-prettier@npm:4.2.1"
   dependencies:
@@ -7252,7 +7252,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^8.36.0":
+"eslint@npm:8.36.0":
   version: 8.36.0
   resolution: "eslint@npm:8.36.0"
   dependencies:
@@ -7802,7 +7802,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "framework@workspace:."
   dependencies:
-    "@antfu/eslint-config-vue": ^0.36.0
+    "@antfu/eslint-config-vue": 0.36.0
     "@apollo/client": ^3.7.10
     "@babel/runtime": ^7.21.0
     "@iframely/embed.js": ^1.10.0
@@ -7810,20 +7810,20 @@ __metadata:
     "@nuxt/image-edge": 1.0.0-27809804.194d2d6
     "@nuxt/kit": ^3.2.3
     "@nuxtjs/html-validator": ^1.2.4
-    "@nuxtjs/tailwindcss": ^6.4.1
-    "@rollup/plugin-virtual": ^3.0.1
+    "@nuxtjs/tailwindcss": 6.4.1
+    "@rollup/plugin-virtual": 3.0.1
     "@rudderstack/rudder-sdk-node": ^2.0.2
     "@sentry/node": ^7.42.0
     "@sentry/tracing": ^7.42.0
-    "@types/find-cache-dir": ^3.2.1
-    "@types/fs-extra": ^11.0.1
-    "@types/jszip": ^3.4.1
-    "@types/lodash.truncate": ^4.4.7
-    "@types/serialize-javascript": ^5.0.2
-    "@types/tailwindcss": ^3.1.0
-    "@types/tar": ^6.1.4
-    "@types/uuid": ^9.0.1
-    "@vitejs/plugin-vue": ^4.0.0
+    "@types/find-cache-dir": 3.2.1
+    "@types/fs-extra": 11.0.1
+    "@types/jszip": 3.4.1
+    "@types/lodash.truncate": 4.4.7
+    "@types/serialize-javascript": 5.0.2
+    "@types/tailwindcss": 3.1.0
+    "@types/tar": 6.1.4
+    "@types/uuid": 9.0.1
+    "@vitejs/plugin-vue": 4.0.0
     "@vueuse/core": ^9.13.0
     "@vueuse/head": ^1.1.19
     "@vueuse/nuxt": ^9.13.0
@@ -7831,41 +7831,41 @@ __metadata:
     chalk: ^5.2.0
     cross-fetch: ^3.1.5
     destr: ^1.2.2
-    eslint: ^8.36.0
-    eslint-config-prettier: ^8.7.0
-    eslint-plugin-prettier: ^4.2.1
+    eslint: 8.36.0
+    eslint-config-prettier: 8.7.0
+    eslint-plugin-prettier: 4.2.1
     events: ^3.3.0
     fast-deep-equal: ^3.1.3
     find-cache-dir: ^4.0.0
-    fs-extra: ^11.1.0
-    globby: ^13.1.3
+    fs-extra: 11.1.0
+    globby: 13.1.3
     graphql: ^16.6.0
     jose: ^4.13.1
     jszip: ^3.10.1
     knitwork: ^1.0.0
-    lerna: ^6.5.1
+    lerna: 6.5.1
     lodash.truncate: ^4.4.2
     micro-aes-gcm: ^0.3.3
-    msw: ^1.1.0
+    msw: 1.1.0
     node-fetch-native: ^1.0.2
-    npm-run-all: ^4.1.5
+    npm-run-all: 4.1.5
     nuxt: 3.2.3
-    nuxt-seo-kit: ^1.3.4
-    nx: ^15.8.6
+    nuxt-seo-kit: 1.3.4
+    nx: 15.8.6
     ohash: ^1.0.0
     ora: ^6.1.2
     p-whilst: ^3.0.0
     parse5: ^7.1.2
     pathe: ^1.1.0
-    prettier: ^2.8.4
+    prettier: 2.8.4
     sass: ^1.59.2
     scule: ^1.0.0
     serialize-javascript: ^6.0.1
     tailwindcss: ^3.2.7
     tiny-invariant: ^1.3.1
-    tsx: ^3.12.5
+    tsx: 3.12.5
     type-fest: ^3.6.1
-    typescript: ^4.9.5
+    typescript: 4.9.5
     typesense-instantsearch-adapter: ^2.6.0
     unplugin-auto-import: ^0.15.1
     unplugin-vue-components: ^0.24.1
@@ -7873,7 +7873,7 @@ __metadata:
     uuid: ^9.0.0
     vite: ^4.1.4
     vite-plugin-css-injected-by-js: ^3.0.1
-    vitest: ^0.29.2
+    vitest: 0.29.2
     vue-instantsearch: ^4.8.7
     vue3-lazy-hydration: ^1.2.1
   languageName: unknown
@@ -7890,6 +7890,17 @@ __metadata:
   version: 1.0.0
   resolution: "fs-constants@npm:1.0.0"
   checksum: 18f5b718371816155849475ac36c7d0b24d39a11d91348cfcb308b4494824413e03572c403c86d3a260e049465518c4f0d5bd00f0371cdfcad6d4f30a85b350d
+  languageName: node
+  linkType: hard
+
+"fs-extra@npm:11.1.0, fs-extra@npm:^11.1.0":
+  version: 11.1.0
+  resolution: "fs-extra@npm:11.1.0"
+  dependencies:
+    graceful-fs: ^4.2.0
+    jsonfile: ^6.0.1
+    universalify: ^2.0.0
+  checksum: 5ca476103fa1f5ff4a9b3c4f331548f8a3c1881edaae323a4415d3153b5dc11dc6a981c8d1dd93eec8367ceee27b53f8bd27eecbbf66ffcdd04927510c171e7f
   languageName: node
   linkType: hard
 
@@ -7913,17 +7924,6 @@ __metadata:
     jsonfile: ^6.0.1
     universalify: ^2.0.0
   checksum: dc94ab37096f813cc3ca12f0f1b5ad6744dfed9ed21e953d72530d103cea193c2f81584a39e9dee1bea36de5ee66805678c0dddc048e8af1427ac19c00fffc50
-  languageName: node
-  linkType: hard
-
-"fs-extra@npm:^11.1.0":
-  version: 11.1.0
-  resolution: "fs-extra@npm:11.1.0"
-  dependencies:
-    graceful-fs: ^4.2.0
-    jsonfile: ^6.0.1
-    universalify: ^2.0.0
-  checksum: 5ca476103fa1f5ff4a9b3c4f331548f8a3c1881edaae323a4415d3153b5dc11dc6a981c8d1dd93eec8367ceee27b53f8bd27eecbbf66ffcdd04927510c171e7f
   languageName: node
   linkType: hard
 
@@ -8347,7 +8347,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"globby@npm:^13.1.3":
+"globby@npm:13.1.3, globby@npm:^13.1.3":
   version: 13.1.3
   resolution: "globby@npm:13.1.3"
   dependencies:
@@ -10041,7 +10041,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lerna@npm:^6.5.1":
+"lerna@npm:6.5.1":
   version: 6.5.1
   resolution: "lerna@npm:6.5.1"
   dependencies:
@@ -11205,7 +11205,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"msw@npm:^1.1.0":
+"msw@npm:1.1.0":
   version: 1.1.0
   resolution: "msw@npm:1.1.0"
   dependencies:
@@ -11780,7 +11780,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"npm-run-all@npm:^4.1.5":
+"npm-run-all@npm:4.1.5":
   version: 4.1.5
   resolution: "npm-run-all@npm:4.1.5"
   dependencies:
@@ -11923,7 +11923,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nuxt-seo-kit@npm:^1.3.4":
+"nuxt-seo-kit@npm:1.3.4, nuxt-seo-kit@npm:^1.3.4":
   version: 1.3.4
   resolution: "nuxt-seo-kit@npm:1.3.4"
   dependencies:
@@ -12037,7 +12037,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nx@npm:15.8.6, nx@npm:>=15.5.2 < 16, nx@npm:^15.8.6":
+"nx@npm:15.8.6, nx@npm:>=15.5.2 < 16":
   version: 15.8.6
   resolution: "nx@npm:15.8.6"
   dependencies:
@@ -13515,7 +13515,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:^2.7.1, prettier@npm:^2.8.4":
+"prettier@npm:2.8.4, prettier@npm:^2.7.1":
   version: 2.8.4
   resolution: "prettier@npm:2.8.4"
   bin:
@@ -15712,7 +15712,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tsup@npm:^6.6.3":
+"tsup@npm:6.6.3":
   version: 6.6.3
   resolution: "tsup@npm:6.6.3"
   dependencies:
@@ -15759,7 +15759,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tsx@npm:^3.12.5":
+"tsx@npm:3.12.5":
   version: 3.12.5
   resolution: "tsx@npm:3.12.5"
   dependencies:
@@ -15911,7 +15911,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^3 || ^4, typescript@npm:^4.9.3, typescript@npm:^4.9.5":
+"typescript@npm:4.9.5, typescript@npm:^3 || ^4, typescript@npm:^4.9.3, typescript@npm:^4.9.5":
   version: 4.9.5
   resolution: "typescript@npm:4.9.5"
   bin:
@@ -15921,7 +15921,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@^3 || ^4#~builtin<compat/typescript>, typescript@patch:typescript@^4.9.3#~builtin<compat/typescript>, typescript@patch:typescript@^4.9.5#~builtin<compat/typescript>":
+"typescript@patch:typescript@4.9.5#~builtin<compat/typescript>, typescript@patch:typescript@^3 || ^4#~builtin<compat/typescript>, typescript@patch:typescript@^4.9.3#~builtin<compat/typescript>, typescript@patch:typescript@^4.9.5#~builtin<compat/typescript>":
   version: 4.9.5
   resolution: "typescript@patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=23ec76"
   bin:
@@ -15996,7 +15996,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"unbuild@npm:^1.0.1, unbuild@npm:^1.1.2":
+"unbuild@npm:1.1.2, unbuild@npm:^1.0.1, unbuild@npm:^1.1.2":
   version: 1.1.2
   resolution: "unbuild@npm:1.1.2"
   dependencies:
@@ -16571,7 +16571,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vitest@npm:^0.29.2":
+"vitest@npm:0.29.2":
   version: 0.29.2
   resolution: "vitest@npm:0.29.2"
   dependencies:

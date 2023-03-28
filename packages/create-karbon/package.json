@@ -18,8 +18,8 @@
     "minimist": "^1.2.8"
   },
   "devDependencies": {
-    "@types/node": "^18.15.3",
-    "unbuild": "^1.1.2"
+    "@types/node": "18.15.3",
+    "unbuild": "1.1.2"
   },
   "publishConfig": {
     "access": "public"
