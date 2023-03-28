@@ -202,7 +202,7 @@
     "tsup": "6.7.0",
     "tsx": "3.12.6",
     "typescript": "5.0.2",
-    "vitest": "0.29.7"
+    "vitest": "0.29.8"
   },
   "publishConfig": {
     "access": "public"
