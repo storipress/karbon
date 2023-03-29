@@ -185,7 +185,7 @@
     "@types/tailwindcss": "3.1.0",
     "@types/tar": "6.1.4",
     "@types/uuid": "9.0.1",
-    "@vitejs/plugin-vue": "4.0.0",
+    "@vitejs/plugin-vue": "4.1.0",
     "changelogen": "0.4.1",
     "eslint": "8.36.0",
     "eslint-config-prettier": "8.7.0",
