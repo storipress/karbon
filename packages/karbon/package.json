@@ -6,6 +6,9 @@
   "bugs": {
     "url": "https://github.com/storipress/karbon"
   },
+  "engines": {
+    "node": ">=16.7.0"
+  },
   "exports": {
     ".": {
       "import": "./dist/module.mjs",
