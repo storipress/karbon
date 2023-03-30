@@ -6,6 +6,7 @@ export enum karbonMsg {
   layoutsPosError = 'Cannot find Bundled layouts files.',
   uploadError = 'upload failed',
   compressingError = 'compressing failed',
+  versionWarning = 'Your node version is too low, please upgrade to v16.17.0 or higher.',
 }
 export const safeExt = 'zip'
 export const extErrorMsg = `File extension is not ${safeExt}`

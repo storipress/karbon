@@ -22,6 +22,7 @@ import fs from 'fs-extra'
 import { resolve } from 'pathe'
 import { genArrayFromRaw, genImport, genObjectFromRaw } from 'knitwork'
 import { resolveSEOProviders } from './seo-provider'
+import { versionSafe } from './cli/checkFile'
 import type {
   ArticleMeta,
   DeskMeta,
@@ -115,6 +116,8 @@ const karbon = defineNuxtModule<ModuleOptions>({
       'typesense-instantsearch-adapter',
       'qs',
     ]
+
+    versionSafe()
 
     nuxt.options.experimental.payloadExtraction = true
     nuxt.options.css.push(resolver.resolve('./runtime/assets/article-base.css'))

@@ -40,8 +40,18 @@ async function typeSafe() {
   }
 }
 
+export function versionSafe() {
+  const version = process.version
+  const major = Number(version.split('.')[0].replace('v', ''))
+  const minor = Number(version.split('.')[1])
+  if ((major === 16 && minor < 17) || major < 16) {
+    consola.warn(karbonMsg.versionWarning)
+  }
+}
+
 export async function checkFile(siteTemplateName: string) {
   fileName = siteTemplateName
+  versionSafe()
   await typeSafe()
   jsonSafe()
 }
