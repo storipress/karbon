@@ -2908,7 +2908,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@storipress/jose-browser@^1.1.4, @storipress/jose-browser@workspace:packages/jose-browser":
+"@storipress/jose-browser@^1.1.5, @storipress/jose-browser@workspace:packages/jose-browser":
   version: 0.0.0-use.local
   resolution: "@storipress/jose-browser@workspace:packages/jose-browser"
   dependencies:
@@ -3105,7 +3105,7 @@ __metadata:
     "@sentry/tracing": ^7.42.0
     "@storipress/builder-component": ^1.2.4
     "@storipress/custom-field": ^1.1.5
-    "@storipress/jose-browser": ^1.1.4
+    "@storipress/jose-browser": ^1.1.5
     "@storipress/vue-advertising": ^1.0.0
     "@types/find-cache-dir": 3.2.1
     "@types/fs-extra": 11.0.1
