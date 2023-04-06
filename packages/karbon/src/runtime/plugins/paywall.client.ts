@@ -1,8 +1,16 @@
-import { mountPaywall, reactive, setStripeKey } from '@storipress/builder-component'
 import { useEventBus, useStorage } from '@vueuse/core'
 import { once } from 'lodash'
 import '@storipress/builder-component/dist/style.css'
-import { computed, defineNuxtPlugin, ref, useRouter, useRuntimeConfig, useSite, useSubscriberClient } from '#imports'
+import {
+  computed,
+  defineNuxtPlugin,
+  reactive,
+  ref,
+  useRouter,
+  useRuntimeConfig,
+  useSite,
+  useSubscriberClient,
+} from '#imports'
 import paywallLogo from '#build/paywall-logo'
 
 enum ArticlePlan {
@@ -19,8 +27,6 @@ interface Article {
 export default defineNuxtPlugin((_nuxtApp) => {
   const runtimeConfig = useRuntimeConfig()
   const router = useRouter()
-
-  setStripeKey(runtimeConfig.storipress.stripeKey)
 
   const token = useStorage('storipress-token', '')
   const authInfo = ref<Record<string, any> | null | undefined>(null)
@@ -50,10 +56,12 @@ export default defineNuxtPlugin((_nuxtApp) => {
   })
 
   const { storipress } = runtimeConfig.public
-  const mount = once(() => {
-    if (typeof storipress.paywall === 'boolean' && !storipress.paywall) {
+  const mount = once(async () => {
+    if (!storipress.paywall.enable) {
       return
     }
+    const { mountPaywall, setStripeKey } = await import('@storipress/builder-component')
+    setStripeKey(runtimeConfig.storipress.stripeKey)
 
     const { push, currentRoute } = router
     const { fullPath, path, query } = currentRoute.value
