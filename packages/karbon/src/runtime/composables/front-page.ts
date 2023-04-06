@@ -151,7 +151,7 @@ interface UseArticleLoaderReturn<
 > {
   preload: Ref<Article[]>
   createLoadMore: () => AsyncGenerator<ReturnValue, void, unknown>
-  loadMore: () => Promise<ReturnValue>
+  loadMore: () => Promise<IteratorResult<ReturnValue>>
 }
 
 export function useArticleLoader<UseChunk extends false | number>({
@@ -208,7 +208,7 @@ export function useArticleLoader<UseChunk extends false | number>({
   return {
     preload: articles,
     createLoadMore,
-    loadMore() {
+    loadMore(): Promise<IteratorResult<UseArticleReturn | UseArticleReturn[]>> {
       if (!generator) {
         generator = createLoadMore()
       }
