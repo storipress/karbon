@@ -2855,17 +2855,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storipress/builder-component@npm:^1.2.4":
-  version: 1.2.4
-  resolution: "@storipress/builder-component@npm:1.2.4"
+"@storipress/builder-component@npm:^1.3.0":
+  version: 1.3.0
+  resolution: "@storipress/builder-component@npm:1.3.0"
   dependencies:
     "@apollo/client": ^3.7.10
     "@headlessui/vue": ^1.7.1
     "@stripe/stripe-js": ^1.49.0
     "@types/lodash-es": ^4.17.6
     "@vue/apollo-composable": ^4.0.0-alpha.17
-    "@vueuse/core": ^8.7.5
-    "@vueuse/head": ^0.7.6
+    "@vueuse/core": ^9.13.0
+    "@vueuse/head": ^1.1.23
     dayjs: ^1.11.7
     graphql: ^16.6.0
     graphql-tag: ^2.12.6
@@ -2878,7 +2878,7 @@ __metadata:
     vue-i18n: ^9.2.2
     vue-router: ^4.1.6
     yup: ^0.32.11
-  checksum: 766658d0b1c97439bc8d470b3fca3dfc3346d7f19124f6475e249007259ffe2005603b62ce441173afe6a558f9410eed6d8de4b8f44811144904bcf61dee33e0
+  checksum: 642ac4beae58b3daa3424638355020448ced240933abf20ce3a12d51603a48ca0dba23ed8ebb428277a5c836bceebd46eb506b56cbbf0e2784a3381a8dbeecc3
   languageName: node
   linkType: hard
 
@@ -3017,7 +3017,7 @@ __metadata:
     "@rudderstack/rudder-sdk-node": ^2.0.2
     "@sentry/node": ^7.42.0
     "@sentry/tracing": ^7.42.0
-    "@storipress/builder-component": ^1.2.4
+    "@storipress/builder-component": ^1.3.0
     "@storipress/custom-field": "workspace:*"
     "@storipress/karbon": "workspace:*"
     "@storipress/vue-advertising": ^1.0.0
@@ -3103,7 +3103,7 @@ __metadata:
     "@rudderstack/rudder-sdk-node": ^2.0.2
     "@sentry/node": ^7.42.0
     "@sentry/tracing": ^7.42.0
-    "@storipress/builder-component": ^1.2.4
+    "@storipress/builder-component": ^1.3.0
     "@storipress/custom-field": ^1.1.7
     "@storipress/jose-browser": ^1.1.5
     "@storipress/vue-advertising": ^1.0.0
@@ -3534,13 +3534,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/web-bluetooth@npm:^0.0.14":
-  version: 0.0.14
-  resolution: "@types/web-bluetooth@npm:0.0.14"
-  checksum: 1eb694ff2ba6ef239e10024bfb205c087fb1a43aa8b4a31f3a3b7c90eccf2f55c7fb4c1057e382e1c2f4d6d8a137e68bf1255790b980c5ac95026419a623c6b5
-  languageName: node
-  linkType: hard
-
 "@types/web-bluetooth@npm:^0.0.16":
   version: 0.0.16
   resolution: "@types/web-bluetooth@npm:0.0.16"
@@ -3696,6 +3689,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@unhead/dom@npm:1.1.25, @unhead/dom@npm:^1.1.23":
+  version: 1.1.25
+  resolution: "@unhead/dom@npm:1.1.25"
+  dependencies:
+    "@unhead/schema": 1.1.25
+    "@unhead/shared": 1.1.25
+  checksum: 809051cc9524090bf6bb979f4bef1ceac8392de00affdbb920d9fc1d8c183fc9f454f916b286ea6b69612cfccc3e31ce9b8a6a0716625ab8a42d8a9cc695864d
+  languageName: node
+  linkType: hard
+
 "@unhead/schema-org-vue@npm:^0.5.0":
   version: 0.5.0
   resolution: "@unhead/schema-org-vue@npm:0.5.0"
@@ -3715,12 +3718,31 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@unhead/schema@npm:1.1.25, @unhead/schema@npm:^1.1.23":
+  version: 1.1.25
+  resolution: "@unhead/schema@npm:1.1.25"
+  dependencies:
+    hookable: ^5.5.1
+    zhead: ^2.0.4
+  checksum: 675637a7bca95e2f7f23ca2f205fa8d836ea36aa4aac5050e900ee26f37f26f55d3a0d6aff21291cc3090fdc939dfec2609503c82acb78b2c6d3d7f9df7ba938
+  languageName: node
+  linkType: hard
+
 "@unhead/shared@npm:1.1.22":
   version: 1.1.22
   resolution: "@unhead/shared@npm:1.1.22"
   dependencies:
     "@unhead/schema": 1.1.22
   checksum: 8b01d85ebf5f1e8f189daafc86ece8a014222c7ffbfdb4071a5d8e0a43b76a8770714c74a38876f755cb5c2ef5de0491e1469e7195f448832a0158cd86134b34
+  languageName: node
+  linkType: hard
+
+"@unhead/shared@npm:1.1.25":
+  version: 1.1.25
+  resolution: "@unhead/shared@npm:1.1.25"
+  dependencies:
+    "@unhead/schema": 1.1.25
+  checksum: af89fa33841fd2d21f319459ab0dca3224cce564731c5f0373d33353305c4979da63b2b7d87cdc7a5d3619cebd37ccbee39bfb78d8274ebed44a99211a09e295
   languageName: node
   linkType: hard
 
@@ -3731,6 +3753,16 @@ __metadata:
     "@unhead/schema": 1.1.22
     "@unhead/shared": 1.1.22
   checksum: 7c64814a7140962f1816bcd8d7704bdcbade5492d50c259a21d378dd0133dd4151fbc2f17aadd1216dfa30e6653509dc24ed329be583f332a4334f9a460f988d
+  languageName: node
+  linkType: hard
+
+"@unhead/ssr@npm:^1.1.23":
+  version: 1.1.25
+  resolution: "@unhead/ssr@npm:1.1.25"
+  dependencies:
+    "@unhead/schema": 1.1.25
+    "@unhead/shared": 1.1.25
+  checksum: 92438381af18058ea70995e05c9269cfaaf5b4ceb10460a91c592bcdb9d34cf274092d4d1cf0012ff1b5b8a0e768e0432f84efe42cae126be1af4ae3baef304e
   languageName: node
   linkType: hard
 
@@ -3745,6 +3777,20 @@ __metadata:
   peerDependencies:
     vue: ">=2.7 || >=3"
   checksum: 28596d70c5ece13f2d368f748be7efffc114a308c1d17580d16fe222c9d16c152ae3810c26e2ddb6b2792da7b193f2d38f1a49baae4f58def4bd4cdc3d3f980c
+  languageName: node
+  linkType: hard
+
+"@unhead/vue@npm:^1.1.23":
+  version: 1.1.25
+  resolution: "@unhead/vue@npm:1.1.25"
+  dependencies:
+    "@unhead/schema": 1.1.25
+    "@unhead/shared": 1.1.25
+    hookable: ^5.5.1
+    unhead: 1.1.25
+  peerDependencies:
+    vue: ">=2.7 || >=3"
+  checksum: 8512cc9497e1b7a9c43920c24a81dd9b18b14ee5cc616389d9318d35092d6f4c60f5ff3fc3f72fc96ac9dfa362d83a4d63f5f74d3f8b2266851546a45c284790
   languageName: node
   linkType: hard
 
@@ -4010,37 +4056,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vueuse/core@npm:^8.7.5":
-  version: 8.9.4
-  resolution: "@vueuse/core@npm:8.9.4"
-  dependencies:
-    "@types/web-bluetooth": ^0.0.14
-    "@vueuse/metadata": 8.9.4
-    "@vueuse/shared": 8.9.4
-    vue-demi: "*"
-  peerDependencies:
-    "@vue/composition-api": ^1.1.0
-    vue: ^2.6.0 || ^3.2.0
-  peerDependenciesMeta:
-    "@vue/composition-api":
-      optional: true
-    vue:
-      optional: true
-  checksum: 4f19874884d246e724562051143f27e18d7e7aefb941d4417e785027b87a895aea7ed51f3c9d6c1af219ea33d41cc1e0fcba113b72922ce6057a518cb0b83572
-  languageName: node
-  linkType: hard
-
-"@vueuse/head@npm:^0.7.6":
-  version: 0.7.13
-  resolution: "@vueuse/head@npm:0.7.13"
-  dependencies:
-    "@zhead/schema-vue": ^0.7.3
-  peerDependencies:
-    vue: ">=2.7 || >=3"
-  checksum: 90f755536a83ebcc292b43abcb3e18ae03db127916c75383c58ba06c0829bb979aee26cf162fa9b9e8a58a6fcf1f01966fefde4fc2d4ba991949f000a24dc86b
-  languageName: node
-  linkType: hard
-
 "@vueuse/head@npm:^1.1.19, @vueuse/head@npm:^1.1.9":
   version: 1.1.19
   resolution: "@vueuse/head@npm:1.1.19"
@@ -4055,6 +4070,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@vueuse/head@npm:^1.1.23":
+  version: 1.1.23
+  resolution: "@vueuse/head@npm:1.1.23"
+  dependencies:
+    "@unhead/dom": ^1.1.23
+    "@unhead/schema": ^1.1.23
+    "@unhead/ssr": ^1.1.23
+    "@unhead/vue": ^1.1.23
+  peerDependencies:
+    vue: ">=2.7 || >=3"
+  checksum: ab6a375380c17af55a090acfa88ff22fc7d0b7e1fdf69cd2a0cb15c09da39be4265812c1d0e57969bd0332b3b494c121d3e49ad93e7f34fea0479df03dbd7af0
+  languageName: node
+  linkType: hard
+
 "@vueuse/math@npm:^9.13.0":
   version: 9.13.0
   resolution: "@vueuse/math@npm:9.13.0"
@@ -4062,13 +4091,6 @@ __metadata:
     "@vueuse/shared": 9.13.0
     vue-demi: "*"
   checksum: 5697c5ff1ccb13f41db2bba927758f751c385f1cffca78335ba42dc26fd0fe404878513359a3d310d938e4507a071fcc13b1f05f7aedc245e5754d890ba67fde
-  languageName: node
-  linkType: hard
-
-"@vueuse/metadata@npm:8.9.4":
-  version: 8.9.4
-  resolution: "@vueuse/metadata@npm:8.9.4"
-  checksum: f289adc73d7d396e0245b0f219126811556497dcc093008b2b9e8c9023196c52eb5918dce4f5f6cc3a01db9c6a699b6adfc678800a1b543f6cc1c857d5643526
   languageName: node
   linkType: hard
 
@@ -4094,24 +4116,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vueuse/shared@npm:8.9.4":
-  version: 8.9.4
-  resolution: "@vueuse/shared@npm:8.9.4"
-  dependencies:
-    vue-demi: "*"
-  peerDependencies:
-    "@vue/composition-api": ^1.1.0
-    vue: ^2.6.0 || ^3.2.0
-  peerDependenciesMeta:
-    "@vue/composition-api":
-      optional: true
-    vue:
-      optional: true
-  checksum: 83a29ec879073100e268863f607b3a8175ac1d70318b85f74907ed69bcf0d538f89b2ccd3c14ac37eab326ec3564e0c1623f1f9af0980516a5617e7f81fdd9bb
-  languageName: node
-  linkType: hard
-
-"@vueuse/shared@npm:9.13.0, @vueuse/shared@npm:^9.2.0":
+"@vueuse/shared@npm:9.13.0":
   version: 9.13.0
   resolution: "@vueuse/shared@npm:9.13.0"
   dependencies:
@@ -4168,25 +4173,6 @@ __metadata:
     js-yaml: ^3.10.0
     tslib: ^2.4.0
   checksum: 64df0d8dad4cd43af5fcff758b0cfc47e7dc56e00eed87e3bd6ce8a9ea265c41fe758c1e01607e630bae46c9f8324ca853bced58be3d1c93492e125757ab7f30
-  languageName: node
-  linkType: hard
-
-"@zhead/schema-vue@npm:^0.7.3":
-  version: 0.7.4
-  resolution: "@zhead/schema-vue@npm:0.7.4"
-  dependencies:
-    "@vueuse/shared": ^9.2.0
-    "@zhead/schema": 0.7.4
-  peerDependencies:
-    vue: ">=2.7 || >=3"
-  checksum: 96487c101c7587ad7fa2c9e3f089cc38eb349e9e8464c243e9c06742ed699e6ca7fc8eb966a06440fc7ad544ae232503569de692ec4d94a8fee64ef5a47b6d1d
-  languageName: node
-  linkType: hard
-
-"@zhead/schema@npm:0.7.4":
-  version: 0.7.4
-  resolution: "@zhead/schema@npm:0.7.4"
-  checksum: a2e87971582b30fed4f5d69ef885a965cc2eb38d418cf78b6db4fb1d718c92148970375286d9f50115467d627ef73dbdb8effb8d5ee37065871eaa2060d4ceec
   languageName: node
   linkType: hard
 
@@ -16193,6 +16179,18 @@ __metadata:
     "@unhead/shared": 1.1.22
     hookable: ^5.4.2
   checksum: bd2086c0e774a52efe98fee3accc1d8fe745471da421f272db1fa93bddf87e66e876b67827d190f858c3c57bf2826480af6a64321663186877316bc2c79e9ea6
+  languageName: node
+  linkType: hard
+
+"unhead@npm:1.1.25":
+  version: 1.1.25
+  resolution: "unhead@npm:1.1.25"
+  dependencies:
+    "@unhead/dom": 1.1.25
+    "@unhead/schema": 1.1.25
+    "@unhead/shared": 1.1.25
+    hookable: ^5.5.1
+  checksum: 46baf5073c2ceb39d96aa0eed7a60034349c4ee17faed577b14cdd6fc22252af40f0351974df9c594146c21a7a44167cb13c6b46bcba1fcebe8fac0a321cc3e3
   languageName: node
   linkType: hard
 
