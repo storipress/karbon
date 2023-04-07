@@ -52,7 +52,7 @@
     "@rudderstack/rudder-sdk-node": "^2.0.2",
     "@sentry/node": "^7.42.0",
     "@sentry/tracing": "^7.42.0",
-    "@storipress/builder-component": "^1.2.4",
+    "@storipress/builder-component": "^1.3.0",
     "@storipress/custom-field": "workspace:*",
     "@storipress/karbon": "workspace:*",
     "@storipress/vue-advertising": "^1.0.0",
