@@ -430,6 +430,10 @@ const karbon = defineNuxtModule<ModuleOptions>({
       src: resolver.resolve('./runtime/plugins/iframely.client'),
     })
 
+    addPlugin({
+      src: resolver.resolve('./runtime/plugins/1.injectRuntimeConfig'),
+    })
+
     await installModule('@nuxt/image-edge', {
       provider: 'Storipress',
       providers: {
