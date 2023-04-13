@@ -77,6 +77,7 @@ export function setupPage<Type extends PageType>({ type, seo = true }: SetupPage
     const { $paywall } = useNuxtApp()
     const { id, plan } = meta.value
     onMounted(() => {
+      $paywall.mount()
       $paywall.enable()
       $paywall.setArticle({ id, plan })
     })
