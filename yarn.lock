@@ -2959,7 +2959,7 @@ __metadata:
     fast-deep-equal: ^3.1.3
     find-cache-dir: ^4.0.0
     fs-extra: 11.1.1
-    globby: 13.1.3
+    globby: 13.1.4
     graphql: ^16.6.0
     jose: ^4.13.1
     jszip: ^3.10.1
@@ -3044,7 +3044,7 @@ __metadata:
     fast-deep-equal: ^3.1.3
     find-cache-dir: ^4.0.0
     fs-extra: 11.1.1
-    globby: 13.1.3
+    globby: 13.1.4
     graphql: ^16.6.0
     jose: ^4.13.1
     jszip: ^3.10.1
@@ -3135,7 +3135,7 @@ __metadata:
     file-type: ^18.2.1
     find-cache-dir: ^4.0.0
     fs-extra: 11.1.1
-    globby: 13.1.3
+    globby: 13.1.4
     graphql: ^16.6.0
     jszip: ^3.10.1
     knitwork: ^1.0.0
@@ -3679,7 +3679,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@unhead/dom@npm:1.1.22, @unhead/dom@npm:^1.1.19":
+"@unhead/dom@npm:1.1.22":
   version: 1.1.22
   resolution: "@unhead/dom@npm:1.1.22"
   dependencies:
@@ -3708,7 +3708,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@unhead/schema@npm:1.1.22, @unhead/schema@npm:^1.1.19":
+"@unhead/schema@npm:1.1.22":
   version: 1.1.22
   resolution: "@unhead/schema@npm:1.1.22"
   dependencies:
@@ -3746,37 +3746,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@unhead/ssr@npm:^1.1.14, @unhead/ssr@npm:^1.1.19":
-  version: 1.1.22
-  resolution: "@unhead/ssr@npm:1.1.22"
-  dependencies:
-    "@unhead/schema": 1.1.22
-    "@unhead/shared": 1.1.22
-  checksum: 7c64814a7140962f1816bcd8d7704bdcbade5492d50c259a21d378dd0133dd4151fbc2f17aadd1216dfa30e6653509dc24ed329be583f332a4334f9a460f988d
-  languageName: node
-  linkType: hard
-
-"@unhead/ssr@npm:^1.1.23":
+"@unhead/ssr@npm:^1.1.14, @unhead/ssr@npm:^1.1.23":
   version: 1.1.25
   resolution: "@unhead/ssr@npm:1.1.25"
   dependencies:
     "@unhead/schema": 1.1.25
     "@unhead/shared": 1.1.25
   checksum: 92438381af18058ea70995e05c9269cfaaf5b4ceb10460a91c592bcdb9d34cf274092d4d1cf0012ff1b5b8a0e768e0432f84efe42cae126be1af4ae3baef304e
-  languageName: node
-  linkType: hard
-
-"@unhead/vue@npm:^1.1.19":
-  version: 1.1.22
-  resolution: "@unhead/vue@npm:1.1.22"
-  dependencies:
-    "@unhead/schema": 1.1.22
-    "@unhead/shared": 1.1.22
-    hookable: ^5.4.2
-    unhead: 1.1.22
-  peerDependencies:
-    vue: ">=2.7 || >=3"
-  checksum: 28596d70c5ece13f2d368f748be7efffc114a308c1d17580d16fe222c9d16c152ae3810c26e2ddb6b2792da7b193f2d38f1a49baae4f58def4bd4cdc3d3f980c
   languageName: node
   linkType: hard
 
@@ -4056,21 +4032,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vueuse/head@npm:^1.1.19, @vueuse/head@npm:^1.1.9":
-  version: 1.1.19
-  resolution: "@vueuse/head@npm:1.1.19"
-  dependencies:
-    "@unhead/dom": ^1.1.19
-    "@unhead/schema": ^1.1.19
-    "@unhead/ssr": ^1.1.19
-    "@unhead/vue": ^1.1.19
-  peerDependencies:
-    vue: ">=2.7 || >=3"
-  checksum: 5edf2856314d00f400e165ce8107a73493eee517b8f8cb677d114f3fc7b1e1029f7a0457e4da8c84bb28c23b551129786809dfed35a65b4bc14f66a18329a867
-  languageName: node
-  linkType: hard
-
-"@vueuse/head@npm:^1.1.23":
+"@vueuse/head@npm:^1.1.19, @vueuse/head@npm:^1.1.23, @vueuse/head@npm:^1.1.9":
   version: 1.1.23
   resolution: "@vueuse/head@npm:1.1.23"
   dependencies:
@@ -8426,16 +8388,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"globby@npm:13.1.3, globby@npm:^13.1.3":
-  version: 13.1.3
-  resolution: "globby@npm:13.1.3"
+"globby@npm:13.1.4, globby@npm:^13.1.3":
+  version: 13.1.4
+  resolution: "globby@npm:13.1.4"
   dependencies:
     dir-glob: ^3.0.1
     fast-glob: ^3.2.11
     ignore: ^5.2.0
     merge2: ^1.4.1
     slash: ^4.0.0
-  checksum: 93f06e02002cdf368f7e3d55bd59e7b00784c7cc8fe92c7ee5082cc7171ff6109fda45e1c97a80bb48bc811dedaf7843c7c9186f5f84bde4883ab630e13c43df
+  checksum: e8bc13879972082d590cd1b0e27080d90d2e12fff7eeb2cee9329c29115ace14cc5b9f899e3d6beb136ba826307a727016658919a6f383e1511d698acee81741
   languageName: node
   linkType: hard
 
@@ -16170,7 +16132,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"unhead@npm:1.1.22, unhead@npm:^1.1.14, unhead@npm:^1.1.20":
+"unhead@npm:1.1.22":
   version: 1.1.22
   resolution: "unhead@npm:1.1.22"
   dependencies:
@@ -16182,7 +16144,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"unhead@npm:1.1.25":
+"unhead@npm:1.1.25, unhead@npm:^1.1.14, unhead@npm:^1.1.20":
   version: 1.1.25
   resolution: "unhead@npm:1.1.25"
   dependencies:
