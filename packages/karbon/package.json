@@ -47,7 +47,7 @@
     "bundle:module": "tsup dist/module.mjs",
     "dev:build": "nuxi build playground",
     "dev:prepare": "JITI_ALIAS='{\"tslib\": \"tslib/tslib.es6.js\"}' nuxt-module-build --stub && JITI_ALIAS='{\"tslib\": \"tslib/tslib.es6.js\"}' nuxi prepare playground",
-    "release": "npm run lint && npm run unit && npm run prepack && changelogen --release && npm publish && git push --follow-tags",
+    "release": "yarn run lint && yarn run prepack && changelogen --release && npm publish && git push --follow-tags",
     "lint": "eslint .",
     "test": "vitest",
     "test:watch": "vitest watch"
