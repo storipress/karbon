@@ -3180,7 +3180,9 @@ __metadata:
     vite-plugin-css-injected-by-js: ^3.0.1
     vite-tsconfig-paths: ^4.0.5
     vitest: 0.29.8
+    vue: ^3.2.47
     vue-instantsearch: ^4.8.7
+    vue-router: ^4.1.6
     vue3-lazy-hydration: ^1.2.1
   bin:
     karbon: ./bin/karbon.mjs

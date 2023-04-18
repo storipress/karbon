@@ -1,8 +1,30 @@
+import type { KeepAliveProps, TransitionProps } from 'vue'
+import type { RouteLocationNormalizedLoaded } from 'vue-router'
 import type { NormalizeArticle } from './api/normalize-article'
 
 export type PayloadScope = 'posts' | 'tags' | 'desks' | 'authors'
 export type Resources = 'article' | 'desk' | 'tag' | 'author'
 export type Identity = 'id' | 'slug' | 'sid'
+
+// Copy from Nuxt page meta and remove some fields
+export interface PageMeta {
+  [key: string]: any
+  name: never
+  path: never
+
+  /**
+   * Aliases for the record. Allows defining extra paths that will behave like a
+   * copy of the record. Allows having paths shorthands like `/users/:id` and
+   * `/u/:id`. All `alias` and `path` values must share the same params.
+   */
+  alias?: string | string[]
+  pageTransition?: boolean | TransitionProps
+  layoutTransition?: boolean | TransitionProps
+  key?: false | string | ((route: RouteLocationNormalizedLoaded) => string)
+  keepalive?: boolean | KeepAliveProps
+  /** Set to `false` to avoid scrolling to top on page navigations */
+  scrollToTop?: boolean
+}
 
 export interface Identifiable {
   id: string
@@ -47,6 +69,7 @@ export interface ResourcePage<Meta extends Identifiable, Ctx = ResourcePageConte
   toURL(resource: Meta, _context: Ctx): string
   _context?: Ctx
   groupKey?: string
+  meta?: PageMeta
 }
 
 export interface BaseMeta {
