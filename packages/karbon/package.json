@@ -1,30 +1,27 @@
 {
   "name": "@storipress/karbon",
   "version": "0.1.6",
-  "repository": "git@github.com:storipress/karbon.git",
   "license": "MIT",
+  "repository": "git@github.com:storipress/karbon.git",
   "bugs": {
     "url": "https://github.com/storipress/karbon"
   },
-  "engines": {
-    "node": ">=16.7.0"
-  },
   "exports": {
     ".": {
-      "import": "./dist/module.mjs",
-      "require": "./dist/module.cjs"
+      "require": "./dist/module.cjs",
+      "import": "./dist/module.mjs"
     },
     "./route-helper": {
-      "import": "./dist/route-helper.mjs",
-      "types": "./dist/route-helper.d.ts"
+      "types": "./dist/route-helper.d.ts",
+      "import": "./dist/route-helper.mjs"
     },
     "./internal": {
-      "import": "./dist/internal.mjs",
-      "types": "./dist/internal.d.ts"
+      "types": "./dist/internal.d.ts",
+      "import": "./dist/internal.mjs"
     },
     "./helper": {
-      "import": "./dist/helper.mjs",
-      "types": "./dist/helper.d.ts"
+      "types": "./dist/helper.d.ts",
+      "import": "./dist/helper.mjs"
     },
     "./runtime/": {
       "import": "./dist/runtime/"
@@ -32,10 +29,13 @@
   },
   "main": "./dist/module.mjs",
   "types": "./dist/types.d.ts",
+  "bin": "./bin/karbon.mjs",
   "files": [
     "dist"
   ],
-  "bin": "./bin/karbon.mjs",
+  "engines": {
+    "node": ">=16.7.0"
+  },
   "scripts": {
     "prepack": "yarn build",
     "dev": "nuxi dev playground",
