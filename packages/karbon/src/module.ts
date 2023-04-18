@@ -509,13 +509,15 @@ async function addResourcePage(pageType: keyof URLGenerators, urls: URLGenerator
   const resource = (resourceName || pageType) as string
   const pagePath = resolve(cwd, `templates/resources/${resource}.vue`)
   if (await fs.pathExists(pagePath)) {
+    const resourcePage = urls[resource]
     extendPages((pages) => {
       pages.push({
         file: pagePath,
-        path: urls[resource].route,
+        path: resourcePage.route,
         name: resource,
         meta: {
-          middleware: ['storipress-abort-if-no-meta'],
+          ...resourcePage.meta,
+          middleware: ['storipress-abort-if-no-meta', ...(resourcePage.meta?.middleware || [])],
           ...(resourceName && { resourceName }),
         },
       })
