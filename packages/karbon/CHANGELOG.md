@@ -9,12 +9,11 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.7...v0.1.8)
 
-
 ### 🏡 Chore
 
-  - Update script ([5f53819](https://github.com/storipress/karbon/commit/5f53819))
+- Update script ([5f53819](https://github.com/storipress/karbon/commit/5f53819))
 
-### ❤️  Contributors
+### ❤️ Contributors
 
 - DanSnow <dododavid006@gmail.com>
 
@@ -22,30 +21,29 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 [compare changes](https://github.com/storipress/karbon/compare/karbon-v0.1.4...v0.1.7)
 
-
 ### 🚀 Enhancements
 
-  - Lazy load paywall [SPMVP-5024] ([83114bd](https://github.com/storipress/karbon/commit/83114bd))
-  - Support config page meta for resource templates ([7501617](https://github.com/storipress/karbon/commit/7501617))
+- Lazy load paywall [SPMVP-5024] ([83114bd](https://github.com/storipress/karbon/commit/83114bd))
+- Support config page meta for resource templates ([7501617](https://github.com/storipress/karbon/commit/7501617))
 
 ### 🩹 Fixes
 
-  - Fix type error ([22750df](https://github.com/storipress/karbon/commit/22750df))
-  - Inject storipressConfig to storipressConfigCtx ([7c02408](https://github.com/storipress/karbon/commit/7c02408))
-  - Remove provide ([f9aac85](https://github.com/storipress/karbon/commit/f9aac85))
+- Fix type error ([22750df](https://github.com/storipress/karbon/commit/22750df))
+- Inject storipressConfig to storipressConfigCtx ([7c02408](https://github.com/storipress/karbon/commit/7c02408))
+- Remove provide ([f9aac85](https://github.com/storipress/karbon/commit/f9aac85))
 
 ### 🏡 Chore
 
-  - **karbon:** Bump version ([5e83c34](https://github.com/storipress/karbon/commit/5e83c34))
-  - **karbon:** Bump version ([d8395e3](https://github.com/storipress/karbon/commit/d8395e3))
-  - Ignore any for copied type ([336ea98](https://github.com/storipress/karbon/commit/336ea98))
-  - Update script ([1cec9e1](https://github.com/storipress/karbon/commit/1cec9e1))
+- **karbon:** Bump version ([5e83c34](https://github.com/storipress/karbon/commit/5e83c34))
+- **karbon:** Bump version ([d8395e3](https://github.com/storipress/karbon/commit/d8395e3))
+- Ignore any for copied type ([336ea98](https://github.com/storipress/karbon/commit/336ea98))
+- Update script ([1cec9e1](https://github.com/storipress/karbon/commit/1cec9e1))
 
 ### 🎨 Styles
 
-  - Lint ([0fc052d](https://github.com/storipress/karbon/commit/0fc052d))
+- Lint ([0fc052d](https://github.com/storipress/karbon/commit/0fc052d))
 
-### ❤️  Contributors
+### ❤️ Contributors
 
 - DanSnow <dododavid006@gmail.com>
 - Sid <sid@storipress.com>
