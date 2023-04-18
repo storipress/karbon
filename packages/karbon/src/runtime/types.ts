@@ -8,6 +8,7 @@ export type Identity = 'id' | 'slug' | 'sid'
 
 // Copy from Nuxt page meta and remove some fields
 export interface PageMeta {
+  // skipcq: JS-0323
   [key: string]: any
   name: never
   path: never
