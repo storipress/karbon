@@ -320,31 +320,31 @@ const karbon = defineNuxtModule<ModuleOptions>({
 
     // Global custom field
     addServerHandler({
-      route: "/_storipress/_custom-field.js",
-      handler: await resolver.resolve("./runtime/routes/custom-field"),
+      route: '/_storipress/_custom-field.js',
+      handler: await resolver.resolve('./runtime/routes/custom-field'),
     })
     addServerHandler({
-      route: "/_storipress/_custom-field.json",
-      handler: await resolver.resolve("./runtime/routes/custom-field"),
+      route: '/_storipress/_custom-field.json',
+      handler: await resolver.resolve('./runtime/routes/custom-field'),
     })
 
     addServerHandler({
-      route: "/_storipress/_snapshot",
-      handler: await resolver.resolve("./runtime/routes/_snapshot"),
+      route: '/_storipress/_snapshot',
+      handler: await resolver.resolve('./runtime/routes/_snapshot'),
     })
 
     if (paywall.enable) {
       addServerHandler({
-        route: "/api/decrypt-key",
-        handler: await resolver.resolve("./runtime/routes/api/decrypt-key"),
+        route: '/api/decrypt-key',
+        handler: await resolver.resolve('./runtime/routes/api/decrypt-key'),
       })
     }
 
-    addStaticRoute({ route: '/_storipress/_site', handler: resolver.resolve("./runtime/routes/meta/site"), fullStatic })
+    addStaticRoute({ route: '/_storipress/_site', handler: resolver.resolve('./runtime/routes/meta/site'), fullStatic })
 
     addStaticRoute({
       route: '/_storipress/_custom-field-group',
-      handler: resolver.resolve("./runtime/routes/custom-field-group"),
+      handler: resolver.resolve('./runtime/routes/custom-field-group'),
       fullStatic,
     })
 
