@@ -1,4 +1,4 @@
-import { addServerHandler, createResolver, defineNuxtModule,} from '@nuxt/kit'
+import { addServerHandler, createResolver, defineNuxtModule } from '@nuxt/kit'
 export type ModuleOptions = boolean
 
 export default defineNuxtModule({

@@ -23,7 +23,7 @@ export default defineEventHandler(async (e) => {
     },
   })
 
-  articles.forEach(article => {
+  articles.forEach((article) => {
     const id = encodePath(urls.article.toURL(article, urls.article._context))
     feed.addItem({
       title: article.title,

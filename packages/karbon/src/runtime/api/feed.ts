@@ -23,8 +23,7 @@ const ListArticles = gql`
   }
 `
 
-
-export async function listFeedArticles(filter?: { desk: string; tag: string; author: string }) {
+export function listFeedArticles(filter?: { desk: string; tag: string; author: string }) {
   return getAllWithPagination(ListArticles, filter, ({ articles: { paginatorInfo, data } }) => {
     const res = data.map((data: RawArticleLike) => normalizeArticle(data))
     return {
