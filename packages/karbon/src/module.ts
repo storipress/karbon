@@ -37,6 +37,7 @@ import type {
 } from './runtime/types'
 import { getResources, payloadScopes } from './runtime/api/sitemap'
 import telemetry from './modules/telemetry'
+import feed from './modules/feed'
 const AD_COMPONENTS = ['AdvertisingProvider', 'AdvertisingSlot', 'GlobalAdvertisingProvider', 'GlobalAdvertisingSlot']
 
 function isUserSEOConfig(config: ResolvedSEOConfig): config is UserSEOConfig {
@@ -460,6 +461,7 @@ const karbon = defineNuxtModule<ModuleOptions>({
     await installModule('nuxt-simple-sitemap')
     await installModule('nuxt-link-checker')
     await installModule(telemetry)
+    await installModule(feed)
   },
 })
 
