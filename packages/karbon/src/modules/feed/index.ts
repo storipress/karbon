@@ -7,7 +7,7 @@ export default defineNuxtModule({
     configKey: 'feed',
   },
   defaults: {},
-  async setup(_, nuxt) {
+  setup(_) {
     const { resolve } = createResolver(import.meta.url)
 
     addServerHandler({
