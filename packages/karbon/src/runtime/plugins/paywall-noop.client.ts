@@ -1,13 +1,13 @@
 import { useStorage } from '@vueuse/core'
 import { computed, defineNuxtPlugin, ref } from '#imports'
 
-enum ArticlePlan {
+export enum ArticlePlan {
   Free = 'free',
   Member = 'member',
   Subscriber = 'subscriber',
 }
 
-interface Article {
+export interface Article {
   id: string
   plan: ArticlePlan
 }
