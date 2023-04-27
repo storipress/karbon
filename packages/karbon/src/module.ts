@@ -282,8 +282,7 @@ const karbon = defineNuxtModule<ModuleOptions>({
       nitroConfig.rollupConfig.plugins ??= []
     })
 
-    // @ts-expect-error nocheck
-    nuxt.hook('sitemap:generate', async (ctx) => {
+    const handleSitemap = async (ctx: { urls: { url: string }[] }) => {
       const options = nuxt.options as Record<string, any>
       if (options.storipress?.fullStatic) return
 
@@ -304,9 +303,13 @@ const karbon = defineNuxtModule<ModuleOptions>({
         })
         .flat()
 
-      const ctxUrls = ctx.urls as unknown as { url: string }[]
+      const ctxUrls = ctx.urls
       ctxUrls.push(...urlList)
-    })
+    }
+    // @ts-expect-error nocheck
+    nuxt.hook('sitemap:prerender', handleSitemap)
+    // @ts-expect-error nocheck
+    nuxt.hook('sitemap:sitemap-xml', handleSitemap)
 
     // @ts-expect-error nocheck
     nuxt.hook('tailwindcss:config', (tailwindConfig) => {
@@ -318,6 +321,11 @@ const karbon = defineNuxtModule<ModuleOptions>({
       const contentPaths = resourcePaths(nuxt.options.srcDir)
       tailwindConfig.content.push(...contentPaths)
     })
+
+    // addServerHandler({
+    //   route: `/api/_sitemap-urls`,
+    //   handler: await resolver.resolve(`./runtime/routes/api/_sitemap-urls`),
+    // })
 
     // Global custom field
     addServerHandler({
@@ -458,7 +466,11 @@ const karbon = defineNuxtModule<ModuleOptions>({
     }
     await installModule('nuxt-seo-kit/modules/nuxt-seo-kit/module')
     await installModule('nuxt-simple-robots')
-    await installModule('nuxt-simple-sitemap')
+    await installModule('nuxt-simple-sitemap', {
+      sitemap: {
+        siteUrl: nuxt.options.runtimeConfig.public.siteUrl || 'https://example.com',
+      },
+    })
     await installModule('nuxt-link-checker')
     await installModule(telemetry)
     await installModule(feed)
