@@ -1,4 +1,4 @@
-interface PresetConfig {
+export interface PresetConfig {
   preset?: string
   presetFactory?: () => any
   options?: Record<string, any>

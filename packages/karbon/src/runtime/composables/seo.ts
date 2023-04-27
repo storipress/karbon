@@ -143,7 +143,7 @@ const presets: Record<string, NormalizedSEOPreset> = {
 
 export const builtinPresets = new Set(Object.keys(presets))
 
-interface PresetConfig {
+export interface PresetConfig {
   preset?: string
   presetFactory?: NormalizedSEOPreset
   options?: Record<string, any>

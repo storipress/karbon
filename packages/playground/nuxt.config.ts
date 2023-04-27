@@ -49,7 +49,7 @@ export default defineNuxtConfig({
       },
     ],
     resources: {
-      article: createArticleRoute('/posts/{id}'),
+      article: createArticleRoute('/posts/{id}', { meta: { foo: 'bar' } }),
       desk: createDeskRoute('/desks/{id}'),
       author: createAuthorRoute('/author/{id}'),
       tag: createTagRoute('/tags/{id}'),

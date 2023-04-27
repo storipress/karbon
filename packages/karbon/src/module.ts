@@ -32,6 +32,7 @@ import type {
   PayloadScope,
   ResolvedSEOConfig,
   ResourcePageContext,
+  StoripressRuntimeConfig,
   URLGenerators,
   UserSEOConfig,
 } from './runtime/types'
@@ -131,22 +132,34 @@ const karbon = defineNuxtModule<ModuleOptions>({
     nuxt.options.alias['@storipress/sdk'] = resolver.resolve('.')
 
     nuxt.options.runtimeConfig.storipress = {
+      // @ts-expect-error default
+      apiToken: undefined,
+      // @ts-expect-error default
+      stripeKey: undefined,
+      // @ts-expect-error default
       apiHost: 'https://api.stori.press',
+      // @ts-expect-error default
       searchDomain: 'search.stori.press',
       ...nuxt.options.runtimeConfig.storipress,
+      // @ts-expect-error default
       fallback,
       fullStatic,
       previewParagraph,
     }
 
     if (paywall) {
+      // @ts-expect-error default
       nuxt.options.runtimeConfig.storipress.paywall = paywall
     }
 
     nuxt.options.runtimeConfig.public.storipress = {
       ...nuxt.options.runtimeConfig.public.storipress,
+      // @ts-expect-error default
       searchDomain: 'search.stori.press',
       ...omit(nuxt.options.runtimeConfig.storipress, ['apiToken', 'stripeKey', 'encryptKey']),
+      // @ts-expect-error default
+      apiToken: undefined,
+      stripeKey: undefined,
       fullStatic,
       previewParagraph,
     }
@@ -286,7 +299,7 @@ const karbon = defineNuxtModule<ModuleOptions>({
       const options = nuxt.options as Record<string, any>
       if (options.storipress?.fullStatic) return
 
-      const pageResources = await getResources(nuxt.options.runtimeConfig.storipress)
+      const pageResources = await getResources(nuxt.options.runtimeConfig.storipress as StoripressRuntimeConfig)
 
       const invalidContext = { identity: 'invalid', prefix: '', resource: 'invalid' } as unknown as ResourcePageContext
 
