@@ -321,8 +321,6 @@ const karbon = defineNuxtModule<ModuleOptions>({
     }
     // @ts-expect-error nocheck
     nuxt.hook('sitemap:prerender', handleSitemap)
-    // @ts-expect-error nocheck
-    nuxt.hook('sitemap:sitemap-xml', handleSitemap)
 
     // @ts-expect-error nocheck
     nuxt.hook('tailwindcss:config', (tailwindConfig) => {
