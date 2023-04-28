@@ -333,10 +333,10 @@ const karbon = defineNuxtModule<ModuleOptions>({
       tailwindConfig.content.push(...contentPaths)
     })
 
-    // addServerHandler({
-    //   route: `/api/_sitemap-urls`,
-    //   handler: await resolver.resolve(`./runtime/routes/api/_sitemap-urls`),
-    // })
+    addServerHandler({
+      route: `/api/_sitemap-urls`,
+      handler: await resolver.resolve(`./runtime/routes/api/_sitemap-urls`),
+    })
 
     // Global custom field
     addServerHandler({
@@ -481,6 +481,11 @@ const karbon = defineNuxtModule<ModuleOptions>({
       sitemap: {
         siteUrl: nuxt.options.runtimeConfig.public.siteUrl || 'https://example.com',
       },
+    })
+    nuxt.hook('modules:done', () => {
+      // Force enable api routes url
+      // https://github.com/harlan-zw/nuxt-simple-sitemap/blob/d6db989566fe164ebdaa3296b7e450df1273ec87/src/module.ts#L242
+      nuxt.options.runtimeConfig['nuxt-simple-sitemap'].hasApiRoutesUrl = true
     })
     await installModule('nuxt-link-checker')
     await installModule(telemetry)
