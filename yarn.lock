@@ -2484,7 +2484,7 @@ __metadata:
     node-fetch-native: ^1.0.2
     nuxt: 3.3.2
     nuxt-seo-kit: ^1.3.7
-    nuxt-simple-sitemap: ^2.4.12
+    nuxt-simple-sitemap: 2.4.8
     nx: 15.8.9
     ohash: ^1.0.0
     ora: ^6.1.2
@@ -11174,6 +11174,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"nuxt-simple-sitemap@npm:2.4.8":
+  version: 2.4.8
+  resolution: "nuxt-simple-sitemap@npm:2.4.8"
+  dependencies:
+    "@nuxt/kit": 3.3.3
+    chalk: ^5.2.0
+    defu: ^6.1.2
+    escape-string-regexp: ^5.0.0
+    knitwork: ^1.0.0
+    pathe: ^1.1.0
+    radix3: ^1.0.1
+    ufo: ^1.1.1
+  checksum: d2523259027454232072d888db59d31bbb16ca553e396dd8950f7c6cbb29f7c4b4e3784fb90336ab3c3b9381b9f844c51f26d591558ef8d16258b2917a7e18a6
+  languageName: node
+  linkType: hard
+
 "nuxt-simple-sitemap@npm:^1.0.9":
   version: 1.0.9
   resolution: "nuxt-simple-sitemap@npm:1.0.9"
@@ -11188,23 +11204,6 @@ __metadata:
     sitemap: ^7.1.1
     ufo: ^1.1.1
   checksum: 066ceb9937e38156990dbd8a2e7158fc6654030e80b26d142e277caedd4c7b2e7fbabbd1e76ab9e1065bb50da694e98a73eb4aa738dd3782bd6994d178a64c9c
-  languageName: node
-  linkType: hard
-
-"nuxt-simple-sitemap@npm:^2.4.12":
-  version: 2.4.12
-  resolution: "nuxt-simple-sitemap@npm:2.4.12"
-  dependencies:
-    "@nuxt/kit": 3.4.2
-    chalk: ^5.2.0
-    defu: ^6.1.2
-    escape-string-regexp: ^5.0.0
-    globby: ^13.1.4
-    knitwork: ^1.0.0
-    pathe: ^1.1.0
-    radix3: ^1.0.1
-    ufo: ^1.1.1
-  checksum: 46b91753c8f197f0c02760d7293bd2c11d83dc9ed3f3c662f6ee96afb3839ce9ad065363642377dc23a32985d534a6f057694e528e552395e06e600a1587ef1b
   languageName: node
   linkType: hard
 

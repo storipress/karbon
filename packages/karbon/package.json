@@ -200,7 +200,7 @@
     "globby": "13.1.4",
     "msw": "1.1.0",
     "nuxt": "3.3.2",
-    "nuxt-simple-sitemap": "^2.4.12",
+    "nuxt-simple-sitemap": "2.4.8",
     "nx": "15.8.9",
     "prettier": "2.8.7",
     "tsup": "6.7.0",
