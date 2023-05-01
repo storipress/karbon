@@ -145,7 +145,7 @@ const karbon = defineNuxtModule<ModuleOptions>({
     nuxt.options.runtimeConfig.public.storipress = {
       ...nuxt.options.runtimeConfig.public.storipress,
       searchDomain: 'search.stori.press',
-      ...omit(nuxt.options.runtimeConfig.storipress, ['apiToken', 'stripeKey']),
+      ...omit(nuxt.options.runtimeConfig.storipress, ['apiToken', 'stripeKey', 'encryptKey']),
       fullStatic,
       previewParagraph,
     }
