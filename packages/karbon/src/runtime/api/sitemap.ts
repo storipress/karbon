@@ -91,8 +91,8 @@ export const payloadScopes = [
   { payloadScope: 'tags', urlKey: 'tag', query: ListTags, queryKey: 'tags' },
 ]
 
-export const getResources = async (runtimeConfig: ModuleRuntimeConfig['storipress']) => {
-  storipressConfigCtx.set(runtimeConfig)
+export const getResources = async (runtimeConfig?: ModuleRuntimeConfig['storipress']) => {
+  runtimeConfig && storipressConfigCtx.set(runtimeConfig)
   const client = createStoripressClient()
 
   const result = await Promise.all(
