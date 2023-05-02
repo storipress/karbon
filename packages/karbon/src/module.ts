@@ -14,7 +14,7 @@ import {
   resolvePath,
   useNuxt,
 } from '@nuxt/kit'
-import { encodePath } from 'ufo'
+import { encodePath, parseURL } from 'ufo'
 import defu from 'defu'
 import { omit } from 'remeda'
 import serialize from 'serialize-javascript'
@@ -295,7 +295,7 @@ const karbon = defineNuxtModule<ModuleOptions>({
       nitroConfig.rollupConfig.plugins ??= []
     })
 
-    const handleSitemap = async (ctx: { urls: { url: string }[] }) => {
+    const handleSitemap = async (ctx: { urls: { loc: string }[] }) => {
       const options = nuxt.options as Record<string, any>
       if (options.storipress?.fullStatic) return
 
@@ -304,7 +304,7 @@ const karbon = defineNuxtModule<ModuleOptions>({
 
       const invalidContext = { identity: 'invalid', prefix: '', resource: 'invalid' } as unknown as ResourcePageContext
 
-      const urlList: { url: string }[] = payloadScopes
+      const urlList: { loc: string; lastmod: string }[] = payloadScopes
         .map(({ payloadScope, urlKey }) => {
           if (!resources[urlKey].enable) return []
 
@@ -321,10 +321,11 @@ const karbon = defineNuxtModule<ModuleOptions>({
         })
         .flat()
 
-      const ctxUrls = ctx.urls
-      ctxUrls.push(...urlList)
+      const urlSet = new Set(urlList.map(({ loc }) => loc))
+      const ctxUrls = ctx.urls.filter(({ loc }) => !urlSet.has(parseURL(loc).pathname))
+      ctx.urls = [...ctxUrls, ...urlList]
     }
-    // @ts-expect-error nocheck
+
     nuxt.hook('sitemap:prerender', handleSitemap)
 
     // @ts-expect-error nocheck
