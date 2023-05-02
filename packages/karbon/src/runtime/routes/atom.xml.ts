@@ -1,6 +1,6 @@
 import { defineEventHandler, setHeader } from 'h3'
 import { Feed } from 'feed'
-import { encodePath } from 'ufo'
+import { encodePath, joinURL } from 'ufo'
 import { listFeedArticles } from '@storipress/karbon/internal'
 import type { Author } from '../composables/page-meta'
 import { useRuntimeConfig } from '#imports'
@@ -26,6 +26,7 @@ export default defineEventHandler(async (e) => {
   const runtimeConfig = useRuntimeConfig()
   const articles = await listFeedArticles()
 
+  const siteUrl = runtimeConfig.public.siteUrl
   const feed = new Feed({
     id: runtimeConfig.public.siteUrl,
     link: runtimeConfig.public.siteUrl,
@@ -33,7 +34,7 @@ export default defineEventHandler(async (e) => {
     description: runtimeConfig.public.siteDescription,
     updated: new Date(),
     feedLinks: {
-      atom: `${runtimeConfig.public.siteUrl}/atom.xml`,
+      atom: joinURL(siteUrl, 'atom.xml'),
     },
   })
 
@@ -42,7 +43,7 @@ export default defineEventHandler(async (e) => {
     feed.addItem({
       title: article.title,
       id,
-      link: `${runtimeConfig.public.siteUrl}${id}`,
+      link: joinURL(siteUrl, id),
       description: article.plaintext.slice(0, 120),
       date: new Date(article.published_at),
       author: article.author,
