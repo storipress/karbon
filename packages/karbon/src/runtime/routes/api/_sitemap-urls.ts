@@ -10,7 +10,7 @@ export default defineEventHandler(async () => {
 
   const invalidContext = { identity: 'invalid', prefix: '', resource: 'invalid' } as unknown as ResourcePageContext
 
-  const urlList: { url: string }[] = payloadScopes
+  const urlList: { loc: string; lastmod: string }[] = payloadScopes
     .map(({ payloadScope, urlKey }: { payloadScope: string; urlKey: string }) => {
       if (!urls[urlKey].enable) return []
 
