@@ -1,6 +1,10 @@
 import { gql } from '@apollo/client/core/index.js'
 import invariant from 'tiny-invariant'
 import fetch from 'node-fetch-native'
+import consola from 'consola'
+import type { ZodError } from 'zod'
+import { z } from 'zod'
+import { fromZodError } from 'zod-validation-error'
 import { createStoripressBaseClient } from '../composables/storipress-base-client'
 
 export enum TemplateType {
@@ -61,11 +65,33 @@ async function createStoripressClient() {
   const {
     runtimeConfig: { storipress },
   } = await loadNuxtConfig({})
+  const { apiHost, apiToken, clientId } = assertConfig(storipress)
 
   return createStoripressBaseClient(
     () => ({
-      authorization: `Bearer ${storipress?.apiToken}`,
+      authorization: `Bearer ${apiToken}`,
     }),
-    `${storipress?.apiHost}/client/${storipress?.clientId}/graphql`
+    `${apiHost}/client/${clientId}/graphql`
   )
+}
+
+const configSchema = z.object({
+  apiToken: z.string(),
+  apiHost: z
+    .string()
+    .default('https://api.stori.press')
+    .transform((value) => value.replace(/\/$/, '')),
+  clientId: z.string(),
+})
+
+function assertConfig(config: unknown) {
+  try {
+    const result = configSchema.parse(config)
+
+    return result
+  } catch (error) {
+    consola.error("Cannot found valid 'storipress' config in nuxt.config.js. Please ensure it's configured correctly.")
+    consola.error(fromZodError(error as ZodError))
+    process.exit(1)
+  }
 }
