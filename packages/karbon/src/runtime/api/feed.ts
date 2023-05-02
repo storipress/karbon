@@ -18,6 +18,7 @@ const ListArticles = gql`
         sid
         published_at
         html
+        plaintext
       }
     }
   }

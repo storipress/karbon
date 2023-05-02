@@ -1,9 +1,23 @@
 import { defineEventHandler, setHeader } from 'h3'
 import { Feed } from 'feed'
 import { encodePath } from 'ufo'
+import { listFeedArticles } from '@storipress/karbon/internal'
+import type { Author } from '../composables/page-meta'
 import { useRuntimeConfig } from '#imports'
 import urls from '#sp-internal/storipress-urls.mjs'
-import { listFeedArticles } from '@storipress/karbon/internal'
+
+interface TArticle {
+  title: string
+  id: string
+  link: string
+  description: string
+  content: string
+  date: Date
+  author: Author[]
+  plaintext: string
+  html: string
+  published_at: string
+}
 
 export default defineEventHandler(async (e) => {
   setHeader(e, 'Content-Type', 'text/xml; charset=UTF-8')
@@ -23,13 +37,13 @@ export default defineEventHandler(async (e) => {
     },
   })
 
-  articles.forEach((article) => {
+  articles.forEach((article: TArticle) => {
     const id = encodePath(urls.article.toURL(article, urls.article._context))
     feed.addItem({
       title: article.title,
       id,
       link: `${runtimeConfig.public.siteUrl}${id}`,
-      description: article.slug,
+      description: article.plaintext.slice(0, 120),
       date: new Date(article.published_at),
       author: article.author,
       content: article.html,
