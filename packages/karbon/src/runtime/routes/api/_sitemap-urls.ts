@@ -6,6 +6,7 @@ import { getResources, payloadScopes } from '@storipress/karbon/internal'
 
 export default defineEventHandler(async () => {
   const pageResources = await getResources()
+  const now = new Date().toISOString()
 
   const invalidContext = { identity: 'invalid', prefix: '', resource: 'invalid' } as unknown as ResourcePageContext
 
@@ -15,7 +16,11 @@ export default defineEventHandler(async () => {
 
       const resourcesCtx = urls[urlKey]._context ?? invalidContext
       const scopeUrlList = pageResources[payloadScope].map((item: any) => {
-        return { url: encodePath(urls[urlKey].toURL(item, resourcesCtx)) }
+        const lastmod = item.published_at || item.updated_at || item.created_at || now
+        return {
+          loc: encodePath(urls[urlKey].toURL(item, resourcesCtx)),
+          lastmod,
+        }
       })
 
       return scopeUrlList

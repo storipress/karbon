@@ -299,6 +299,7 @@ const karbon = defineNuxtModule<ModuleOptions>({
       const options = nuxt.options as Record<string, any>
       if (options.storipress?.fullStatic) return
 
+      const now = new Date().toISOString()
       const pageResources = await getResources(nuxt.options.runtimeConfig.storipress as StoripressRuntimeConfig)
 
       const invalidContext = { identity: 'invalid', prefix: '', resource: 'invalid' } as unknown as ResourcePageContext
@@ -309,7 +310,11 @@ const karbon = defineNuxtModule<ModuleOptions>({
 
           const resourcesCtx = resources[urlKey]._context ?? invalidContext
           const scopeUrlList = pageResources[payloadScope].map((item: any) => {
-            return { url: encodePath(resources[urlKey].toURL(item, resourcesCtx)) }
+            const lastmod = item.published_at || item.updated_at || item.created_at || now
+            return {
+              loc: encodePath(resources[urlKey].toURL(item, resourcesCtx)),
+              lastmod,
+            }
           })
 
           return scopeUrlList
@@ -474,14 +479,11 @@ const karbon = defineNuxtModule<ModuleOptions>({
       enabled: true,
       trailingSlash: false,
       exclude: ['/_storipress/_snapshot/**'],
+      siteUrl: nuxt.options.runtimeConfig.public.siteUrl || 'https://example.com',
     }
     await installModule('nuxt-seo-kit/modules/nuxt-seo-kit/module')
     await installModule('nuxt-simple-robots')
-    await installModule('nuxt-simple-sitemap', {
-      sitemap: {
-        siteUrl: nuxt.options.runtimeConfig.public.siteUrl || 'https://example.com',
-      },
-    })
+    await installModule('nuxt-simple-sitemap')
     nuxt.hook('modules:done', () => {
       // Force enable api routes url
       // https://github.com/harlan-zw/nuxt-simple-sitemap/blob/d6db989566fe164ebdaa3296b7e450df1273ec87/src/module.ts#L242
