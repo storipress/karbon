@@ -171,7 +171,9 @@
     "vue": "^3.2.47",
     "vue-instantsearch": "^4.8.7",
     "vue-router": "^4.1.6",
-    "vue3-lazy-hydration": "^1.2.1"
+    "vue3-lazy-hydration": "^1.2.1",
+    "zod": "^3.21.4",
+    "zod-validation-error": "^1.3.0"
   },
   "devDependencies": {
     "@antfu/eslint-config-vue": "0.37.0",
