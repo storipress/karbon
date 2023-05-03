@@ -9,12 +9,11 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.9...v0.1.10)
 
-
 ### 🩹 Fixes
 
-  - **karbon:** Fix cli file missing ([23ef949](https://github.com/storipress/karbon/commit/23ef949))
+- **karbon:** Fix cli file missing ([23ef949](https://github.com/storipress/karbon/commit/23ef949))
 
-### ❤️  Contributors
+### ❤️ Contributors
 
 - DanSnow <dododavid006@gmail.com>
 
@@ -22,43 +21,42 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.8...v0.1.9)
 
-
 ### 🚀 Enhancements
 
-  - Add rss support ([c5b6f30](https://github.com/storipress/karbon/commit/c5b6f30))
+- Add rss support ([c5b6f30](https://github.com/storipress/karbon/commit/c5b6f30))
 
 ### 🩹 Fixes
 
-  - Omit encryptKey in `runtimeConfig.public.storipress` ([9f81c09](https://github.com/storipress/karbon/commit/9f81c09))
-  - Ds error ([8c15e3e](https://github.com/storipress/karbon/commit/8c15e3e))
-  - Slice article plaintext to get summary ([83ef4bc](https://github.com/storipress/karbon/commit/83ef4bc))
-  - **karbon:** Make rss use desc order + fix double slash ([ba6b6ee](https://github.com/storipress/karbon/commit/ba6b6ee))
-  - **karbon:** Fix type issue ([4b01a66](https://github.com/storipress/karbon/commit/4b01a66))
-  - Force enable api url ([f73df37](https://github.com/storipress/karbon/commit/f73df37))
-  - Duplicate data ([7801a77](https://github.com/storipress/karbon/commit/7801a77))
-  - Fix type issue ([8a38a34](https://github.com/storipress/karbon/commit/8a38a34))
+- Omit encryptKey in `runtimeConfig.public.storipress` ([9f81c09](https://github.com/storipress/karbon/commit/9f81c09))
+- Ds error ([8c15e3e](https://github.com/storipress/karbon/commit/8c15e3e))
+- Slice article plaintext to get summary ([83ef4bc](https://github.com/storipress/karbon/commit/83ef4bc))
+- **karbon:** Make rss use desc order + fix double slash ([ba6b6ee](https://github.com/storipress/karbon/commit/ba6b6ee))
+- **karbon:** Fix type issue ([4b01a66](https://github.com/storipress/karbon/commit/4b01a66))
+- Force enable api url ([f73df37](https://github.com/storipress/karbon/commit/f73df37))
+- Duplicate data ([7801a77](https://github.com/storipress/karbon/commit/7801a77))
+- Fix type issue ([8a38a34](https://github.com/storipress/karbon/commit/8a38a34))
 
 ### 📦 Build
 
-  - Update nuxt & nuxt-simple-sitemap version ([15b97b9](https://github.com/storipress/karbon/commit/15b97b9))
-  - Update nuxt-simple-sitemap hooks ([26964c5](https://github.com/storipress/karbon/commit/26964c5))
-  - Set nuxt-simple-sitemap version is 2.4.8 ([9a8b6c8](https://github.com/storipress/karbon/commit/9a8b6c8))
-  - Add server/api/_sitemap-urls.ts ([2c27817](https://github.com/storipress/karbon/commit/2c27817))
-  - Setup api/_sitemap-urls ([baa7219](https://github.com/storipress/karbon/commit/baa7219))
-  - Sitemap add lastmod ([ac2f0f7](https://github.com/storipress/karbon/commit/ac2f0f7))
-  - Remove nuxt-seo-kit ([d0cb893](https://github.com/storipress/karbon/commit/d0cb893))
+- Update nuxt & nuxt-simple-sitemap version ([15b97b9](https://github.com/storipress/karbon/commit/15b97b9))
+- Update nuxt-simple-sitemap hooks ([26964c5](https://github.com/storipress/karbon/commit/26964c5))
+- Set nuxt-simple-sitemap version is 2.4.8 ([9a8b6c8](https://github.com/storipress/karbon/commit/9a8b6c8))
+- Add server/api/\_sitemap-urls.ts ([2c27817](https://github.com/storipress/karbon/commit/2c27817))
+- Setup api/\_sitemap-urls ([baa7219](https://github.com/storipress/karbon/commit/baa7219))
+- Sitemap add lastmod ([ac2f0f7](https://github.com/storipress/karbon/commit/ac2f0f7))
+- Remove nuxt-seo-kit ([d0cb893](https://github.com/storipress/karbon/commit/d0cb893))
 
 ### 🏡 Chore
 
-  - Add feed ([fea421f](https://github.com/storipress/karbon/commit/fea421f))
-  - **karbon:** Bump compatibly version ([55d9e9b](https://github.com/storipress/karbon/commit/55d9e9b))
+- Add feed ([fea421f](https://github.com/storipress/karbon/commit/fea421f))
+- **karbon:** Bump compatibly version ([55d9e9b](https://github.com/storipress/karbon/commit/55d9e9b))
 
 ### 🎨 Styles
 
-  - Format code with prettier ([824d31e](https://github.com/storipress/karbon/commit/824d31e))
-  - Lint ([adb1184](https://github.com/storipress/karbon/commit/adb1184))
+- Format code with prettier ([824d31e](https://github.com/storipress/karbon/commit/824d31e))
+- Lint ([adb1184](https://github.com/storipress/karbon/commit/adb1184))
 
-### ❤️  Contributors
+### ❤️ Contributors
 
 - DanSnow <dododavid006@gmail.com>
 - Sid <sid@storipress.com>
@@ -68,12 +66,11 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.7...v0.1.8)
 
-
 ### 🏡 Chore
 
-  - Update script ([5f53819](https://github.com/storipress/karbon/commit/5f53819))
+- Update script ([5f53819](https://github.com/storipress/karbon/commit/5f53819))
 
-### ❤️  Contributors
+### ❤️ Contributors
 
 - DanSnow <dododavid006@gmail.com>
 
@@ -81,30 +78,29 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 [compare changes](https://github.com/storipress/karbon/compare/karbon-v0.1.4...v0.1.7)
 
-
 ### 🚀 Enhancements
 
-  - Lazy load paywall [SPMVP-5024] ([83114bd](https://github.com/storipress/karbon/commit/83114bd))
-  - Support config page meta for resource templates ([7501617](https://github.com/storipress/karbon/commit/7501617))
+- Lazy load paywall [SPMVP-5024] ([83114bd](https://github.com/storipress/karbon/commit/83114bd))
+- Support config page meta for resource templates ([7501617](https://github.com/storipress/karbon/commit/7501617))
 
 ### 🩹 Fixes
 
-  - Fix type error ([22750df](https://github.com/storipress/karbon/commit/22750df))
-  - Inject storipressConfig to storipressConfigCtx ([7c02408](https://github.com/storipress/karbon/commit/7c02408))
-  - Remove provide ([f9aac85](https://github.com/storipress/karbon/commit/f9aac85))
+- Fix type error ([22750df](https://github.com/storipress/karbon/commit/22750df))
+- Inject storipressConfig to storipressConfigCtx ([7c02408](https://github.com/storipress/karbon/commit/7c02408))
+- Remove provide ([f9aac85](https://github.com/storipress/karbon/commit/f9aac85))
 
 ### 🏡 Chore
 
-  - **karbon:** Bump version ([5e83c34](https://github.com/storipress/karbon/commit/5e83c34))
-  - **karbon:** Bump version ([d8395e3](https://github.com/storipress/karbon/commit/d8395e3))
-  - Ignore any for copied type ([336ea98](https://github.com/storipress/karbon/commit/336ea98))
-  - Update script ([1cec9e1](https://github.com/storipress/karbon/commit/1cec9e1))
+- **karbon:** Bump version ([5e83c34](https://github.com/storipress/karbon/commit/5e83c34))
+- **karbon:** Bump version ([d8395e3](https://github.com/storipress/karbon/commit/d8395e3))
+- Ignore any for copied type ([336ea98](https://github.com/storipress/karbon/commit/336ea98))
+- Update script ([1cec9e1](https://github.com/storipress/karbon/commit/1cec9e1))
 
 ### 🎨 Styles
 
-  - Lint ([0fc052d](https://github.com/storipress/karbon/commit/0fc052d))
+- Lint ([0fc052d](https://github.com/storipress/karbon/commit/0fc052d))
 
-### ❤️  Contributors
+### ❤️ Contributors
 
 - DanSnow <dododavid006@gmail.com>
 - Sid <sid@storipress.com>
