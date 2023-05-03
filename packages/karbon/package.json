@@ -184,7 +184,7 @@
     "@nuxt/module-builder": "0.3.0",
     "@nuxt/schema": "3.3.2",
     "@nuxt/test-utils": "3.3.2",
-    "@nuxtjs/tailwindcss": "6.6.6",
+    "@nuxtjs/tailwindcss": "6.6.7",
     "@types/find-cache-dir": "3.2.1",
     "@types/fs-extra": "11.0.1",
     "@types/jszip": "3.4.1",
