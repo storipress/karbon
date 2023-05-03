@@ -180,7 +180,7 @@
     "@antfu/eslint-config-vue": "0.37.0",
     "@nuxt/eslint-config": "0.1.1",
     "@nuxt/kit": "3.3.2",
-    "@nuxt/module-builder": "0.3.0",
+    "@nuxt/module-builder": "0.3.1",
     "@nuxt/schema": "3.3.2",
     "@nuxt/test-utils": "3.3.2",
     "@nuxtjs/tailwindcss": "6.6.6",

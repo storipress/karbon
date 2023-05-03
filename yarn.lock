@@ -1493,19 +1493,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nuxt/module-builder@npm:0.3.0":
-  version: 0.3.0
-  resolution: "@nuxt/module-builder@npm:0.3.0"
+"@nuxt/module-builder@npm:0.3.1":
+  version: 0.3.1
+  resolution: "@nuxt/module-builder@npm:0.3.1"
   dependencies:
-    consola: ^3.0.1
+    consola: ^3.1.0
     mlly: ^1.2.0
     mri: ^1.2.0
     pathe: ^1.1.0
-    unbuild: ^1.2.0
+    unbuild: ^1.2.1
   bin:
     nuxt-build-module: dist/cli.mjs
     nuxt-module-build: dist/cli.mjs
-  checksum: 1ed0ac70c6e6f4ea03fea62a657edea1f96444929f55b23a8ca98b5a7243c6a7080617b0ca9b2d29232dfde6381b8f257b243954e1217ac9d6a2a6bd3e81a2d6
+  checksum: f37e114deba1d4de8298ab011cc31bc6daa5ac3d6482c4a25aeace53c044ff18c7bd905f6b702a2e71c3c79f88123bc29a58a60dda0168e349d51f4fa033a164
   languageName: node
   linkType: hard
 
@@ -2411,7 +2411,7 @@ __metadata:
     "@nuxt/eslint-config": 0.1.1
     "@nuxt/image-edge": 1.0.0-27809804.194d2d6
     "@nuxt/kit": 3.3.2
-    "@nuxt/module-builder": 0.3.0
+    "@nuxt/module-builder": 0.3.1
     "@nuxt/schema": 3.3.2
     "@nuxt/test-utils": 3.3.2
     "@nuxtjs/html-validator": ^1.2.4
@@ -4891,7 +4891,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"consola@npm:^3.0.1, consola@npm:^3.0.2":
+"consola@npm:^3.0.1, consola@npm:^3.0.2, consola@npm:^3.1.0":
   version: 3.1.0
   resolution: "consola@npm:3.1.0"
   checksum: b4b16b0ff6a0645fb1b820cf89dd56c8601b9ae0e2c472652bce2f5d99932ed5b38ef7ad2cfa77f4534cd6264d99cf5cf9c3c888e98cc25fbd3c87d31c824975
@@ -14778,7 +14778,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"unbuild@npm:^1.1.2, unbuild@npm:^1.2.0":
+"unbuild@npm:^1.1.2, unbuild@npm:^1.2.1":
   version: 1.2.1
   resolution: "unbuild@npm:1.2.1"
   dependencies:
