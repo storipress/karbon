@@ -14,7 +14,7 @@ import {
   resolvePath,
   useNuxt,
 } from '@nuxt/kit'
-import { encodePath, parseURL } from 'ufo'
+import { encodePath, parseURL, withBase } from 'ufo'
 import defu from 'defu'
 import { omit } from 'remeda'
 import serialize from 'serialize-javascript'
@@ -475,14 +475,18 @@ const karbon = defineNuxtModule<ModuleOptions>({
     })
     await Promise.all(promises)
 
+    const siteUrl = nuxt.options.runtimeConfig.public.siteUrl || 'https://example.com'
     // @ts-expect-error nocheck
     nuxt.options.sitemap = {
       enabled: true,
       trailingSlash: false,
       exclude: ['/_storipress/_snapshot/**'],
-      siteUrl: nuxt.options.runtimeConfig.public.siteUrl || 'https://example.com',
+      siteUrl,
     }
-    await installModule('nuxt-seo-kit/modules/nuxt-seo-kit/module')
+    nuxt.options.robots = {
+      ...nuxt.options.robots!,
+      sitemap: [withBase('/sitemap.xml', siteUrl)],
+    }
     await installModule('nuxt-simple-robots')
     await installModule('nuxt-simple-sitemap')
     nuxt.hook('modules:done', () => {
