@@ -1,3 +1,4 @@
+#! /usr/bin/env node
 import { pipeline } from 'node:stream/promises'
 import process from 'node:process'
 import fs from 'fs-extra'
