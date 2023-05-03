@@ -5,6 +5,52 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # 0.1.0 (2023-03-15)
 
+## v0.1.9
+
+[compare changes](https://github.com/storipress/karbon/compare/v0.1.8...v0.1.9)
+
+
+### 🚀 Enhancements
+
+  - Add rss support ([c5b6f30](https://github.com/storipress/karbon/commit/c5b6f30))
+
+### 🩹 Fixes
+
+  - Omit encryptKey in `runtimeConfig.public.storipress` ([9f81c09](https://github.com/storipress/karbon/commit/9f81c09))
+  - Ds error ([8c15e3e](https://github.com/storipress/karbon/commit/8c15e3e))
+  - Slice article plaintext to get summary ([83ef4bc](https://github.com/storipress/karbon/commit/83ef4bc))
+  - **karbon:** Make rss use desc order + fix double slash ([ba6b6ee](https://github.com/storipress/karbon/commit/ba6b6ee))
+  - **karbon:** Fix type issue ([4b01a66](https://github.com/storipress/karbon/commit/4b01a66))
+  - Force enable api url ([f73df37](https://github.com/storipress/karbon/commit/f73df37))
+  - Duplicate data ([7801a77](https://github.com/storipress/karbon/commit/7801a77))
+  - Fix type issue ([8a38a34](https://github.com/storipress/karbon/commit/8a38a34))
+
+### 📦 Build
+
+  - Update nuxt & nuxt-simple-sitemap version ([15b97b9](https://github.com/storipress/karbon/commit/15b97b9))
+  - Update nuxt-simple-sitemap hooks ([26964c5](https://github.com/storipress/karbon/commit/26964c5))
+  - Set nuxt-simple-sitemap version is 2.4.8 ([9a8b6c8](https://github.com/storipress/karbon/commit/9a8b6c8))
+  - Add server/api/_sitemap-urls.ts ([2c27817](https://github.com/storipress/karbon/commit/2c27817))
+  - Setup api/_sitemap-urls ([baa7219](https://github.com/storipress/karbon/commit/baa7219))
+  - Sitemap add lastmod ([ac2f0f7](https://github.com/storipress/karbon/commit/ac2f0f7))
+  - Remove nuxt-seo-kit ([d0cb893](https://github.com/storipress/karbon/commit/d0cb893))
+
+### 🏡 Chore
+
+  - Add feed ([fea421f](https://github.com/storipress/karbon/commit/fea421f))
+  - **karbon:** Bump compatibly version ([55d9e9b](https://github.com/storipress/karbon/commit/55d9e9b))
+
+### 🎨 Styles
+
+  - Format code with prettier ([824d31e](https://github.com/storipress/karbon/commit/824d31e))
+  - Lint ([adb1184](https://github.com/storipress/karbon/commit/adb1184))
+
+### ❤️  Contributors
+
+- DanSnow <dododavid006@gmail.com>
+- Sid <sid@storipress.com>
+- Ches4117 ([@ches4117](http://github.com/ches4117))
+
 ## v0.1.8
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.7...v0.1.8)
