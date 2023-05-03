@@ -1,8 +1,8 @@
 import { defineEventHandler } from 'h3'
 import { encodePath } from 'ufo'
+import { getResources, payloadScopes } from '@storipress/karbon/internal'
 import type { ResourcePageContext } from '../../types'
 import urls from '#sp-internal/storipress-urls.mjs'
-import { getResources, payloadScopes } from '@storipress/karbon/internal'
 
 export default defineEventHandler(async () => {
   const pageResources = await getResources()

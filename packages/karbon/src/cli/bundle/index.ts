@@ -124,7 +124,7 @@ export async function bundle(path: string, vuefileName: string, layoutName: stri
           ]),
       tsconfigPaths(),
       cssInjectedByJsPlugin({
-        injectCodeFunction: function injectCodeCustomRunTimeFunction(cssCode, options) {
+        injectCodeFunction: function injectCodeCustomRunTimeFunction(cssCode) {
           try {
             if (typeof document != 'undefined') {
               const elementStyle = document.createElement('style')
