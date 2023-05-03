@@ -15,7 +15,6 @@ import {
   useNuxt,
 } from '@nuxt/kit'
 import { encodePath, parseURL, withBase } from 'ufo'
-import defu from 'defu'
 import { omit } from 'remeda'
 import serialize from 'serialize-javascript'
 import fs from 'fs-extra'
@@ -82,7 +81,7 @@ const karbon = defineNuxtModule<ModuleOptions>({
     name: '@storipress/karbon',
     configKey: 'karbon',
     compatibility: {
-      nuxt: '^3.1.0',
+      nuxt: '^3.3.1',
     },
   },
   defaults: {
@@ -134,30 +133,25 @@ const karbon = defineNuxtModule<ModuleOptions>({
     nuxt.options.runtimeConfig.storipress = {
       // @ts-expect-error default
       apiToken: undefined,
-      // @ts-expect-error default
       stripeKey: undefined,
       // @ts-expect-error default
       apiHost: 'https://api.stori.press',
-      // @ts-expect-error default
       searchDomain: 'search.stori.press',
       ...nuxt.options.runtimeConfig.storipress,
-      // @ts-expect-error default
       fallback,
       fullStatic,
       previewParagraph,
     }
 
     if (paywall) {
-      // @ts-expect-error default
       nuxt.options.runtimeConfig.storipress.paywall = paywall
     }
 
+    // @ts-expect-error types
     nuxt.options.runtimeConfig.public.storipress = {
       ...nuxt.options.runtimeConfig.public.storipress,
-      // @ts-expect-error default
       searchDomain: 'search.stori.press',
       ...omit(nuxt.options.runtimeConfig.storipress, ['apiToken', 'stripeKey', 'encryptKey']),
-      // @ts-expect-error default
       apiToken: undefined,
       stripeKey: undefined,
       fullStatic,
@@ -276,15 +270,6 @@ const karbon = defineNuxtModule<ModuleOptions>({
     const userPath = await resolvePath(isViewablePath)
     nuxt.hook('nitro:config', async (nitroConfig) => {
       nitroConfig.virtual!['#sp-internal/storipress-urls.mjs'] = () => serializedURLs
-
-      nitroConfig.unenv = defu(
-        {
-          alias: {
-            util: '@storipress/karbon/patched-util',
-          },
-        },
-        nitroConfig.unenv
-      )
 
       const resolvedIsViewable = fs.existsSync(userPath)
         ? userPath
