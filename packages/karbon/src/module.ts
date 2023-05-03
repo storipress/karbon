@@ -133,24 +133,28 @@ const karbon = defineNuxtModule<ModuleOptions>({
     nuxt.options.runtimeConfig.storipress = {
       // @ts-expect-error default
       apiToken: undefined,
+      // @ts-expect-error default
       stripeKey: undefined,
       // @ts-expect-error default
       apiHost: 'https://api.stori.press',
+      // @ts-expect-error default
       searchDomain: 'search.stori.press',
       ...nuxt.options.runtimeConfig.storipress,
+      // @ts-expect-error default
       fallback,
       fullStatic,
       previewParagraph,
     }
 
     if (paywall) {
+      // @ts-expect-error default
       nuxt.options.runtimeConfig.storipress.paywall = paywall
     }
 
-    // @ts-expect-error types
     nuxt.options.runtimeConfig.public.storipress = {
       ...nuxt.options.runtimeConfig.public.storipress,
       searchDomain: 'search.stori.press',
+      // @ts-expect-error default
       ...omit(nuxt.options.runtimeConfig.storipress, ['apiToken', 'stripeKey', 'encryptKey']),
       apiToken: undefined,
       stripeKey: undefined,
