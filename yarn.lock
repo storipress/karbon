@@ -2482,7 +2482,7 @@ __metadata:
     tsup: 6.7.0
     tsx: 3.12.6
     type-fest: ^3.6.1
-    typescript: ^5.0.4
+    typescript: 5.0.4
     typesense-instantsearch-adapter: ^2.6.0
     unbuild: ^1.1.2
     unenv: ^1.2.2
