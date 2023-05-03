@@ -5,6 +5,19 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # 0.1.0 (2023-03-15)
 
+## v0.1.10
+
+[compare changes](https://github.com/storipress/karbon/compare/v0.1.9...v0.1.10)
+
+
+### 🩹 Fixes
+
+  - **karbon:** Fix cli file missing ([23ef949](https://github.com/storipress/karbon/commit/23ef949))
+
+### ❤️  Contributors
+
+- DanSnow <dododavid006@gmail.com>
+
 ## v0.1.9
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.8...v0.1.9)
