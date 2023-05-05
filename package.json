@@ -17,7 +17,7 @@
     "@nuxt/schema": "3.3.2"
   },
   "devDependencies": {
-    "@antfu/eslint-config-vue": "0.37.0",
+    "@antfu/eslint-config-vue": "0.38.6",
     "@nuxt/image-edge": "1.0.0-27809804.194d2d6",
     "@nuxtjs/tailwindcss": "6.6.7",
     "@rollup/plugin-virtual": "3.0.1",
