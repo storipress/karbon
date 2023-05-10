@@ -2468,8 +2468,10 @@ __metadata:
     minimist: ^1.2.8
     msw: 1.1.0
     node-fetch-native: ^1.0.2
+    node-html-parser: ^6.1.5
     nuxt: 3.3.2
     nuxt-link-checker: ^1.0.4
+    nuxt-schema-org: ^2.1.3
     nuxt-simple-robots: ^2.2.4
     nuxt-simple-sitemap: 2.4.8
     nx: 15.8.9
@@ -2962,6 +2964,15 @@ __metadata:
     "@unhead/schema": 1.1.25
     "@unhead/shared": 1.1.25
   checksum: 809051cc9524090bf6bb979f4bef1ceac8392de00affdbb920d9fc1d8c183fc9f454f916b286ea6b69612cfccc3e31ce9b8a6a0716625ab8a42d8a9cc695864d
+  languageName: node
+  linkType: hard
+
+"@unhead/schema-org-vue@npm:^0.5.0":
+  version: 0.5.0
+  resolution: "@unhead/schema-org-vue@npm:0.5.0"
+  peerDependencies:
+    "@unhead/vue": ">=1.1.9"
+  checksum: ee3a725ffcae97e1f25eafac17f312ac8cfbe12c6b3e17cb95a83e972dc1ade3704eaec33943e908fdfa6f9bc462fb9ae4e916c4aaab56fd1c71873a7359436a
   languageName: node
   linkType: hard
 
@@ -7648,6 +7659,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"he@npm:1.2.0":
+  version: 1.2.0
+  resolution: "he@npm:1.2.0"
+  bin:
+    he: bin/he
+  checksum: 3d4d6babccccd79c5c5a3f929a68af33360d6445587d628087f39a965079d84f18ce9c3d3f917ee1e3978916fc833bb8b29377c3b403f919426f91bc6965e7a7
+  languageName: node
+  linkType: hard
+
 "headers-polyfill@npm:^3.1.0":
   version: 3.1.2
   resolution: "headers-polyfill@npm:3.1.2"
@@ -10534,6 +10554,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"node-html-parser@npm:^6.1.5":
+  version: 6.1.5
+  resolution: "node-html-parser@npm:6.1.5"
+  dependencies:
+    css-select: ^5.1.0
+    he: 1.2.0
+  checksum: b54257b31954be17d473c86a2fede53d5e238708f3d88577c98881c28ab66013fd37044903f6f3cd662b56d882681fb511bca75a80a80b62f7111b32b39eebae
+  languageName: node
+  linkType: hard
+
 "node-releases@npm:^2.0.8":
   version: 2.0.10
   resolution: "node-releases@npm:2.0.10"
@@ -10861,6 +10891,17 @@ __metadata:
     radix3: ^1.0.1
     ufo: ^1.1.1
   checksum: 5bccb7c8323495aed4ca0a648ec53e578b11c5bd0c4961a4a969e07c932b68b8883bcb7631d983dd1531fd8b471ff736dd6bc134beaed4d7537ca92c49b14654
+  languageName: node
+  linkType: hard
+
+"nuxt-schema-org@npm:^2.1.3":
+  version: 2.1.3
+  resolution: "nuxt-schema-org@npm:2.1.3"
+  dependencies:
+    "@nuxt/kit": 3.4.2
+    "@unhead/schema-org-vue": ^0.5.0
+    pathe: ^1.1.0
+  checksum: 730d1f3f78458ed8e964f1cd259366734a3ab8105303ce14560790ad51b41c0b386e1c600e9725e051e6902ea61dd2082e3370d1d0c1edafe914a69737308f7c
   languageName: node
   linkType: hard
 
