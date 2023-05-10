@@ -486,6 +486,10 @@ const karbon = defineNuxtModule<ModuleOptions>({
     await installModule('nuxt-link-checker')
     await installModule(telemetry)
     await installModule(feed)
+
+    await installModule('nuxt-schema-org', {
+      host: siteUrl,
+    })
   },
 })
 
