@@ -26,7 +26,6 @@ export const storipressConfigCtx = {
 export function getStoripressConfig(): ModuleRuntimeConfig['storipress'] {
   try {
     const { storipress } = useRuntimeConfig()
-    // @ts-expect-error no type
     return storipress
   } catch {
     return storipressConfigCtx.use()

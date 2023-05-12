@@ -13,13 +13,13 @@
     "prepack": "unbuild"
   },
   "dependencies": {
-    "consola": "^2.15.3",
+    "consola": "^3.1.0",
     "giget": "^1.1.2",
     "minimist": "^1.2.8"
   },
   "devDependencies": {
     "@types/node": "18.16.8",
-    "unbuild": "1.1.2"
+    "unbuild": "1.2.1"
   },
   "publishConfig": {
     "access": "public"

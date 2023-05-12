@@ -3,6 +3,7 @@ import { parse } from 'node-html-parser'
 import { getDefaultLayout } from '../utils/default-layout'
 import type { UseArticleReturn as Article } from '../types'
 import { useProvideArticle } from '../article/utils'
+
 // @ts-expect-error virtual file
 import { templates } from '#build/article-layouts.mjs'
 import { computed } from '#imports'
@@ -52,7 +53,7 @@ function getDefineArticle(pageMeta: PageMeta) {
       name: full_name,
     })
   })
-  const doc = parse(article.html)
+  const doc = parse(article.html || '')
   const imgElements = [...doc.querySelectorAll('img')]
   const imgSrcList = imgElements.map((el) => el.getAttribute('src')).filter(Boolean)
   const image = [...new Set([article.cover.url, ...imgSrcList].filter(Boolean))]

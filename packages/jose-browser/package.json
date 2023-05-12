@@ -26,12 +26,12 @@
     }
   },
   "dependencies": {
-    "jose": "^4.13.1"
+    "jose": "^4.14.4"
   },
   "devDependencies": {
     "@types/node": "18.16.8",
     "typescript": "5.0.4",
-    "unbuild": "1.1.2"
+    "unbuild": "1.2.1"
   },
   "publishConfig": {
     "access": "public"

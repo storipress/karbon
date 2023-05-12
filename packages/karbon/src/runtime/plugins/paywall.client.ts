@@ -61,7 +61,7 @@ export default defineNuxtPlugin((_nuxtApp) => {
       return
     }
     const { mountPaywall, setStripeKey } = await import('@storipress/builder-component')
-    setStripeKey(runtimeConfig.storipress.stripeKey)
+    setStripeKey(runtimeConfig.public.storipress.stripeKey)
 
     const { push, currentRoute } = router
     const { fullPath, path, query } = currentRoute.value

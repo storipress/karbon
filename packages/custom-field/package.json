@@ -25,13 +25,13 @@
   ],
   "packageManager": "yarn@3.5.1",
   "dependencies": {
-    "hookable": "^5.5.1",
-    "remeda": "^1.9.0",
-    "unctx": "^2.1.2",
+    "hookable": "^5.5.3",
+    "remeda": "^1.14.0",
+    "unctx": "^2.3.0",
     "vue": "^3.2.47"
   },
   "devDependencies": {
-    "unbuild": "1.1.2"
+    "unbuild": "1.2.1"
   },
   "publishConfig": {
     "access": "public"
