@@ -79,7 +79,7 @@ export function usePageMetaAsCondition(): Condition[] {
   return []
 }
 
-export const clearFillHistory = () => {
+export function clearFillHistory() {
   alreadyUsed.clear()
   sourceCursor.clear()
 }

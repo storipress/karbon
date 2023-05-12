@@ -3,6 +3,7 @@ import { basename, extname } from 'pathe'
 import { setHeader } from 'h3'
 import { parsePath } from 'ufo'
 import invariant from 'tiny-invariant'
+
 export const NOT_FOUND = Symbol('not found')
 
 interface Handler {

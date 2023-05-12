@@ -1,5 +1,6 @@
 import { defineNuxtModule } from '@nuxt/kit'
 import { initTrack, trackCommand, trackProject } from '../../track'
+
 export type ModuleOptions = boolean
 
 export default defineNuxtModule({

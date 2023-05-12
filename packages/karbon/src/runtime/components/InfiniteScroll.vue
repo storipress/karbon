@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useIntersectionObserver } from '@vueuse/core'
-import { Article } from '../composables/front-page'
+import type { Article } from '../composables/front-page'
 import CustomFieldScope from './CustomFieldScope.vue'
 import { ref, useLoadMore } from '#imports'
 

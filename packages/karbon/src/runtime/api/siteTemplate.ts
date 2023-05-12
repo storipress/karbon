@@ -1,3 +1,4 @@
+import type { Buffer } from 'node:buffer'
 import { gql } from '@apollo/client/core/index.js'
 import invariant from 'tiny-invariant'
 import fetch from 'node-fetch-native'

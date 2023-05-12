@@ -3,6 +3,7 @@
 // ref: https://github.com/nuxt/image/blob/v1/src/runtime/providers/sanity.ts
 import type { ImageModifiers } from '@nuxt/image-edge'
 import { computed } from '#imports'
+
 const props = defineProps<{
   src: string
   alt?: string

@@ -10,6 +10,6 @@ export enum karbonMsg {
 }
 export const safeExt = 'zip'
 export const extErrorMsg = `File extension is not ${safeExt}`
-export const sizeErrorMsg = (fileSize: number, maxSize: number) => {
+export function sizeErrorMsg(fileSize: number, maxSize: number) {
   return `File size ${prettyBytes(fileSize)} bigger than maximium size ${prettyBytes(maxSize)}`
 }

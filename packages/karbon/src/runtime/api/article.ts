@@ -1,6 +1,8 @@
+import { Buffer } from 'node:buffer'
 import { gql } from '@apollo/client/core/index.js'
 import { encrypt } from 'micro-aes-gcm'
 import invariant from 'tiny-invariant'
+
 // This file contains global crypto polyfill
 import { CompactEncrypt } from '@storipress/jose-browser'
 import { useStoripressClient } from '../composables/storipress-client'

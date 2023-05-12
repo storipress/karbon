@@ -2,8 +2,10 @@ import { encodePath } from 'ufo'
 import type { H3Event } from 'h3'
 import { setHeader } from 'h3'
 import type { ResourcePageContext } from '../types'
+
 // @ts-expect-error generated file
 import urls from '#sp-internal/storipress-urls.mjs'
+
 // @ts-expect-error no type
 import { defineCachedEventHandler, useNitroApp, useRuntimeConfig } from '#imports'
 

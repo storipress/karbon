@@ -6,10 +6,10 @@ import { useArticle, useOptionalArticle } from '../utils'
 import { decryptPaidContent, processingArticles } from '../utils/inject-paid-content'
 import { useRenderEditorBlock } from '../utils/render-editor-block'
 import { CUSTOM_FIELD_EDITOR_BLOCK_KEY } from '../../constants'
-import { AdSegment, NormalSegment } from '../../lib/split-article'
-import type { Segment } from '../../lib/split-article'
+import type { AdSegment, NormalSegment, Segment } from '../../lib/split-article'
 import type { ViewableApiResult } from '../../composables/viewable'
 import { ArticlePlan } from '../../types'
+
 // @ts-expect-error virtual file
 import { editorBlocks } from '#build/editor-blocks.mjs'
 import {
