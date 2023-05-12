@@ -9,28 +9,27 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.10...v0.1.11)
 
-
 ### 🚀 Enhancements
 
-  - Provide NewsArticle meta as JSON-LD ([881ef91](https://github.com/storipress/karbon/commit/881ef91))
+- Provide NewsArticle meta as JSON-LD ([881ef91](https://github.com/storipress/karbon/commit/881ef91))
 
 ### 🩹 Fixes
 
-  - Fix site access error ([c1eafe6](https://github.com/storipress/karbon/commit/c1eafe6))
-  - **cli:** Set default API host ([4ed0767](https://github.com/storipress/karbon/commit/4ed0767))
-  - Upgrade deps ([94708f8](https://github.com/storipress/karbon/commit/94708f8))
+- Fix site access error ([c1eafe6](https://github.com/storipress/karbon/commit/c1eafe6))
+- **cli:** Set default API host ([4ed0767](https://github.com/storipress/karbon/commit/4ed0767))
+- Upgrade deps ([94708f8](https://github.com/storipress/karbon/commit/94708f8))
 
 ### 🏡 Chore
 
-  - Install packages ([54e7959](https://github.com/storipress/karbon/commit/54e7959))
-  - Upgrade yarn to 3.5.1 ([0aa6e2c](https://github.com/storipress/karbon/commit/0aa6e2c))
+- Install packages ([54e7959](https://github.com/storipress/karbon/commit/54e7959))
+- Upgrade yarn to 3.5.1 ([0aa6e2c](https://github.com/storipress/karbon/commit/0aa6e2c))
 
 ### 🎨 Styles
 
-  - Format code with prettier ([c1b1e8d](https://github.com/storipress/karbon/commit/c1b1e8d))
-  - Lint ([9079a92](https://github.com/storipress/karbon/commit/9079a92))
+- Format code with prettier ([c1b1e8d](https://github.com/storipress/karbon/commit/c1b1e8d))
+- Lint ([9079a92](https://github.com/storipress/karbon/commit/9079a92))
 
-### ❤️  Contributors
+### ❤️ Contributors
 
 - DanSnow <dododavid006@gmail.com>
 - Sid <sid@storipress.com>
