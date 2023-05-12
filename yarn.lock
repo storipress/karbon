@@ -2738,7 +2738,7 @@ __metadata:
     "@vitejs/plugin-vue": 4.2.2
     "@vueuse/core": ^9.13.0
     "@vueuse/head": ^1.1.26
-    "@vueuse/math": ^9.13.0
+    "@vueuse/math": ^10.0.0
     "@vueuse/nuxt": ^9.13.0
     "@zhead/schema": ^1.1.0
     chalk: ^5.2.0
@@ -3629,13 +3629,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vueuse/math@npm:^9.13.0":
-  version: 9.13.0
-  resolution: "@vueuse/math@npm:9.13.0"
+"@vueuse/math@npm:^10.0.0":
+  version: 10.1.2
+  resolution: "@vueuse/math@npm:10.1.2"
   dependencies:
-    "@vueuse/shared": 9.13.0
-    vue-demi: "*"
-  checksum: 5697c5ff1ccb13f41db2bba927758f751c385f1cffca78335ba42dc26fd0fe404878513359a3d310d938e4507a071fcc13b1f05f7aedc245e5754d890ba67fde
+    "@vueuse/shared": 10.1.2
+    vue-demi: ">=0.14.0"
+  checksum: 0e5d76d878267469b390c12cb685f2161f846587fb227b5759934c501c6dc8cae1d48f21b836d9eab7e89548ee4b1857538d2cb8d8172df0953fc77b343df489
   languageName: node
   linkType: hard
 
@@ -3658,6 +3658,15 @@ __metadata:
   peerDependencies:
     nuxt: ^3.0.0
   checksum: ecea1c6015d0fd29adcd9bab08aec6d7cf9619d3c85cbfd9b6a09cd8a67bfd3223ab623b6f81a58dc63e117ee6156dc070c5311aa635f8e3c476db3d825d6abd
+  languageName: node
+  linkType: hard
+
+"@vueuse/shared@npm:10.1.2":
+  version: 10.1.2
+  resolution: "@vueuse/shared@npm:10.1.2"
+  dependencies:
+    vue-demi: ">=0.14.0"
+  checksum: a134cc254bfef28ceca2c48c7532a4f1e2231dbb75304e43f896b41771f3d51b93897cc9a16bbd98c7aa6163fc44e001319bbf2478408382ef4d9788875301f2
   languageName: node
   linkType: hard
 
@@ -16447,7 +16456,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vue-demi@npm:*":
+"vue-demi@npm:*, vue-demi@npm:>=0.14.0":
   version: 0.14.1
   resolution: "vue-demi@npm:0.14.1"
   peerDependencies:
