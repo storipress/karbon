@@ -9,16 +9,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.13...v0.1.14)
 
-
 ### 🩹 Fixes
 
-  - Improve handle recommend article ([773cc1d](https://github.com/storipress/karbon/commit/773cc1d))
+- Improve handle recommend article ([773cc1d](https://github.com/storipress/karbon/commit/773cc1d))
 
 ### 🎨 Styles
 
-  - Format ([cc24fad](https://github.com/storipress/karbon/commit/cc24fad))
+- Format ([cc24fad](https://github.com/storipress/karbon/commit/cc24fad))
 
-### ❤️  Contributors
+### ❤️ Contributors
 
 - DanSnow <dododavid006@gmail.com>
 
@@ -26,12 +25,11 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.12...v0.1.13)
 
-
 ### 🩹 Fixes
 
-  - Fix import issue ([003c20f](https://github.com/storipress/karbon/commit/003c20f))
+- Fix import issue ([003c20f](https://github.com/storipress/karbon/commit/003c20f))
 
-### ❤️  Contributors
+### ❤️ Contributors
 
 - DanSnow <dododavid006@gmail.com>
 
@@ -39,17 +37,16 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.11...v0.1.12)
 
-
 ### 🩹 Fixes
 
-  - Fix import issue ([5f6e08f](https://github.com/storipress/karbon/commit/5f6e08f))
+- Fix import issue ([5f6e08f](https://github.com/storipress/karbon/commit/5f6e08f))
 
 ### 🎨 Styles
 
-  - Format code with prettier ([e376b2e](https://github.com/storipress/karbon/commit/e376b2e))
-  - Lint ([786f353](https://github.com/storipress/karbon/commit/786f353))
+- Format code with prettier ([e376b2e](https://github.com/storipress/karbon/commit/e376b2e))
+- Lint ([786f353](https://github.com/storipress/karbon/commit/786f353))
 
-### ❤️  Contributors
+### ❤️ Contributors
 
 - DanSnow <dododavid006@gmail.com>
 
