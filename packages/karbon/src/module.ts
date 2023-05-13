@@ -117,6 +117,10 @@ const karbon = defineNuxtModule<ModuleOptions>({
       'cross-fetch',
       'typesense-instantsearch-adapter',
       'qs',
+      'yup',
+      'p-retry',
+      'lodash',
+      'node-html-parser',
     ]
 
     versionSafe()
