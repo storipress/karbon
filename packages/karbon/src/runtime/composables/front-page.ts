@@ -1,5 +1,6 @@
 import { once } from 'remeda'
 import type { Ref } from 'vue'
+import { warn } from 'vue'
 import { hash } from 'ohash'
 import type { MaybeRef } from '@vueuse/core'
 import type { Promisable } from 'type-fest'
@@ -120,8 +121,13 @@ export function useFillArticles(
   })
 
   if (process.client) {
-    for (const article of articles.value) {
-      alreadyUsed.add(article.id)
+    if (!articles.value) {
+      warn('cache key mismatch, please consider using `cacheKey` option to avoid this warning')
+      articles.value = []
+    } else {
+      for (const article of articles.value) {
+        alreadyUsed.add(article.id)
+      }
     }
   }
 

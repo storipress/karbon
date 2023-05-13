@@ -15,7 +15,7 @@ import {
 
 export { useSite } from '../../composables/site'
 
-export function useGetArticle(id: string): UseAsyncStateReturn<any, true> {
+export function useGetArticle(id: string): UseAsyncStateReturn<any, [], true> {
   return _useUniversalStoripressPayload('posts', id)
 }
 
@@ -46,6 +46,7 @@ type ArticleWithURL = Article & { url: string }
 
 export interface RecommendArticleOptions {
   count: number
+  cacheKey?: string
 }
 
 export function getRelevancesArticles(article: Article, options: RecommendArticleOptions) {
@@ -60,9 +61,12 @@ export function getRelevancesArticles(article: Article, options: RecommendArticl
 
 export function useRecommendArticle(article: Article, options: RecommendArticleOptions) {
   const { count } = options
-  const { articles: fillArticles } = useFillArticles(count, [{ key: 'id', value: article.id }])
+  const baseCacheKey = `recommend-${article.id}-${count}`
+  const { articles: fillArticles } = useFillArticles(count, [{ key: 'id', value: article.id }], {
+    cacheKey: options.cacheKey || `${baseCacheKey}-fill`,
+  })
   const { data } = useAsyncData(
-    `recommend-${article.id}-${count}`,
+    baseCacheKey,
     async () => {
       const relevancesArticles = await getRelevancesArticles(article, options)
       const alreadyRecommend = new Set<string>(relevancesArticles.map(({ id }) => id))
