@@ -6,7 +6,15 @@ import { useProvideArticle } from '../article/utils'
 
 // @ts-expect-error virtual file
 import { templates } from '#build/article-layouts.mjs'
-import { computed, defineArticle, defineOrganization, definePerson, useResourcePageMeta, useSchemaOrg } from '#imports'
+import {
+  computed,
+  defineArticle,
+  defineOrganization,
+  definePerson,
+  useResourcePageMeta,
+  useSchemaOrg,
+  useSite,
+} from '#imports'
 
 const props = defineProps<{
   article: Article
