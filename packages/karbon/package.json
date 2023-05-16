@@ -167,7 +167,7 @@
     "typesense-instantsearch-adapter": "^2.6.0",
     "unbuild": "^1.2.1",
     "unenv": "^1.4.1",
-    "unplugin-auto-import": "^0.15.3",
+    "unplugin-auto-import": "^0.16.0",
     "unplugin-vue-components": "^0.24.1",
     "unstorage": "^1.6.0",
     "uuid": "^9.0.0",

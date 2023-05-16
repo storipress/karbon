@@ -2608,7 +2608,7 @@ __metadata:
     type-fest: ^3.10.0
     typescript: 5.0.4
     typesense-instantsearch-adapter: ^2.6.0
-    unplugin-auto-import: ^0.15.3
+    unplugin-auto-import: ^0.16.0
     unplugin-vue-components: ^0.24.1
     unstorage: ^1.6.0
     uuid: ^9.0.0
@@ -2690,7 +2690,7 @@ __metadata:
     type-fest: ^3.10.0
     typescript: 5.0.4
     typesense-instantsearch-adapter: ^2.6.0
-    unplugin-auto-import: ^0.15.3
+    unplugin-auto-import: ^0.16.0
     unplugin-vue-components: ^0.24.1
     unstorage: ^1.6.0
     uuid: ^9.0.0
@@ -2791,7 +2791,7 @@ __metadata:
     typesense-instantsearch-adapter: ^2.6.0
     unbuild: ^1.2.1
     unenv: ^1.4.1
-    unplugin-auto-import: ^0.15.3
+    unplugin-auto-import: ^0.16.0
     unplugin-vue-components: ^0.24.1
     unstorage: ^1.6.0
     uuid: ^9.0.0
@@ -15907,9 +15907,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"unplugin-auto-import@npm:^0.15.3":
-  version: 0.15.3
-  resolution: "unplugin-auto-import@npm:0.15.3"
+"unplugin-auto-import@npm:^0.16.0":
+  version: 0.16.0
+  resolution: "unplugin-auto-import@npm:0.16.0"
   dependencies:
     "@antfu/utils": ^0.7.2
     "@rollup/pluginutils": ^5.0.2
@@ -15926,7 +15926,7 @@ __metadata:
       optional: true
     "@vueuse/core":
       optional: true
-  checksum: 0fb0be99ee379949c2f8897c6c53d63d569d433d051118ed71bc643472e4965eaeaa251834343972b7aac26ba202a185afabc577721fe152800b8b7041b1c55c
+  checksum: e99f7f8ebc9036fcf0530671e6b5cbe5b712df5e97e94ee038ab21da52d9a18228fbd284930fc0b4f380f66ad68a2ef990cbe5599c10bec28c940c8526dffc8a
   languageName: node
   linkType: hard
 
