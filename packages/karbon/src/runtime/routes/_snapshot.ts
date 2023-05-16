@@ -41,7 +41,7 @@ export default defineCachedEventHandler(async (event: H3Event) => {
 
   const nitro = useNitroApp()
   const links: string[] = []
-  const groupsResponse = await nitro.localFetch("/_storipress/_custom-field-group.json", {
+  const groupsResponse = await nitro.localFetch('/_storipress/_custom-field-group.json', {
     method: 'GET',
   })
   const groups: Record<string, string[]> = await groupsResponse.json()
