@@ -64,7 +64,7 @@ function getDefineArticle(pageMeta: PageMeta) {
   const doc = parse(article.html || '')
   const imgElements = [...doc.querySelectorAll('img')]
   const imgSrcList = imgElements.map((el) => el.getAttribute('src')).filter(Boolean)
-  const image = [...new Set([article.cover.url, ...imgSrcList].filter(Boolean))]
+  const image = [...new Set([article.cover?.url, ...imgSrcList].filter(Boolean))]
 
   return defineArticle({
     '@context': 'https://schema.org',
