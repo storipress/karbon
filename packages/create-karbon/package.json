@@ -18,7 +18,7 @@
     "minimist": "^1.2.8"
   },
   "devDependencies": {
-    "@types/node": "18.16.8",
+    "@types/node": "18.16.16",
     "unbuild": "1.2.1"
   },
   "publishConfig": {
