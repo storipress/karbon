@@ -5,6 +5,24 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # 0.1.0 (2023-03-15)
 
+## v0.1.16
+
+[compare changes](https://github.com/storipress/karbon/compare/v0.1.15...v0.1.16)
+
+
+### 🩹 Fixes
+
+  - Setting @storipress/sdk/resources AutoImport ([e9eb27c](https://github.com/storipress/karbon/commit/e9eb27c))
+
+### 🎨 Styles
+
+  - Lint ([37e8904](https://github.com/storipress/karbon/commit/37e8904))
+
+### ❤️  Contributors
+
+- DanSnow <dododavid006@gmail.com>
+- Sid <sid@storipress.com>
+
 ## v0.1.15
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.14...v0.1.15)
