@@ -59,6 +59,7 @@ export function createConfig(
       '@storipress/sdk/article/utils',
       '@storipress/custom-field',
       '@storipress/vue-advertising',
+      '@storipress/sdk/resources',
     ],
   }
 
@@ -148,6 +149,7 @@ export async function bundle(path: string, vuefileName: string, layoutName: stri
           {
             '@storipress/custom-field': ['useField', 'FieldType'],
             '@storipress/sdk/article/utils': ['useArticle', 'useRecommendArticle', 'useSite'],
+            '@storipress/sdk/resources': ['useResourceResolver'],
           },
         ],
         vueTemplate: true,
