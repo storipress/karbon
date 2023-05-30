@@ -477,7 +477,9 @@ const karbon = defineNuxtModule<ModuleOptions>({
       exclude: ['/_storipress/_snapshot/**'],
       siteUrl,
     }
+    // @ts-expect-error nocheck
     nuxt.options.robots = {
+      // @ts-expect-error nocheck
       ...nuxt.options.robots!,
       sitemap: [withBase('/sitemap.xml', siteUrl)],
     }

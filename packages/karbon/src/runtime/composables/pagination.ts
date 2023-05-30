@@ -1,4 +1,5 @@
 import type { MaybeRef } from '@vueuse/core'
+import { toValue } from '@vueuse/core'
 import { hash } from 'ohash'
 import type { Ref } from 'vue'
 import { useClamp } from '@vueuse/math'
@@ -7,7 +8,7 @@ import { evaluateCondition, normalizeCondition } from '../lib/article-filter'
 import type { UseArticleReturnWithURL } from '../types'
 import { watchInvariant } from '../utils/watch-invariant'
 import { getAllArticles, usePageMetaAsCondition } from './front-page'
-import { computed, unref, useStaticAsyncState } from '#imports'
+import { computed, useStaticAsyncState } from '#imports'
 
 export interface UseArticlePaginationInput {
   /**
@@ -115,19 +116,19 @@ export function useArticlePagination({
  */
 export function usePagination<T>(allItems: Ref<T[]>, limit: MaybeRef<number>): UsePaginationReturn<T> {
   // precondition
-  watchInvariant(() => unref(limit) > 0, '`limit` must not be negative or 0')
+  watchInvariant(() => toValue(limit) > 0, '`limit` must not be negative or 0')
 
   const total = computed(() => {
     const length = allItems.value.length
-    const remaining = length % unref(limit)
-    return Math.floor(length / unref(limit)) + (remaining > 0 ? 1 : 0)
+    const remaining = length % toValue(limit)
+    return Math.floor(length / toValue(limit)) + (remaining > 0 ? 1 : 0)
   })
   const page = useClamp(1, 1, total)
 
   // paginate allArticles with `limit` as pre page
   const list = computed(() => {
-    const start = (page.value - 1) * unref(limit)
-    const end = start + unref(limit)
+    const start = (page.value - 1) * toValue(limit)
+    const end = start + toValue(limit)
     return allItems.value.slice(start, end)
   })
 
