@@ -5,6 +5,19 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # 0.1.0 (2023-03-15)
 
+## v0.1.17
+
+[compare changes](https://github.com/storipress/karbon/compare/v0.1.16...v0.1.17)
+
+
+### 🩹 Fixes
+
+  - Fix issue in cloudflare page ([a83054e](https://github.com/storipress/karbon/commit/a83054e))
+
+### ❤️  Contributors
+
+- DanSnow <dododavid006@gmail.com>
+
 ## v0.1.16
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.15...v0.1.16)
