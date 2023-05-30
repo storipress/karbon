@@ -5,6 +5,25 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # 0.1.0 (2023-03-15)
 
+## v0.1.18
+
+[compare changes](https://github.com/storipress/karbon/compare/v0.1.17...v0.1.18)
+
+
+### 🩹 Fixes
+
+  - Upgrade deps ([63e69dd](https://github.com/storipress/karbon/commit/63e69dd))
+  - Scope global variable to single request ([06a6760](https://github.com/storipress/karbon/commit/06a6760))
+
+### 🎨 Styles
+
+  - Lint ([9020fd4](https://github.com/storipress/karbon/commit/9020fd4))
+  - Lint ([ef569e5](https://github.com/storipress/karbon/commit/ef569e5))
+
+### ❤️  Contributors
+
+- DanSnow <dododavid006@gmail.com>
+
 ## v0.1.17
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.16...v0.1.17)
