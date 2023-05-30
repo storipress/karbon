@@ -9,18 +9,17 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.17...v0.1.18)
 
-
 ### 🩹 Fixes
 
-  - Upgrade deps ([63e69dd](https://github.com/storipress/karbon/commit/63e69dd))
-  - Scope global variable to single request ([06a6760](https://github.com/storipress/karbon/commit/06a6760))
+- Upgrade deps ([63e69dd](https://github.com/storipress/karbon/commit/63e69dd))
+- Scope global variable to single request ([06a6760](https://github.com/storipress/karbon/commit/06a6760))
 
 ### 🎨 Styles
 
-  - Lint ([9020fd4](https://github.com/storipress/karbon/commit/9020fd4))
-  - Lint ([ef569e5](https://github.com/storipress/karbon/commit/ef569e5))
+- Lint ([9020fd4](https://github.com/storipress/karbon/commit/9020fd4))
+- Lint ([ef569e5](https://github.com/storipress/karbon/commit/ef569e5))
 
-### ❤️  Contributors
+### ❤️ Contributors
 
 - DanSnow <dododavid006@gmail.com>
 
@@ -28,12 +27,11 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.16...v0.1.17)
 
-
 ### 🩹 Fixes
 
-  - Fix issue in cloudflare page ([a83054e](https://github.com/storipress/karbon/commit/a83054e))
+- Fix issue in cloudflare page ([a83054e](https://github.com/storipress/karbon/commit/a83054e))
 
-### ❤️  Contributors
+### ❤️ Contributors
 
 - DanSnow <dododavid006@gmail.com>
 
@@ -41,16 +39,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.15...v0.1.16)
 
-
 ### 🩹 Fixes
 
-  - Setting @storipress/sdk/resources AutoImport ([e9eb27c](https://github.com/storipress/karbon/commit/e9eb27c))
+- Setting @storipress/sdk/resources AutoImport ([e9eb27c](https://github.com/storipress/karbon/commit/e9eb27c))
 
 ### 🎨 Styles
 
-  - Lint ([37e8904](https://github.com/storipress/karbon/commit/37e8904))
+- Lint ([37e8904](https://github.com/storipress/karbon/commit/37e8904))
 
-### ❤️  Contributors
+### ❤️ Contributors
 
 - DanSnow <dododavid006@gmail.com>
 - Sid <sid@storipress.com>
@@ -59,16 +56,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.14...v0.1.15)
 
-
 ### 🩹 Fixes
 
-  - Cover could be empty ([fe2b7ee](https://github.com/storipress/karbon/commit/fe2b7ee))
+- Cover could be empty ([fe2b7ee](https://github.com/storipress/karbon/commit/fe2b7ee))
 
 ### 🎨 Styles
 
-  - Format ([0b39f65](https://github.com/storipress/karbon/commit/0b39f65))
+- Format ([0b39f65](https://github.com/storipress/karbon/commit/0b39f65))
 
-### ❤️  Contributors
+### ❤️ Contributors
 
 - DanSnow <dododavid006@gmail.com>
 
@@ -76,16 +72,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.13...v0.1.14)
 
-
 ### 🩹 Fixes
 
-  - Improve handle recommend article ([773cc1d](https://github.com/storipress/karbon/commit/773cc1d))
+- Improve handle recommend article ([773cc1d](https://github.com/storipress/karbon/commit/773cc1d))
 
 ### 🎨 Styles
 
-  - Format ([cc24fad](https://github.com/storipress/karbon/commit/cc24fad))
+- Format ([cc24fad](https://github.com/storipress/karbon/commit/cc24fad))
 
-### ❤️  Contributors
+### ❤️ Contributors
 
 - DanSnow <dododavid006@gmail.com>
 
@@ -93,12 +88,11 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.12...v0.1.13)
 
-
 ### 🩹 Fixes
 
-  - Fix import issue ([003c20f](https://github.com/storipress/karbon/commit/003c20f))
+- Fix import issue ([003c20f](https://github.com/storipress/karbon/commit/003c20f))
 
-### ❤️  Contributors
+### ❤️ Contributors
 
 - DanSnow <dododavid006@gmail.com>
 
@@ -106,17 +100,16 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.11...v0.1.12)
 
-
 ### 🩹 Fixes
 
-  - Fix import issue ([5f6e08f](https://github.com/storipress/karbon/commit/5f6e08f))
+- Fix import issue ([5f6e08f](https://github.com/storipress/karbon/commit/5f6e08f))
 
 ### 🎨 Styles
 
-  - Format code with prettier ([e376b2e](https://github.com/storipress/karbon/commit/e376b2e))
-  - Lint ([786f353](https://github.com/storipress/karbon/commit/786f353))
+- Format code with prettier ([e376b2e](https://github.com/storipress/karbon/commit/e376b2e))
+- Lint ([786f353](https://github.com/storipress/karbon/commit/786f353))
 
-### ❤️  Contributors
+### ❤️ Contributors
 
 - DanSnow <dododavid006@gmail.com>
 
