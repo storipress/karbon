@@ -20,3 +20,25 @@ export function useEventOnce<T>(fn: () => T): () => T {
     return map.get(fn) as T
   }
 }
+
+const EVENT_GLOBAL_KEY = '__event_based_global__'
+
+export function useEventGlobal<T>(key: string, defaultFactory: () => T): () => T {
+  if (process.client) {
+    const globalValue = defaultFactory()
+    return () => globalValue
+  }
+
+  return () => {
+    const event = useRequestEvent()
+    if (!event) {
+      return defaultFactory()
+    }
+
+    const map: Map<string, T> = (event.context[EVENT_GLOBAL_KEY] ??= new Map<string, unknown>())
+    if (!map.has(key)) {
+      map.set(key, defaultFactory())
+    }
+    return map.get(key) as T
+  }
+}

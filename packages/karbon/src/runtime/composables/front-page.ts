@@ -9,7 +9,7 @@ import { useStaticAsyncState } from '../composables/storipress-payload'
 import type { Condition, ConditionInput } from '../lib/article-filter'
 import { evaluateCondition, normalizeCondition } from '../lib/article-filter'
 import { useResourceList } from './resources'
-import { useEventOnce } from './event-once'
+import { useEventGlobal, useEventOnce } from './event-once'
 import { computed, onServerPrefetch, unref, useAsyncData, useResourcePageMeta } from '#imports'
 
 export type Article = UseArticleReturn
@@ -63,8 +63,8 @@ export const useGetAllArticles = useEventOnce(() => {
   return promise
 })
 
-const alreadyUsed = new Set<string>([])
-const sourceCursor = new Map<string, Article[]>()
+const getAlreadyUsed = useEventGlobal('alreadyUsed', () => new Set<string>([]))
+const getSourceCursor = useEventGlobal('sourceCursor', () => new Map<string, Article[]>())
 
 export function usePageMetaAsCondition(): Condition[] {
   const pageMeta = useResourcePageMeta()
@@ -81,8 +81,8 @@ export function usePageMetaAsCondition(): Condition[] {
 }
 
 export function clearFillHistory() {
-  alreadyUsed.clear()
-  sourceCursor.clear()
+  getAlreadyUsed().clear()
+  getSourceCursor().clear()
 }
 
 function _getAllArticles() {
@@ -101,7 +101,9 @@ export function useFillArticles(
   const { conditions, identity } = _conditionID
     ? { identity: _conditionID, conditions: conditionInput as Condition[] }
     : normalizeCondition(conditionInput)
-  let cacheKey: Promisable<string> = userCacheKey ?? createAutoCacheKey(conditions)
+  const alreadyUsed = getAlreadyUsed()
+  const sourceCursor = getSourceCursor()
+  let cacheKey: Promisable<string> = userCacheKey ?? createAutoCacheKey(conditions, alreadyUsed)
   let source: MaybeRef<UseArticleReturn[]>
   let promise = Promise.resolve()
   if (process.server) {
@@ -109,7 +111,7 @@ export function useFillArticles(
     if (!source) {
       const all = _getAllArticles()
       promise = all.promise
-      cacheKey = promise.then(() => userCacheKey ?? createAutoCacheKey(conditions))
+      cacheKey = promise.then(() => userCacheKey ?? createAutoCacheKey(conditions, alreadyUsed))
       source = all
     }
   } else {
@@ -117,7 +119,7 @@ export function useFillArticles(
   }
   const articles = useStaticAsyncState(cacheKey, async () => {
     await promise
-    return getFillArticles({ count, conditions, identity }, unref(source))
+    return getFillArticles({ count, conditions, identity, used: alreadyUsed, sourceCursor }, unref(source))
   })
 
   if (process.client) {
@@ -136,7 +138,7 @@ export function useFillArticles(
   }
 }
 
-function createAutoCacheKey(condition: Condition[]) {
+function createAutoCacheKey(condition: Condition[], alreadyUsed = getAlreadyUsed()) {
   return `fill-article-${hash({
     condition,
     used: alreadyUsed,
@@ -170,6 +172,8 @@ export function useArticleLoader<UseChunk extends false | number>({
   const { identity, conditions } = normalizeCondition(conditionInput)
   const { articles } = useFillArticles(preload, conditions, { _conditionID: identity })
   const hold: Article[] = []
+  const alreadyUsed = getAlreadyUsed()
+  const sourceCursor = getSourceCursor()
 
   async function* createLoadMore() {
     for (const id of [...articles.value.map(({ id }) => id), ...exclude]) {
@@ -177,7 +181,10 @@ export function useArticleLoader<UseChunk extends false | number>({
     }
     const source = await getAllArticles()
     while (source.length) {
-      const { result: nextChunk, skip } = getFillArticlesWithSkip({ conditions, count: chunk || 1 }, source)
+      const { result: nextChunk, skip } = getFillArticlesWithSkip(
+        { conditions, count: chunk || 1, used: alreadyUsed, sourceCursor },
+        source
+      )
       if (exhaustedPolicy === 'show-unmatched') {
         hold.push(...skip)
       }
@@ -232,7 +239,13 @@ function usePageMetaAsExclude() {
 }
 
 function getFillArticles(
-  opts: { conditions: Condition[]; count: number; identity?: string },
+  opts: {
+    conditions: Condition[]
+    count: number
+    identity?: string
+    used: Set<string>
+    sourceCursor: Map<string, Article[]>
+  },
   source: Article[],
   result: Article[] = [],
   skip: Article[] = []
@@ -241,7 +254,19 @@ function getFillArticles(
 }
 
 function getFillArticlesWithSkip(
-  { conditions, count, identity }: { conditions: Condition[]; count: number; identity?: string },
+  {
+    conditions,
+    count,
+    identity,
+    used,
+    sourceCursor,
+  }: {
+    conditions: Condition[]
+    count: number
+    identity?: string
+    used: Set<string>
+    sourceCursor: Map<string, Article[]>
+  },
   source: Article[],
   result: Article[] = [],
   skip: Article[] = []
@@ -250,10 +275,10 @@ function getFillArticlesWithSkip(
     const currentArticle = source.shift() as Article
 
     const verified = evaluateCondition(currentArticle, conditions)
-    if (verified && !alreadyUsed.has(currentArticle.id)) {
-      alreadyUsed.add(currentArticle.id)
+    if (verified && !used.has(currentArticle.id)) {
+      used.add(currentArticle.id)
       result.push(currentArticle)
-    } else if (!alreadyUsed.has(currentArticle.id)) {
+    } else if (!used.has(currentArticle.id)) {
       skip.push(currentArticle)
     }
   }

@@ -1,10 +1,17 @@
 <script lang="ts" setup>
+import invariant from 'tiny-invariant'
+
 const type = useField('custom-field-for', FieldType.Text)
 const site = useSite()
 const multipleValues = useField('multiple-value', { type: FieldType.Text, all: true })
 
 const { articles: alphabetArticles } = useFillArticles(10, [{ key: 'slug', value: 'alphabet' }])
 const { articles: lastArticles } = useFillArticles(9)
+
+watch(alphabetArticles, (articles) => {
+  const slugs = new Set(articles.map((article) => article.slug))
+  invariant(slugs.size > 1, 'Articles should have unique slugs')
+})
 </script>
 
 <template>
