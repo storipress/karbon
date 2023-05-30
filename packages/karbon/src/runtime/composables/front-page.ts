@@ -1,4 +1,3 @@
-import { once } from 'remeda'
 import type { Ref } from 'vue'
 import { warn } from 'vue'
 import { hash } from 'ohash'
@@ -10,6 +9,7 @@ import { useStaticAsyncState } from '../composables/storipress-payload'
 import type { Condition, ConditionInput } from '../lib/article-filter'
 import { evaluateCondition, normalizeCondition } from '../lib/article-filter'
 import { useResourceList } from './resources'
+import { useEventOnce } from './event-once'
 import { computed, onServerPrefetch, unref, useAsyncData, useResourcePageMeta } from '#imports'
 
 export type Article = UseArticleReturn
@@ -57,7 +57,7 @@ export async function getAllArticles() {
   }
 }
 
-export const useGetAllArticles = once(() => {
+export const useGetAllArticles = useEventOnce(() => {
   const promise = useAsyncData('allArticles', getAllArticles)
   onServerPrefetch(() => promise)
   return promise

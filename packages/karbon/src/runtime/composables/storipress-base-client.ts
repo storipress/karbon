@@ -1,5 +1,4 @@
-import { ApolloClient, InMemoryCache } from '@apollo/client/core/index.js'
-import { BatchHttpLink } from '@apollo/client/link/batch-http/index.js'
+import { ApolloClient, HttpLink, InMemoryCache } from '@apollo/client/core/index.js'
 import { setContext } from '@apollo/client/link/context/index.js'
 import { fetch } from 'cross-fetch'
 import type { ModuleRuntimeConfig } from '../types'
@@ -40,9 +39,8 @@ export function createStoripressBaseClient(getHeaders: () => Record<string, stri
     }
   })
 
-  const httpLink = new BatchHttpLink({
+  const httpLink = new HttpLink({
     fetch,
-    batchMax: 100,
     uri,
   })
 
