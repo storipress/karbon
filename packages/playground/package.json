@@ -39,7 +39,7 @@
     "prettier": "2.8.8",
     "tsx": "3.12.7",
     "typescript": "5.0.4",
-    "vitest": "0.31.1"
+    "vitest": "0.31.4"
   },
   "dependencies": {
     "@apollo/client": "^3.7.14",
