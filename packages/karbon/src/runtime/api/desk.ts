@@ -7,10 +7,12 @@ const ListDesks = gql`
       id
       name
       slug
+      seo
       desks {
         id
         name
         slug
+        seo
       }
     }
   }
@@ -21,10 +23,12 @@ const GetDesk = gql`
       id
       name
       slug
+      seo
       desks {
         id
         name
         slug
+        seo
       }
       metafields {
         id

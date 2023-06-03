@@ -38,7 +38,7 @@ export interface ResourcePageContext {
 export interface ResourcePage<Meta extends Identifiable> {
   route: string
   enable: boolean
-  getIdentity(params: Record<string, string>, _context: ResourcePageContext): ResourceID
+  getIdentity(params: Record<string, string>, _context: ResourcePageContext, deskMetas?: Meta[]): ResourceID
   isValid(params: Record<string, string>, resource: Meta, _context: ResourcePageContext): boolean
   toURL(resource: Meta, _context: ResourcePageContext): string
   _context?: ResourcePageContext
