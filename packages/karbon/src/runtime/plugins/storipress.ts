@@ -1,5 +1,6 @@
 import type { ResourceID, Resources } from '../types'
 import { useResourceResolver } from '../composables/resources'
+import type { DeskMeta } from '#build/storipress-urls.mjs'
 import urls from '#build/storipress-urls.mjs'
 import {
   abortNavigation,
@@ -7,6 +8,7 @@ import {
   clearFillHistory,
   defineNuxtPlugin,
   defineNuxtRouteMiddleware,
+  loadStoripressPayload,
   navigateTo,
   setResponseStatus,
   useRequestEvent,
@@ -30,7 +32,8 @@ const fetchMeta = defineNuxtRouteMiddleware(async (to) => {
   const urlKey = to.name
   const { resolveFromID: resolveID, _getContextFor } = useResourceResolver()
   const ctx = _getContextFor(urlKey)
-  const resourceID = urls[urlKey].getIdentity(to.params as Record<string, string>, ctx)
+  const desksMeta = ctx.resource === 'desk' ? await loadStoripressPayload<DeskMeta[]>('desks', '__all') : undefined
+  const resourceID = urls[urlKey].getIdentity(to.params as Record<string, string>, ctx, desksMeta)
   const res = await resolveID(resourceID, to.params as Record<string, string>, to.meta.resourceName as string)
   if (!res) {
     return
@@ -43,7 +46,7 @@ const fetchMeta = defineNuxtRouteMiddleware(async (to) => {
   }
 })
 
-const abortIfNoMeta = defineNuxtRouteMiddleware(async () => {
+const abortIfNoMeta = defineNuxtRouteMiddleware(() => {
   if (process.server) {
     const event = useRequestEvent()
     if (event.context[META_KEY] && event.context[META_KEY].meta !== NOT_FOUND_TEXT) {
@@ -51,11 +54,12 @@ const abortIfNoMeta = defineNuxtRouteMiddleware(async () => {
     }
 
     setResponseStatus(404)
+    // skipcq: JS-0045
     return abortNavigation()
   }
 })
 
-const storipressReset = defineNuxtRouteMiddleware(async () => {
+const storipressReset = defineNuxtRouteMiddleware(() => {
   clearFillHistory()
 })
 
