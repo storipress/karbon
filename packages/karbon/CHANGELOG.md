@@ -5,6 +5,39 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # 0.1.0 (2023-03-15)
 
+## v0.1.19
+
+[compare changes](https://github.com/storipress/karbon/compare/v0.1.18...v0.1.19)
+
+
+### 🚀 Enhancements
+
+  - Inject desk meta to getIdentity ([5e9078f](https://github.com/storipress/karbon/commit/5e9078f))
+
+### 🩹 Fixes
+
+  - Subscription API uses wrong domain [SPMVP-5649] ([d3789f8](https://github.com/storipress/karbon/commit/d3789f8))
+  - Set runtime config ([3c55714](https://github.com/storipress/karbon/commit/3c55714))
+
+### 💅 Refactors
+
+  - Replace template strings with regular string literals ([6229338](https://github.com/storipress/karbon/commit/6229338))
+
+### 📖 Documentation
+
+  - Add comment ([48798c0](https://github.com/storipress/karbon/commit/48798c0))
+
+### 🎨 Styles
+
+  - Format code with prettier ([eccf2b9](https://github.com/storipress/karbon/commit/eccf2b9))
+  - Format ([fbe2a32](https://github.com/storipress/karbon/commit/fbe2a32))
+
+### ❤️  Contributors
+
+- DanSnow <dododavid006@gmail.com>
+- Sid <sid@storipress.com>
+- Ariel Lin <smsllbear1600@gmail.com>
+
 ## v0.1.18
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.17...v0.1.18)
