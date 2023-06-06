@@ -11,7 +11,6 @@ import {
   useSite,
   useSubscriberClient,
 } from '#imports'
-import paywallLogo from '#build/paywall-logo'
 
 enum ArticlePlan {
   Free = 'free',
@@ -61,6 +60,14 @@ export default defineNuxtPlugin((_nuxtApp) => {
       return
     }
     const { mountPaywall, setStripeKey } = await import('@storipress/builder-component')
+    const paywallLogoPath = _nuxtApp.$config.public?.storipress?.paywall?.logo
+    let paywallLogo
+    if (/^http/.test(paywallLogoPath)) {
+      paywallLogo = paywallLogoPath
+    } else {
+      // @ts-expect-error
+      paywallLogo = await import('#build/paywall-logo')
+    }
     setStripeKey(runtimeConfig.public.storipress.stripeKey)
 
     const { push, currentRoute } = router
