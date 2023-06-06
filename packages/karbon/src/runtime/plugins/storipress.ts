@@ -32,6 +32,7 @@ const fetchMeta = defineNuxtRouteMiddleware(async (to) => {
   const urlKey = to.name
   const { resolveFromID: resolveID, _getContextFor } = useResourceResolver()
   const ctx = _getContextFor(urlKey)
+  // ref: https://github.com/storipress/karbon/pull/95
   const desksMeta = ctx.resource === 'desk' ? await loadStoripressPayload<DeskMeta[]>('desks', '__all') : undefined
   const resourceID = urls[urlKey].getIdentity(to.params as Record<string, string>, ctx, desksMeta)
   const res = await resolveID(resourceID, to.params as Record<string, string>, to.meta.resourceName as string)
