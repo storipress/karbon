@@ -16,7 +16,7 @@
   },
   "devDependencies": {
     "@antfu/eslint-config-vue": "0.39.5",
-    "@nuxt/image-edge": "1.0.0-27809804.194d2d6",
+    "@nuxt/image-edge": "1.0.0-28100678.6e9298b",
     "@nuxtjs/tailwindcss": "6.7.0",
     "@rollup/plugin-virtual": "3.0.1",
     "@types/find-cache-dir": "3.2.1",
