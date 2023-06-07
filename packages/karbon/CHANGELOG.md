@@ -5,6 +5,23 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # 0.1.0 (2023-03-15)
 
+## v0.1.20
+
+[compare changes](https://github.com/storipress/karbon/compare/v0.1.19...v0.1.20)
+
+
+### 🩹 Fixes
+
+  - **karbon:** Page meta could be undefined when changing page ([03644af](https://github.com/storipress/karbon/commit/03644af))
+
+### 🎨 Styles
+
+  - Format ([f476c18](https://github.com/storipress/karbon/commit/f476c18))
+
+### ❤️  Contributors
+
+- DanSnow <dododavid006@gmail.com>
+
 ## v0.1.19
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.18...v0.1.19)
