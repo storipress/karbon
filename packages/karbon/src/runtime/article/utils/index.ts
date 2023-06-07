@@ -28,7 +28,7 @@ export function useAdvertisingHandler(handler: (segments: Segment[]) => Segment[
 const [useProvideArticle, useOptionalArticle] = createInjectionState<[UseArticleReturn], UseArticleReturn>((article) =>
   shallowReadonly({
     ...article,
-    segments: advertisingHandler.value(article.segments ?? []),
+    segments: advertisingHandler.value(article?.segments ?? []),
   })
 )
 
