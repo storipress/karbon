@@ -53,6 +53,7 @@ const ListAuthors = gql`
   query ListAuthors {
     users(includeInvitations: false) {
       id
+      slug
       email
       first_name
       last_name
