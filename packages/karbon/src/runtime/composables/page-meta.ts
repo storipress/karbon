@@ -1,5 +1,5 @@
 import type { Ref } from 'vue'
-import { useCurrentElement } from '@vueuse/core'
+import { useCurrentElement, whenever } from '@vueuse/core'
 import type { EventName } from '../api/track'
 import type { UseArticleReturn as Article } from '../types'
 import { useSEO } from './seo'
@@ -75,11 +75,17 @@ export function setupPage<Type extends PageType>({ type, seo = true }: SetupPage
 
   if (type === 'article') {
     const { $paywall } = useNuxtApp()
-    const { id, plan } = meta.value
     onMounted(() => {
       $paywall.mount()
       $paywall.enable()
-      $paywall.setArticle({ id, plan })
+
+      whenever(
+        meta,
+        ({ id, plan }) => {
+          $paywall.setArticle({ id, plan })
+        },
+        { immediate: true, flush: 'sync' }
+      )
     })
     onBeforeUnmount(() => {
       $paywall.disable()
