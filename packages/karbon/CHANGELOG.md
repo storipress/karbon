@@ -5,6 +5,24 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # 0.1.0 (2023-03-15)
 
+## v0.1.21
+
+[compare changes](https://github.com/storipress/karbon/compare/v0.1.20...v0.1.21)
+
+
+### 🩹 Fixes
+
+  - Add missing field ([f53d3b7](https://github.com/storipress/karbon/commit/f53d3b7))
+  - Fix possible undefined ([a6bfe63](https://github.com/storipress/karbon/commit/a6bfe63))
+
+### 🎨 Styles
+
+  - Format ([a885a4d](https://github.com/storipress/karbon/commit/a885a4d))
+
+### ❤️  Contributors
+
+- DanSnow <dododavid006@gmail.com>
+
 ## v0.1.20
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.19...v0.1.20)
