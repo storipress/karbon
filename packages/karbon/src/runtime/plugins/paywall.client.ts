@@ -62,11 +62,11 @@ export default defineNuxtPlugin((_nuxtApp) => {
     const { mountPaywall, setStripeKey } = await import('@storipress/builder-component')
     const paywallLogoPath = _nuxtApp.$config.public?.storipress?.paywall?.logo
     let paywallLogo
-    if (/^http/.test(paywallLogoPath)) {
+    if (paywallLogoPath.startsWith('http')) {
       paywallLogo = paywallLogoPath
     } else {
-      // @ts-expect-error
-      paywallLogo = await import('#build/paywall-logo')
+      // @ts-expect-error no type
+      paywallLogo = (await import('#build/paywall-logo')).default
     }
     setStripeKey(runtimeConfig.public.storipress.stripeKey)
 
