@@ -9,16 +9,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.19...v0.1.20)
 
-
 ### 🩹 Fixes
 
-  - **karbon:** Page meta could be undefined when changing page ([03644af](https://github.com/storipress/karbon/commit/03644af))
+- **karbon:** Page meta could be undefined when changing page ([03644af](https://github.com/storipress/karbon/commit/03644af))
 
 ### 🎨 Styles
 
-  - Format ([f476c18](https://github.com/storipress/karbon/commit/f476c18))
+- Format ([f476c18](https://github.com/storipress/karbon/commit/f476c18))
 
-### ❤️  Contributors
+### ❤️ Contributors
 
 - DanSnow <dododavid006@gmail.com>
 
@@ -26,30 +25,29 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.18...v0.1.19)
 
-
 ### 🚀 Enhancements
 
-  - Inject desk meta to getIdentity ([5e9078f](https://github.com/storipress/karbon/commit/5e9078f))
+- Inject desk meta to getIdentity ([5e9078f](https://github.com/storipress/karbon/commit/5e9078f))
 
 ### 🩹 Fixes
 
-  - Subscription API uses wrong domain [SPMVP-5649] ([d3789f8](https://github.com/storipress/karbon/commit/d3789f8))
-  - Set runtime config ([3c55714](https://github.com/storipress/karbon/commit/3c55714))
+- Subscription API uses wrong domain [SPMVP-5649] ([d3789f8](https://github.com/storipress/karbon/commit/d3789f8))
+- Set runtime config ([3c55714](https://github.com/storipress/karbon/commit/3c55714))
 
 ### 💅 Refactors
 
-  - Replace template strings with regular string literals ([6229338](https://github.com/storipress/karbon/commit/6229338))
+- Replace template strings with regular string literals ([6229338](https://github.com/storipress/karbon/commit/6229338))
 
 ### 📖 Documentation
 
-  - Add comment ([48798c0](https://github.com/storipress/karbon/commit/48798c0))
+- Add comment ([48798c0](https://github.com/storipress/karbon/commit/48798c0))
 
 ### 🎨 Styles
 
-  - Format code with prettier ([eccf2b9](https://github.com/storipress/karbon/commit/eccf2b9))
-  - Format ([fbe2a32](https://github.com/storipress/karbon/commit/fbe2a32))
+- Format code with prettier ([eccf2b9](https://github.com/storipress/karbon/commit/eccf2b9))
+- Format ([fbe2a32](https://github.com/storipress/karbon/commit/fbe2a32))
 
-### ❤️  Contributors
+### ❤️ Contributors
 
 - DanSnow <dododavid006@gmail.com>
 - Sid <sid@storipress.com>
@@ -59,18 +57,17 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.17...v0.1.18)
 
-
 ### 🩹 Fixes
 
-  - Upgrade deps ([63e69dd](https://github.com/storipress/karbon/commit/63e69dd))
-  - Scope global variable to single request ([06a6760](https://github.com/storipress/karbon/commit/06a6760))
+- Upgrade deps ([63e69dd](https://github.com/storipress/karbon/commit/63e69dd))
+- Scope global variable to single request ([06a6760](https://github.com/storipress/karbon/commit/06a6760))
 
 ### 🎨 Styles
 
-  - Lint ([9020fd4](https://github.com/storipress/karbon/commit/9020fd4))
-  - Lint ([ef569e5](https://github.com/storipress/karbon/commit/ef569e5))
+- Lint ([9020fd4](https://github.com/storipress/karbon/commit/9020fd4))
+- Lint ([ef569e5](https://github.com/storipress/karbon/commit/ef569e5))
 
-### ❤️  Contributors
+### ❤️ Contributors
 
 - DanSnow <dododavid006@gmail.com>
 
@@ -78,12 +75,11 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.16...v0.1.17)
 
-
 ### 🩹 Fixes
 
-  - Fix issue in cloudflare page ([a83054e](https://github.com/storipress/karbon/commit/a83054e))
+- Fix issue in cloudflare page ([a83054e](https://github.com/storipress/karbon/commit/a83054e))
 
-### ❤️  Contributors
+### ❤️ Contributors
 
 - DanSnow <dododavid006@gmail.com>
 
@@ -91,16 +87,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.15...v0.1.16)
 
-
 ### 🩹 Fixes
 
-  - Setting @storipress/sdk/resources AutoImport ([e9eb27c](https://github.com/storipress/karbon/commit/e9eb27c))
+- Setting @storipress/sdk/resources AutoImport ([e9eb27c](https://github.com/storipress/karbon/commit/e9eb27c))
 
 ### 🎨 Styles
 
-  - Lint ([37e8904](https://github.com/storipress/karbon/commit/37e8904))
+- Lint ([37e8904](https://github.com/storipress/karbon/commit/37e8904))
 
-### ❤️  Contributors
+### ❤️ Contributors
 
 - DanSnow <dododavid006@gmail.com>
 - Sid <sid@storipress.com>
@@ -109,16 +104,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.14...v0.1.15)
 
-
 ### 🩹 Fixes
 
-  - Cover could be empty ([fe2b7ee](https://github.com/storipress/karbon/commit/fe2b7ee))
+- Cover could be empty ([fe2b7ee](https://github.com/storipress/karbon/commit/fe2b7ee))
 
 ### 🎨 Styles
 
-  - Format ([0b39f65](https://github.com/storipress/karbon/commit/0b39f65))
+- Format ([0b39f65](https://github.com/storipress/karbon/commit/0b39f65))
 
-### ❤️  Contributors
+### ❤️ Contributors
 
 - DanSnow <dododavid006@gmail.com>
 
@@ -126,16 +120,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.13...v0.1.14)
 
-
 ### 🩹 Fixes
 
-  - Improve handle recommend article ([773cc1d](https://github.com/storipress/karbon/commit/773cc1d))
+- Improve handle recommend article ([773cc1d](https://github.com/storipress/karbon/commit/773cc1d))
 
 ### 🎨 Styles
 
-  - Format ([cc24fad](https://github.com/storipress/karbon/commit/cc24fad))
+- Format ([cc24fad](https://github.com/storipress/karbon/commit/cc24fad))
 
-### ❤️  Contributors
+### ❤️ Contributors
 
 - DanSnow <dododavid006@gmail.com>
 
@@ -143,12 +136,11 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.12...v0.1.13)
 
-
 ### 🩹 Fixes
 
-  - Fix import issue ([003c20f](https://github.com/storipress/karbon/commit/003c20f))
+- Fix import issue ([003c20f](https://github.com/storipress/karbon/commit/003c20f))
 
-### ❤️  Contributors
+### ❤️ Contributors
 
 - DanSnow <dododavid006@gmail.com>
 
@@ -156,17 +148,16 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.11...v0.1.12)
 
-
 ### 🩹 Fixes
 
-  - Fix import issue ([5f6e08f](https://github.com/storipress/karbon/commit/5f6e08f))
+- Fix import issue ([5f6e08f](https://github.com/storipress/karbon/commit/5f6e08f))
 
 ### 🎨 Styles
 
-  - Format code with prettier ([e376b2e](https://github.com/storipress/karbon/commit/e376b2e))
-  - Lint ([786f353](https://github.com/storipress/karbon/commit/786f353))
+- Format code with prettier ([e376b2e](https://github.com/storipress/karbon/commit/e376b2e))
+- Lint ([786f353](https://github.com/storipress/karbon/commit/786f353))
 
-### ❤️  Contributors
+### ❤️ Contributors
 
 - DanSnow <dododavid006@gmail.com>
 
