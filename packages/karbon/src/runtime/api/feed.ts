@@ -1,11 +1,12 @@
 import { gql } from '@apollo/client/core/index.js'
+import { useStoripressClient } from '../composables/storipress-client'
 import { getAllWithPagination } from './helper'
 import type { RawArticleLike } from './normalize-article'
 import { normalizeArticle } from './normalize-article'
 
 const ListArticles = gql`
-  query ListArticles($page: Int!) {
-    articles(page: $page, sortBy: [{ column: UPDATED_AT, order: DESC }]) {
+  query ListArticles($page: Int!, $desk: ID) {
+    articles(page: $page, desk: $desk, sortBy: [{ column: UPDATED_AT, order: DESC }]) {
       paginatorInfo {
         count
         lastPage
@@ -24,6 +25,20 @@ const ListArticles = gql`
   }
 `
 
+const GetDesk = gql`
+  query GetDesk($slug: String) {
+    desk(slug: $slug) {
+      id
+      sid
+      name
+      slug
+      seo
+      order
+      open_access
+    }
+  }
+`
+
 export function listFeedArticles(filter?: { desk: string; tag: string; author: string }) {
   return getAllWithPagination(ListArticles, filter, ({ articles: { paginatorInfo, data } }) => {
     const res = data.map((data: RawArticleLike) => normalizeArticle(data))
@@ -32,4 +47,11 @@ export function listFeedArticles(filter?: { desk: string; tag: string; author: s
       data: res,
     }
   })
+}
+
+export async function getDeskWithSlug(slug: string) {
+  const client = useStoripressClient()
+  const { data } = await client.query({ query: GetDesk, variables: { slug } })
+
+  return data.desk
 }

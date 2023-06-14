@@ -15,5 +15,10 @@ export default defineNuxtModule({
       route: '/atom.xml',
       handler: resolve('./runtime/routes/atom.xml'),
     })
+
+    addServerHandler({
+      route: '/atom/:slug',
+      handler: resolve('./runtime/routes/atom-desk.xml'),
+    })
   },
 })
