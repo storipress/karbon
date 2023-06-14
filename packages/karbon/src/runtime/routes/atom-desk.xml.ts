@@ -35,8 +35,18 @@ export default defineEventHandler(async (e) => {
     return sendNoContent(e, 404)
   }
 
+  const deskIds: string[] = desk.desks?.map(({ id }: { id: string }) => id) ?? []
+
+  type Filter = Record<'desk' | 'desk_ids', string | string[]>
+  const filter = {} as Filter
+  if (deskIds.length !== 0) {
+    filter.desk_ids = deskIds
+  } else {
+    filter.desk = desk.id
+  }
+
   const runtimeConfig = useRuntimeConfig()
-  const articles = await listFeedArticles({ desk: desk.id })
+  const articles = await listFeedArticles(filter)
 
   const siteUrl = runtimeConfig.public.siteUrl
   const feed = new Feed({

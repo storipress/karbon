@@ -5,8 +5,8 @@ import type { RawArticleLike } from './normalize-article'
 import { normalizeArticle } from './normalize-article'
 
 const ListArticles = gql`
-  query ListArticles($page: Int!, $desk: ID) {
-    articles(page: $page, desk: $desk, sortBy: [{ column: UPDATED_AT, order: DESC }]) {
+  query ListArticles($page: Int!, $desk: ID, $desk_ids: [ID!]) {
+    articles(page: $page, desk: $desk, desk_ids: $desk_ids, sortBy: [{ column: UPDATED_AT, order: DESC }]) {
       paginatorInfo {
         count
         lastPage
@@ -35,11 +35,17 @@ const GetDesk = gql`
       seo
       order
       open_access
+      desks {
+        id
+        name
+        slug
+        seo
+      }
     }
   }
 `
 
-export function listFeedArticles(filter?: { desk: string; tag: string; author: string }) {
+export function listFeedArticles(filter?: { desk: string; tag: string; author: string; desk_ids: string }) {
   return getAllWithPagination(ListArticles, filter, ({ articles: { paginatorInfo, data } }) => {
     const res = data.map((data: RawArticleLike) => normalizeArticle(data))
     return {
