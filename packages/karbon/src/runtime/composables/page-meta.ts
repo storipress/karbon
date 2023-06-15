@@ -4,7 +4,15 @@ import type { EventName } from '../api/track'
 import type { UseArticleReturn as Article } from '../types'
 import { useSEO } from './seo'
 import { useStaticState } from './storipress-payload'
-import { computed, navigateTo, onBeforeUnmount, onMounted, useNuxtApp, useRequestEvent } from '#imports'
+import {
+  computed,
+  navigateTo,
+  onBeforeUnmount,
+  onMounted,
+  useDeskFeedLink,
+  useNuxtApp,
+  useRequestEvent,
+} from '#imports'
 
 export type PageType = 'article' | 'desk' | 'tag' | 'author'
 
@@ -123,19 +131,7 @@ export function setupArticlePage(seo?: boolean) {
 
 export function setupDeskPage(seo?: boolean) {
   const meta = setupPage({ type: 'desk', seo })
-  const nuxt = useNuxtApp()
-  const siteUrl = nuxt.ssrContext?.runtimeConfig?.public?.siteUrl || ''
-
-  useHead({
-    link: [
-      {
-        rel: 'alternate',
-        href: `${siteUrl}/atom/${meta.value.slug}.xml`,
-        type: 'application/atom+xml',
-      },
-    ],
-  })
-
+  useDeskFeedLink(meta)
   return meta
 }
 
