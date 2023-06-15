@@ -122,7 +122,21 @@ export function setupArticlePage(seo?: boolean) {
 }
 
 export function setupDeskPage(seo?: boolean) {
-  return setupPage({ type: 'desk', seo })
+  const meta = setupPage({ type: 'desk', seo })
+  const nuxt = useNuxtApp()
+  const siteUrl = nuxt.ssrContext?.runtimeConfig?.public?.siteUrl || ''
+
+  useHead({
+    link: [
+      {
+        rel: 'alternate',
+        href: `${siteUrl}/atom/${meta.value.slug}.xml`,
+        type: 'application/atom+xml',
+      },
+    ],
+  })
+
+  return meta
 }
 
 export function setupTagPage(seo?: boolean) {
