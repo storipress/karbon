@@ -1,4 +1,6 @@
 import type { MaybeRef } from '@vueuse/core'
+import { toValue } from '@vueuse/core'
+import { joinURL } from 'ufo'
 import type { Desk } from './page-meta'
 import { useHead } from '#imports'
 
@@ -9,8 +11,9 @@ export function useFeedLink() {
   useHead({
     link: [
       {
+        key: 'karbon-atom-feed',
         rel: 'alternate',
-        href: `${siteUrl}/atom.xml`,
+        href: joinURL(siteUrl, '/atom.xml'),
         type: 'application/atom+xml',
       },
     ],
@@ -20,15 +23,16 @@ export function useFeedLink() {
 export function useDeskFeedLink(deskMeta: MaybeRef<Desk>) {
   const runtimeConfig = useRuntimeConfig()
   const siteUrl = runtimeConfig?.public?.siteUrl || ''
-  const meta = toRef(deskMeta)
 
-  useHead({
+  useHead(() => ({
     link: [
       {
+        key: 'karbon-atom-feed',
         rel: 'alternate',
-        href: `${siteUrl}/atom/${meta.value.slug}.xml`,
+        href: joinURL(siteUrl, `/atom/${toValue(deskMeta).slug}.xml`),
         type: 'application/atom+xml',
+        tagPriority: 'high',
       },
     ],
-  })
+  }))
 }
