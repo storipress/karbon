@@ -6,6 +6,8 @@ onMounted(() => {
   $paywall.checkQuery()
 })
 
+useFeedLink()
+
 useAdvertisingHandler((segments) => {
   return segments
     .map((segment) => {
