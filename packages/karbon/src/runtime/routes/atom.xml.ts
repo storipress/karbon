@@ -48,9 +48,10 @@ export default defineEventHandler(async (e) => {
         link: joinURL(siteUrl, id),
         description: article.plaintext.slice(0, 120),
         date: new Date(article.published_at),
-        author: article.author?.map((author) => ({
-          name: author.name,
-        })) || [{ name: 'Storipress' }],
+        author:
+          article.author?.map((author) => ({
+            name: author.name,
+          })) || [],
         content: article.html,
       })
     })
