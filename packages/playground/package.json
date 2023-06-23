@@ -46,7 +46,7 @@
     "@babel/runtime": "^7.22.3",
     "@iframely/embed.js": "^1.10.1",
     "@nuxt/devalue": "^2.0.2",
-    "@nuxt/kit": "3.4.3",
+    "@nuxt/kit": "3.6.0",
     "@nuxtjs/html-validator": "^1.2.5",
     "@rudderstack/rudder-sdk-node": "^2.0.2",
     "@sentry/node": "^7.53.1",
