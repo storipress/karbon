@@ -9,18 +9,17 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.21...v0.1.22)
 
-
 ### 🩹 Fixes
 
-  - Ignore import if the logo is full URL ([4d04ce4](https://github.com/storipress/karbon/commit/4d04ce4))
-  - Fix bug ([3c2807d](https://github.com/storipress/karbon/commit/3c2807d))
+- Ignore import if the logo is full URL ([4d04ce4](https://github.com/storipress/karbon/commit/4d04ce4))
+- Fix bug ([3c2807d](https://github.com/storipress/karbon/commit/3c2807d))
 
 ### 🎨 Styles
 
-  - Format code with prettier ([c6738ac](https://github.com/storipress/karbon/commit/c6738ac))
-  - Format ([6b9050b](https://github.com/storipress/karbon/commit/6b9050b))
+- Format code with prettier ([c6738ac](https://github.com/storipress/karbon/commit/c6738ac))
+- Format ([6b9050b](https://github.com/storipress/karbon/commit/6b9050b))
 
-### ❤️  Contributors
+### ❤️ Contributors
 
 - DanSnow <dododavid006@gmail.com>
 - Sid <sid@storipress.com>
