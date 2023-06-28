@@ -6,7 +6,13 @@ import { normalizeArticle } from './normalize-article'
 
 const ListArticles = gql`
   query ListArticles($page: Int!, $desk: ID, $desk_ids: [ID!]) {
-    articles(page: $page, desk: $desk, desk_ids: $desk_ids, sortBy: [{ column: UPDATED_AT, order: DESC }]) {
+    articles(
+      page: $page
+      desk: $desk
+      desk_ids: $desk_ids
+      sortBy: [{ column: UPDATED_AT, order: DESC }]
+      published: true
+    ) {
       paginatorInfo {
         count
         lastPage
