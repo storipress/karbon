@@ -27,6 +27,7 @@ export const ListArticles = gql`
       data {
         id
         title
+        blurb
         slug
         sid
         published_at
