@@ -5,6 +5,38 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # 0.1.0 (2023-03-15)
 
+## v0.1.23
+
+[compare changes](https://github.com/storipress/karbon/compare/v0.1.22...v0.1.23)
+
+
+### 🚀 Enhancements
+
+  - Desk-specific RSS ([d6dd838](https://github.com/storipress/karbon/commit/d6dd838))
+  - Support query subdesk ([cd2fc45](https://github.com/storipress/karbon/commit/cd2fc45))
+  - Add atom link meta on desk page ([3958a9b](https://github.com/storipress/karbon/commit/3958a9b))
+  - Add feed composable ([1ee7683](https://github.com/storipress/karbon/commit/1ee7683))
+
+### 🩹 Fixes
+
+  - Rss error ([63af28b](https://github.com/storipress/karbon/commit/63af28b))
+  - Filt non published article ([3da264b](https://github.com/storipress/karbon/commit/3da264b))
+  - Remove default author ([1171e15](https://github.com/storipress/karbon/commit/1171e15))
+  - Filt non published article ([9766835](https://github.com/storipress/karbon/commit/9766835))
+  - Fix minor issues ([2bcac49](https://github.com/storipress/karbon/commit/2bcac49))
+  - **deps:** Update dependency unplugin-vue-components to ^0.25.0 ([0e14d80](https://github.com/storipress/karbon/commit/0e14d80))
+  - ListFeedArticles query add published: true param ([895fc56](https://github.com/storipress/karbon/commit/895fc56))
+
+### 🎨 Styles
+
+  - Format code with prettier ([0c52738](https://github.com/storipress/karbon/commit/0c52738))
+
+### ❤️  Contributors
+
+- Sid <sid@storipress.com>
+- DanSnow <dododavid006@gmail.com>
+- Ches4117 ([@ches4117](http://github.com/ches4117))
+
 ## v0.1.22
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.21...v0.1.22)
