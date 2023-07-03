@@ -150,7 +150,7 @@
     "nuxt-link-checker": "^1.0.4",
     "nuxt-schema-org": "^2.2.0",
     "nuxt-simple-robots": "^2.3.0",
-    "nuxt-simple-sitemap": "2.5.0",
+    "nuxt-simple-sitemap": "2.7.0",
     "ohash": "^1.1.2",
     "ora": "^6.3.1",
     "p-defer": "^4.0.0",
