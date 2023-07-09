@@ -269,7 +269,7 @@ const karbon = defineNuxtModule<ModuleOptions>({
               options: JSON.stringify(config.options),
             })
           }
-        })
+        }),
       )}
     `
 
@@ -385,7 +385,7 @@ const karbon = defineNuxtModule<ModuleOptions>({
         {
           payloadScope: 'authors',
         },
-      ])
+      ]),
     )
 
     // Auto imports
@@ -428,7 +428,7 @@ const karbon = defineNuxtModule<ModuleOptions>({
 
     addPlugin({
       src: resolver.resolve(
-        paywall.enable && paywall.logo ? './runtime/plugins/paywall.client' : './runtime/plugins/paywall-noop.client'
+        paywall.enable && paywall.logo ? './runtime/plugins/paywall.client' : './runtime/plugins/paywall-noop.client',
       ),
     })
 
@@ -538,7 +538,7 @@ async function addSnapshots(resolver: Resolver, fullStatic: boolean, configs: Ad
           `/_storipress/${payloadScope}/__map.js`,
         ])
       }
-    })
+    }),
   )
 }
 
