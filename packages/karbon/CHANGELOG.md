@@ -5,6 +5,27 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # 0.1.0 (2023-03-15)
 
+## v0.1.25
+
+[compare changes](https://github.com/storipress/karbon/compare/v0.1.24...v0.1.25)
+
+
+### 🩹 Fixes
+
+  - Support data url for paywall logo ([af6a719](https://github.com/storipress/karbon/commit/af6a719))
+
+### 🏡 Chore
+
+  - Lint ([cdcfdb7](https://github.com/storipress/karbon/commit/cdcfdb7))
+
+### 🎨 Styles
+
+  - Format code with prettier ([adbd9b4](https://github.com/storipress/karbon/commit/adbd9b4))
+
+### ❤️  Contributors
+
+- DanSnow <dododavid006@gmail.com>
+
 ## v0.1.24
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.23...v0.1.24)
