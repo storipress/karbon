@@ -224,7 +224,9 @@ const karbon = defineNuxtModule<ModuleOptions>({
     })
 
     const logoPath = await resolvePath(nuxt.options.runtimeConfig.public.storipress.paywall.logo)
-    const addLogo = `${genImport(logoPath, 'paywallLogo')}export default paywallLogo`
+    const addLogo = logoPath.startsWith('data:')
+      ? `const logo = ${JSON.stringify(logoPath)};export default logo`
+      : `${genImport(logoPath, 'paywallLogo')}export default paywallLogo`
 
     addTemplate({
       filename: 'paywall-logo.mjs',
