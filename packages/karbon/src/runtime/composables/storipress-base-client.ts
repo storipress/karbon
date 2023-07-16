@@ -1,6 +1,7 @@
 import { ApolloClient, HttpLink, InMemoryCache } from '@apollo/client/core/index.js'
 import { setContext } from '@apollo/client/link/context/index.js'
 import { fetch } from 'cross-fetch'
+import { withHttps } from 'ufo'
 import type { ModuleRuntimeConfig } from '../types'
 
 function getUserAgent() {
@@ -30,6 +31,10 @@ export function getStoripressConfig(): ModuleRuntimeConfig['storipress'] {
   } catch {
     return storipressConfigCtx.use()
   }
+}
+
+export function createTenantURL(config: Pick<ModuleRuntimeConfig['storipress'], 'apiHost' | 'clientId'>) {
+  return withHttps(`${config.apiHost}/client/${config.clientId}/graphql`)
 }
 
 export function createStoripressBaseClient(getHeaders: () => Record<string, string | null | undefined>, uri: string) {

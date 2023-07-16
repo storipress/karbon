@@ -1,6 +1,10 @@
 export { CUSTOM_FIELD_KEY, DECRYPT_AUTH_HEADER, DECRYPT_KEY_HEADER } from './runtime/constants'
 export { defineSnapshotHandler, NOT_FOUND } from './runtime/routes/snapshot-handler'
-export { createStoripressBaseClient, storipressConfigCtx } from './runtime/composables/storipress-base-client'
+export {
+  createStoripressBaseClient,
+  storipressConfigCtx,
+  createTenantURL,
+} from './runtime/composables/storipress-base-client'
 export { definePayloadHandler } from './runtime/routes/payload-handler'
 export { getSite } from './runtime/api/site'
 export { getGroup, listGroups } from './runtime/api/group'
