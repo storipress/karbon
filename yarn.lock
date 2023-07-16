@@ -2774,7 +2774,7 @@ __metadata:
     "@zhead/schema": ^1.1.0
     chalk: ^5.3.0
     cross-fetch: ^4.0.0
-    destr: ^1.2.2
+    destr: ^2.0.0
     eslint: 8.45.0
     eslint-config-prettier: 8.8.0
     eslint-plugin-prettier: 5.0.0
@@ -2858,7 +2858,7 @@ __metadata:
     "@zhead/schema": ^1.1.0
     chalk: ^5.3.0
     cross-fetch: ^4.0.0
-    destr: ^1.2.2
+    destr: ^2.0.0
     eslint: 8.45.0
     eslint-config-prettier: 8.8.0
     eslint-plugin-prettier: 5.0.0
@@ -2947,7 +2947,7 @@ __metadata:
     changelogen: 0.5.4
     cross-fetch: ^4.0.0
     defu: ^6.1.2
-    destr: ^1.2.2
+    destr: ^2.0.0
     eslint: 8.45.0
     eslint-config-prettier: 8.8.0
     eslint-plugin-prettier: 5.0.0
@@ -6367,7 +6367,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"destr@npm:^1.1.1, destr@npm:^1.2.0, destr@npm:^1.2.2":
+"destr@npm:^1.1.1, destr@npm:^1.2.0":
   version: 1.2.2
   resolution: "destr@npm:1.2.2"
   checksum: 3906b49513a64d8442dacb8b798c59d66257ded4ccd2ef1d99b58644d4aa6b30ca61f9a9823d3dcbc78b4db812596e53e85e499f39a498b3b165a045b5228b2b
