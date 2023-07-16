@@ -1,3 +1,4 @@
+import process from 'node:process'
 import type { Resolver } from '@nuxt/kit'
 import {
   addComponent,

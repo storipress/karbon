@@ -1,3 +1,4 @@
+import process from 'node:process'
 import { build as viteBuild } from 'vite'
 import tailwind from 'tailwindcss'
 import cssInjectedByJsPlugin from 'vite-plugin-css-injected-by-js'
