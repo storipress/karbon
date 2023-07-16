@@ -471,7 +471,7 @@ const karbon = defineNuxtModule<ModuleOptions>({
     })
     await Promise.all(promises)
 
-    const siteUrl = nuxt.options.runtimeConfig.public.siteUrl || 'https://example.com'
+    const siteUrl = (nuxt.options.runtimeConfig.public.siteUrl || 'https://example.com') as string
     // @ts-expect-error nocheck
     nuxt.options.sitemap = {
       enabled: true,
@@ -479,9 +479,7 @@ const karbon = defineNuxtModule<ModuleOptions>({
       exclude: ['/_storipress/_snapshot/**'],
       siteUrl,
     }
-    // @ts-expect-error nocheck
     nuxt.options.robots = {
-      // @ts-expect-error nocheck
       ...nuxt.options.robots!,
       sitemap: [withBase('/sitemap.xml', siteUrl)],
     }
