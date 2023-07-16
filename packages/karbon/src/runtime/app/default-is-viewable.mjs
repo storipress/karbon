@@ -23,7 +23,7 @@ export default defineIsViewable(async ({ meta, auth }) => {
   const { storipress } = useRuntimeConfig()
   const client = createStoripressBaseClient(
     () => ({ authorization: `Bearer ${auth.token}` }),
-    createTenantURL(storipress)
+    createTenantURL(storipress),
   )
   let profile
 
