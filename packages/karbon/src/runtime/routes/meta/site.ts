@@ -9,5 +9,5 @@ export default defineCachedEventHandler(
   defineSnapshotHandler({
     fixedName: '_site',
     handler: async () => getSite(),
-  })
+  }),
 )

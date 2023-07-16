@@ -12,7 +12,7 @@ export default function importerChecker() {
       if (importer && findImporter) {
         if (id === virtualModuleId) {
           consola.warn(
-            `Currently we don't support to import from "#imports", please don't use under the directory of "${findImporter}"`
+            `Currently we don't support to import from "#imports", please don't use under the directory of "${findImporter}"`,
           )
         }
       }

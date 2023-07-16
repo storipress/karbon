@@ -90,7 +90,7 @@ export default defineEventHandler(async (event): Promise<ViewableApiResult> => {
 function normalizeViewableResult(res: ViewableResult): DetailedViewableResult {
   if (res == null) {
     console.error(
-      "defineIsViewable return `null` or `undefined` will be implicit convert to `{ pass: false }`, but it's not recommend to rely on this behavior"
+      "defineIsViewable return `null` or `undefined` will be implicit convert to `{ pass: false }`, but it's not recommend to rely on this behavior",
     )
     res = false
   }

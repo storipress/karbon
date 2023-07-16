@@ -57,8 +57,8 @@ export default defineNuxtPlugin((nuxtApp) => {
               return loadStoripressPayload(scope, name)
             })
           } catch {}
-        })
-      )
+        }),
+      ),
     )
   })
 

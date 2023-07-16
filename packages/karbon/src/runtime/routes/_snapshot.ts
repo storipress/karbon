@@ -56,13 +56,13 @@ export default defineCachedEventHandler(async (event: H3Event) => {
       for (const item of items) {
         links.push(
           `/_storipress/${payloadScope}/${item.id}.js`,
-          ...(urls[urlKey].enable && !groupKey ? [encodePath(urls[urlKey].toURL(item, ctx))] : [])
+          ...(urls[urlKey].enable && !groupKey ? [encodePath(urls[urlKey].toURL(item, ctx))] : []),
         )
         if (urls[urlKey].enable && group && group.includes(item.id)) {
           links.push(encodePath(urls[urlKey].toURL(item, ctx)))
         }
       }
-    })
+    }),
   )
 
   setHeader(event, 'content-type', 'text/html')

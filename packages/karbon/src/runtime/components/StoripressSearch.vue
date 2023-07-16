@@ -11,7 +11,7 @@ const props = withDefaults(
   {
     queryBy: 'title',
     matchWithoutInput: false,
-  }
+  },
 )
 const emit = defineEmits(['update:modelValue'])
 const { searchClient, indexName } = useSearchClient({ queryBy: props.queryBy })

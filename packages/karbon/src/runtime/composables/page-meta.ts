@@ -92,7 +92,7 @@ export function setupPage<Type extends PageType>({ type, seo = true }: SetupPage
         ({ id, plan }) => {
           $paywall.setArticle({ id, plan })
         },
-        { immediate: true, flush: 'sync' }
+        { immediate: true, flush: 'sync' },
       )
     })
     onBeforeUnmount(() => {

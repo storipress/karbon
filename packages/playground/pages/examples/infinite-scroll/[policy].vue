@@ -25,7 +25,7 @@ watch(
   () =>
     // we can't change policy on the fly, force reload
     location.reload(),
-  { deep: true }
+  { deep: true },
 )
 // eslint-disable-next-line no-console
 const onDone = () => console.log(`all articles added`)

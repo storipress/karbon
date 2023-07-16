@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { Article } from '~~/sdk/runtime/composables/front-page'
+import type { Article } from '~~/sdk/runtime/composables/front-page'
 
 const desk = setupDeskPage()
 const booleanField = useField('desk_group1.boolean_field', FieldType.Bool, true)
@@ -37,7 +37,7 @@ const { preload, createLoadMore } = useArticleLoader({ preload: 4, chunk: 4 })
     <div>Infinite scroll start</div>
     <InfiniteScroll v-slot="articles" :source="createLoadMore">
       <div class="flex gap-2 mb-2">
-        <ArticleLayout v-for="article of (articles.items as Article[])" :key="article.id" :article="article" />
+        <ArticleLayout v-for="article of articles.items as Article[]" :key="article.id" :article="article" />
       </div>
     </InfiniteScroll>
   </div>

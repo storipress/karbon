@@ -277,7 +277,7 @@ async function encryptArticle({ plan, html, id, ...rest }: RawArticleLike) {
     const key = await crypto.subtle.exportKey('raw', cryptoKey)
     const content = await encrypt(new Uint8Array(key), paid)
     const compactEncrypter = new CompactEncrypt(
-      Buffer.from(JSON.stringify({ id, plan, key: Buffer.from(key).toString('base64') }))
+      Buffer.from(JSON.stringify({ id, plan, key: Buffer.from(key).toString('base64') })),
     ).setProtectedHeader({ enc: 'A256GCM', alg: 'dir' })
     const encryptedKey = await compactEncrypter.encrypt(Buffer.from(storipress.encryptKey, 'base64'))
     paidContent = {
@@ -297,7 +297,7 @@ async function encryptArticle({ plan, html, id, ...rest }: RawArticleLike) {
           type: segment.type,
           paidContent: Buffer.from(content).toString('base64'),
         }
-      })
+      }),
     )
   }
 

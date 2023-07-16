@@ -95,7 +95,7 @@ function _getAllArticles() {
 export function useFillArticles(
   count: number,
   conditionInput?: ConditionInput[],
-  { cacheKey: userCacheKey, _conditionID }: { cacheKey?: string; _conditionID?: string } = {}
+  { cacheKey: userCacheKey, _conditionID }: { cacheKey?: string; _conditionID?: string } = {},
 ) {
   hookFillInUsing()
   const { conditions, identity } = _conditionID
@@ -155,7 +155,7 @@ interface UseArticleLoaderInput<UseChunk extends false | number> {
 
 interface UseArticleLoaderReturn<
   UseChunk extends false | number,
-  ReturnValue = UseChunk extends false ? Article : Article[]
+  ReturnValue = UseChunk extends false ? Article : Article[],
 > {
   preload: Ref<Article[]>
   createLoadMore: () => AsyncGenerator<ReturnValue, void, unknown>
@@ -183,7 +183,7 @@ export function useArticleLoader<UseChunk extends false | number>({
     while (source.length) {
       const { result: nextChunk, skip } = getFillArticlesWithSkip(
         { conditions, count: chunk || 1, used: alreadyUsed, sourceCursor },
-        source
+        source,
       )
       if (exhaustedPolicy === 'show-unmatched') {
         hold.push(...skip)
@@ -248,7 +248,7 @@ function getFillArticles(
   },
   source: Article[],
   result: Article[] = [],
-  skip: Article[] = []
+  skip: Article[] = [],
 ): Article[] {
   return getFillArticlesWithSkip(opts, source, result, skip).result
 }
@@ -269,7 +269,7 @@ function getFillArticlesWithSkip(
   },
   source: Article[],
   result: Article[] = [],
-  skip: Article[] = []
+  skip: Article[] = [],
 ): { result: Article[]; skip: Article[] } {
   while (source.length !== 0 && result.length !== count) {
     const currentArticle = source.shift() as Article

@@ -19,7 +19,7 @@ test('createResourceRoute', () => {
   expect(route.toURL(meta, route._context)).toBe('/posts/desk-slug/article-slug')
   expect(createResourceRoute({ resource: 'tag', url: '/collection/{slug}', groupKey: 'group' })).toHaveProperty(
     'groupKey',
-    'group'
+    'group',
   )
 })
 
@@ -50,10 +50,10 @@ test('createResourceRoute with optional', () => {
 
   expect(route.isValid(paramsWithoutSubdesk, metaWithoutSubdesk, route._context)).toBe(true)
   expect(route.isValid({ ...paramsWithoutSubdesk, _root_desk_slug: 'foo' }, metaWithoutSubdesk, route._context)).toBe(
-    false
+    false,
   )
   expect(route.isValid({ ...paramsWithoutSubdesk, _sub_desk_slug: 'foo' }, metaWithoutSubdesk, route._context)).toBe(
-    false
+    false,
   )
   expect(route.toURL(metaWithoutSubdesk, route._context)).toBe('/posts/root-slug/article-slug')
 })

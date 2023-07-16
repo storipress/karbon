@@ -30,7 +30,7 @@ useIntersectionObserver(
   },
   {
     rootMargin: '50px',
-  }
+  },
 )
 </script>
 
@@ -40,7 +40,7 @@ useIntersectionObserver(
       <template v-for="article in list" :key="Array.isArray(article) ? article[0].id : article.id">
         <slot v-bind="{ items: article }">
           <CustomFieldScope :resource="article">
-            <ArticleLayout :article="(article as Article)" />
+            <ArticleLayout :article="article as Article" />
           </CustomFieldScope>
         </slot>
       </template>

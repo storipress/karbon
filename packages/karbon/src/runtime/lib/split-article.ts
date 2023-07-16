@@ -31,7 +31,7 @@ export function splitArticle(source: string): Segment[] {
     const segment = _segment as Element
     const DATA_FORMAT = 'data-format'
     const format: { name: string; value: string } | undefined = segment.attrs?.find(
-      ({ name }: { name: string }) => name === DATA_FORMAT
+      ({ name }: { name: string }) => name === DATA_FORMAT,
     )
     const type = format?.value || segment.tagName
 

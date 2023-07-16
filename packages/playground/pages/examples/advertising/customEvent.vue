@@ -1,8 +1,9 @@
 <script lang="ts" setup>
 import { AdvertisingProvider, AdvertisingSlot } from '@storipress/vue-advertising'
 import { gptConfig } from '../config'
+
 const backgroundColor = ref('red')
-const blueBackground = () => {
+function blueBackground() {
   backgroundColor.value = 'blue'
 }
 

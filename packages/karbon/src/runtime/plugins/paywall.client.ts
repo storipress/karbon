@@ -94,7 +94,7 @@ export default defineNuxtPlugin((_nuxtApp) => {
 
   function setArticle(article: Article) {
     paywall.value?.setArticle(
-      site.value?.plan === 'free' && article?.plan === 'subscriber' ? { ...article, plan: 'member' } : article
+      site.value?.plan === 'free' && article?.plan === 'subscriber' ? { ...article, plan: 'member' } : article,
     )
   }
 

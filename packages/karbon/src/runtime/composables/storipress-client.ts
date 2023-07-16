@@ -9,7 +9,7 @@ export function createStoripressClient() {
     () => ({
       authorization: `Bearer ${storipress?.apiToken}`,
     }),
-    getUri()
+    getUri(),
   )
 }
 

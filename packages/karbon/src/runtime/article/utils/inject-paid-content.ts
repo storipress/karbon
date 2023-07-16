@@ -12,7 +12,7 @@ const decryptedSet = new WeakSet()
 export async function decryptPaidContent(
   contentKey: string,
   segments: Segment[],
-  getDecryptKey: (key: string) => Promise<ViewableApiResult>
+  getDecryptKey: (key: string) => Promise<ViewableApiResult>,
 ) {
   try {
     const verifyResult = await getDecryptKey(contentKey ?? '')
@@ -33,7 +33,7 @@ export async function decryptPaidContent(
           type: segment.type,
           html,
         }
-      })
+      }),
     )
     return decryptSegment
   } catch (e) {

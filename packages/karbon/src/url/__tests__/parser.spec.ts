@@ -220,7 +220,7 @@ test('toRoute', () => {
         path: ['slug'],
         type: 'variable',
       },
-    ])
+    ]),
   ).toMatchInlineSnapshot('"/:_desk_slug/:_slug"')
 
   expect(
@@ -258,7 +258,7 @@ test('toRoute', () => {
         path: ['slug'],
         type: 'variable',
       },
-    ])
+    ]),
   ).toMatchInlineSnapshot('"/:_root_desk_slug/:_sub_desk_slug?/:_slug"')
 
   expect(
@@ -282,6 +282,6 @@ test('toRoute', () => {
         path: ['id'],
         type: 'variable',
       },
-    ])
+    ]),
   ).toMatchInlineSnapshot('"/:multiple*/:_id"')
 })

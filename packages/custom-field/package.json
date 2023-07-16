@@ -1,29 +1,29 @@
 {
   "name": "@storipress/custom-field",
   "version": "1.1.7",
-  "repository": "git@github.com:storipress/karbon.git",
+  "packageManager": "yarn@3.5.1",
   "license": "MIT",
+  "repository": "git@github.com:storipress/karbon.git",
   "bugs": {
     "url": "https://github.com/storipress/karbon"
   },
-  "engines": {
-    "node": ">=16.7.0"
-  },
-  "main": "./dist/index.mjs",
   "exports": {
     ".": {
-      "import": "./dist/index.mjs",
-      "types": "./dist/index.d.ts"
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs"
     }
+  },
+  "main": "./dist/index.mjs",
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=16.7.0"
   },
   "scripts": {
     "build": "unbuild",
     "prepack": "yarn build"
   },
-  "files": [
-    "dist"
-  ],
-  "packageManager": "yarn@3.5.1",
   "dependencies": {
     "hookable": "^5.5.3",
     "remeda": "^1.24.0",

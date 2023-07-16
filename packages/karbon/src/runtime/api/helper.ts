@@ -14,7 +14,7 @@ export interface PaginationData {
 export async function getAllWithPagination(
   document: DocumentNode,
   variables: any = {},
-  getPaginationData: (data: any) => PaginationData
+  getPaginationData: (data: any) => PaginationData,
 ) {
   const client = useStoripressClient()
   const getPage = async (page: number): Promise<PaginationData> => {
@@ -26,7 +26,7 @@ export async function getAllWithPagination(
 }
 
 export async function getAllWithPaginationViaGetPage(
-  getPage: (page: number) => Promise<PaginationData>
+  getPage: (page: number) => Promise<PaginationData>,
 ): Promise<any[]> {
   const firstPage = await getPage(1)
   const firstData = firstPage.data
@@ -35,7 +35,7 @@ export async function getAllWithPaginationViaGetPage(
     getRemainingPages(firstPage.paginatorInfo.lastPage).map(async (page) => {
       const pageData = await getPage(page)
       return pageData.data
-    })
+    }),
   )
 
   return flatten([firstData, ...remaining])

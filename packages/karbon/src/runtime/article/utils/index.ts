@@ -29,7 +29,7 @@ const [useProvideArticle, useOptionalArticle] = createInjectionState<[UseArticle
   shallowReadonly({
     ...article,
     segments: advertisingHandler.value(article?.segments ?? []),
-  })
+  }),
 )
 
 export { useProvideArticle, useOptionalArticle }
@@ -81,7 +81,7 @@ export function useRecommendArticle(article: Article, options: RecommendArticleO
     {
       default: () => [],
       watch: [fillArticles],
-    }
+    },
   )
 
   return data

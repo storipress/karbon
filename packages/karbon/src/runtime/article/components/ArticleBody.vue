@@ -40,9 +40,12 @@ watchEffect(() => {
   processingArticles(root.value, fixArticleEmbed)
 })
 
-const { state: articleSegments, execute } = useAsyncState<Segment[]>(async () => {
-  return await decryptPaidContent(article?.paidContent?.key ?? '', article?.segments ?? [], getDecryptKey)
-}, article?.segments ?? [])
+const { state: articleSegments, execute } = useAsyncState<Segment[]>(
+  async () => {
+    return await decryptPaidContent(article?.paidContent?.key ?? '', article?.segments ?? [], getDecryptKey)
+  },
+  article?.segments ?? [],
+)
 
 watch(
   articleSegments,
@@ -51,7 +54,7 @@ watch(
   },
   {
     flush: 'post',
-  }
+  },
 )
 
 const { left } = useElementBounding(root)
@@ -94,7 +97,7 @@ whenever(
     await nextTick()
     await hydrationBlocks()
   },
-  { flush: 'post' }
+  { flush: 'post' },
 )
 
 onMounted(() => {
@@ -105,7 +108,7 @@ watch(
   () => $paywall.paywall.value?.profile,
   (data) => {
     profile.value = data?.id ? data : null
-  }
+  },
 )
 whenever(
   showPaywall,
@@ -118,7 +121,7 @@ whenever(
       }
     })
   },
-  { immediate: true }
+  { immediate: true },
 )
 </script>
 

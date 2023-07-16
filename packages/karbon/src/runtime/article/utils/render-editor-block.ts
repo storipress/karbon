@@ -15,7 +15,7 @@ export function useRenderEditorBlock(blocks: Record<string, Component>) {
         if (!block) {
           if (process.dev) {
             warn(
-              `Unknown block \`${name}\`, please ensure there has \`${name}.vue\` under \`editor-blocks/\` directory`
+              `Unknown block \`${name}\`, please ensure there has \`${name}.vue\` under \`editor-blocks/\` directory`,
             )
           }
           return

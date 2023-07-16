@@ -25,7 +25,7 @@ const loadNuxtConfigOnce = once(() => loadNuxtConfig({}))
 export function createConfig(
   name: string,
   dir: string,
-  ssr?: boolean
+  ssr?: boolean,
 ): BuildOptions['rollupOptions'] & { output: OutputOptions } {
   const config: BuildOptions['rollupOptions'] & { output: OutputOptions } = {
     ...(ssr ? {} : { input: 'entry' }),

@@ -9,5 +9,5 @@ export default defineCachedEventHandler(
     handler: async () => {
       return { [CUSTOM_FIELD_KEY]: {} }
     },
-  })
+  }),
 )

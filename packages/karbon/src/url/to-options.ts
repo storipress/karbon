@@ -11,7 +11,7 @@ const PREFER_IDENTITY = ['id', 'sid', 'slug']
 export function convertToOption(
   resource: Resources,
   parts: URLPart[],
-  staticParams = {}
+  staticParams = {},
 ): ResourcePage<BaseMeta, RouteOptionsContext> {
   const id = findIdentity(parts)
   return {

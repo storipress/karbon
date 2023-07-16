@@ -2,28 +2,28 @@
   "name": "@storipress/jose-browser",
   "version": "1.1.5",
   "packageManager": "yarn@3.5.1",
-  "repository": "git@github.com:storipress/karbon.git",
   "license": "MIT",
+  "repository": "git@github.com:storipress/karbon.git",
   "bugs": {
     "url": "https://github.com/storipress/karbon"
   },
-  "engines": {
-    "node": ">=16.7.0"
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs"
+    }
   },
+  "main": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
   "files": [
     "./dist"
   ],
-  "main": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
+  "engines": {
+    "node": ">=16.7.0"
+  },
   "scripts": {
     "build": "unbuild",
     "prepack": "unbuild"
-  },
-  "exports": {
-    ".": {
-      "import": "./dist/index.mjs",
-      "types": "./dist/index.d.ts"
-    }
   },
   "dependencies": {
     "jose": "^4.14.4"

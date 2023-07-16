@@ -15,7 +15,7 @@ const KEY_TO_SCOPE: Record<Resources, PayloadScope> = {
 type ResourceIDWithURL<Type extends Resources> = ResourceID & { url: string; meta: MetaMap[Type] }
 
 export function useResourceList<Type extends Resources>(
-  resource: Type
+  resource: Type,
 ): AsyncData<ResourceIDWithURL<Type>[], true | null> {
   return useAsyncData(`sp-resource-list-${resource}`, async () => {
     const list = await loadStoripressPayload<MetaMap[Type][]>(KEY_TO_SCOPE[resource], '__all')
@@ -25,7 +25,7 @@ export function useResourceList<Type extends Resources>(
           type: resource,
           id: meta.id,
           ...resolveFromResourceMetaSync(resource, meta),
-        } as ResourceIDWithURL<Type>)
+        }) as ResourceIDWithURL<Type>,
     )
   })
 }
@@ -41,7 +41,7 @@ export interface UseResourceReturn<T extends BaseMeta> {
 
 export function _useResource<TResource extends BaseMeta>(
   resourceName: Resources,
-  mapper: (x: TResource) => TResource
+  mapper: (x: TResource) => TResource,
 ): UseResourceReturn<TResource> {
   const res = useResourceList(resourceName)
   return {
@@ -53,7 +53,7 @@ export function _useResource<TResource extends BaseMeta>(
             ...item.meta,
             url: item.url,
           } as unknown as TResource)
-        }) ?? null
+        }) ?? null,
     ),
   }
 }

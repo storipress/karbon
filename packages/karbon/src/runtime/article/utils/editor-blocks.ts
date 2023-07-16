@@ -5,5 +5,5 @@ import { basename } from 'pathe'
 export const editorBlocks = pipe(
   import.meta.glob('~~/templates/editor-blocks/*.vue', { eager: true }),
   mapKeys((name) => snakeCase(basename(name, '.vue'))),
-  mapValues((mod) => (mod as any).default)
+  mapValues((mod) => (mod as any).default),
 )

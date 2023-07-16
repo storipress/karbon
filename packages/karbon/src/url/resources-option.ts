@@ -17,7 +17,7 @@ export interface GetResourcesOptionParams<Meta extends ArticleMeta | DeskMeta | 
 export function getResourcesOption<Meta extends ArticleMeta | DeskMeta | AuthorMeta | TagMeta>(
   { type, prefix, resource, isValid, identity = 'id', groupKey }: GetResourcesOptionParams<Meta> = {
     resource: 'article',
-  }
+  },
 ): ResourcePage<Meta> {
   const urlPrefix = prefix ? `/${prefix}` : ''
 
@@ -26,7 +26,7 @@ export function getResourcesOption<Meta extends ArticleMeta | DeskMeta | AuthorM
       return {
         route: `${urlPrefix}/:${UrlParams.Desks}/:${UrlParams.Identity}`,
         enable: true,
-        getIdentity: ({ identity }, ctx) => ({ type: ctx.resource, [ctx.identity]: identity } as ResourceID),
+        getIdentity: ({ identity }, ctx) => ({ type: ctx.resource, [ctx.identity]: identity }) as ResourceID,
         isValid:
           isValid ??
           (({ desks }, meta) => {
@@ -49,7 +49,7 @@ export function getResourcesOption<Meta extends ArticleMeta | DeskMeta | AuthorM
       return {
         route: `${urlPrefix}/:${UrlParams.Identity}`,
         enable: true,
-        getIdentity: ({ identity }, ctx) => ({ type: ctx.resource, [ctx.identity]: identity } as ResourceID),
+        getIdentity: ({ identity }, ctx) => ({ type: ctx.resource, [ctx.identity]: identity }) as ResourceID,
         isValid: isValid ?? (() => true),
         toURL: (meta, ctx) => `${ctx.prefix}/${meta[ctx.identity]}`,
         _context: { identity, resource, prefix: urlPrefix },
@@ -60,7 +60,7 @@ export function getResourcesOption<Meta extends ArticleMeta | DeskMeta | AuthorM
       return {
         route: `${urlPrefix}/:${UrlParams.Identity}`,
         enable: true,
-        getIdentity: ({ identity }, ctx) => ({ type: ctx.resource, [ctx.identity]: identity } as ResourceID),
+        getIdentity: ({ identity }, ctx) => ({ type: ctx.resource, [ctx.identity]: identity }) as ResourceID,
         isValid: isValid ?? (() => true),
         toURL: (meta, ctx) => `${ctx.prefix}/${meta[ctx.identity]}`,
         _context: { identity, resource, prefix: urlPrefix },

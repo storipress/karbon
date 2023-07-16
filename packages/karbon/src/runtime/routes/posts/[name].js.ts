@@ -7,5 +7,5 @@ export default defineCachedEventHandler(
   definePayloadHandler({
     listAll: listArticles,
     getOne: getArticle,
-  })
+  }),
 )

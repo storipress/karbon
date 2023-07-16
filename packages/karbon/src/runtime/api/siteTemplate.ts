@@ -72,7 +72,7 @@ async function createStoripressClient() {
     () => ({
       authorization: `Bearer ${apiToken}`,
     }),
-    `${apiHost}/client/${clientId}/graphql`
+    `${apiHost}/client/${clientId}/graphql`,
   )
 }
 

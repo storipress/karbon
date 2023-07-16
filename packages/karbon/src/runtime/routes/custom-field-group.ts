@@ -37,11 +37,11 @@ export default defineCachedEventHandler(
       for (const group of result) {
         groupTagIds.set(
           group.key,
-          group.tags.map(({ id }: { id: string }) => id)
+          group.tags.map(({ id }: { id: string }) => id),
         )
       }
 
       return Object.fromEntries(groupTagIds)
     },
-  })
+  }),
 )

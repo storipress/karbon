@@ -113,7 +113,7 @@ function getCustomFields(metafields: MetaFields[]) {
       const fieldValues = cur.values.length ? cur.values.map((value) => getFieldValue(value)) : []
 
       return [concatType, fieldValues] as const
-    })
+    }),
   )
 }
 
@@ -168,7 +168,7 @@ function sortEditorBlockValue(metafields: MetaFields[]) {
   const blocks = blockJson ? JSON.parse(blockJson) : {}
 
   return Object.fromEntries(
-    Object.entries(blocks).map(([uuid, values]) => [uuid, getEditorBlockValues(valuesMap, values as string[])])
+    Object.entries(blocks).map(([uuid, values]) => [uuid, getEditorBlockValues(valuesMap, values as string[])]),
   )
 }
 

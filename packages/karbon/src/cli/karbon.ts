@@ -50,7 +50,7 @@ async function runBundle() {
     Sentry.captureException(error)
     await track(deployFail, { articleLayout: layouts.length, editorBlock: blocks.length })
     consola.error(
-      'Karbon app fail to deploy! Please open an issue on https://github.com/storipress/karbon/issues with the following log'
+      'Karbon app fail to deploy! Please open an issue on https://github.com/storipress/karbon/issues with the following log',
     )
     consola.error(error)
   }
@@ -91,7 +91,7 @@ async function compress() {
     ],
     {
       ignoreFiles: [path.join(process.cwd(), '.karbonignore')],
-    }
+    },
   )
 
   const zip = new JSZip()
@@ -121,7 +121,7 @@ async function compress() {
           throw new Error(karbonMsg.compressingError)
         }
       }),
-    fs.createWriteStream(siteTemplateName)
+    fs.createWriteStream(siteTemplateName),
   )
 }
 
@@ -146,7 +146,7 @@ function logSummary(resources: (Tlayout | Tblock)[], type: keyof typeof SummaryT
     block: 'Editor Blocks',
   }
   const summary = resources.map(
-    (resource) => `- ${SummaryType[type]} \`${chalk.whiteBright.bold(resource.id)}\` (path: ${resource.path})`
+    (resource) => `- ${SummaryType[type]} \`${chalk.whiteBright.bold(resource.id)}\` (path: ${resource.path})`,
   )
 
   group(LABEL[type])

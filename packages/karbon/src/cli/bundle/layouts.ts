@@ -22,7 +22,7 @@ export async function bundleLayouts() {
         path: filePath,
       })
       await bundle(filePath, vuefileName, layoutName, 'layouts')
-    })
+    }),
   )
 
   return jsonVariable

@@ -29,7 +29,7 @@ function resolveLayout(): string {
     return ''
   }
   const customLayout: string = props.article?.metafields?.find(
-    ({ key, group }) => group.key === '__layoutmeta' && key === 'layoutid'
+    ({ key, group }) => group.key === '__layoutmeta' && key === 'layoutid',
   )?.values?.[0]?.value
   return props.resolveLayout?.(props.article) || props.layout || customLayout || getDefaultLayout()
 }

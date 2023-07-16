@@ -7,6 +7,7 @@ import {
   createTagCollectionRoute,
   createTagRoute,
 } from '@storipress/karbon/helper'
+
 export default defineNuxtConfig({
   modules: ['@storipress/karbon', '@nuxtjs/tailwindcss', '@vueuse/nuxt', '@nuxtjs/html-validator'],
   build: {

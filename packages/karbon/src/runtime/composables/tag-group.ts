@@ -15,7 +15,7 @@ export function useTagGroup(groupKey: string) {
   const tagCollectionResource = Object.fromEntries(
     Object.entries(urls)
       .filter(([key, _value]) => !DEFAULT_RESOURCE.has(key))
-      .map(([_key, value]) => [value.groupKey, value])
+      .map(([_key, value]) => [value.groupKey, value]),
   )
   if (!tagCollectionResource[groupKey]) {
     throw new Error(`Could not find groupKey "${groupKey}", check if it is set in nuxt.config`)

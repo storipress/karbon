@@ -18,7 +18,7 @@ function jsonSafe() {
   const blockExist = result.blocks.every(
     (item) =>
       (!item.ssr && fs.existsSync(`.storipress/${item.file}`)) ||
-      (item.ssr && fs.existsSync(`.storipress/${item.file}`))
+      (item.ssr && fs.existsSync(`.storipress/${item.file}`)),
   )
 
   if (!layoutExist) {

@@ -25,17 +25,17 @@ export function useField<Type extends FieldType>(key: string, type: Type): UseFi
 export function useField<Type extends FieldType, IsAll extends boolean>(
   key: string,
   type: Type,
-  all: IsAll
+  all: IsAll,
 ): UseFieldReturn<Type, IsAll>
 export function useField<Type extends FieldType, IsAll extends boolean>(
   key: string,
   options: UseFieldOptions<Type, IsAll>,
-  _all?: IsAll
+  _all?: IsAll,
 ): UseFieldReturn<Type, IsAll>
 export function useField(
   key: string,
   type_?: FieldType | UseFieldOptions<FieldType, boolean>,
-  all_ = false
+  all_ = false,
 ): Ref<unknown> {
   const { type, all } = normalizeOptions(type_, all_)
   storageHooks.callHookParallel('field:read', key, type)
@@ -50,7 +50,7 @@ export function useField(
     () => {
       k.value = getKey()
     },
-    { deep: true }
+    { deep: true },
   )
 
   if (all) {
@@ -66,7 +66,7 @@ export function useField(
 
 function normalizeOptions<Type extends FieldType, IsAll extends boolean = false>(
   type?: Type | UseFieldOptions<Type, IsAll>,
-  all?: IsAll
+  all?: IsAll,
 ): UseFieldOptions<Type, IsAll> {
   if (typeof type === 'object') {
     return type
@@ -98,6 +98,6 @@ function resolveAlias(storage: CustomFieldStorage) {
       const originalPair: [string, string] = [originalKey, originalKey]
       return parsed ? [[parsed.key, originalKey], originalPair] : [originalPair]
     }),
-    fromPairs<string>
+    fromPairs<string>,
   )
 }

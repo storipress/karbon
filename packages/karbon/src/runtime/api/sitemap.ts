@@ -115,7 +115,7 @@ export async function getResources(runtimeConfig?: ModuleRuntimeConfig['storipre
         }
       }
       return [payloadScope, resources]
-    })
+    }),
   )
 
   return Object.fromEntries(result)

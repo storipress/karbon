@@ -1,4 +1,4 @@
-import nodeCrypto from 'crypto'
+import nodeCrypto from 'node:crypto'
 
 if (!globalThis.crypto) {
   // polyfill global crypto

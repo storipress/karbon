@@ -37,7 +37,7 @@ function createFirstFound(paths: string[][]) {
       paths,
       map((p) => path(input, p)),
       compact,
-      first()
+      first(),
     )
   }
 }
@@ -103,7 +103,7 @@ export function defineSEOHandler(inputOrHandler: DefineSEOHandlerInput | SEOHand
 }
 
 export function defineSEOPreset(
-  inputOrSetup: DefineSEOInput | ((options: Record<string, any>) => SEOPreset<MetaInput>)
+  inputOrSetup: DefineSEOInput | ((options: Record<string, any>) => SEOPreset<MetaInput>),
 ): NormalizedSEOPreset {
   const { setup } = typeof inputOrSetup === 'function' ? { setup: inputOrSetup } : inputOrSetup
 

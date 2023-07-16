@@ -36,7 +36,7 @@ export async function bundleEditorBlocks() {
         bundle(filePath, vuefileName, blockName, 'editor-blocks'),
         bundle(filePath, vuefileName, blockName, 'editor-blocks-ssr', true),
       ]
-    })
+    }),
   )
   return jsonVariable
 }

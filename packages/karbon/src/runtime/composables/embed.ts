@@ -66,7 +66,7 @@ export function useEmbed() {
             await loadPromise.promise
           }
           await fn()
-        })
+        }),
       )
     },
   }
