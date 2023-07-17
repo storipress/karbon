@@ -7,6 +7,10 @@ const multipleValues = useField('multiple-value', { type: FieldType.Text, all: t
 
 const { articles: alphabetArticles } = useFillArticles(10, [{ key: 'slug', value: 'alphabet' }])
 const { articles: lastArticles } = useFillArticles(9)
+const { articles: featureArticles } = useFillArticles(10, [
+  { key: 'slug', value: 'test' },
+  { type: 'featured' }
+])
 
 watch(alphabetArticles, (articles) => {
   const slugs = new Set(articles.map((article) => article.slug))
@@ -58,6 +62,13 @@ watch(alphabetArticles, (articles) => {
     </div>
     <div class="flex w-screen mt-4">
       <div v-for="article in lastArticles" :key="article.id" class="border border-black flex-1 overflow-hidden">
+        <ArticleLayout :article="article" />
+      </div>
+    </div>
+
+    <h2 class="text-2xl mt-4">Feature Articles</h2>
+    <div class="flex w-screen mt-4">
+      <div v-for="article in featureArticles" :key="article.id" class="border border-black flex-1 overflow-hidden">
         <ArticleLayout :article="article" />
       </div>
     </div>
