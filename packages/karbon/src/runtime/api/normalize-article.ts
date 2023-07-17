@@ -1,4 +1,4 @@
-import destr from 'destr'
+import { destr } from 'destr'
 import truncate from 'lodash.truncate'
 import type { Segment } from '../lib/split-article'
 import type { ArticlePlan } from '../types'
@@ -29,6 +29,17 @@ export interface PaidContent {
   key: string
 }
 
+export interface RawSEOItem {
+  title: string
+  description: string
+}
+
+export interface RawSEO {
+  meta?: RawSEOItem
+  og?: RawSEOItem
+  ogImage?: string
+}
+
 export function normalizeArticle({
   title,
   blurb,
@@ -47,7 +58,7 @@ export function normalizeArticle({
     plan,
     title: unwrapParagraph(title),
     blurb: unwrapParagraph(blurb),
-    seo: destr(seo),
+    seo: destr<RawSEO>(seo),
     html,
     plaintext: truncate(plaintext, {
       // description length
@@ -63,6 +74,8 @@ export function normalizeArticle({
     })),
   }
 }
+
+export type _NormalizeArticle = ReturnType<typeof normalizeArticle>
 
 export interface NormalizeArticle extends ReturnType<typeof normalizeArticle> {
   paidContent?: PaidContent

@@ -1,5 +1,5 @@
 import { Buffer } from 'node:buffer'
-import destr from 'destr'
+import { destr } from 'destr'
 import invariant from 'tiny-invariant'
 
 // @ts-expect-error self reference

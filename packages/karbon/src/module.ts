@@ -457,7 +457,7 @@ const karbon = defineNuxtModule<ModuleOptions>({
       src: resolver.resolve('./runtime/plugins/1.injectRuntimeConfig'),
     })
 
-    await installModule('@nuxt/image-edge', {
+    await installModule('@nuxt/image', {
       provider: 'Storipress',
       providers: {
         Storipress: {

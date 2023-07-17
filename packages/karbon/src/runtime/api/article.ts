@@ -11,7 +11,7 @@ import type { NormalSegment } from '../lib/split-article'
 import { splitArticle } from '../lib/split-article'
 import { getStoripressConfig } from '../composables/storipress-base-client'
 import { getAllWithPagination } from './helper'
-import type { PaidContent, RawArticleLike } from './normalize-article'
+import type { PaidContent, RawArticleLike, _NormalizeArticle } from './normalize-article'
 import { normalizeArticle } from './normalize-article'
 
 export type { NormalizeArticle, PaidContent } from './normalize-article'
@@ -260,7 +260,7 @@ export async function getArticle(id: string) {
   return res
 }
 
-async function encryptArticle({ plan, html, id, ...rest }: RawArticleLike) {
+async function encryptArticle({ plan, html, id, ...rest }: _NormalizeArticle) {
   let freeHTML = html
   let paidContent: PaidContent | undefined
 
