@@ -63,7 +63,7 @@
   },
   "devDependencies": {
     "@antfu/eslint-config-vue": "0.39.8",
-    "@nuxt/image": "^1.0.0-rc.1",
+    "@nuxt/image": "1.0.0-rc.1",
     "@nuxtjs/tailwindcss": "6.8.0",
     "@rollup/plugin-virtual": "3.0.1",
     "@types/find-cache-dir": "3.2.1",

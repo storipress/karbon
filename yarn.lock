@@ -1753,7 +1753,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nuxt/image@npm:^1.0.0-rc.1":
+"@nuxt/image@npm:1.0.0-rc.1, @nuxt/image@npm:^1.0.0-rc.1":
   version: 1.0.0-rc.1
   resolution: "@nuxt/image@npm:1.0.0-rc.1"
   dependencies:
@@ -2759,7 +2759,7 @@ __metadata:
     "@babel/runtime": ^7.22.6
     "@iframely/embed.js": ^1.10.1
     "@nuxt/devalue": ^2.0.2
-    "@nuxt/image": ^1.0.0-rc.1
+    "@nuxt/image": 1.0.0-rc.1
     "@nuxt/kit": 3.6.3
     "@nuxtjs/html-validator": ^1.5.1
     "@nuxtjs/tailwindcss": 6.8.0
@@ -2839,7 +2839,7 @@ __metadata:
     "@babel/runtime": ^7.22.6
     "@iframely/embed.js": ^1.10.1
     "@nuxt/devalue": ^2.0.2
-    "@nuxt/image": ^1.0.0-rc.1
+    "@nuxt/image": 1.0.0-rc.1
     "@nuxt/kit": 3.6.3
     "@nuxtjs/html-validator": ^1.5.1
     "@nuxtjs/tailwindcss": 6.8.0
