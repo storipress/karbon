@@ -5,6 +5,20 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # 0.1.0 (2023-03-15)
 
+## v0.1.28
+
+[compare changes](https://github.com/storipress/karbon/compare/v0.1.27...v0.1.28)
+
+### 🩹 Fixes
+
+- **deps:** Update dependency cross-fetch to v4 ([486a989](https://github.com/storipress/karbon/commit/486a989))
+- **deps:** Update dependency type-fest to v4 ([2006884](https://github.com/storipress/karbon/commit/2006884))
+- Upgrade to nuxt image rc + upgrade destr ([6628992](https://github.com/storipress/karbon/commit/6628992))
+
+### ❤️  Contributors
+
+- DanSnow <dododavid006@gmail.com>
+
 ## v0.1.27
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.26...v0.1.27)
