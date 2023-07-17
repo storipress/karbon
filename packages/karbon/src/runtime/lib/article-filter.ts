@@ -22,7 +22,13 @@ export interface AuthorConditionOption {
   value: string
 }
 
-export type Condition = DeskConditionOption | TagConditionOption | AuthorConditionOption
+export interface FeaturedConditionOption {
+  type: 'featured'
+  key?: 'id'
+  value?: boolean
+}
+
+export type Condition = DeskConditionOption | TagConditionOption | AuthorConditionOption | FeaturedConditionOption
 export type ConditionInput = string | Condition
 
 export function normalizeCondition(conditionInput?: ConditionInput[]): { identity: string; conditions: Condition[] } {
@@ -34,7 +40,7 @@ export function normalizeCondition(conditionInput?: ConditionInput[]): { identit
           type: 'desk' as const,
           ...value,
         }
-        identityList.push(`${res.type}:${res.key}:${res.value}`)
+        identityList.push(`${res.type}:${res?.key ?? '-'}:${res?.value ?? true}`)
         return res
       }
 
@@ -58,13 +64,19 @@ export function evaluateCondition(article: Article, conditions: Condition[] = []
     return true
   }
 
-  return conditions.some(({ type = 'desk', key, value }) => {
-    if (type === 'desk') {
-      return article.desk[key] === value || article.desk?.desk?.[key] === value
-    } else if (type === 'author') {
-      return article.authors.some((author) => author.id === value)
-    } else {
-      return article.tags.some((tag) => tag[key] === value)
+  return conditions.every(({ type = 'desk', key, value }) => {
+    switch (true) {
+      case type === 'featured':
+        value ??= true
+        return article.featured === value
+      case type === 'desk':
+        return article.desk[key!] === value || article.desk?.desk?.[key!] === value
+      case type === 'author':
+        return article.authors.some((author) => author.id === value)
+      case type === 'tag':
+        return article.tags.some((tag) => tag[key!] === value)
+      default:
+        return false
     }
   })
 }

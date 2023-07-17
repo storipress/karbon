@@ -31,6 +31,7 @@ export const ListArticles = gql`
         slug
         sid
         published_at
+        featured
         plan
         cover
         seo

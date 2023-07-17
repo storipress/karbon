@@ -201,6 +201,7 @@ export interface Article {
   published_at?: any | null
   slug: string
   title: string
+  featured: boolean
   cover?: any | null
   seo?: any | null
   html?: string | null
