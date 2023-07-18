@@ -431,6 +431,13 @@ const karbon = defineNuxtModule<ModuleOptions>({
       src: resolver.resolve(
         paywall.enable && paywall.logo ? './runtime/plugins/paywall.client' : './runtime/plugins/paywall-noop.client',
       ),
+      mode: 'client',
+    })
+
+    addPlugin({
+      // paywall API is client side only
+      src: resolver.resolve('./runtime/plugins/paywall-noop.client'),
+      mode: 'server',
     })
 
     addPlugin({
