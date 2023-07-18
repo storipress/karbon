@@ -31,6 +31,7 @@ export const ListArticles = gql`
         slug
         sid
         published_at
+        updated_at
         featured
         plan
         cover
@@ -79,6 +80,7 @@ const GetArticle = gql`
       id
       blurb
       published_at
+      updated_at
       desk {
         id
         name

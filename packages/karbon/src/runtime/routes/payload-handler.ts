@@ -1,4 +1,5 @@
 import { filter, first, pipe } from 'remeda'
+import { setHeader } from 'h3'
 import type { Identifiable } from '../types'
 import {
   ALL_RESOURCE_JSON_PATH,
@@ -58,15 +59,33 @@ interface ValueMap {
 export interface DefinePayloadHandlerInput<T extends Identifiable> {
   listAll: () => Promise<T[]>
   getOne: (id: string) => Promise<T | undefined | null>
+  /**
+   * hash all items to generate Etag
+   */
+  listHash?: (list: T[]) => string
 }
 
-export function definePayloadHandler<T extends Identifiable>({ listAll, getOne }: DefinePayloadHandlerInput<T>): any {
-  return defineSnapshotHandler(async (name) => {
+export function definePayloadHandler<T extends Identifiable>({
+  listAll,
+  getOne,
+  listHash,
+}: DefinePayloadHandlerInput<T>): any {
+  return defineSnapshotHandler(async (name, event) => {
+    function setEtag(items: T[]) {
+      if (listHash) {
+        const hash = listHash(items)
+        setHeader(event, 'etag', `W/${hash}`)
+      }
+    }
+
     if (name === ALL_RESOURCE_JSON_PATH) {
-      return listAll()
+      const items = await listAll()
+      setEtag(items)
+      return items
     }
     if (name === ALL_RESOURCE_PATH) {
       const items = await listAll()
+      setEtag(items)
       return items.map(({ id }) => id)
     }
     if (name === ID_COMPARISON_MAP) {
