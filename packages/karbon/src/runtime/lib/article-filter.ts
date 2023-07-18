@@ -24,7 +24,7 @@ export interface AuthorConditionOption {
 
 export interface FeaturedConditionOption {
   type: 'featured'
-  key?: 'id'
+  key: never
   value?: boolean
 }
 
@@ -70,11 +70,11 @@ export function evaluateCondition(article: Article, conditions: Condition[] = []
         value ??= true
         return article.featured === value
       case type === 'desk':
-        return article.desk[key!] === value || article.desk?.desk?.[key!] === value
+        return article.desk[key] === value || article.desk?.desk?.[key] === value
       case type === 'author':
         return article.authors.some((author) => author.id === value)
       case type === 'tag':
-        return article.tags.some((tag) => tag[key!] === value)
+        return article.tags.some((tag) => tag[key] === value)
       default:
         return false
     }
