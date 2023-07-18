@@ -5,6 +5,22 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # 0.1.0 (2023-03-15)
 
+## v0.1.34
+
+[compare changes](https://github.com/storipress/karbon/compare/v0.1.33...v0.1.34)
+
+### 🔥 Performance
+
+- Remove redundant payload data ([b16af8e](https://github.com/storipress/karbon/commit/b16af8e))
+
+### 🎨 Styles
+
+- Format ([2f2ead9](https://github.com/storipress/karbon/commit/2f2ead9))
+
+### ❤️  Contributors
+
+- DanSnow <dododavid006@gmail.com>
+
 ## v0.1.33
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.32...v0.1.33)
