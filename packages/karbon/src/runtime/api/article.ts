@@ -256,7 +256,7 @@ export async function listArticles(filter?: { desk: string; tag: string; author:
 export async function getArticle(id: string) {
   const client = useStoripressClient()
   const { data } = await client.query({ query: GetArticle, variables: { id } })
-  if (!data) {
+  if (!data || !data.article) {
     return null
   }
 
