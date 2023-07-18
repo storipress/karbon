@@ -1,3 +1,4 @@
+import { P, match } from 'ts-pattern'
 import type { ArticleDesk, ArticleTag, UseArticleReturn } from '../types'
 
 type Article = UseArticleReturn
@@ -24,7 +25,7 @@ export interface AuthorConditionOption {
 
 export interface FeaturedConditionOption {
   type: 'featured'
-  key: never
+  key?: never
   value?: boolean
 }
 
@@ -64,19 +65,20 @@ export function evaluateCondition(article: Article, conditions: Condition[] = []
     return true
   }
 
-  return conditions.every(({ type = 'desk', key, value }) => {
-    switch (true) {
-      case type === 'featured':
-        value ??= true
-        return article.featured === value
-      case type === 'desk':
-        return article.desk[key] === value || article.desk?.desk?.[key] === value
-      case type === 'author':
+  return conditions.every((cond) => {
+    return match(cond)
+      .with(P.union({ type: 'desk' }, { type: P.nullish }), ({ key, value }) => {
+        return article.desk[key] === cond.value || article.desk?.desk?.[key] === value
+      })
+      .with({ type: 'author' }, ({ value }) => {
         return article.authors.some((author) => author.id === value)
-      case type === 'tag':
+      })
+      .with({ type: 'tag' }, ({ key, value }) => {
         return article.tags.some((tag) => tag[key] === value)
-      default:
-        return false
-    }
+      })
+      .with({ type: 'featured' }, ({ value = true }) => {
+        return article.featured === value
+      })
+      .otherwise(() => false)
   })
 }

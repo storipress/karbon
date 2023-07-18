@@ -2994,6 +2994,7 @@ __metadata:
     serialize-javascript: ^6.0.1
     tailwindcss: ^3.3.3
     tiny-invariant: ^1.3.1
+    ts-pattern: ^5.0.3
     tsup: 7.1.0
     tsx: 3.12.7
     type-fest: ^4.0.0
@@ -15648,6 +15649,13 @@ __metadata:
   version: 4.3.0
   resolution: "ts-pattern@npm:4.3.0"
   checksum: f5167f6f721212c1e22f8590bb1fc21e27fd591d6fc5af0e467778f8e5b2dc1ae490cf5c633c83a3021a61283a671a53faf250b081c17c0f025e73eb775e5fe3
+  languageName: node
+  linkType: hard
+
+"ts-pattern@npm:^5.0.3":
+  version: 5.0.3
+  resolution: "ts-pattern@npm:5.0.3"
+  checksum: 3eeb8193e73f1fd1c045d12a819e340a46b96055ab77b7d00ed3b11f26feb56839618860010f3061f3ab2199bbe0955c88c0d44f89c50a0005ff908d1e921a30
   languageName: node
   linkType: hard
 
