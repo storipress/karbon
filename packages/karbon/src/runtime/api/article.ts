@@ -99,6 +99,7 @@ const GetArticle = gql`
       }
       slug
       title
+      featured
       cover
       seo
       html
