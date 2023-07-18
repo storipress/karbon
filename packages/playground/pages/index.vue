@@ -7,10 +7,7 @@ const multipleValues = useField('multiple-value', { type: FieldType.Text, all: t
 
 const { articles: alphabetArticles } = useFillArticles(10, [{ key: 'slug', value: 'alphabet' }])
 const { articles: lastArticles } = useFillArticles(9)
-const { articles: featureArticles } = useFillArticles(10, [
-  { key: 'slug', value: 'test' },
-  { type: 'featured' }
-])
+const { articles: featureArticles } = useFillArticles(10, [{ key: 'slug', value: 'test' }, { type: 'featured' }])
 
 watch(alphabetArticles, (articles) => {
   const slugs = new Set(articles.map((article) => article.slug))
