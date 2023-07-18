@@ -5,6 +5,35 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # 0.1.0 (2023-03-15)
 
+## v0.1.29
+
+[compare changes](https://github.com/storipress/karbon/compare/v0.1.27...v0.1.29)
+
+### 🚀 Enhancements
+
+- Expanding `evaluateCondition` to filter featured articles ([f5bca73](https://github.com/storipress/karbon/commit/f5bca73))
+
+### 🩹 Fixes
+
+- **deps:** Update dependency cross-fetch to v4 ([486a989](https://github.com/storipress/karbon/commit/486a989))
+- **deps:** Update dependency type-fest to v4 ([2006884](https://github.com/storipress/karbon/commit/2006884))
+- Upgrade to nuxt image rc + upgrade destr ([6628992](https://github.com/storipress/karbon/commit/6628992))
+- Add featured to single aritlce query ([451f450](https://github.com/storipress/karbon/commit/451f450))
+- Use never type ([10a577d](https://github.com/storipress/karbon/commit/10a577d))
+
+### 🏡 Chore
+
+- **release:** V0.1.28 ([9d3bc9d](https://github.com/storipress/karbon/commit/9d3bc9d))
+
+### 🎨 Styles
+
+- Format code with prettier ([802af09](https://github.com/storipress/karbon/commit/802af09))
+
+### ❤️  Contributors
+
+- DanSnow <dododavid006@gmail.com>
+- Sid <sid@storipress.com>
+
 ## v0.1.28
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.27...v0.1.28)
