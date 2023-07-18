@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import { useAsyncState, useElementBounding, whenever } from '@vueuse/core'
-import invariant from 'tiny-invariant'
 import { AdvertisingSlot } from '@storipress/vue-advertising'
 import { useArticle, useOptionalArticle } from '../utils'
 import { decryptPaidContent, processingArticles } from '../utils/inject-paid-content'
@@ -11,6 +10,7 @@ import type { ViewableApiResult } from '../../composables/viewable'
 import { ArticlePlan } from '../../types'
 
 // @ts-expect-error virtual file
+import { verboseInvariant } from '../../utils/verbose-invariant'
 import { editorBlocks } from '#build/editor-blocks.mjs'
 import {
   computed,
@@ -115,7 +115,7 @@ whenever(
   async () => {
     await nextTick(() => {
       const id = articleID.value
-      invariant(id, 'No article id for paywall')
+      verboseInvariant(id, 'No article id for paywall')
       if ($paywall?.mountArticlePaywall) {
         $paywall.mountArticlePaywall(paywallID.value, { id, plan: articlePlan.value })
       }

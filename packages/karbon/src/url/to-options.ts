@@ -1,6 +1,6 @@
-import invariant from 'tiny-invariant'
 import { cleanDoubleSlashes, normalizeURL } from 'ufo'
 import type { BaseMeta, ResourceID, ResourcePage, Resources } from '../runtime/types'
+import { verboseInvariant } from '../runtime/utils/verbose-invariant'
 import type { RouteOptionsContext, URLPart, VariablePart } from './types'
 import { toRoute } from './parser'
 import { paramNameToParamKey } from './utils'
@@ -70,13 +70,12 @@ function findIdentity(parts: URLPart[]): VariablePart {
     if (part.type !== 'variable' || part.isIdentifiable !== true) {
       continue
     }
-    invariant(part.path.length === 1)
+    verboseInvariant(part.path.length === 1, 'identity must be a single part')
     identities.set(part.path[0], part)
   }
   const idName = PREFER_IDENTITY.find((identity) => identities.get(identity))
-  // TODO: verify + better error message
-  invariant(idName)
+  verboseInvariant(idName, 'fail to find identity name')
   const idPart = identities.get(idName)
-  invariant(idPart)
+  verboseInvariant(idPart, 'fail to find identity part')
   return idPart
 }

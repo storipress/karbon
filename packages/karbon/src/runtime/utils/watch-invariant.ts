@@ -1,14 +1,14 @@
-import type { MaybeComputedRef } from '@vueuse/core'
-import { resolveRef } from '@vueuse/core'
-import invariant from 'tiny-invariant'
+import type { MaybeRefOrGetter } from '@vueuse/core'
+import { toRef } from '@vueuse/core'
 import { watchSyncEffect } from 'vue'
+import { verboseInvariant } from './verbose-invariant'
 
-export function watchInvariant(maybeRefCondition: MaybeComputedRef<boolean>, message: string) {
+export function watchInvariant(maybeRefCondition: MaybeRefOrGetter<boolean>, message: string) {
   if (process.dev) {
-    const condition = resolveRef(maybeRefCondition)
+    const condition = toRef(maybeRefCondition)
 
     watchSyncEffect(() => {
-      invariant(condition.value, message)
+      verboseInvariant(condition.value, message)
     })
   }
 }

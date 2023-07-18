@@ -1,9 +1,9 @@
 import type { UseAsyncStateReturn } from '@vueuse/core'
 import { createInjectionState } from '@vueuse/core'
-import invariant from 'tiny-invariant'
 import { _useUniversalStoripressPayload } from '../../composables/storipress-payload'
 import type { BaseMeta, UseArticleReturn } from '../../types'
 import type { Segment } from '../../lib/split-article'
+import { verboseInvariant } from '../../utils/verbose-invariant'
 import {
   loadStoripressPayload,
   ref,
@@ -36,7 +36,7 @@ export { useProvideArticle, useOptionalArticle }
 
 export function useArticle() {
   const res = useOptionalArticle()
-  invariant(res, 'must wrap in useProviderArticle')
+  verboseInvariant(res, 'must wrap in useProviderArticle')
   return res
 }
 
@@ -90,7 +90,7 @@ export function useRecommendArticle(article: Article, options: RecommendArticleO
 function enhanceArticleWithURL(article: Article) {
   const { _resolveFromMetaSync } = useResourceResolver()
   const res = _resolveFromMetaSync('article', article as unknown as BaseMeta)
-  invariant(res, 'impossible to resolve fail')
+  verboseInvariant(res, 'article internally resolve fail')
   return {
     ...article,
     url: res.url,

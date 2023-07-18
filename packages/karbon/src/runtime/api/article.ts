@@ -1,7 +1,6 @@
 import { Buffer } from 'node:buffer'
 import { gql } from '@apollo/client/core/index.js'
 import { encrypt } from 'micro-aes-gcm'
-import invariant from 'tiny-invariant'
 
 // This file contains global crypto polyfill
 import { CompactEncrypt } from '@storipress/jose-browser'
@@ -10,6 +9,7 @@ import { splitPaidContent } from '../lib/split-paid-content'
 import type { NormalSegment } from '../lib/split-article'
 import { splitArticle } from '../lib/split-article'
 import { getStoripressConfig } from '../composables/storipress-base-client'
+import { verboseInvariant } from '../utils/verbose-invariant'
 import { getAllWithPagination } from './helper'
 import type { PaidContent, RawArticleLike, _NormalizeArticle } from './normalize-article'
 import { normalizeArticle } from './normalize-article'
@@ -272,7 +272,7 @@ async function encryptArticle({ plan, html, id, ...rest }: _NormalizeArticle) {
 
   if (plan !== 'free') {
     const storipress = getStoripressConfig()
-    invariant(storipress.encryptKey, 'No encrypt key')
+    verboseInvariant(storipress.encryptKey, 'No encrypt key')
     const previewParagraph = storipress.previewParagraph ?? 3
     const [preview, paid] = splitPaidContent(html, storipress.previewParagraph ?? 3)
     freeHTML = preview

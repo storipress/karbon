@@ -2,7 +2,6 @@ import devalue from '@nuxt/devalue'
 import { basename, extname } from 'pathe'
 import { setHeader } from 'h3'
 import { parsePath } from 'ufo'
-import invariant from 'tiny-invariant'
 
 export const NOT_FOUND = Symbol('not found')
 
@@ -27,8 +26,9 @@ export function defineSnapshotHandler(input: DefineSnapshotHandlerInput | Handle
 
     const { name, type } = parsedName
 
-    if (fixedName) {
-      invariant(fixedName === name, 'Route name unmatch')
+    if (fixedName && fixedName !== name) {
+      setHeader(event, 'Content-Type', 'text/html')
+      return '<h1>Not Found for such name</h1>'
     }
 
     const result = await handler(name, event)

@@ -2,10 +2,10 @@ import type { UseAsyncStateReturn } from '@vueuse/core'
 import { useAsyncState } from '@vueuse/core'
 import type { Ref, UnwrapRef } from 'vue'
 import { withBase } from 'ufo'
-import invariant from 'tiny-invariant'
 import type { Promisable } from 'type-fest'
 import { isPromise } from 'remeda'
 import type { PayloadScope } from '../types'
+import { verboseInvariant } from '../utils/verbose-invariant'
 import { computed, onServerPrefetch, ref, useAsyncData, useNuxtApp, useRuntimeConfig } from '#imports'
 
 export interface FetchPayloadResult<T> {
@@ -30,7 +30,7 @@ async function loadStoripressPayloadWithRawURL(path: string) {
   return mod.default
 }
 
-export function useStoripressPayload<T>(scope: PayloadScope, name: string): UseAsyncStateReturn<T, true> {
+export function useStoripressPayload<T>(scope: PayloadScope, name: string): UseAsyncStateReturn<T, [], true> {
   const nuxtApp = useNuxtApp()
   const promise = loadStoripressPayload<T>(scope, name)
 
@@ -70,7 +70,7 @@ export function useStaticAsyncState<T>(key: Promisable<string>, factory: () => P
     return res
   }
 
-  invariant(process.client && !isPromise(key as string), 'only server is allow to have promise key')
+  verboseInvariant(process.client && !isPromise(key as string), 'only server is allow to have promise key')
   const dataKey = `sp$$static$a$${key}`
 
   return computed(() => {
@@ -78,7 +78,7 @@ export function useStaticAsyncState<T>(key: Promisable<string>, factory: () => P
   })
 }
 
-export function _useUniversalStoripressPayload<T>(scope: PayloadScope, name: string): UseAsyncStateReturn<T, true> {
+export function _useUniversalStoripressPayload<T>(scope: PayloadScope, name: string): UseAsyncStateReturn<T, [], true> {
   if (process.client) {
     return useStoripressPayload(scope, name)
   } else {
@@ -109,7 +109,7 @@ function getModulePath(path: string) {
 }
 
 async function loadStoripressPayloadWithURLServer<T>(url: string): Promise<T> {
-  invariant(process.server, 'This function only allow to run in server side')
+  verboseInvariant(process.server, `This function only allow to run in server side: ${url}`)
   const res = await $fetch(url.replace(/\.js$/, '.json'))
   return res as T
 }

@@ -1,7 +1,7 @@
 import type { DocumentNode } from 'graphql'
 import { flatten } from 'remeda'
-import invariant from 'tiny-invariant'
 import { useStoripressClient } from '../composables/storipress-client'
+import { verboseInvariant } from '../utils/verbose-invariant'
 
 export interface PaginationData {
   paginatorInfo: {
@@ -42,7 +42,7 @@ export async function getAllWithPaginationViaGetPage(
 }
 
 export function getRemainingPages(lastPage: number) {
-  invariant(lastPage > 0)
+  verboseInvariant(lastPage > 0, 'lastPage should be greater than 0')
   if (lastPage === 1) {
     return []
   }

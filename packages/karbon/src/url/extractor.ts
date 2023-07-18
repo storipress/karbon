@@ -1,5 +1,6 @@
 import invariant from 'tiny-invariant'
 import { pathOr } from 'remeda'
+import { verboseInvariant } from '../runtime/utils/verbose-invariant'
 import type { RouteOptionsContext, VariablePart } from './types'
 
 export const extractors: Record<string, (data: any, ctx: RouteOptionsContext) => string> = {
@@ -37,8 +38,11 @@ export function extractURLParam(meta: any, part: VariablePart, ctx: RouteOptions
     }
   }
 
-  invariant(part.isOptional || current !== null)
-  invariant(current === null || (current && typeof current === 'string'))
+  verboseInvariant(part.isOptional || current !== null, `non-optional part not found in meta for ${part.paramName}`)
+  verboseInvariant(
+    current === null || (current && typeof current === 'string'),
+    `part ${part.paramName} is not a string`,
+  )
 
   return current
 }

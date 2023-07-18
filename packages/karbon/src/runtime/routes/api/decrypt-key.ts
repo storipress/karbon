@@ -1,6 +1,5 @@
 import { Buffer } from 'node:buffer'
 import { destr } from 'destr'
-import invariant from 'tiny-invariant'
 
 // @ts-expect-error self reference
 import { DECRYPT_AUTH_HEADER, DECRYPT_KEY_HEADER, compactDecrypt } from '@storipress/karbon/internal'
@@ -13,6 +12,7 @@ import type {
 } from '../../composables/viewable'
 
 // @ts-expect-error auto generated module
+import { verboseInvariant } from '../../utils/verbose-invariant'
 import _isViewable from '#sp-internal/is-viewable'
 
 // @ts-expect-error no useNitroApp
@@ -50,7 +50,7 @@ export default defineEventHandler(async (event): Promise<ViewableApiResult> => {
     const { plaintext } = await compactDecrypt(key, Buffer.from(storipress.encryptKey, 'base64'))
     const decoder = new TextDecoder()
     meta = destr(decoder.decode(plaintext))
-    invariant(meta.id && meta.plan && meta.key)
+    verboseInvariant(meta.id && meta.plan && meta.key, 'invalid body')
   } catch {
     return {
       pass: false,
