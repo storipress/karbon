@@ -5,6 +5,22 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # 0.1.0 (2023-03-15)
 
+## v0.1.31
+
+[compare changes](https://github.com/storipress/karbon/compare/v0.1.30...v0.1.31)
+
+### 🔥 Performance
+
+- Cache article ([7d966cb](https://github.com/storipress/karbon/commit/7d966cb))
+
+### 🎨 Styles
+
+- Lint ([1de15e4](https://github.com/storipress/karbon/commit/1de15e4))
+
+### ❤️  Contributors
+
+- DanSnow <dododavid006@gmail.com>
+
 ## v0.1.30
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.29...v0.1.30)
