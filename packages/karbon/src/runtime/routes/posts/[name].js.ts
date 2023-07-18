@@ -15,12 +15,14 @@ export default defineCachedEventHandler(
       swr: true,
       maxAge: 60,
       staleMaxAge: 60,
+      getKey: () => 'index',
     }),
     getOne: cachedFunction(getArticle, {
       name: 'article',
       swr: true,
       maxAge: 60,
       staleMaxAge: 60,
+      getKey: (id: string) => id,
     }),
     listHash: (items: HasUpdatedAt[]) => {
       return hash(items.map((item) => item.updated_at))
