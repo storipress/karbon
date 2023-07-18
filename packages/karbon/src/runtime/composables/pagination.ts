@@ -97,7 +97,7 @@ export function useArticlePagination({
 }: UseArticlePaginationInput): UseArticlePaginationReturn {
   const { conditions } = normalizeCondition(conditionInput)
   const allArticles = useStaticAsyncState(`pagination-article-${hash(conditions)}`, async () => {
-    const _allArticles = (await getAllArticles()) ?? []
+    const _allArticles = (await getAllArticles()).data.value ?? []
     return _allArticles.filter((article) => evaluateCondition(article, conditions))
   })
 

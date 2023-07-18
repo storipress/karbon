@@ -4,13 +4,14 @@ import { hash } from 'ohash'
 import type { MaybeRef } from '@vueuse/core'
 import type { Promisable } from 'type-fest'
 import { extendRef } from '@vueuse/core'
+import type { AsyncData } from 'nuxt/app'
 import type { UseArticleReturn, UseArticleReturnWithURL } from '../types'
 import { useStaticAsyncState } from '../composables/storipress-payload'
 import type { Condition, ConditionInput } from '../lib/article-filter'
 import { evaluateCondition, normalizeCondition } from '../lib/article-filter'
 import { useResourceList } from './resources'
 import { useEventGlobal, useEventOnce } from './event-once'
-import { computed, onServerPrefetch, unref, useAsyncData, useResourcePageMeta } from '#imports'
+import { computed, onServerPrefetch, unref, useResourcePageMeta } from '#imports'
 
 export type Article = UseArticleReturn
 
@@ -42,23 +43,23 @@ if (import.meta.hot) {
   })
 }
 
-export async function getAllArticles() {
-  try {
-    const { data } = await useResourceList('article')
-    return (
-      data.value?.map(({ meta, url }) => {
-        const article = meta as unknown as UseArticleReturnWithURL
-        article.url = url
-        return article
-      }) ?? []
-    )
-  } catch {
-    return []
-  }
+export function getAllArticles(): AsyncData<UseArticleReturnWithURL[], true | null> {
+  return useResourceList('article', {
+    key: 'all',
+    transform: (data) => {
+      return (
+        data?.map(({ meta, url }) => {
+          const article = meta as unknown as UseArticleReturnWithURL
+          article.url = url
+          return article
+        }) ?? []
+      )
+    },
+  })
 }
 
 export const useGetAllArticles = useEventOnce(() => {
-  const promise = useAsyncData('allArticles', getAllArticles)
+  const promise = getAllArticles()
   onServerPrefetch(() => promise)
   return promise
 })
@@ -179,7 +180,7 @@ export function useArticleLoader<UseChunk extends false | number>({
     for (const id of [...articles.value.map(({ id }) => id), ...exclude]) {
       alreadyUsed.add(id)
     }
-    const source = await getAllArticles()
+    const source = (await getAllArticles()).data.value ?? []
     while (source.length) {
       const { result: nextChunk, skip } = getFillArticlesWithSkip(
         { conditions, count: chunk || 1, used: alreadyUsed, sourceCursor },
