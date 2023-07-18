@@ -13,7 +13,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - Fix condition type ([7bce619](https://github.com/storipress/karbon/commit/7bce619))
 
-### ❤️  Contributors
+### ❤️ Contributors
 
 - DanSnow <dododavid006@gmail.com>
 
@@ -41,7 +41,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - Format code with prettier ([802af09](https://github.com/storipress/karbon/commit/802af09))
 
-### ❤️  Contributors
+### ❤️ Contributors
 
 - DanSnow <dododavid006@gmail.com>
 - Sid <sid@storipress.com>
@@ -56,7 +56,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 - **deps:** Update dependency type-fest to v4 ([2006884](https://github.com/storipress/karbon/commit/2006884))
 - Upgrade to nuxt image rc + upgrade destr ([6628992](https://github.com/storipress/karbon/commit/6628992))
 
-### ❤️  Contributors
+### ❤️ Contributors
 
 - DanSnow <dododavid006@gmail.com>
 
@@ -72,7 +72,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - Upgrade yarn ([f5b283a](https://github.com/storipress/karbon/commit/f5b283a))
 
-### ❤️  Contributors
+### ❤️ Contributors
 
 - DanSnow <dododavid006@gmail.com>
 
@@ -97,7 +97,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 - Format code with prettier ([d6c2ef4](https://github.com/storipress/karbon/commit/d6c2ef4))
 - Format ([f8dff6e](https://github.com/storipress/karbon/commit/f8dff6e))
 
-### ❤️  Contributors
+### ❤️ Contributors
 
 - DanSnow <dododavid006@gmail.com>
 
