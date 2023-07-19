@@ -74,7 +74,7 @@ export function definePayloadHandler<T extends Identifiable>({
     function setEtag(items: T[]) {
       if (listHash) {
         const hash = listHash(items)
-        setHeader(event, 'etag', `W/${hash}`)
+        setHeader(event, 'etag', `W/"${hash}"`)
       }
     }
 
