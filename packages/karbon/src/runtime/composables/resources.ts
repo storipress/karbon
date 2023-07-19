@@ -94,11 +94,14 @@ async function resolveResource(resourceID: ResourceID, params?: Record<string, s
   const { type } = resourceID
   const resource = resourceName || type
   const id = await resolveAsID(resourceID)
+  if (!id) {
+    return null
+  }
   const meta = await getResourceMeta(KEY_TO_SCOPE[type], id)
   return resolveFromResourceMeta(resource, meta, params)
 }
 
-async function resolveAsID(resourceID: ResourceID): Promise<string> {
+async function resolveAsID(resourceID: ResourceID): Promise<string | null> {
   return convertToId(KEY_TO_SCOPE[resourceID.type], resourceID)
 }
 
@@ -140,13 +143,13 @@ function getContextFor(type: Resources | string) {
   return urls[type]._context ?? invalidContext
 }
 
-async function convertToId(scope: PayloadScope, resourceID: any): Promise<string> {
+async function convertToId(scope: PayloadScope, resourceID: any): Promise<string | null> {
   const { id, slug, sid } = resourceID
   if (id) {
     return id
   }
   const idComparisonMap = await loadStoripressPayload<IdComparisonMap>(scope, '__map', true)
-  return slug ? idComparisonMap.slugs[slug] : idComparisonMap.sids[sid]
+  return (slug ? idComparisonMap.slugs[slug] : idComparisonMap.sids[sid]) ?? null
 }
 
 async function findGroupTags(groupKey: string, id: string) {

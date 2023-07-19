@@ -9,6 +9,7 @@ import {
   ID_COMPARISON_MAP,
 } from '../constants'
 import { NOT_FOUND, defineSnapshotHandler } from './snapshot-handler'
+import { shouldBypassCache } from './cache-control'
 
 export enum FieldType {
   Text = 'TEXT',
@@ -57,7 +58,7 @@ interface ValueMap {
 }
 
 export interface DefinePayloadHandlerInput<T extends Identifiable> {
-  listAll: () => Promise<T[]>
+  listAll: (bypassCache: boolean) => Promise<T[]>
   getOne: (id: string) => Promise<T | undefined | null>
   /**
    * hash all items to generate Etag
@@ -78,18 +79,19 @@ export function definePayloadHandler<T extends Identifiable>({
       }
     }
 
+    const bypassCache = shouldBypassCache(event)
     if (name === ALL_RESOURCE_JSON_PATH) {
-      const items = await listAll()
+      const items = await listAll(bypassCache)
       setEtag(items)
       return items
     }
     if (name === ALL_RESOURCE_PATH) {
-      const items = await listAll()
+      const items = await listAll(bypassCache)
       setEtag(items)
       return items.map(({ id }) => id)
     }
     if (name === ID_COMPARISON_MAP) {
-      const items = await listAll()
+      const items = await listAll(true)
       const initial = { slugs: {}, sids: {} }
 
       return items.reduce((target, { id, slug, sid }) => {

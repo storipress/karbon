@@ -25,14 +25,15 @@ export default defineCachedEventHandler(
       name: 'article-list',
       swr: true,
       maxAge: 60,
-      staleMaxAge: 10,
+      staleMaxAge: -1,
       getKey: () => 'index',
+      shouldBypassCache: (bypassCache: boolean) => bypassCache,
     }),
     getOne: cachedFunction(getArticle, {
       name: 'article',
       swr: true,
       maxAge: 60,
-      staleMaxAge: 10,
+      staleMaxAge: -1,
       getKey: (id: string) => id,
       validate: (item: CacheEntry) => {
         return Boolean(item.value)

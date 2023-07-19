@@ -6,7 +6,7 @@ import type { Promisable } from 'type-fest'
 import { isPromise } from 'remeda'
 import type { PayloadScope } from '../types'
 import { verboseInvariant } from '../utils/verbose-invariant'
-import { BYPASS_CACHE_HEADER } from '../constants'
+import { BYPASS_CACHE_HEADER, INVALID_CACHE_HEADER } from '../constants'
 import { computed, onServerPrefetch, ref, useAsyncData, useNuxtApp, useRuntimeConfig } from '#imports'
 
 export interface FetchPayloadResult<T> {
@@ -112,10 +112,10 @@ function getModulePath(path: string) {
   return `/_storipress/${path}.js`
 }
 
-async function loadStoripressPayloadWithURLServer<T>(url: string, bypassCache: boolean): Promise<T> {
+async function loadStoripressPayloadWithURLServer<T>(url: string, bypassCache = false): Promise<T> {
   verboseInvariant(process.server, `This function only allow to run in server side: ${url}`)
   const res = await $fetch(url.replace(/\.js$/, '.json'), {
-    headers: bypassCache ? { [BYPASS_CACHE_HEADER]: 'true' } : {},
+    headers: bypassCache ? { [BYPASS_CACHE_HEADER]: 'true', [INVALID_CACHE_HEADER]: 'true' } : {},
   })
   return res as T
 }
