@@ -5,6 +5,22 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # 0.1.0 (2023-03-15)
 
+## v0.1.38
+
+[compare changes](https://github.com/storipress/karbon/compare/v0.1.37...v0.1.38)
+
+### 🩹 Fixes
+
+- Fix etag format ([5e7c345](https://github.com/storipress/karbon/commit/5e7c345))
+
+### 🎨 Styles
+
+- Format ([aa121fc](https://github.com/storipress/karbon/commit/aa121fc))
+
+### ❤️  Contributors
+
+- DanSnow <dododavid006@gmail.com>
+
 ## v0.1.37
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.36...v0.1.37)
