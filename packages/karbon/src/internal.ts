@@ -1,5 +1,6 @@
 export { CUSTOM_FIELD_KEY, DECRYPT_AUTH_HEADER, DECRYPT_KEY_HEADER } from './runtime/constants'
 export { defineSnapshotHandler, NOT_FOUND } from './runtime/routes/snapshot-handler'
+export { shouldBypassCache, shouldInvalidCache } from './runtime/routes/cache-control'
 export {
   createStoripressBaseClient,
   storipressConfigCtx,

@@ -1,7 +1,10 @@
 export const ALL_RESOURCE_PATH = 'all'
 export const ALL_RESOURCE_JSON_PATH = '__all'
 export const ID_COMPARISON_MAP = '__map'
-export const DECRYPT_AUTH_HEADER = 'x-sp-decrypt-auth'
-export const DECRYPT_KEY_HEADER = 'x-sp-decrypt-key'
 export const CUSTOM_FIELD_KEY = '__sp_cf'
 export const CUSTOM_FIELD_EDITOR_BLOCK_KEY = '__sp_cf_editor_block'
+
+export const DECRYPT_AUTH_HEADER = 'x-sp-decrypt-auth'
+export const DECRYPT_KEY_HEADER = 'x-sp-decrypt-key'
+export const BYPASS_CACHE_HEADER = 'x-sp-bypass-cache'
+export const INVALID_CACHE_HEADER = 'x-sp-invalid-cache'

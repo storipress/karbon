@@ -145,7 +145,7 @@ async function convertToId(scope: PayloadScope, resourceID: any): Promise<string
   if (id) {
     return id
   }
-  const idComparisonMap = await loadStoripressPayload<IdComparisonMap>(scope, '__map')
+  const idComparisonMap = await loadStoripressPayload<IdComparisonMap>(scope, '__map', true)
   return slug ? idComparisonMap.slugs[slug] : idComparisonMap.sids[sid]
 }
 

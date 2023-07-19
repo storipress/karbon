@@ -6,26 +6,30 @@ import type { Promisable } from 'type-fest'
 import { isPromise } from 'remeda'
 import type { PayloadScope } from '../types'
 import { verboseInvariant } from '../utils/verbose-invariant'
+import { BYPASS_CACHE_HEADER } from '../constants'
 import { computed, onServerPrefetch, ref, useAsyncData, useNuxtApp, useRuntimeConfig } from '#imports'
 
 export interface FetchPayloadResult<T> {
   data: T
 }
 
-export async function loadStoripressPayload<T>(scope: PayloadScope, name: string): Promise<T> {
-  return loadStoripressPayloadWithRawURL(getScopedModulePath(scope, name))
+export async function loadStoripressPayload<T>(scope: PayloadScope, name: string, bypassCache = false): Promise<T> {
+  return loadStoripressPayloadWithRawURL(getScopedModulePath(scope, name), bypassCache)
 }
 
 export async function loadStoripressPayloadWithURL(path: string) {
   return loadStoripressPayloadWithRawURL(getModulePath(path))
 }
 
-async function loadStoripressPayloadWithRawURL(path: string) {
+async function loadStoripressPayloadWithRawURL(path: string, bypassCache = false) {
   if (process.server) {
-    return loadStoripressPayloadWithURLServer(path)
+    return loadStoripressPayloadWithURLServer(path, bypassCache)
   }
   const { public: publicConfig } = useRuntimeConfig()
-  const modulePath = publicConfig.storipress?.payloadAbsoluteURL ? withBase(path, publicConfig.siteUrl) : path
+  let modulePath = publicConfig.storipress?.payloadAbsoluteURL ? withBase(path, publicConfig.siteUrl) : path
+  if (bypassCache) {
+    modulePath += `?t=${Date.now()}`
+  }
   const mod = await import(/* @vite-ignore */ modulePath)
   return mod.default
 }
@@ -108,8 +112,10 @@ function getModulePath(path: string) {
   return `/_storipress/${path}.js`
 }
 
-async function loadStoripressPayloadWithURLServer<T>(url: string): Promise<T> {
+async function loadStoripressPayloadWithURLServer<T>(url: string, bypassCache: boolean): Promise<T> {
   verboseInvariant(process.server, `This function only allow to run in server side: ${url}`)
-  const res = await $fetch(url.replace(/\.js$/, '.json'))
+  const res = await $fetch(url.replace(/\.js$/, '.json'), {
+    headers: bypassCache ? { [BYPASS_CACHE_HEADER]: 'true' } : {},
+  })
   return res as T
 }
