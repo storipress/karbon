@@ -1,4 +1,5 @@
 import {
+  ID_COMPARISON_MAP,
   definePayloadHandler,
   getArticle,
   listArticles,
@@ -42,7 +43,9 @@ export default defineCachedEventHandler(
     },
   }),
   {
-    shouldBypassCache,
+    shouldBypassCache: (event: any) => {
+      return event.path.includes(ID_COMPARISON_MAP) || shouldBypassCache(event)
+    },
     shouldInvalidCache,
   },
 )
