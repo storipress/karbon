@@ -39,6 +39,7 @@ import type {
 import { getResources, payloadScopes } from './runtime/api/sitemap'
 import telemetry from './modules/telemetry'
 import feed from './modules/feed'
+import instantsearch from './modules/instantsearch'
 
 const AD_COMPONENTS = ['AdvertisingProvider', 'AdvertisingSlot', 'GlobalAdvertisingProvider', 'GlobalAdvertisingSlot']
 
@@ -441,10 +442,6 @@ const karbon = defineNuxtModule<ModuleOptions>({
     })
 
     addPlugin({
-      src: resolver.resolve('./runtime/plugins/instant-search.client'),
-    })
-
-    addPlugin({
       src: resolver.resolve('./runtime/plugins/storipress-client'),
     })
 
@@ -501,6 +498,7 @@ const karbon = defineNuxtModule<ModuleOptions>({
     await installModule('nuxt-link-checker')
     await installModule(telemetry)
     await installModule(feed)
+    await installModule(instantsearch)
 
     await installModule('nuxt-schema-org', {
       host: siteUrl,

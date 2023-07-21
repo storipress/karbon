@@ -40,6 +40,9 @@ watch(alphabetArticles, (articles) => {
       <NuxtLink to="/examples/fill-article">To fill article</NuxtLink>
     </div>
     <div>
+      <NuxtLink to="/examples/search">To search</NuxtLink>
+    </div>
+    <div>
       <NuxtLink to="/desks">To desks</NuxtLink>
     </div>
     <div>

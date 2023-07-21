@@ -1,3 +1,4 @@
+import { withoutProtocol } from 'ufo'
 import { useNuxtApp, useRuntimeConfig } from '#imports'
 
 interface UseSearchClientInput {
@@ -19,7 +20,7 @@ export function useSearchClient(params: UseSearchClientInput = {}) {
       apiKey: apiKey || useRuntimeConfig().public.storipress.searchKey,
       nodes: [
         {
-          host: useRuntimeConfig().public.storipress.searchDomain || 'search.stori.press',
+          host: withoutProtocol(useRuntimeConfig().public.storipress.searchDomain) || 'search.stori.press',
           port: 443,
           protocol: 'https',
         },
