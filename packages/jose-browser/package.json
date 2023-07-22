@@ -29,7 +29,7 @@
     "jose": "^4.14.4"
   },
   "devDependencies": {
-    "@types/node": "18.16.19",
+    "@types/node": "18.17.0",
     "typescript": "5.1.6",
     "unbuild": "1.2.1"
   },
