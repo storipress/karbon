@@ -5,6 +5,22 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # 0.1.0 (2023-03-15)
 
+## v0.1.40
+
+[compare changes](https://github.com/storipress/karbon/compare/v0.1.39...v0.1.40)
+
+### 🩹 Fixes
+
+- Auto import instant search component ([d429c1b](https://github.com/storipress/karbon/commit/d429c1b))
+
+### 🎨 Styles
+
+- Format ([48cec9d](https://github.com/storipress/karbon/commit/48cec9d))
+
+### ❤️  Contributors
+
+- DanSnow <dododavid006@gmail.com>
+
 ## v0.1.39
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.38...v0.1.39)
