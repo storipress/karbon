@@ -175,6 +175,10 @@ export interface ModulePublicRuntimeConfig {
   storipress: StoripressPublicRuntimeConfig
 }
 
+interface ModuleFlags {
+  lazySearch?: boolean
+}
+
 export interface ModuleOptions {
   fullStatic: boolean
   fallback: { layout?: string | null }
@@ -183,6 +187,7 @@ export interface ModuleOptions {
   seo: SEOConfig[]
   isViewable: string
   previewParagraph: number
+  flags: ModuleFlags
 }
 
 export enum ArticlePlan {

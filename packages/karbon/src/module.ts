@@ -21,6 +21,7 @@ import serialize from 'serialize-javascript'
 import fs from 'fs-extra'
 import { resolve } from 'pathe'
 import { genArrayFromRaw, genImport, genObjectFromRaw } from 'knitwork'
+import type { NuxtPlugin } from '@nuxt/schema'
 import { resolveSEOProviders } from './seo-provider'
 import { versionSafe } from './cli/checkFile'
 import type {
@@ -106,9 +107,15 @@ const karbon = defineNuxtModule<ModuleOptions>({
       },
     ],
     isViewable: '~~/karbon/is-viewable.mjs',
+    flags: {
+      lazySearch: false,
+    },
     previewParagraph: 3,
   },
-  async setup({ resources, fullStatic, fallback, paywall, seo, isViewable: isViewablePath, previewParagraph }, nuxt) {
+  async setup(
+    { flags, resources, fullStatic, fallback, paywall, seo, isViewable: isViewablePath, previewParagraph },
+    nuxt,
+  ) {
     const resolver = createResolver(import.meta.url)
     const promises: Promise<unknown>[] = []
     const resourcePagePromises: Promise<unknown>[] = []
@@ -121,6 +128,7 @@ const karbon = defineNuxtModule<ModuleOptions>({
       'qs',
       'yup',
       'p-retry',
+      'remeda',
       'lodash',
       'node-html-parser',
     ]
@@ -413,53 +421,43 @@ const karbon = defineNuxtModule<ModuleOptions>({
       resolver.resolve('./runtime/utils'),
     ])
 
-    addPlugin({
-      src: resolver.resolve('./runtime/plugins/storipress-internal'),
-    })
-    addPlugin({
-      src: resolver.resolve('./runtime/plugins/storipress'),
-    })
+    const plugins: (string | NuxtPlugin)[] = [
+      './runtime/plugins/storipress-internal',
+      './runtime/plugins/storipress',
+      './runtime/plugins/storipress-payload',
+      './runtime/plugins/custom-field',
+      {
+        src:
+          paywall.enable && paywall.logo ? './runtime/plugins/paywall.client' : './runtime/plugins/paywall-noop.client',
+        mode: 'client',
+      },
+      {
+        // paywall API is client side only
+        src: './runtime/plugins/paywall-noop.client',
+        mode: 'server',
+      },
+      flags.lazySearch
+        ? './runtime/plugins/storipress-search-client-noop'
+        : './runtime/plugins/storipress-search-client',
+      './runtime/plugins/storipress-client',
+      './runtime/plugins/debug-info.client',
+      './runtime/plugins/track.client',
+      './runtime/plugins/iframely.client',
+      './runtime/plugins/1.injectRuntimeConfig',
+    ]
 
-    addPlugin({
-      src: resolver.resolve('./runtime/plugins/storipress-payload'),
-    })
-
-    addPlugin({
-      src: resolver.resolve('./runtime/plugins/custom-field'),
-    })
-
-    addPlugin({
-      src: resolver.resolve(
-        paywall.enable && paywall.logo ? './runtime/plugins/paywall.client' : './runtime/plugins/paywall-noop.client',
-      ),
-      mode: 'client',
-    })
-
-    addPlugin({
-      // paywall API is client side only
-      src: resolver.resolve('./runtime/plugins/paywall-noop.client'),
-      mode: 'server',
-    })
-
-    addPlugin({
-      src: resolver.resolve('./runtime/plugins/storipress-client'),
-    })
-
-    addPlugin({
-      src: resolver.resolve('./runtime/plugins/debug-info.client'),
-    })
-
-    addPlugin({
-      src: resolver.resolve('./runtime/plugins/track.client'),
-    })
-
-    addPlugin({
-      src: resolver.resolve('./runtime/plugins/iframely.client'),
-    })
-
-    addPlugin({
-      src: resolver.resolve('./runtime/plugins/1.injectRuntimeConfig'),
-    })
+    for (const plugin of plugins) {
+      addPlugin(
+        typeof plugin === 'string'
+          ? {
+              src: resolver.resolve(plugin),
+            }
+          : {
+              ...plugin,
+              src: resolver.resolve(plugin.src),
+            },
+      )
+    }
 
     await installModule('@nuxt/image', {
       provider: 'Storipress',
