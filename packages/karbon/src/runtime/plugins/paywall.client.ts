@@ -1,5 +1,5 @@
 import { useEventBus, useStorage } from '@vueuse/core'
-import { once } from 'lodash'
+import { once } from 'remeda'
 import '@storipress/builder-component/dist/style.css'
 import {
   computed,
@@ -59,6 +59,7 @@ export default defineNuxtPlugin((_nuxtApp) => {
     if (!storipress.paywall.enable) {
       return
     }
+    await waitIdle()
     const { mountPaywall, setStripeKey } = await import('@storipress/builder-component')
     const paywallLogoPath = _nuxtApp.$config.public?.storipress?.paywall?.logo
     let paywallLogo
@@ -117,11 +118,11 @@ export default defineNuxtPlugin((_nuxtApp) => {
             authInfo.value = val
           },
         }),
-        enable() {
+        async enable() {
           if (typeof storipress.paywall === 'boolean' && !storipress.paywall) {
             return
           }
-          mount()
+          await mount()
           paywall.value?.setInArticle(true)
         },
         signUp(email: string) {

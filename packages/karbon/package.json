@@ -158,6 +158,7 @@
     "parse5": "^7.1.2",
     "pathe": "^1.1.1",
     "pretty-bytes": "^6.1.0",
+    "remeda": "^1.24.0",
     "sass": "^1.63.6",
     "scule": "^1.0.0",
     "serialize-javascript": "^6.0.1",
