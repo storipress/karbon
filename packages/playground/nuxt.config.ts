@@ -9,7 +9,7 @@ import {
 } from '@storipress/karbon/helper'
 
 export default defineNuxtConfig({
-  modules: ['@storipress/karbon', '@nuxtjs/tailwindcss', '@vueuse/nuxt', '@nuxtjs/html-validator'],
+  modules: ['@storipress/karbon', '@nuxtjs/tailwindcss', '@vueuse/nuxt'],
   build: {
     transpile: ['@storipress/vue-advertising'],
   },
@@ -37,6 +37,9 @@ export default defineNuxtConfig({
   },
 
   karbon: {
+    flags: {
+      lazySearch: true,
+    },
     fullStatic: false,
     seo: [
       {

@@ -6,7 +6,7 @@ const searchInput = ref('')
 <template>
   <div>
     <div><NuxtLink to="/">To home</NuxtLink></div>
-    <StoripressSearch v-slot="props" v-model="searchInput" :query-by="queryBy">
+    <LazyStoripressSearch v-slot="props" v-model="searchInput" lazy :query-by="queryBy">
       <div>
         <label>Just typing...</label>
         <input v-model="searchInput" placeholder="search" />
@@ -20,6 +20,6 @@ const searchInput = ref('')
           {{ item.title }}
         </div>
       </div>
-    </StoripressSearch>
+    </LazyStoripressSearch>
   </div>
 </template>
