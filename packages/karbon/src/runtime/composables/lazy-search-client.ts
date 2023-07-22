@@ -2,7 +2,7 @@ import { withoutProtocol } from 'ufo'
 import type TypesenseInstantsearchAdapter from 'typesense-instantsearch-adapter'
 import { tryOnMounted } from '@vueuse/core'
 import { waitIdle } from '../utils/idle-promise'
-import { useRuntimeConfig } from '#imports'
+import { shallowRef, useRuntimeConfig } from '#imports'
 
 export type SearchAdapterConstructor = typeof TypesenseInstantsearchAdapter
 
