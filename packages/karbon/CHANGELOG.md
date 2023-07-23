@@ -5,6 +5,22 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # 0.1.0 (2023-03-15)
 
+## v0.1.44
+
+[compare changes](https://github.com/storipress/karbon/compare/v0.1.43...v0.1.44)
+
+### 🩹 Fixes
+
+- Improve idle lazy load ([3e7ec9e](https://github.com/storipress/karbon/commit/3e7ec9e))
+
+### 🎨 Styles
+
+- Format ([07b9b07](https://github.com/storipress/karbon/commit/07b9b07))
+
+### ❤️  Contributors
+
+- DanSnow <dododavid006@gmail.com>
+
 ## v0.1.43
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.42...v0.1.43)
