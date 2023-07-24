@@ -1,7 +1,7 @@
 import { useEventBus, useStorage } from '@vueuse/core'
 import { once } from 'remeda'
 import '@storipress/builder-component/dist/style.css'
-import { waitIdle } from '../utils/defer-load'
+import { waitFirstInteractive } from '../utils/defer-load'
 import {
   computed,
   defineNuxtPlugin,
@@ -60,7 +60,7 @@ export default defineNuxtPlugin((_nuxtApp) => {
     if (!storipress.paywall.enable) {
       return
     }
-    await waitIdle()
+    await waitFirstInteractive()
     const { mountPaywall, setStripeKey } = await import('@storipress/builder-component')
     const paywallLogoPath = _nuxtApp.$config.public?.storipress?.paywall?.logo
     let paywallLogo
