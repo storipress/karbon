@@ -5,6 +5,30 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # 0.1.0 (2023-03-15)
 
+## v0.1.45
+
+[compare changes](https://github.com/storipress/karbon/compare/v0.1.44...v0.1.45)
+
+### 🔥 Performance
+
+- Delay load paywall after interactive ([71b71df](https://github.com/storipress/karbon/commit/71b71df))
+
+### 🩹 Fixes
+
+- Fix import type ([4497191](https://github.com/storipress/karbon/commit/4497191))
+
+### 💅 Refactors
+
+- Rename idle-promise -> defer-load ([2ca3f21](https://github.com/storipress/karbon/commit/2ca3f21))
+
+### 🎨 Styles
+
+- Format code with prettier ([b592783](https://github.com/storipress/karbon/commit/b592783))
+
+### ❤️  Contributors
+
+- DanSnow <dododavid006@gmail.com>
+
 ## v0.1.44
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.43...v0.1.44)
