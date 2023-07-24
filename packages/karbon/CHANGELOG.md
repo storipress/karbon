@@ -18,7 +18,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 - Format ([d897430](https://github.com/storipress/karbon/commit/d897430))
 - Rename img to data-format image ([fc37d1e](https://github.com/storipress/karbon/commit/fc37d1e))
 
-### ❤️  Contributors
+### ❤️ Contributors
 
 - DanSnow <dododavid006@gmail.com>
 - Ches4117 ([@ches4117](http://github.com/ches4117))
@@ -43,7 +43,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - Format code with prettier ([b592783](https://github.com/storipress/karbon/commit/b592783))
 
-### ❤️  Contributors
+### ❤️ Contributors
 
 - DanSnow <dododavid006@gmail.com>
 
