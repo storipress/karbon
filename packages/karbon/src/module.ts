@@ -421,20 +421,23 @@ const karbon = defineNuxtModule<ModuleOptions>({
       resolver.resolve('./runtime/utils'),
     ])
 
-    const plugins: (string | NuxtPlugin)[] = [
+    const enablePaywall = Boolean(paywall.enable && paywall.logo)
+    const plugins: (string | NuxtPlugin | false)[] = [
       './runtime/plugins/storipress-internal',
       './runtime/plugins/storipress',
       './runtime/plugins/storipress-payload',
       './runtime/plugins/custom-field',
-      {
-        src:
-          paywall.enable && paywall.logo ? './runtime/plugins/paywall.client' : './runtime/plugins/paywall-noop.client',
+      // Nuxt will remove same plugin
+      // ref: https://github.com/nuxt/nuxt/blob/main/packages/kit/src/plugin.ts#L67
+      enablePaywall && {
+        src: './runtime/plugins/paywall.client',
         mode: 'client',
       },
       {
         // paywall API is client side only
         src: './runtime/plugins/paywall-noop.client',
-        mode: 'server',
+        // If not enable paywall, need to make noop paywall available on client-side
+        mode: enablePaywall ? 'server' : 'all',
       },
       flags.lazySearch
         ? './runtime/plugins/storipress-search-client-noop'
@@ -447,6 +450,9 @@ const karbon = defineNuxtModule<ModuleOptions>({
     ]
 
     for (const plugin of plugins) {
+      if (!plugin) {
+        continue
+      }
       addPlugin(
         typeof plugin === 'string'
           ? {
