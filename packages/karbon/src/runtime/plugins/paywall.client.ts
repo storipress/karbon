@@ -1,7 +1,7 @@
 import { useEventBus, useStorage } from '@vueuse/core'
 import { once } from 'remeda'
 import '@storipress/builder-component/dist/style.css'
-import { waitIdle } from '../utils/idle-promise'
+import { waitIdle } from '../utils/defer-load'
 import {
   computed,
   defineNuxtPlugin,
