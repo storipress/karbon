@@ -1,5 +1,5 @@
 .article-body {
-  .image {
+  [data-format='image'] {
     @apply relative px-1;
 
     width: fit-content;
