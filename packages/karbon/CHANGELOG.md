@@ -5,6 +5,24 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # 0.1.0 (2023-03-15)
 
+## v0.1.46
+
+[compare changes](https://github.com/storipress/karbon/compare/v0.1.45...v0.1.46)
+
+### 🩹 Fixes
+
+- Fix noop paywall plugin not available on client-side ([8513fef](https://github.com/storipress/karbon/commit/8513fef))
+
+### 🎨 Styles
+
+- Format ([d897430](https://github.com/storipress/karbon/commit/d897430))
+- Rename img to data-format image ([fc37d1e](https://github.com/storipress/karbon/commit/fc37d1e))
+
+### ❤️  Contributors
+
+- DanSnow <dododavid006@gmail.com>
+- Ches4117 ([@ches4117](http://github.com/ches4117))
+
 ## v0.1.45
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.44...v0.1.45)
