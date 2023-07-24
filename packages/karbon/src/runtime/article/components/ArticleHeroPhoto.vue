@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import type { ImageModifiers } from '@nuxt/image-edge'
+import type { ImageModifiers } from '@nuxt/image'
 import StoripressImage from '../../components/StoripressImage.vue'
 import { computed, useOptionalArticle } from '#imports'
 

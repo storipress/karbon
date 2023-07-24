@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 // ref: https://v1.image.nuxtjs.org/components/nuxt-img
 // ref: https://github.com/nuxt/image/blob/v1/src/runtime/providers/sanity.ts
-import type { ImageModifiers } from '@nuxt/image-edge'
+import type { ImageModifiers } from '@nuxt/image'
 import { computed } from '#imports'
 
 const props = defineProps<{
