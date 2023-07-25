@@ -332,7 +332,7 @@ const karbon = defineNuxtModule<ModuleOptions>({
       ctx.urls = [...ctxUrls, ...urlList]
     }
 
-    nuxt.hook('sitemap:prerender', handleSitemap)
+    nuxt.hook('sitemap:resolved', handleSitemap)
 
     // @ts-expect-error nocheck
     nuxt.hook('tailwindcss:config', (tailwindConfig) => {
@@ -480,17 +480,24 @@ const karbon = defineNuxtModule<ModuleOptions>({
     })
     await Promise.all(promises)
 
-    const siteUrl = (nuxt.options.runtimeConfig.public.siteUrl || 'https://example.com') as string
+    const siteUrl = (process.env.NUXT_PUBLIC_SITE_URL ||
+      nuxt.options.runtimeConfig.public.siteUrl ||
+      'https://example.com') as string
     // @ts-expect-error nocheck
     nuxt.options.sitemap = {
       enabled: true,
       trailingSlash: false,
-      exclude: ['/_storipress/_snapshot/**'],
       siteUrl,
+      // @ts-expect-error nocheck
+      ...nuxt.options.sitemap,
+      // @ts-expect-error nocheck
+      exclude: ['/_storipress/_snapshot/**', ...(nuxt.options.sitemap?.exclude || [])],
     }
+    // @ts-expect-error nocheck
     nuxt.options.robots = {
-      ...nuxt.options.robots!,
       sitemap: [withBase('/sitemap.xml', siteUrl)],
+      // @ts-expect-error nocheck
+      ...nuxt.options.robots!,
     }
     await installModule('nuxt-simple-robots')
     await installModule('nuxt-simple-sitemap')
