@@ -5,6 +5,18 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # 0.1.0 (2023-03-15)
 
+## v0.1.47
+
+[compare changes](https://github.com/storipress/karbon/compare/v0.1.46...v0.1.47)
+
+### 🩹 Fixes
+
+- Upgrade to sitemap v3 ([c66d0ef](https://github.com/storipress/karbon/commit/c66d0ef))
+
+### ❤️  Contributors
+
+- DanSnow <dododavid006@gmail.com>
+
 ## v0.1.46
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.45...v0.1.46)
