@@ -1840,7 +1840,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nuxt/kit@npm:^3.3.2, @nuxt/kit@npm:^3.4.3, @nuxt/kit@npm:^3.5.1, @nuxt/kit@npm:^3.5.3, @nuxt/kit@npm:^3.6.1, @nuxt/kit@npm:^3.6.3, @nuxt/kit@npm:^3.6.5":
+"@nuxt/kit@npm:3.6.5, @nuxt/kit@npm:^3.3.2, @nuxt/kit@npm:^3.4.3, @nuxt/kit@npm:^3.5.1, @nuxt/kit@npm:^3.5.3, @nuxt/kit@npm:^3.6.1, @nuxt/kit@npm:^3.6.3, @nuxt/kit@npm:^3.6.5":
   version: 3.6.5
   resolution: "@nuxt/kit@npm:3.6.5"
   dependencies:
@@ -1984,12 +1984,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nuxt/test-utils@npm:3.6.3":
-  version: 3.6.3
-  resolution: "@nuxt/test-utils@npm:3.6.3"
+"@nuxt/test-utils@npm:3.6.5":
+  version: 3.6.5
+  resolution: "@nuxt/test-utils@npm:3.6.5"
   dependencies:
-    "@nuxt/kit": 3.6.3
-    "@nuxt/schema": 3.6.3
+    "@nuxt/kit": 3.6.5
+    "@nuxt/schema": 3.6.5
     consola: ^3.2.3
     defu: ^6.1.2
     execa: ^7.1.1
@@ -2009,7 +2009,7 @@ __metadata:
       optional: true
     vitest:
       optional: true
-  checksum: b4a1690107d097a384dc6d64407f36cfb651915af5c4f90bfde9ef4414e285599aee96a4604594562e6610c24f423574a8031139ef9845634737679031d562d5
+  checksum: 145998404ba4067b3bf1bddfa9ea2492f4210c6710bc156623ad3e8dbdc7f28ea4d4315228242d4f154d2bdecc59b99b29380a852ee7a5da8b9f7224ce3429c5
   languageName: node
   linkType: hard
 
@@ -2940,7 +2940,7 @@ __metadata:
     "@nuxt/kit": 3.6.3
     "@nuxt/module-builder": 0.4.0
     "@nuxt/schema": 3.6.3
-    "@nuxt/test-utils": 3.6.3
+    "@nuxt/test-utils": 3.6.5
     "@nuxtjs/html-validator": ^1.5.1
     "@nuxtjs/tailwindcss": 6.8.0
     "@rudderstack/rudder-sdk-node": ^2.0.2
