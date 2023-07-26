@@ -126,7 +126,7 @@ whenever(
 </script>
 
 <template>
-  <div ref="root" class="article-body" :style="{ '--left-offset': `${left}px`,'--body-width': `${width}px` }">
+  <div ref="root" class="article-body" :style="{ '--left-offset': `${left}px`, '--body-width': `${width}px` }">
     <div v-for="(segment, index) of articleSegments" :key="`${segment.id}-${index}`">
       <AdvertisingSlot
         v-if="segment.type === 'ad'"
