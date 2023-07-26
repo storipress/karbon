@@ -15,7 +15,7 @@ import {
   resolvePath,
   useNuxt,
 } from '@nuxt/kit'
-import { encodePath, parseURL, withBase } from 'ufo'
+import { encodePath, parseURL } from 'ufo'
 import { omit } from 'remeda'
 import serialize from 'serialize-javascript'
 import fs from 'fs-extra'
@@ -346,7 +346,7 @@ const karbon = defineNuxtModule<ModuleOptions>({
     })
 
     addServerHandler({
-      route: '/api/_sitemap-urls',
+      route: '/api/_storipress/sitemap-urls',
       handler: await resolver.resolve('./runtime/routes/api/_sitemap-urls'),
     })
 
@@ -487,17 +487,11 @@ const karbon = defineNuxtModule<ModuleOptions>({
     nuxt.options.sitemap = {
       enabled: true,
       trailingSlash: false,
-      siteUrl,
+      dynamicUrlsApiEndpoint: '/api/_storipress/sitemap-urls',
       // @ts-expect-error nocheck
       ...nuxt.options.sitemap,
       // @ts-expect-error nocheck
-      exclude: ['/_storipress/_snapshot/**', ...(nuxt.options.sitemap?.exclude || [])],
-    }
-    // @ts-expect-error nocheck
-    nuxt.options.robots = {
-      sitemap: [withBase('/sitemap.xml', siteUrl)],
-      // @ts-expect-error nocheck
-      ...nuxt.options.robots!,
+      exclude: ['/_storipress/_snapshot/**', '/_storipress/redirect', ...(nuxt.options.sitemap?.exclude || [])],
     }
     await installModule('nuxt-simple-robots')
     await installModule('nuxt-simple-sitemap')
