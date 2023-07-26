@@ -17,7 +17,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - Format ([e1a60cb](https://github.com/storipress/karbon/commit/e1a60cb))
 
-### ❤️  Contributors
+### ❤️ Contributors
 
 - DanSnow <dododavid006@gmail.com>
 
@@ -33,7 +33,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - Format ([0dff1b6](https://github.com/storipress/karbon/commit/0dff1b6))
 
-### ❤️  Contributors
+### ❤️ Contributors
 
 - DanSnow <dododavid006@gmail.com>
 
@@ -45,7 +45,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - Upgrade to sitemap v3 ([c66d0ef](https://github.com/storipress/karbon/commit/c66d0ef))
 
-### ❤️  Contributors
+### ❤️ Contributors
 
 - DanSnow <dododavid006@gmail.com>
 
@@ -62,7 +62,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 - Format ([d897430](https://github.com/storipress/karbon/commit/d897430))
 - Rename img to data-format image ([fc37d1e](https://github.com/storipress/karbon/commit/fc37d1e))
 
-### ❤️  Contributors
+### ❤️ Contributors
 
 - DanSnow <dododavid006@gmail.com>
 - Ches4117 ([@ches4117](http://github.com/ches4117))
@@ -87,7 +87,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - Format code with prettier ([b592783](https://github.com/storipress/karbon/commit/b592783))
 
-### ❤️  Contributors
+### ❤️ Contributors
 
 - DanSnow <dododavid006@gmail.com>
 
