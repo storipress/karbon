@@ -5,6 +5,22 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # 0.1.0 (2023-03-15)
 
+## v0.1.49
+
+[compare changes](https://github.com/storipress/karbon/compare/v0.1.48...v0.1.49)
+
+### 🩹 Fixes
+
+- Use memory cache ([fa7ad95](https://github.com/storipress/karbon/commit/fa7ad95))
+
+### 🎨 Styles
+
+- Format ([e1a60cb](https://github.com/storipress/karbon/commit/e1a60cb))
+
+### ❤️  Contributors
+
+- DanSnow <dododavid006@gmail.com>
+
 ## v0.1.48
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.47...v0.1.48)
