@@ -5,6 +5,22 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # 0.1.0 (2023-03-15)
 
+## v0.1.48
+
+[compare changes](https://github.com/storipress/karbon/compare/v0.1.47...v0.1.48)
+
+### 🩹 Fixes
+
+- Remove deprcated config and move api endpoint ([8f310d4](https://github.com/storipress/karbon/commit/8f310d4))
+
+### 🎨 Styles
+
+- Format ([0dff1b6](https://github.com/storipress/karbon/commit/0dff1b6))
+
+### ❤️  Contributors
+
+- DanSnow <dododavid006@gmail.com>
+
 ## v0.1.47
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.46...v0.1.47)
