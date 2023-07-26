@@ -488,6 +488,9 @@ const karbon = defineNuxtModule<ModuleOptions>({
       enabled: true,
       trailingSlash: false,
       dynamicUrlsApiEndpoint: '/api/_storipress/sitemap-urls',
+      runtimeCacheStorage: {
+        driver: 'memory',
+      },
       // @ts-expect-error nocheck
       ...nuxt.options.sitemap,
       // @ts-expect-error nocheck
