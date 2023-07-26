@@ -5,6 +5,18 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # 0.1.0 (2023-03-15)
 
+## v0.1.50
+
+[compare changes](https://github.com/storipress/karbon/compare/v0.1.49...v0.1.50)
+
+### 🩹 Fixes
+
+- Remove rudderstack ([31136e9](https://github.com/storipress/karbon/commit/31136e9))
+
+### ❤️  Contributors
+
+- DanSnow <dododavid006@gmail.com>
+
 ## v0.1.49
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.48...v0.1.49)
