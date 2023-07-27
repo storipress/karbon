@@ -170,9 +170,8 @@ const karbon = defineNuxtModule<ModuleOptions>({
       ...nuxt.options.runtimeConfig.public.storipress,
       searchDomain: 'search.stori.press',
       // @ts-expect-error default
-      ...omit(nuxt.options.runtimeConfig.storipress, ['apiToken', 'stripeKey', 'encryptKey']),
+      ...omit(nuxt.options.runtimeConfig.storipress, ['apiToken', 'encryptKey']),
       apiToken: undefined,
-      stripeKey: undefined,
       fullStatic,
       previewParagraph,
     }
