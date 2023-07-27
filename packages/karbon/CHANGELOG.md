@@ -5,6 +5,23 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # 0.1.0 (2023-03-15)
 
+## v0.1.51
+
+[compare changes](https://github.com/storipress/karbon/compare/v0.1.50...v0.1.51)
+
+### 🩹 Fixes
+
+- Forward stripe key ([43cffc0](https://github.com/storipress/karbon/commit/43cffc0))
+
+### 🎨 Styles
+
+- Format code with prettier ([44f9395](https://github.com/storipress/karbon/commit/44f9395))
+- Format ([0ac55e4](https://github.com/storipress/karbon/commit/0ac55e4))
+
+### ❤️  Contributors
+
+- DanSnow <dododavid006@gmail.com>
+
 ## v0.1.50
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.49...v0.1.50)
