@@ -6,11 +6,13 @@ export function useDecryptClient<T>() {
   const runtimeConfig = useRuntimeConfig()
 
   return (key: string) => {
+    // encode as base64 to prevent error in http header
+    const auth = btoa(JSON.stringify(nuxt.$paywall.authInfo.value))
     return runtimeConfig.public?.storipress?.paywall?.enable
       ? ($fetch('/api/decrypt-key', {
           method: 'GET',
           headers: {
-            [DECRYPT_AUTH_HEADER]: JSON.stringify(nuxt.$paywall.authInfo.value),
+            [DECRYPT_AUTH_HEADER]: auth,
             [DECRYPT_KEY_HEADER]: key,
             'content-type': 'text/plain',
           },

@@ -11,8 +11,9 @@ import type {
   defineIsViewable,
 } from '../../composables/viewable'
 
-// @ts-expect-error auto generated module
 import { verboseInvariant } from '../../utils/verbose-invariant'
+
+// @ts-expect-error auto generated module
 import _isViewable from '#sp-internal/is-viewable'
 
 // @ts-expect-error no useNitroApp
@@ -30,7 +31,7 @@ export default defineEventHandler(async (event): Promise<ViewableApiResult> => {
   const rawAuthHeader = getHeader(event, DECRYPT_AUTH_HEADER)
   const rawKeyHeader = getHeader(event, DECRYPT_KEY_HEADER)
   const { storipress } = useRuntimeConfig()
-  const auth = destr(rawAuthHeader)
+  const auth = destr(decodeBase64(rawAuthHeader))
   const key = destr(rawKeyHeader)
 
   if (!auth) {
@@ -98,4 +99,8 @@ function normalizeViewableResult(res: ViewableResult): DetailedViewableResult {
     return { pass: res }
   }
   return res
+}
+
+function decodeBase64(str: string | undefined = ''): string {
+  return str ? Buffer.from(str, 'base64').toString() : ''
 }
