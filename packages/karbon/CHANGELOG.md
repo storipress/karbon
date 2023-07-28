@@ -5,6 +5,26 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # 0.1.0 (2023-03-15)
 
+## v0.1.52
+
+[compare changes](https://github.com/storipress/karbon/compare/v0.1.51...v0.1.52)
+
+### 🩹 Fixes
+
+- Base64 encode auth header ([98caca7](https://github.com/storipress/karbon/commit/98caca7))
+
+### 📖 Documentation
+
+- Update contributing.md ([9350a34](https://github.com/storipress/karbon/commit/9350a34))
+
+### 🎨 Styles
+
+- Format ([0c8a075](https://github.com/storipress/karbon/commit/0c8a075))
+
+### ❤️  Contributors
+
+- DanSnow <dododavid006@gmail.com>
+
 ## v0.1.51
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.50...v0.1.51)
