@@ -41,7 +41,7 @@
     "micro-aes-gcm": "^0.3.3",
     "node-fetch-native": "^1.1.1",
     "ohash": "^1.1.2",
-    "ora": "^6.3.1",
+    "ora": "^7.0.0",
     "p-whilst": "^3.0.0",
     "parse5": "^7.1.2",
     "pathe": "^1.1.1",

@@ -151,7 +151,7 @@
     "nuxt-simple-robots": "^3.0.3",
     "nuxt-simple-sitemap": "3.0.13",
     "ohash": "^1.1.2",
-    "ora": "^6.3.1",
+    "ora": "^7.0.0",
     "p-defer": "^4.0.0",
     "p-whilst": "^3.0.0",
     "parse5": "^7.1.2",
