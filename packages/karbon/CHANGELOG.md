@@ -21,7 +21,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - Format ([0c8a075](https://github.com/storipress/karbon/commit/0c8a075))
 
-### ❤️  Contributors
+### ❤️ Contributors
 
 - DanSnow <dododavid006@gmail.com>
 
@@ -38,7 +38,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 - Format code with prettier ([44f9395](https://github.com/storipress/karbon/commit/44f9395))
 - Format ([0ac55e4](https://github.com/storipress/karbon/commit/0ac55e4))
 
-### ❤️  Contributors
+### ❤️ Contributors
 
 - DanSnow <dododavid006@gmail.com>
 
