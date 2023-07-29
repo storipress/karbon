@@ -1,5 +1,4 @@
 import { v4 as uuidv4 } from 'uuid'
-import RudderAnalytics from '@rudderstack/rudder-sdk-node'
 import { createStorage } from 'unstorage'
 import fsDriver from 'unstorage/drivers/fs'
 import findCacheDirectory from 'find-cache-dir'
@@ -25,25 +24,38 @@ interface TRoute {
   params: string[]
 }
 
-export async function track(event: EventName, amount?: TemplateAmount) {
+type JsonValue =
+  | string
+  | number
+  | boolean
+  | undefined
+  | (string | number | boolean | Record<string, JsonValue>)[]
+  | { [key: string]: JsonValue }
+
+async function sendTrack(event: EventName, properties?: Record<string, JsonValue>) {
   const anonymousId = await getAnonymousId()
   const client = await createRudderAnalytics()
 
   client.track({
     anonymousId,
     event,
-    ...(event !== EventName.deployStart && {
-      properties: {
-        article_layout_amount: amount?.articleLayout,
-        editor_block_amount: amount?.editorBlock,
-      },
-    }),
+    properties,
   })
 }
 
+export async function track(event: EventName, amount?: TemplateAmount) {
+  return sendTrack(
+    event,
+    event !== EventName.deployStart
+      ? {
+          article_layout_amount: amount?.articleLayout,
+          editor_block_amount: amount?.editorBlock,
+        }
+      : undefined,
+  )
+}
+
 export async function trackProject(options: any) {
-  const anonymousId = await getAnonymousId()
-  const client = await createRudderAnalytics()
   const resources: Record<string, ResourcePage<{ id: string }, unknown>> = options?.karbon?.resources
   const route: TRoute[] = []
   if (resources) {
@@ -59,29 +71,19 @@ export async function trackProject(options: any) {
     })
   }
 
-  client.track({
-    anonymousId,
-    event: EventName.project,
-    properties: {
-      ...Object.fromEntries(route.map((r) => [r.resource, r.params])),
-      usedRoutes: route.map((r) => r.resource),
-      isSSR: options.mode === 'universal' || options.ssr === true,
-      target: options._generate ? 'static' : 'server',
-    },
+  return sendTrack(EventName.project, {
+    ...Object.fromEntries(route.map((r) => [r.resource, r.params])),
+    usedRoutes: route.map((r) => r.resource),
+    isSSR: options.mode === 'universal' || options.ssr === true,
+    target: options._generate ? 'static' : 'server',
   })
 }
 
 export async function trackCommand() {
-  const anonymousId = await getAnonymousId()
-  const client = await createRudderAnalytics()
   const command = process.argv[2] || 'unknown'
 
-  client.track({
-    anonymousId,
-    event: EventName.command,
-    properties: {
-      command,
-    },
+  return sendTrack(EventName.command, {
+    command,
   })
 }
 
@@ -114,7 +116,12 @@ export async function initTrack(environment: string) {
   })
 }
 
-async function getAnonymousId() {
+let cachedAnonymousId: string | undefined
+async function getAnonymousId(): Promise<string> {
+  if (cachedAnonymousId) {
+    return cachedAnonymousId
+  }
+
   const thunk = findCacheDirectory({ name: 'storipress', thunk: true })
   const cachePath = thunk && thunk('cli-cache')
   const storage = createStorage({
@@ -123,7 +130,8 @@ async function getAnonymousId() {
 
   const hasCache = cachePath && (await storage.hasItem(cachePath))
   if (!cachePath) {
-    return
+    cachedAnonymousId = uuidv4()
+    return cachedAnonymousId as string
   }
   if (!hasCache) {
     await storage.setItem(cachePath, uuidv4())
@@ -135,13 +143,14 @@ async function getAnonymousId() {
   }
 
   const anonymousId = await storage.getItem(cachePath)
+  cachedAnonymousId = anonymousId as string
   return anonymousId as string
 }
 
 function createRudderAnalytics() {
-  const client = new RudderAnalytics('2K2KXtd4cfXGGt8pm5aBP2GlCvl', {
-    dataPlaneUrl: 'https://storipresspmvx.dataplane.rudderstack.com',
-  })
-
-  return client
+  return {
+    identify: (_: { anonymousId: string }) => {},
+    group: (_: { anonymousId: string; groupId: string }) => {},
+    track: (_: { anonymousId: string; event: EventName; properties?: Record<string, JsonValue> }) => {},
+  }
 }

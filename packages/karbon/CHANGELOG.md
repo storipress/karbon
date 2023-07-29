@@ -5,6 +5,55 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # 0.1.0 (2023-03-15)
 
+## v0.1.52
+
+[compare changes](https://github.com/storipress/karbon/compare/v0.1.51...v0.1.52)
+
+### 🩹 Fixes
+
+- Base64 encode auth header ([98caca7](https://github.com/storipress/karbon/commit/98caca7))
+
+### 📖 Documentation
+
+- Update contributing.md ([9350a34](https://github.com/storipress/karbon/commit/9350a34))
+
+### 🎨 Styles
+
+- Format ([0c8a075](https://github.com/storipress/karbon/commit/0c8a075))
+
+### ❤️  Contributors
+
+- DanSnow <dododavid006@gmail.com>
+
+## v0.1.51
+
+[compare changes](https://github.com/storipress/karbon/compare/v0.1.50...v0.1.51)
+
+### 🩹 Fixes
+
+- Forward stripe key ([43cffc0](https://github.com/storipress/karbon/commit/43cffc0))
+
+### 🎨 Styles
+
+- Format code with prettier ([44f9395](https://github.com/storipress/karbon/commit/44f9395))
+- Format ([0ac55e4](https://github.com/storipress/karbon/commit/0ac55e4))
+
+### ❤️  Contributors
+
+- DanSnow <dododavid006@gmail.com>
+
+## v0.1.50
+
+[compare changes](https://github.com/storipress/karbon/compare/v0.1.49...v0.1.50)
+
+### 🩹 Fixes
+
+- Remove rudderstack ([31136e9](https://github.com/storipress/karbon/commit/31136e9))
+
+### ❤️ Contributors
+
+- DanSnow <dododavid006@gmail.com>
+
 ## v0.1.49
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.48...v0.1.49)
@@ -17,7 +66,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - Format ([e1a60cb](https://github.com/storipress/karbon/commit/e1a60cb))
 
-### ❤️  Contributors
+### ❤️ Contributors
 
 - DanSnow <dododavid006@gmail.com>
 
@@ -33,7 +82,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - Format ([0dff1b6](https://github.com/storipress/karbon/commit/0dff1b6))
 
-### ❤️  Contributors
+### ❤️ Contributors
 
 - DanSnow <dododavid006@gmail.com>
 
@@ -45,7 +94,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - Upgrade to sitemap v3 ([c66d0ef](https://github.com/storipress/karbon/commit/c66d0ef))
 
-### ❤️  Contributors
+### ❤️ Contributors
 
 - DanSnow <dododavid006@gmail.com>
 
@@ -62,7 +111,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 - Format ([d897430](https://github.com/storipress/karbon/commit/d897430))
 - Rename img to data-format image ([fc37d1e](https://github.com/storipress/karbon/commit/fc37d1e))
 
-### ❤️  Contributors
+### ❤️ Contributors
 
 - DanSnow <dododavid006@gmail.com>
 - Ches4117 ([@ches4117](http://github.com/ches4117))
@@ -87,7 +136,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - Format code with prettier ([b592783](https://github.com/storipress/karbon/commit/b592783))
 
-### ❤️  Contributors
+### ❤️ Contributors
 
 - DanSnow <dododavid006@gmail.com>
 
