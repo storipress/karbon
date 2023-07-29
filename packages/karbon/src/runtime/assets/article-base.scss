@@ -10,7 +10,7 @@
       @apply px-0;
 
       margin-left: calc(var(--left-offset, 0) * -1);
-      width: 100vw;
+      width: var(--body-width);
     }
 
     &.wide {

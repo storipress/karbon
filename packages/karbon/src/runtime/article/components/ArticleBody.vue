@@ -57,7 +57,7 @@ watch(
   },
 )
 
-const { left } = useElementBounding(root)
+const { left, width } = useElementBounding(root)
 const { render } = useRenderEditorBlock(editorBlocks)
 const customFieldsKey = CUSTOM_FIELD_EDITOR_BLOCK_KEY
 // @ts-expect-error internal untyped property
@@ -126,7 +126,7 @@ whenever(
 </script>
 
 <template>
-  <div ref="root" class="article-body" :style="{ '--left-offset': `${left}px` }">
+  <div ref="root" class="article-body" :style="{ '--left-offset': `${left}px`, '--body-width': `${width}px` }">
     <div v-for="(segment, index) of articleSegments" :key="`${segment.id}-${index}`">
       <AdvertisingSlot
         v-if="segment.type === 'ad'"
