@@ -8,6 +8,8 @@ import { globby } from 'globby'
 import { oraPromise } from 'ora'
 import parseArgv from 'minimist'
 import chalk from 'chalk'
+import { temporaryDirectoryTask, temporaryDirectory } from 'tempy'
+import { $ } from 'execa'
 import * as Sentry from '@sentry/node'
 import consola from 'consola'
 import { requestPresignedUploadURL, uploadSiteTemplate } from '../runtime/api/siteTemplate'
@@ -38,6 +40,7 @@ async function runBundle() {
   try {
     await oraPromise(compress, { text: 'compressing', successText: 'compressed' })
     await checkFile(siteTemplateName)
+    await oraPromise(testBuild, { text: 'testing build', successText: 'tested build success' })
     if (!argv.packOnly) {
       await oraPromise(upload, { text: 'uploading', successText: 'uploaded' })
     }
@@ -123,6 +126,44 @@ async function compress() {
       }),
     fs.createWriteStream(siteTemplateName),
   )
+}
+
+async function unzipFile(zipFilePath: string, targetDirectory: string) {
+  try {
+    const zipFileContent = await fs.promises.readFile(zipFilePath)
+    const zip = new JSZip()
+    const zipContents = await zip.loadAsync(zipFileContent)
+
+    await Promise.all(
+      Object.keys(zipContents.files).map(async (filePath) => {
+        const fileContent = await zipContents.file(filePath)?.async('nodebuffer')
+        if (!fileContent) return
+
+        const directoryPath = path.dirname(filePath)
+        await fs.ensureDir(`${targetDirectory}/${directoryPath}`)
+        const fullTargetPath = `${targetDirectory}/${filePath}`
+        await fs.promises.writeFile(fullTargetPath, fileContent)
+      }),
+    )
+  } catch (error) {
+    console.error('unzip error:', error)
+  }
+}
+
+async function testBuild() {
+  const tempPath = temporaryDirectory()
+  log('====>>', { tempPath })
+
+  // const { exitCode, stderr } = await temporaryDirectoryTask(async (tempPath) => {
+  await unzipFile(siteTemplateName, tempPath)
+  const $$ = $({ cwd: tempPath })
+  await $$`yarn install`
+  const { exitCode, stderr } = await $$`yarn build`
+  return { exitCode, stderr }
+  // })
+  if (exitCode !== 0) {
+    throw new Error(stderr)
+  }
 }
 
 async function upload() {
