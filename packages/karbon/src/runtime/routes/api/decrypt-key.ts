@@ -3,7 +3,7 @@ import { destr } from 'destr'
 
 // @ts-expect-error self reference
 import { DECRYPT_AUTH_HEADER, DECRYPT_KEY_HEADER, compactDecrypt } from '@storipress/karbon/internal'
-import { defineEventHandler, getHeader } from 'h3'
+import { defineEventHandler, getHeader, isMethod, readBody, setResponseStatus } from 'h3'
 import type {
   DetailedViewableResult,
   ViewableApiResult,
@@ -28,11 +28,16 @@ interface DecryptedKey {
 }
 
 export default defineEventHandler(async (event): Promise<ViewableApiResult> => {
-  const rawAuthHeader = getHeader(event, DECRYPT_AUTH_HEADER)
-  const rawKeyHeader = getHeader(event, DECRYPT_KEY_HEADER)
+  if (!isMethod(event, ['HEAD', 'OPTIONS', 'GET', 'POST'])) {
+    setResponseStatus(event, 405, 'Method not allowed')
+    return {
+      pass: false,
+      message: 'Method not allowed',
+    }
+  }
+  const { auth, key } = await extractParam(event)
+
   const { storipress } = useRuntimeConfig()
-  const auth = destr(decodeBase64(rawAuthHeader))
-  const key = destr(rawKeyHeader)
 
   if (!auth) {
     return {
@@ -87,6 +92,20 @@ export default defineEventHandler(async (event): Promise<ViewableApiResult> => {
     }
   }
 })
+
+interface RawBody {
+  auth: string
+  key: string
+}
+
+async function extractParam(event: any) {
+  const rawAuthHeader = getHeader(event, DECRYPT_AUTH_HEADER)
+  const rawKeyHeader = getHeader(event, DECRYPT_KEY_HEADER)
+  const body = isMethod(event, 'POST') ? await readBody<RawBody>(event) : undefined
+  const auth: Record<string, unknown> = destr(decodeBase64(body?.key ?? rawAuthHeader))
+  const key: string | undefined = body?.key ?? rawKeyHeader
+  return { auth, key }
+}
 
 function normalizeViewableResult(res: ViewableResult): DetailedViewableResult {
   if (res == null) {

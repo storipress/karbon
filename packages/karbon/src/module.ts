@@ -368,6 +368,7 @@ const karbon = defineNuxtModule<ModuleOptions>({
       addServerHandler({
         route: '/api/decrypt-key',
         handler: await resolver.resolve('./runtime/routes/api/decrypt-key'),
+        method: 'all',
       })
     }
 
