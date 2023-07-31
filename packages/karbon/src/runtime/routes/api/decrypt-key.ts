@@ -102,7 +102,7 @@ async function extractParam(event: any) {
   const rawAuthHeader = getHeader(event, DECRYPT_AUTH_HEADER)
   const rawKeyHeader = getHeader(event, DECRYPT_KEY_HEADER)
   const body = isMethod(event, 'POST') ? await readBody<RawBody>(event) : undefined
-  const auth: Record<string, unknown> = destr(decodeBase64(body?.key ?? rawAuthHeader))
+  const auth: Record<string, unknown> = destr(decodeBase64(body?.auth ?? rawAuthHeader))
   const key: string | undefined = body?.key ?? rawKeyHeader
   return { auth, key }
 }
