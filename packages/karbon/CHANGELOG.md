@@ -5,6 +5,21 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # 0.1.0 (2023-03-15)
 
+## v0.1.53
+
+[compare changes](https://github.com/storipress/karbon/compare/v0.1.52...v0.1.53)
+
+### 🩹 Fixes
+
+- Full width image will move together when scrolling [SPMVP-5751] ([#159](https://github.com/storipress/karbon/pull/159))
+- **deps:** Update dependency ora to v7 ([3045122](https://github.com/storipress/karbon/commit/3045122))
+- Use post for decrypt key ([f264489](https://github.com/storipress/karbon/commit/f264489))
+
+### ❤️  Contributors
+
+- DanSnow <dododavid006@gmail.com>
+- Ariel Lin
+
 ## v0.1.52
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.51...v0.1.52)
