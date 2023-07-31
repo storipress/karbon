@@ -5,6 +5,22 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # 0.1.0 (2023-03-15)
 
+## v0.1.55
+
+[compare changes](https://github.com/storipress/karbon/compare/v0.1.54...v0.1.55)
+
+### 🩹 Fixes
+
+- Add log in decrypt endpoint ([d16b04b](https://github.com/storipress/karbon/commit/d16b04b))
+
+### 🎨 Styles
+
+- Format ([6b7d456](https://github.com/storipress/karbon/commit/6b7d456))
+
+### ❤️  Contributors
+
+- DanSnow <dododavid006@gmail.com>
+
 ## v0.1.54
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.53...v0.1.54)
