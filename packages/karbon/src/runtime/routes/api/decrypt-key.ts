@@ -53,11 +53,16 @@ export default defineEventHandler(async (event): Promise<ViewableApiResult> => {
   }
   let meta: DecryptedKey
   try {
+    // eslint-disable-next-line no-console
+    console.log('encrypt key', storipress.encryptKey)
     const { plaintext } = await compactDecrypt(key, Buffer.from(storipress.encryptKey, 'base64'))
     const decoder = new TextDecoder()
     meta = destr(decoder.decode(plaintext))
+    // eslint-disable-next-line no-console
+    console.log('decrypt meta:', meta)
     verboseInvariant(meta.id && meta.plan && meta.key, 'invalid body')
-  } catch {
+  } catch (error) {
+    console.error(error)
     return {
       pass: false,
       message: 'Invalid body',
