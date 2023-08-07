@@ -13,7 +13,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - Add slug to author query ([a34d646](https://github.com/storipress/karbon/commit/a34d646))
 
-### ❤️  Contributors
+### ❤️ Contributors
 
 - DanSnow <dododavid006@gmail.com>
 
@@ -29,7 +29,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - Format ([6b7d456](https://github.com/storipress/karbon/commit/6b7d456))
 
-### ❤️  Contributors
+### ❤️ Contributors
 
 - DanSnow <dododavid006@gmail.com>
 
@@ -41,7 +41,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - Fix bug ([7b761f4](https://github.com/storipress/karbon/commit/7b761f4))
 
-### ❤️  Contributors
+### ❤️ Contributors
 
 - DanSnow <dododavid006@gmail.com>
 
@@ -55,7 +55,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 - **deps:** Update dependency ora to v7 ([3045122](https://github.com/storipress/karbon/commit/3045122))
 - Use post for decrypt key ([f264489](https://github.com/storipress/karbon/commit/f264489))
 
-### ❤️  Contributors
+### ❤️ Contributors
 
 - DanSnow <dododavid006@gmail.com>
 - Ariel Lin
@@ -76,7 +76,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - Format ([0c8a075](https://github.com/storipress/karbon/commit/0c8a075))
 
-### ❤️  Contributors
+### ❤️ Contributors
 
 - DanSnow <dododavid006@gmail.com>
 
@@ -93,7 +93,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 - Format code with prettier ([44f9395](https://github.com/storipress/karbon/commit/44f9395))
 - Format ([0ac55e4](https://github.com/storipress/karbon/commit/0ac55e4))
 
-### ❤️  Contributors
+### ❤️ Contributors
 
 - DanSnow <dododavid006@gmail.com>
 
