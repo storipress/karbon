@@ -118,6 +118,7 @@ const GetArticle = gql`
       authors {
         id
         bio
+        slug
         socials
         avatar
         email
