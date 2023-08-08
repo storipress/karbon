@@ -1,42 +1,53 @@
 <script setup lang="ts">
-import { useIntersectionObserver } from '@vueuse/core'
+import { useInfiniteScroll } from '@vueuse/core'
 import type { Article } from '../composables/front-page'
 import CustomFieldScope from './CustomFieldScope.vue'
-import { ref, useLoadMore } from '#imports'
+import { computed, useLoadMore } from '#imports'
 
-const props = withDefaults(defineProps<{ as?: string; source: () => AsyncGenerator<Article | Article[]> }>(), {
-  as: 'div',
-})
+const props = withDefaults(
+  defineProps<{
+    as?: string
+    source: () => AsyncGenerator<Article | Article[]>
+    distance?: number
+    el?: HTMLElement | null
+  }>(),
+  {
+    as: 'div',
+    distance: 50,
+    el: null,
+  },
+)
 
 const emit = defineEmits<{
   (event: 'moreLoaded', article: Article | Article[]): void
   (event: 'done'): void
 }>()
 
-const el = ref<HTMLElement | null>(null)
+const el = computed(() => {
+  const root = props.el ?? document
+  return root
+})
 
-const { loading, list, loadMore, onLoadMore, onLoadDone } = useLoadMore<Article | Article[]>(props.source)
+const { loading, list, isDone, loadMore, onLoadMore, onLoadDone } = useLoadMore<Article | Article[]>(props.source)
 
 onLoadMore((item) => emit('moreLoaded', item))
 onLoadDone(() => emit('done'))
 
-useIntersectionObserver(
-  el,
-  async ([{ isIntersecting }]) => {
-    if (!isIntersecting) {
-      return
-    }
-    await loadMore()
-  },
-  {
-    rootMargin: '50px',
-  },
-)
+if (process.client) {
+  useInfiniteScroll(
+    el,
+    async () => {
+      if (isDone.value) return
+      await loadMore()
+    },
+    { distance: props.distance },
+  )
+}
 </script>
 
 <template>
   <ClientOnly>
-    <component :is="as" ref="el" v-bind="$attrs">
+    <component :is="as" v-bind="$attrs">
       <template v-for="article in list" :key="Array.isArray(article) ? article[0].id : article.id">
         <slot v-bind="{ items: article }">
           <CustomFieldScope :resource="article">
@@ -46,6 +57,5 @@ useIntersectionObserver(
       </template>
       <slot v-if="loading" name="loading">Loading...</slot>
     </component>
-    <span ref="el" />
   </ClientOnly>
 </template>
