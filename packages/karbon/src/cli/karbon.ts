@@ -8,7 +8,7 @@ import { globby } from 'globby'
 import { oraPromise } from 'ora'
 import parseArgv from 'minimist'
 import chalk from 'chalk'
-import { temporaryDirectoryTask, temporaryDirectory } from 'tempy'
+import { temporaryDirectoryTask } from 'tempy'
 import { $ } from 'execa'
 import * as Sentry from '@sentry/node'
 import consola from 'consola'
@@ -19,6 +19,7 @@ import { SummaryType } from './bundle/types'
 import { bundleEditorBlocks, bundleLayouts } from './bundle'
 import { checkFile } from './checkFile'
 import { karbonMsg, sizeErrorMsg } from './checkFile/setting'
+import { configYarn } from './prepare'
 
 /* eslint-disable no-console */
 const log = console.log
@@ -40,7 +41,7 @@ async function runBundle() {
   try {
     await oraPromise(compress, { text: 'compressing', successText: 'compressed' })
     await checkFile(siteTemplateName)
-    await oraPromise(testBuild, { text: 'testing build', successText: 'tested build success' })
+    await oraPromise(testBuild, { text: 'testing', successText: 'tested' })
     if (!argv.packOnly) {
       await oraPromise(upload, { text: 'uploading', successText: 'uploaded' })
     }
@@ -150,17 +151,29 @@ async function unzipFile(zipFilePath: string, targetDirectory: string) {
   }
 }
 
-async function testBuild() {
-  const tempPath = temporaryDirectory()
-  log('====>>', { tempPath })
+function getPackageManager(projectPath: string) {
+  const yarn = fs.existsSync(path.resolve(projectPath, './yarn.lock')) && 'yarn'
+  const npm = fs.existsSync(path.resolve(projectPath, './package-lock.json')) && 'npm'
+  const pnpm = fs.existsSync(path.resolve(projectPath, './pnpm-lock.yaml')) && 'pnpm'
 
-  // const { exitCode, stderr } = await temporaryDirectoryTask(async (tempPath) => {
-  await unzipFile(siteTemplateName, tempPath)
-  const $$ = $({ cwd: tempPath })
-  await $$`yarn install`
-  const { exitCode, stderr } = await $$`yarn build`
-  return { exitCode, stderr }
-  // })
+  return yarn || npm || pnpm || 'npm'
+}
+
+async function testBuild() {
+  const { exitCode, stderr } = await temporaryDirectoryTask(async (tempPath) => {
+    await unzipFile(siteTemplateName, tempPath)
+    const $$ = $({ cwd: tempPath })
+
+    const packageManager = getPackageManager(tempPath)
+
+    if (packageManager === 'yarn') {
+      await configYarn(path.resolve(tempPath, './.yarnrc.yml'))
+      await $$`yarn set version berry`
+    }
+    await $$`${packageManager} install`
+    const { exitCode, stderr } = await $$`npx nuxi build`
+    return { exitCode, stderr }
+  })
   if (exitCode !== 0) {
     throw new Error(stderr)
   }

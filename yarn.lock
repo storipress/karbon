@@ -2951,6 +2951,7 @@ __metadata:
     "@storipress/vue-advertising": ^1.1.0
     "@types/find-cache-dir": 3.2.1
     "@types/fs-extra": 11.0.1
+    "@types/js-yaml": ^4.0.5
     "@types/jszip": 3.4.1
     "@types/lodash.truncate": 4.4.7
     "@types/minimist": 1.2.2
@@ -2981,6 +2982,7 @@ __metadata:
     fs-extra: 11.1.1
     globby: 13.2.2
     graphql: ^16.7.1
+    js-yaml: ^4.1.0
     jszip: ^3.10.1
     knitwork: ^1.0.0
     lodash.truncate: ^4.4.2
@@ -3186,6 +3188,13 @@ __metadata:
   version: 1.1.1
   resolution: "@types/js-levenshtein@npm:1.1.1"
   checksum: 1d1ff1ee2ad551909e47f3ce19fcf85b64dc5146d3b531c8d26fc775492d36e380b32cf5ef68ff301e812c3b00282f37aac579ebb44498b94baff0ace7509769
+  languageName: node
+  linkType: hard
+
+"@types/js-yaml@npm:^4.0.5":
+  version: 4.0.5
+  resolution: "@types/js-yaml@npm:4.0.5"
+  checksum: 7dcac8c50fec31643cc9d6444b5503239a861414cdfaa7ae9a38bc22597c4d850c4b8cec3d82d73b3fbca408348ce223b0408d598b32e094470dfffc6d486b4d
   languageName: node
   linkType: hard
 
