@@ -5,6 +5,23 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # 0.1.0 (2023-03-15)
 
+## v0.1.57
+
+[compare changes](https://github.com/storipress/karbon/compare/v0.1.56...v0.1.57)
+
+### 🚀 Enhancements
+
+- Add data-paragraph for css selector ([0f15c98](https://github.com/storipress/karbon/commit/0f15c98))
+
+### 🎨 Styles
+
+- Format ([48bb4e9](https://github.com/storipress/karbon/commit/48bb4e9))
+
+### ❤️  Contributors
+
+- DanSnow <dododavid006@gmail.com>
+- Ches4117 ([@ches4117](http://github.com/ches4117))
+
 ## v0.1.56
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.55...v0.1.56)
