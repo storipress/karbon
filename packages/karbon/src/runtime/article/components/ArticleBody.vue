@@ -47,6 +47,14 @@ const { state: articleSegments, execute } = useAsyncState<Segment[]>(
   article?.segments ?? [],
 )
 
+const wrapArticleSegments = computed(() => {
+  let paragraphNum = 0
+  return articleSegments.value.map((item) => ({
+    ...item,
+    paragraphNum: (paragraphNum += item.type === 'p' ? 1 : 0),
+  }))
+})
+
 watch(
   articleSegments,
   () => {
@@ -127,7 +135,11 @@ whenever(
 
 <template>
   <div ref="root" class="article-body" :style="{ '--left-offset': `${left}px`, '--body-width': `${width}px` }">
-    <div v-for="(segment, index) of articleSegments" :key="`${segment.id}-${index}`">
+    <div
+      v-for="(segment, index) of wrapArticleSegments"
+      :key="`${segment.id}-${index}`"
+      :data-paragraph="segment.paragraphNum"
+    >
       <AdvertisingSlot
         v-if="segment.type === 'ad'"
         :id="(segment as AdSegment).id"
