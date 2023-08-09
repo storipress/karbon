@@ -5,6 +5,24 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # 0.1.0 (2023-03-15)
 
+## v0.1.58
+
+[compare changes](https://github.com/storipress/karbon/compare/v0.1.57...v0.1.58)
+
+### 🚀 Enhancements
+
+- Unzip file and run build ([dc03a6a](https://github.com/storipress/karbon/commit/dc03a6a))
+
+### 🩹 Fixes
+
+- Use siteCDN to load page ([3dbd684](https://github.com/storipress/karbon/commit/3dbd684))
+- Package management tool configuration ([12ef94d](https://github.com/storipress/karbon/commit/12ef94d))
+
+### ❤️  Contributors
+
+- Sid <sid@storipress.com>
+- Ches4117 ([@ches4117](http://github.com/ches4117))
+
 ## v0.1.57
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.56...v0.1.57)
