@@ -4,8 +4,8 @@ import type { Article } from 'sdk/runtime/composables/front-page'
 const route = useRoute()
 async function* GenSource() {
   const allArticles = await getAllArticles()
-  const currentArticleIndex = allArticles.findIndex(({ id }) => id === (route.params.slug as string))
-  const articles = allArticles.slice(currentArticleIndex < 0 ? 0 : currentArticleIndex)
+  const currentArticleIndex = allArticles.data.value.findIndex(({ id }) => id === (route.params.slug as string))
+  const articles = allArticles.data.value.slice(currentArticleIndex < 0 ? 0 : currentArticleIndex)
 
   for (const article of articles) {
     yield article
@@ -24,7 +24,7 @@ const searchInput = ref('')
 <template>
   <div>
     <div><NuxtLink to="/">To home</NuxtLink></div>
-    <StoripressSearch v-slot="props" v-model="searchInput" :query-by="queryBy">
+    <StoripressSearch v-slot="props" v-model="searchInput" lazy :query-by="queryBy">
       <div>
         <label>Just typing...</label>
         <input v-model="searchInput" placeholder="search" />

@@ -55,6 +55,17 @@ const gptConfig = {
         >
       </li>
     </ul>
+    <div class="my-12 mx-auto max-w-full">
+      <h2 class="mb-4">Related Articles</h2>
+      <div class="mb-5 mt-[0.313rem] grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-5">
+        <ArticleCard v-for="article in recommendArticles" :key="article.id" :article="article">
+          <div class="relative px-[0.9rem] pt-[2.7rem] pb-[2.2rem] text-[#333]">
+            <h2 class="text-center leading-[1.2]">{{ article.title }}</h2>
+            <p class="mb-[0.8rem] text-center text-[0.813rem] font-light leading-8"></p>
+          </div>
+        </ArticleCard>
+      </div>
+    </div>
   </div>
 </template>
 

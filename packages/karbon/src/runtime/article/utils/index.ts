@@ -70,9 +70,10 @@ export function useRecommendArticle(article: Article, options: RecommendArticleO
     async () => {
       const relevancesArticles = await getRelevancesArticles(article, options)
       const alreadyRecommend = new Set<string>(relevancesArticles.map(({ id }) => id))
-      const extraArticles = fillArticles.value
-        .filter(({ id }) => !alreadyRecommend.has(id))
-        .map((article) => enhanceArticleWithURL(article))
+      const extraArticles =
+        fillArticles.value
+          ?.filter(({ id }) => !alreadyRecommend.has(id))
+          .map((article) => enhanceArticleWithURL(article)) ?? []
 
       const recommendArticles = [...relevancesArticles, ...extraArticles]
 

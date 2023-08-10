@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { useAsyncState, useElementBounding, whenever } from '@vueuse/core'
+import { useAsyncState, whenever } from '@vueuse/core'
 import { AdvertisingSlot } from '@storipress/vue-advertising'
 import { useArticle, useOptionalArticle } from '../utils'
 import { decryptPaidContent, processingArticles } from '../utils/inject-paid-content'
@@ -8,21 +8,22 @@ import { CUSTOM_FIELD_EDITOR_BLOCK_KEY } from '../../constants'
 import type { AdSegment, NormalSegment, Segment } from '../../lib/split-article'
 import type { ViewableApiResult } from '../../composables/viewable'
 import { ArticlePlan } from '../../types'
-
-// @ts-expect-error virtual file
 import { verboseInvariant } from '../../utils/verbose-invariant'
-import { editorBlocks } from '#build/editor-blocks.mjs'
 import {
   computed,
   nextTick,
   onMounted,
   ref,
+  useArticleBodyStyle,
   useDecryptClient,
   useEmbed,
   useNuxtApp,
   watch,
   watchEffect,
 } from '#imports'
+
+// @ts-expect-error virtual file
+import { editorBlocks } from '#build/editor-blocks.mjs'
 
 const { $paywall } = useNuxtApp()
 const { loadAll: fixArticleEmbed } = useEmbed()
@@ -65,7 +66,7 @@ watch(
   },
 )
 
-const { left, width } = useElementBounding(root)
+const style = useArticleBodyStyle(root)
 const { render } = useRenderEditorBlock(editorBlocks)
 const customFieldsKey = CUSTOM_FIELD_EDITOR_BLOCK_KEY
 // @ts-expect-error internal untyped property
@@ -134,7 +135,7 @@ whenever(
 </script>
 
 <template>
-  <div ref="root" class="article-body" :style="{ '--left-offset': `${left}px`, '--body-width': `${width}px` }">
+  <div ref="root" class="article-body" :style="style">
     <div
       v-for="(segment, index) of wrapArticleSegments"
       :key="`${segment.id}-${index}`"
