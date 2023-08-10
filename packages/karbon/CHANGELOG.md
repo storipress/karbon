@@ -5,6 +5,22 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # 0.1.0 (2023-03-15)
 
+## v0.1.59
+
+[compare changes](https://github.com/storipress/karbon/compare/v0.1.58...v0.1.59)
+
+### 🩹 Fixes
+
+- Fetch payload with origin ([0553e06](https://github.com/storipress/karbon/commit/0553e06))
+
+### 🎨 Styles
+
+- Format ([778135f](https://github.com/storipress/karbon/commit/778135f))
+
+### ❤️  Contributors
+
+- DanSnow <dododavid006@gmail.com>
+
 ## v0.1.58
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.57...v0.1.58)
