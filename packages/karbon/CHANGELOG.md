@@ -5,6 +5,18 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # 0.1.0 (2023-03-15)
 
+## v0.1.60
+
+[compare changes](https://github.com/storipress/karbon/compare/v0.1.59...v0.1.60)
+
+### 🩹 Fixes
+
+- Fix recommend article + article body layout ([3b1b5a9](https://github.com/storipress/karbon/commit/3b1b5a9))
+
+### ❤️  Contributors
+
+- DanSnow <dododavid006@gmail.com>
+
 ## v0.1.59
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.58...v0.1.59)
