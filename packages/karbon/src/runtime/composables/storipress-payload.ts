@@ -26,7 +26,9 @@ async function loadStoripressPayloadWithRawURL(path: string, bypassCache = false
     return loadStoripressPayloadWithURLServer(path, bypassCache)
   }
   const { public: publicConfig } = useRuntimeConfig()
-  let modulePath = publicConfig.storipress?.payloadAbsoluteURL ? withBase(path, publicConfig.siteCDN) : path
+  let modulePath = publicConfig.storipress?.payloadAbsoluteURL
+    ? withBase(path, publicConfig.siteCDN)
+    : withBase(path, location.origin)
   if (bypassCache) {
     modulePath += `?t=${Date.now()}`
   }
