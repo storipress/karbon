@@ -205,7 +205,7 @@
     "@types/uuid": "9.0.2",
     "@vitejs/plugin-vue": "4.2.3",
     "changelogen": "0.5.4",
-    "eslint": "8.45.0",
+    "eslint": "8.47.0",
     "eslint-config-prettier": "8.10.0",
     "eslint-plugin-prettier": "5.0.0",
     "fs-extra": "11.1.1",
