@@ -491,9 +491,7 @@ const karbon = defineNuxtModule<ModuleOptions>({
       runtimeCacheStorage: {
         driver: 'memory',
       },
-      // @ts-expect-error nocheck
       ...nuxt.options.sitemap,
-      // @ts-expect-error nocheck
       exclude: ['/_storipress/_snapshot/**', '/_storipress/redirect', ...(nuxt.options.sitemap?.exclude || [])],
     }
     await installModule('nuxt-simple-robots')
