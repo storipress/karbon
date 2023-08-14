@@ -1,6 +1,7 @@
-import { defineEventHandler, setHeader } from 'h3'
+import { defineEventHandler, getQuery, setHeader } from 'h3'
 import { Feed } from 'feed'
-import { encodePath, joinURL, withTrailingSlash } from 'ufo'
+import { XMLBuilder, XMLParser } from 'fast-xml-parser'
+import { encodePath, joinURL, withQuery, withTrailingSlash, withoutTrailingSlash } from 'ufo'
 import { listFeedArticles } from '@storipress/karbon/internal'
 import type { Author } from '../composables/page-meta'
 import { useRuntimeConfig } from '#imports'
@@ -26,19 +27,27 @@ export default defineEventHandler(async (e) => {
   const runtimeConfig = useRuntimeConfig()
   const articles = await listFeedArticles()
 
-  const siteUrl = runtimeConfig.public.siteUrl
+  const siteUrl = runtimeConfig.public.siteUrl as string
   const feed = new Feed({
-    id: withTrailingSlash(runtimeConfig.public.siteUrl),
-    link: withTrailingSlash(runtimeConfig.public.siteUrl),
-    title: runtimeConfig.public.siteName,
-    description: runtimeConfig.public.siteDescription,
+    id: withTrailingSlash(siteUrl),
+    link: withTrailingSlash(siteUrl),
+    title: runtimeConfig.public.siteName as string,
+    description: runtimeConfig.public.siteDescription as string,
     updated: new Date(),
     feedLinks: {
       atom: joinURL(siteUrl, 'atom.xml'),
     },
+    copyright: `© ${runtimeConfig.public.siteName} ${new Date().getFullYear()} All Rights Reserved`,
   })
 
-  articles
+  const ARTICLES_PER_PAGE = Number(process.env.NUXT_KARBON_RSS_PAGE_COUNT) || 100
+  const queryString = getQuery(e)
+  const page = Number(queryString.page) || 1
+  const maxPage = Math.ceil(articles.length / ARTICLES_PER_PAGE)
+  const currentPage = page > maxPage ? maxPage : page
+  const currentPageArticles = articles.slice((currentPage - 1) * ARTICLES_PER_PAGE, currentPage * ARTICLES_PER_PAGE)
+
+  currentPageArticles
     .filter((article: TArticle) => article.published_at)
     .forEach((article: TArticle) => {
       const id = encodePath(urls.article.toURL(article, urls.article._context))
@@ -56,5 +65,31 @@ export default defineEventHandler(async (e) => {
       })
     })
 
-  return feed.atom1()
+  const atomXml = feed.atom1()
+
+  const option = {
+    ignoreAttributes: false,
+    attributeNamePrefix: '@_',
+    cdataPropName: '__cdata',
+    format: true,
+  }
+  const parser = new XMLParser(option)
+  const builder = new XMLBuilder(option)
+
+  const atomJson = parser.parse(atomXml)
+
+  const rssUrl = `${withoutTrailingSlash(siteUrl)}/atom.xml`
+  const previousLink =
+    currentPage > 1 ? [{ '@_rel': 'previous', '@_href': withQuery(rssUrl, { page: currentPage - 1 }) }] : []
+  const nextLink =
+    currentPage < maxPage ? [{ '@_rel': 'next', '@_href': withQuery(rssUrl, { page: currentPage + 1 }) }] : []
+
+  const buildAtomXml = builder.build({
+    ...atomJson,
+    feed: {
+      ...atomJson.feed,
+      link: [...atomJson.feed.link, ...previousLink, ...nextLink],
+    },
+  })
+  return buildAtomXml
 })
