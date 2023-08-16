@@ -8,8 +8,8 @@
   },
   "exports": {
     ".": {
-      "require": "./dist/module.cjs",
-      "import": "./dist/module.mjs"
+      "import": "./dist/module.mjs",
+      "require": "./dist/module.cjs"
     },
     "./route-helper": {
       "types": "./dist/route-helper.d.ts",
