@@ -46,7 +46,8 @@ async function runBundle() {
       await oraPromise(upload, { text: 'uploading', successText: 'uploaded' })
     }
     await track(deploySuccess, { articleLayout: layouts.length, editorBlock: blocks.length })
-    log(`${chalk.greenBright('❤️ Karbon app successfully deployed to Storipress ❤️!')} \n`)
+    log(`${chalk.greenBright('❤️ Karbon app successfully deployed to Storipress ❤️!')}`)
+    log(`${chalk.whiteBright('It may take up to 5 minutes for changes to be reflected live')} \n`)
     log(`${chalk.whiteBright.bold('Summary deploy fields')}`)
     logSummary(layouts, 'template')
     logSummary(blocks, 'block')
