@@ -5,6 +5,35 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # 0.1.0 (2023-03-15)
 
+## v0.1.62
+
+[compare changes](https://github.com/storipress/karbon/compare/v0.1.61...v0.1.62)
+
+### 🚀 Enhancements
+
+- Use `useInfiniteScroll` for infinite scroll to improve Firefox compat [SPMVP-6009] ([e55e662](https://github.com/storipress/karbon/commit/e55e662))
+- Pagination atom.xml ([2fc57ac](https://github.com/storipress/karbon/commit/2fc57ac))
+
+### 🩹 Fixes
+
+- **deps:** Update nuxtjs monorepo to v3.6.5 ([34f5f23](https://github.com/storipress/karbon/commit/34f5f23))
+- Fix useRuntimeConfig not import ([84fde38](https://github.com/storipress/karbon/commit/84fde38))
+
+### 🏡 Chore
+
+- Fix nx error ([d06acf2](https://github.com/storipress/karbon/commit/d06acf2))
+
+### 🎨 Styles
+
+- Format code with prettier ([6a4e970](https://github.com/storipress/karbon/commit/6a4e970))
+- Lint ([7449e59](https://github.com/storipress/karbon/commit/7449e59))
+
+### ❤️  Contributors
+
+- DanSnow <dododavid006@gmail.com>
+- Sid <sid@storipress.com>
+- Ariel Lin <smsllbear1600@gmail.com>
+
 ## v0.1.61
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.60...v0.1.61)
