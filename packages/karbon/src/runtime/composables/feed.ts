@@ -2,7 +2,7 @@ import type { MaybeRef } from '@vueuse/core'
 import { toValue } from '@vueuse/core'
 import { joinURL } from 'ufo'
 import type { Desk } from './page-meta'
-import { useHead } from '#imports'
+import { useHead, useRuntimeConfig } from '#imports'
 
 export function useFeedLink() {
   const runtimeConfig = useRuntimeConfig()
