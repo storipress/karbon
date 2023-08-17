@@ -22,7 +22,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - Format ([e3926f3](https://github.com/storipress/karbon/commit/e3926f3))
 
-### ❤️  Contributors
+### ❤️ Contributors
 
 - DanSnow <dododavid006@gmail.com>
 - Ariel Lin <smsllbear1600@gmail.com>
@@ -51,7 +51,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 - Format code with prettier ([6a4e970](https://github.com/storipress/karbon/commit/6a4e970))
 - Lint ([7449e59](https://github.com/storipress/karbon/commit/7449e59))
 
-### ❤️  Contributors
+### ❤️ Contributors
 
 - DanSnow <dododavid006@gmail.com>
 - Sid <sid@storipress.com>
