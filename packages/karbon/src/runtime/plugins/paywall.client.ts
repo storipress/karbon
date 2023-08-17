@@ -7,6 +7,7 @@ import {
   defineNuxtPlugin,
   reactive,
   ref,
+  useRoute,
   useRouter,
   useRuntimeConfig,
   useSite,
@@ -61,8 +62,8 @@ export default defineNuxtPlugin((_nuxtApp) => {
     if (!storipress.paywall.enable) {
       return
     }
-    const { action, token } = route.query
-    if (!(action === 'sign-in' && token)) {
+    const { action, token: tokenQuery } = route.query
+    if (!(action === 'sign-in' && tokenQuery)) {
       await waitFirstInteractive()
     }
     const { mountPaywall, setStripeKey } = await import('@storipress/builder-component')
