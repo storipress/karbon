@@ -5,6 +5,29 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # 0.1.0 (2023-03-15)
 
+## v0.1.63
+
+[compare changes](https://github.com/storipress/karbon/compare/v0.1.62...v0.1.63)
+
+### 🩹 Fixes
+
+- Subscriber login may fail occasionally due to lazy-loaded paywall [SPMVP-6255] ([b921735](https://github.com/storipress/karbon/commit/b921735))
+- Fix bug ([f9fb64e](https://github.com/storipress/karbon/commit/f9fb64e))
+
+### 🏡 Chore
+
+- Update terminal log message ([16d5952](https://github.com/storipress/karbon/commit/16d5952))
+
+### 🎨 Styles
+
+- Format ([e3926f3](https://github.com/storipress/karbon/commit/e3926f3))
+
+### ❤️  Contributors
+
+- DanSnow <dododavid006@gmail.com>
+- Ariel Lin <smsllbear1600@gmail.com>
+- Alex Pan <alex@storipress.com>
+
 ## v0.1.62
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.61...v0.1.62)
