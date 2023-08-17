@@ -1,7 +1,7 @@
 {
   "name": "@storipress/karbon-mono-repo",
   "private": true,
-  "packageManager": "yarn@3.6.1",
+  "packageManager": "yarn@3.6.2",
   "scripts": {
     "dev:prepare": "yarn workspace @storipress/karbon-playground nuxt prepare",
     "build": "nx run @storipress/karbon:build && yarn dev:prepare",
