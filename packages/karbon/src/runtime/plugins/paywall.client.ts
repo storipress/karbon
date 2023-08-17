@@ -27,6 +27,7 @@ interface Article {
 export default defineNuxtPlugin((_nuxtApp) => {
   const runtimeConfig = useRuntimeConfig()
   const router = useRouter()
+  const route = useRoute()
 
   const token = useStorage('storipress-token', '')
   const authInfo = ref<Record<string, any> | null | undefined>(null)
@@ -60,7 +61,10 @@ export default defineNuxtPlugin((_nuxtApp) => {
     if (!storipress.paywall.enable) {
       return
     }
-    await waitFirstInteractive()
+    const { action, token } = route.query
+    if (!(action === 'sign-in' && token)) {
+      await waitFirstInteractive()
+    }
     const { mountPaywall, setStripeKey } = await import('@storipress/builder-component')
     const paywallLogoPath = _nuxtApp.$config.public?.storipress?.paywall?.logo
     let paywallLogo
