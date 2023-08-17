@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 const { $paywall } = useNuxtApp()
 
-onMounted(() => {
-  $paywall.mount()
+onMounted(async () => {
+  await $paywall.mount()
   $paywall.checkQuery()
 })
 

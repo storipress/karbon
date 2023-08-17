@@ -83,8 +83,8 @@ export function setupPage<Type extends PageType>({ type, seo = true }: SetupPage
 
   if (type === 'article') {
     const { $paywall } = useNuxtApp()
-    onMounted(() => {
-      $paywall.mount()
+    onMounted(async () => {
+      await $paywall.mount()
       $paywall.enable()
 
       whenever(
