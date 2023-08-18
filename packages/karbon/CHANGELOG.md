@@ -5,6 +5,22 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # 0.1.0 (2023-03-15)
 
+## v0.1.64
+
+[compare changes](https://github.com/storipress/karbon/compare/v0.1.63...v0.1.64)
+
+### 🚀 Enhancements
+
+- Provide useArticleSchemaOrg composable ([d6a8e7b](https://github.com/storipress/karbon/commit/d6a8e7b))
+
+### 🩹 Fixes
+
+- Fix article style bug ([d097e86](https://github.com/storipress/karbon/commit/d097e86))
+
+### ❤️  Contributors
+
+- DanSnow <dododavid006@gmail.com>
+
 ## v0.1.63
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.62...v0.1.63)
