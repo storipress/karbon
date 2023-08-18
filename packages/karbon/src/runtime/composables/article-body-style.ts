@@ -7,6 +7,6 @@ export function useArticleBodyStyle(root: MaybeElementRef) {
   // mark document.body as raw to prevent third-party libraries from modifying it
   const { width } = useElementSize(() => (typeof window !== 'undefined' ? markRaw(document.body) : null))
 
-  const bodyWidth = computed(() => (width.value ? `${width}px` : '100vw'))
+  const bodyWidth = computed(() => (width.value ? `${width.value}px` : '100vw'))
   return computed(() => ({ '--left-offset': `${left.value ?? 0}px`, '--body-width': bodyWidth.value }))
 }
