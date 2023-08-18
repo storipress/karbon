@@ -18,7 +18,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 - Format code with prettier ([e75935f](https://github.com/storipress/karbon/commit/e75935f))
 - Lint ([9077808](https://github.com/storipress/karbon/commit/9077808))
 
-### ❤️  Contributors
+### ❤️ Contributors
 
 - DanSnow <dododavid006@gmail.com>
 
