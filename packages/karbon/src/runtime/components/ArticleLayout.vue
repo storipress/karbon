@@ -1,20 +1,11 @@
 <script lang="ts" setup>
-import { parse } from 'node-html-parser'
 import { getDefaultLayout } from '../utils/default-layout'
 import type { UseArticleReturn as Article } from '../types'
 import { useProvideArticle } from '../article/utils'
 
 // @ts-expect-error virtual file
 import { templates } from '#build/article-layouts.mjs'
-import {
-  computed,
-  defineArticle,
-  defineOrganization,
-  definePerson,
-  useResourcePageMeta,
-  useSchemaOrg,
-  useSite,
-} from '#imports'
+import { computed, useArticleSchemaOrg } from '#imports'
 
 const props = defineProps<{
   article: Article
@@ -36,56 +27,7 @@ function resolveLayout(): string {
 
 useProvideArticle(props.article)
 
-const pageMeta = useResourcePageMeta()
-const site = useSite()
-
-if (pageMeta.value) {
-  useSchemaOrg([
-    defineOrganization({
-      name: () => site.value?.name || '',
-      logo: () => site.value?.logo?.url,
-    }),
-    getDefineArticle(pageMeta.value),
-  ])
-}
-type PageMeta = NonNullable<(typeof pageMeta)['value']>
-
-function getDefineArticle(pageMeta: PageMeta) {
-  const article: Article = pageMeta.meta
-  const authors = article.authors.map((author) => {
-    const { first_name, last_name, full_name } = author
-
-    return definePerson({
-      familyName: last_name,
-      givenName: first_name,
-      name: full_name,
-    })
-  })
-  const doc = parse(article.html || '')
-  const imgElements = [...doc.querySelectorAll('img')]
-  const imgSrcList = imgElements.map((el) => el.getAttribute('src')).filter(Boolean)
-  const image = [...new Set([article.cover?.url, ...imgSrcList].filter(Boolean))]
-
-  return defineArticle({
-    '@context': 'https://schema.org',
-    '@type': 'Article',
-    url: pageMeta.route,
-    publisher: () =>
-      defineOrganization({
-        name: () => site.value?.name || '',
-        logo: () => site.value?.logo?.url,
-      }),
-    headline: article.title,
-    mainEntityOfPage: {
-      '@type': 'Article',
-      '@id': pageMeta.route,
-    },
-    articleBody: article.plaintext,
-    authors,
-    image,
-    datePublished: article.published_at,
-  })
-}
+useArticleSchemaOrg()
 </script>
 
 <template>
