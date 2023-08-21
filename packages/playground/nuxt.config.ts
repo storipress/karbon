@@ -9,6 +9,17 @@ import {
 } from '@storipress/karbon/helper'
 
 export default defineNuxtConfig({
+  devtools: {
+    enabled: true,
+
+    experimental: {
+      timeline: true,
+    },
+
+    timeline: {
+      enabled: true,
+    },
+  },
   modules: ['@storipress/karbon', '@nuxtjs/tailwindcss', '@vueuse/nuxt'],
   build: {
     transpile: ['@storipress/vue-advertising'],

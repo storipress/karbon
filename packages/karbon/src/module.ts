@@ -7,6 +7,7 @@ import {
   addPlugin,
   addPrerenderRoutes,
   addServerHandler,
+  addServerPlugin,
   addTemplate,
   createResolver,
   defineNuxtModule,
@@ -21,7 +22,7 @@ import serialize from 'serialize-javascript'
 import fs from 'fs-extra'
 import { resolve } from 'pathe'
 import { genArrayFromRaw, genImport, genObjectFromRaw } from 'knitwork'
-import type { NuxtPlugin } from '@nuxt/schema'
+import type { HookResult, NuxtPlugin } from '@nuxt/schema'
 import { resolveSEOProviders } from './seo-provider'
 import { versionSafe } from './cli/checkFile'
 import type {
@@ -41,6 +42,21 @@ import { getResources, payloadScopes } from './runtime/api/sitemap'
 import telemetry from './modules/telemetry'
 import feed from './modules/feed'
 import instantsearch from './modules/instantsearch'
+import type { RequestContext, ResponseContext } from './runtime/composables/storipress-base-client'
+
+declare module '#app' {
+  interface RuntimeNuxtHooks {
+    'karbon:request': (ctx: RequestContext) => HookResult
+    'karbon:response': (ctx: ResponseContext) => HookResult
+  }
+}
+
+declare module 'nitropack' {
+  interface NitroRuntimeHooks {
+    'karbon:request': (ctx: RequestContext) => void
+    'karbon:response': (ctx: ResponseContext) => void
+  }
+}
 
 const AD_COMPONENTS = ['AdvertisingProvider', 'AdvertisingSlot', 'GlobalAdvertisingProvider', 'GlobalAdvertisingSlot']
 
@@ -446,6 +462,7 @@ const karbon = defineNuxtModule<ModuleOptions>({
       './runtime/plugins/debug-info.client',
       './runtime/plugins/track.client',
       './runtime/plugins/iframely.client',
+      './runtime/plugins/client-hooks',
       './runtime/plugins/1.injectRuntimeConfig',
     ]
 
@@ -464,6 +481,8 @@ const karbon = defineNuxtModule<ModuleOptions>({
             },
       )
     }
+
+    addServerPlugin(resolver.resolve('./runtime/server/plugins/hook'))
 
     await installModule('@nuxt/image', {
       provider: 'Storipress',

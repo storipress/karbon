@@ -5,6 +5,7 @@ export {
   createStoripressBaseClient,
   storipressConfigCtx,
   createTenantURL,
+  _karbonClientHooks as clientHooks,
 } from './runtime/composables/storipress-base-client'
 export { definePayloadHandler } from './runtime/routes/payload-handler'
 export { getSite } from './runtime/api/site'

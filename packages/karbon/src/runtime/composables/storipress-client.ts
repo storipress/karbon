@@ -10,6 +10,7 @@ export function createStoripressClient() {
       authorization: `Bearer ${storipress?.apiToken}`,
     }),
     getUri(),
+    { name: 'storipress' },
   )
 }
 
@@ -33,7 +34,7 @@ export function createSubscriberClient() {
     }
   }
 
-  return createStoripressBaseClient(authorization, getUri())
+  return createStoripressBaseClient(authorization, getUri(), { name: 'storipress-subscriber' })
 }
 
 export function getUri() {

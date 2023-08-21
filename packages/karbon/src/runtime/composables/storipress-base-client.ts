@@ -1,18 +1,34 @@
-import { ApolloClient, HttpLink, InMemoryCache } from '@apollo/client/core/index.js'
+import type { Operation } from '@apollo/client/core/index.js'
+import { ApolloClient, ApolloLink, HttpLink, InMemoryCache, Observable } from '@apollo/client/core/index.js'
 import { setContext } from '@apollo/client/link/context/index.js'
 import { fetch } from 'cross-fetch'
 import { withHttps } from 'ufo'
+import { Hookable } from 'hookable'
+import type { Subscription } from 'zen-observable-ts'
 import type { ModuleRuntimeConfig } from '../types'
 
-function getUserAgent() {
-  if (process.server) {
-    return { 'user-agent': 'karbon/1.0.0' }
-  }
+let c: any = null
 
-  return {}
+export interface RequestContext {
+  name: string
+  id: string
+  operation: Operation
 }
 
-let c: any = null
+export interface ResponseContext {
+  name: string
+  id: string
+  operation: Operation
+  type: 'next' | 'error' | 'complete'
+  data: any
+}
+
+type HookResult = Promise<void> | void
+
+export const _karbonClientHooks = new Hookable<{
+  'karbon:request': (ctx: RequestContext) => HookResult
+  'karbon:response': (ctx: ResponseContext) => HookResult
+}>()
 
 export const storipressConfigCtx = {
   use: () => {
@@ -37,7 +53,75 @@ export function createTenantURL(config: Pick<ModuleRuntimeConfig['storipress'], 
   return withHttps(`${config.apiHost}/client/${config.clientId}/graphql`)
 }
 
-export function createStoripressBaseClient(getHeaders: () => Record<string, string | null | undefined>, uri: string) {
+export interface CreateBaseClientInput {
+  name?: string
+}
+
+export function createStoripressBaseClient(
+  getHeaders: () => Record<string, string | null | undefined>,
+  uri: string,
+  opt: CreateBaseClientInput = {},
+) {
+  const tapClient = new ApolloLink((operation, forward) => {
+    const id = crypto.randomUUID()
+
+    operation.setContext({
+      karbonTracing: id,
+    })
+
+    return new Observable((observer) => {
+      let subscription: Subscription
+      let closed = false
+      Promise.resolve(
+        _karbonClientHooks.callHookParallel('karbon:request', {
+          name: opt.name ?? 'unknown',
+          operation,
+          id,
+        }),
+      )
+        .then(() => {
+          if (closed) {
+            return
+          }
+
+          function createCallback(type: 'next' | 'error' | 'complete', callback: (...args: any[]) => void) {
+            return (...args: any[]) => {
+              Promise.resolve(
+                _karbonClientHooks.callHookParallel('karbon:response', {
+                  name: opt.name ?? 'unknown',
+                  operation,
+                  id,
+                  type,
+                  data: args[0],
+                }),
+              )
+                .then(() => callback(...args))
+                .catch((err) => {
+                  if (process.dev) {
+                    console.error(err)
+                  }
+                })
+            }
+          }
+
+          subscription = forward(operation).subscribe({
+            next: createCallback('next', observer.next.bind(observer)),
+            error: createCallback('error', observer.error.bind(observer)),
+            complete: createCallback('complete', observer.complete.bind(observer)),
+          })
+        })
+        .catch((err) => {
+          observer.error(err)
+        })
+
+      return () => {
+        closed = true
+        if (subscription) {
+          subscription.unsubscribe()
+        }
+      }
+    })
+  })
   const authLink = setContext(() => {
     return {
       headers: { ...getUserAgent(), ...getHeaders() },
@@ -50,7 +134,7 @@ export function createStoripressBaseClient(getHeaders: () => Record<string, stri
   })
 
   return new ApolloClient({
-    link: authLink.concat(httpLink),
+    link: ApolloLink.from([authLink, tapClient, httpLink]),
     cache: new InMemoryCache({
       typePolicies: {
         CustomField: {
@@ -62,4 +146,13 @@ export function createStoripressBaseClient(getHeaders: () => Record<string, stri
       },
     }),
   })
+}
+
+function getUserAgent() {
+  if (process.server) {
+    const config = getStoripressConfig()
+    return { 'user-agent': config.userAgent ?? 'karbon/1.0.0' }
+  }
+
+  return {}
 }
