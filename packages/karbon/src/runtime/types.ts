@@ -162,6 +162,7 @@ export interface StoripressRuntimeConfig {
   searchKey: string
   searchDomain?: string
   encryptKey?: string
+  userAgent?: string
 }
 
 export type StoripressPublicRuntimeConfig = Omit<StoripressRuntimeConfig, 'apiToken' | 'stripeKey' | 'encryptKey'>
