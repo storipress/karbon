@@ -2829,7 +2829,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@storipress/create-karbon@workspace:packages/create-karbon"
   dependencies:
-    "@types/node": 18.17.5
+    "@types/node": 18.17.7
     consola: ^3.2.3
     giget: ^1.1.2
     minimist: ^1.2.8
@@ -2855,7 +2855,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@storipress/jose-browser@workspace:packages/jose-browser"
   dependencies:
-    "@types/node": 18.17.5
+    "@types/node": 18.17.7
     jose: ^4.14.4
     typescript: 5.1.6
     unbuild: 1.2.1
@@ -3386,10 +3386,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:18.17.5":
-  version: 18.17.5
-  resolution: "@types/node@npm:18.17.5"
-  checksum: b8c658a99234b99425243c324b641ed7b9ceb6bee6b06421fdc9bb7c58f9a5552e353225cc549e6982462ac384abe1985022ed76e2e4728797f59b21f659ca2b
+"@types/node@npm:18.17.7":
+  version: 18.17.7
+  resolution: "@types/node@npm:18.17.7"
+  checksum: cb327da222eb9dc2a8e86c957bef58b16f20a2f6b109e43ff10267e83b342bcba5257e800438dd54deb2bd66bb7815539a759c6dcf91e1b0b08b3add1d5886c8
   languageName: node
   linkType: hard
 
