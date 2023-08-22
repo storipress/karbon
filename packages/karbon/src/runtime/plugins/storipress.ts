@@ -1,3 +1,4 @@
+import { withoutTrailingSlash } from 'ufo'
 import type { ResourceID, Resources } from '../types'
 import { useResourceResolver } from '../composables/resources'
 import type { DeskMeta } from '#build/storipress-urls.mjs'
@@ -71,6 +72,21 @@ const storipressRedirect = defineNuxtRouteMiddleware(async (to) => {
   return navigateTo(res?.url)
 })
 
+const storipressRedirectIfFound = defineNuxtRouteMiddleware(async (to) => {
+  if (to.name) return
+
+  const path = withoutTrailingSlash(to.path).split('/')
+  const slug = path[path.length - 1]
+
+  const { resolveFromID } = useResourceResolver()
+  const resourceID = { type: 'article', slug } as ResourceID
+  const res = await resolveFromID(resourceID)
+
+  if (!res || to.fullPath === res.url) return
+
+  return navigateTo(res.url)
+})
+
 export default defineNuxtPlugin(() => {
   const router = useRouter()
   if (process.server) {
@@ -83,4 +99,5 @@ export default defineNuxtPlugin(() => {
   }
   addRouteMiddleware('storipress-abort-if-no-meta', abortIfNoMeta)
   addRouteMiddleware('storipress-redirect', storipressRedirect)
+  addRouteMiddleware('storipress-redirect-if-found', storipressRedirectIfFound, { global: true })
 })
