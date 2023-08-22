@@ -8,6 +8,7 @@ const ListDesks = gql`
       name
       slug
       seo
+      order
       desks {
         id
         name

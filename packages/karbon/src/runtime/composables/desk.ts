@@ -1,3 +1,4 @@
+import sortBy from 'lodash.sortby'
 import { _useResource } from './resources'
 import { useResourceResolver } from '#imports'
 
@@ -7,6 +8,7 @@ export interface Desk {
   slug: string
   sid: string
   desk: Desk | null
+  order: number
 }
 
 export interface DeskWithURL extends Desk {
@@ -30,6 +32,6 @@ export function useDesks() {
 
   return {
     ...rest,
-    desks: data,
+    desks: computed(() => sortBy(data.value, ({ order }) => order)),
   }
 }
