@@ -5,6 +5,23 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # 0.1.0 (2023-03-15)
 
+## v0.1.66
+
+[compare changes](https://github.com/storipress/karbon/compare/v0.1.65...v0.1.66)
+
+### 🩹 Fixes
+
+- Template not using seo meta description ([88f590d](https://github.com/storipress/karbon/commit/88f590d))
+
+### 🎨 Styles
+
+- Format ([32b684d](https://github.com/storipress/karbon/commit/32b684d))
+
+### ❤️  Contributors
+
+- DanSnow <dododavid006@gmail.com>
+- Sid <sid@storipress.com>
+
 ## v0.1.65
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.64...v0.1.65)
