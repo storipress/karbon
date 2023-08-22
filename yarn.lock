@@ -2882,6 +2882,7 @@ __metadata:
     "@types/find-cache-dir": 3.2.1
     "@types/fs-extra": 11.0.1
     "@types/jszip": 3.4.1
+    "@types/lodash.sortby": ^4.7.7
     "@types/lodash.truncate": 4.4.7
     "@types/serialize-javascript": 5.0.2
     "@types/tailwindcss": 3.1.0
@@ -2908,6 +2909,7 @@ __metadata:
     jszip: ^3.10.1
     knitwork: ^1.0.0
     lerna: 6.6.2
+    lodash.sortby: ^4.7.0
     lodash.truncate: ^4.4.2
     micro-aes-gcm: ^0.3.3
     msw: 1.2.3
@@ -2967,6 +2969,7 @@ __metadata:
     "@types/find-cache-dir": 3.2.1
     "@types/fs-extra": 11.0.1
     "@types/jszip": 3.4.1
+    "@types/lodash.sortby": ^4.7.7
     "@types/lodash.truncate": 4.4.7
     "@types/serialize-javascript": 5.0.2
     "@types/tailwindcss": 3.1.0
@@ -2992,6 +2995,7 @@ __metadata:
     jose: ^4.14.4
     jszip: ^3.10.1
     knitwork: ^1.0.0
+    lodash.sortby: ^4.7.0
     lodash.truncate: ^4.4.2
     micro-aes-gcm: ^0.3.3
     msw: 1.2.3
@@ -3052,6 +3056,7 @@ __metadata:
     "@types/fs-extra": 11.0.1
     "@types/js-yaml": 4.0.5
     "@types/jszip": 3.4.1
+    "@types/lodash.sortby": ^4.7.7
     "@types/lodash.truncate": 4.4.7
     "@types/minimist": 1.2.2
     "@types/serialize-javascript": 5.0.2
@@ -3086,6 +3091,7 @@ __metadata:
     js-yaml: ^4.1.0
     jszip: ^3.10.1
     knitwork: ^1.0.0
+    lodash.sortby: ^4.7.0
     lodash.truncate: ^4.4.2
     micro-aes-gcm: ^0.3.3
     minimist: ^1.2.8
@@ -3330,6 +3336,15 @@ __metadata:
   dependencies:
     "@types/lodash": "*"
   checksum: 4b1f39fd1d921311c37a846c0e0df9d1fa23e27448a6ad1efd7574e703abd2b2fa5e8f3b5037146000f167ba231d0d01e52747d902654151b4ceeff9f2a9b380
+  languageName: node
+  linkType: hard
+
+"@types/lodash.sortby@npm:^4.7.7":
+  version: 4.7.7
+  resolution: "@types/lodash.sortby@npm:4.7.7"
+  dependencies:
+    "@types/lodash": "*"
+  checksum: 94164b49810e37cc3795c133a6375245cdfc0e6804680e34d7039889954e7201c820d658fff89fcda0a1ce68774286f49ce95f83004d8188c4434cdfc2ca55c4
   languageName: node
   linkType: hard
 
