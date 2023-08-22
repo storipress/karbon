@@ -7,8 +7,9 @@ export function useDecryptClient<T>() {
   return (key: string) => {
     // encode as base64 to prevent error in http header
     const auth = btoa(JSON.stringify(nuxt.$paywall.authInfo.value))
+    const siteCDN = runtimeConfig.public?.siteCDN || ''
     return runtimeConfig.public?.storipress?.paywall?.enable
-      ? ($fetch('/api/decrypt-key', {
+      ? ($fetch(`${siteCDN}/api/decrypt-key`, {
           method: 'POST',
           body: {
             auth,
