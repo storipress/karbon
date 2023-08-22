@@ -5,6 +5,23 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # 0.1.0 (2023-03-15)
 
+## v0.1.68
+
+[compare changes](https://github.com/storipress/karbon/compare/v0.1.67...v0.1.68)
+
+### 🚀 Enhancements
+
+- Add hook for karbon client ([7189b87](https://github.com/storipress/karbon/commit/7189b87))
+
+### 🎨 Styles
+
+- Format code with prettier ([ce9c256](https://github.com/storipress/karbon/commit/ce9c256))
+- Format code with prettier ([9f63921](https://github.com/storipress/karbon/commit/9f63921))
+
+### ❤️  Contributors
+
+- DanSnow <dododavid006@gmail.com>
+
 ## v0.1.67
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.66...v0.1.67)
