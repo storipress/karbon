@@ -5,6 +5,23 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # 0.1.0 (2023-03-15)
 
+## v0.1.67
+
+[compare changes](https://github.com/storipress/karbon/compare/v0.1.66...v0.1.67)
+
+### 🩹 Fixes
+
+- Prepend siteCDN URL to API endpoint for Shopify site ([7a00c54](https://github.com/storipress/karbon/commit/7a00c54))
+
+### 🎨 Styles
+
+- Format ([08fd4e4](https://github.com/storipress/karbon/commit/08fd4e4))
+
+### ❤️  Contributors
+
+- DanSnow <dododavid006@gmail.com>
+- Sid <sid@storipress.com>
+
 ## v0.1.66
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.65...v0.1.66)
