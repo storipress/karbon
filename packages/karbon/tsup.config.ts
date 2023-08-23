@@ -17,6 +17,7 @@ export default defineConfig({
     js: `
 import { createRequire as _createRequire } from 'module';
 const require = _createRequire(import.meta.url);
+globalThis.crypto = require('crypto').webcrypto;
 `,
   },
 })
