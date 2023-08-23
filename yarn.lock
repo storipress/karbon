@@ -1815,7 +1815,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nuxt/devtools@npm:^0.8.0":
+"@nuxt/devtools@npm:0.8.0":
   version: 0.8.0
   resolution: "@nuxt/devtools@npm:0.8.0"
   dependencies:
@@ -2951,7 +2951,7 @@ __metadata:
     "@babel/runtime": ^7.22.6
     "@iframely/embed.js": ^1.10.1
     "@nuxt/devalue": ^2.0.2
-    "@nuxt/devtools": ^0.8.0
+    "@nuxt/devtools": 0.8.0
     "@nuxt/image": 1.0.0-rc.1
     "@nuxt/kit": 3.6.5
     "@nuxtjs/html-validator": ^1.5.1
