@@ -13,7 +13,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - Remove problem polyfill ([eb15e96](https://github.com/storipress/karbon/commit/eb15e96))
 
-### ❤️  Contributors
+### ❤️ Contributors
 
 - DanSnow <dododavid006@gmail.com>
 
@@ -29,7 +29,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - Format ([f065b09](https://github.com/storipress/karbon/commit/f065b09))
 
-### ❤️  Contributors
+### ❤️ Contributors
 
 - DanSnow <dododavid006@gmail.com>
 
@@ -46,7 +46,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 - Format code with prettier ([ce9c256](https://github.com/storipress/karbon/commit/ce9c256))
 - Format code with prettier ([9f63921](https://github.com/storipress/karbon/commit/9f63921))
 
-### ❤️  Contributors
+### ❤️ Contributors
 
 - DanSnow <dododavid006@gmail.com>
 
