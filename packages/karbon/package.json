@@ -43,7 +43,7 @@
     "build": "nx run @storipress/karbon:build-nx",
     "build-nx": "true",
     "build:module": "nuxt-module-build",
-    "bundle:cli": "tsup src/cli/karbon.ts -d bin",
+    "bundle:cli": "POLYFILL_CRYPTO=true tsup src/cli/karbon.ts -d bin",
     "bundle:helper": "tsup dist/helper.mjs",
     "bundle:module": "tsup dist/module.mjs",
     "dev:build": "nuxi build playground",
