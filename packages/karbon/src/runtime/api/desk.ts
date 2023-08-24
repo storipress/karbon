@@ -14,6 +14,7 @@ const ListDesks = gql`
         name
         slug
         seo
+        order
       }
     }
   }
