@@ -7,7 +7,7 @@ export interface Desk {
   name: string
   slug: string
   sid: string
-  desk: Desk | null
+  desks: DeskWithURL[] | null
   order: number
 }
 
@@ -19,14 +19,18 @@ export interface DeskWithURL extends Desk {
 export function useDesks() {
   const { _resolveFromMetaSync } = useResourceResolver()
   const { data, ...rest } = _useResource<DeskWithURL>('desk', (desk) => {
-    let subdesk = desk.desk
-    if (subdesk) {
-      subdesk = {
-        ...subdesk,
-        url: _resolveFromMetaSync('desk', subdesk)!.url,
-      }
+    let subdesk = desk.desks
+    if (subdesk?.length) {
+      const result = subdesk.map(
+        (desk) =>
+          ({
+            ...desk,
+            url: _resolveFromMetaSync('desk', desk)?.url,
+          }) as DeskWithURL,
+      )
+      subdesk = sortBy(result, ({ order }) => order)
     }
-    desk.desk = subdesk
+    desk.desks = subdesk
     return desk
   })
 
