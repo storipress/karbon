@@ -117,7 +117,7 @@ export const payloadScopes: ResourceScope[] = [
     query: ListAuthors,
     queryKey: 'users',
 
-    filter: (item: { suspended: boolean }) => !item.suspended,
+    filter: (item: { suspended: boolean; slug: string }) => !item.suspended && Boolean(item.slug),
   },
   {
     payloadScope: 'tags',
