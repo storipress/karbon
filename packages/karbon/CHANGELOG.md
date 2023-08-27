@@ -22,7 +22,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - Format code with prettier ([405b1c6](https://github.com/storipress/karbon/commit/405b1c6))
 
-### ❤️  Contributors
+### ❤️ Contributors
 
 - Sid <sid@storipress.com>
 - Ariel Lin <smsllbear1600@gmail.com>
