@@ -5,6 +5,28 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # 0.1.0 (2023-03-15)
 
+## v0.1.71
+
+[compare changes](https://github.com/storipress/karbon/compare/v0.1.70...v0.1.71)
+
+### 🩹 Fixes
+
+- Desk order should same as Kanban page [SPMVP-6285] ([b88615c](https://github.com/storipress/karbon/commit/b88615c))
+- Filter no slug author ([a627e58](https://github.com/storipress/karbon/commit/a627e58))
+
+### 🏡 Chore
+
+- Print the output of the build steps ([0005031](https://github.com/storipress/karbon/commit/0005031))
+
+### 🎨 Styles
+
+- Format code with prettier ([405b1c6](https://github.com/storipress/karbon/commit/405b1c6))
+
+### ❤️  Contributors
+
+- Sid <sid@storipress.com>
+- Ariel Lin <smsllbear1600@gmail.com>
+
 ## v0.1.70
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.69...v0.1.70)
