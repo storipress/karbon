@@ -155,5 +155,5 @@ async function convertToId(scope: PayloadScope, resourceID: any): Promise<string
 async function findGroupTags(groupKey: string, id: string) {
   const group = await loadStoripressPayloadWithURL('_custom-field-group')
   const tags = group[groupKey]
-  return tags && tags.includes(id)
+  return  tags?.includes(id)
 }
