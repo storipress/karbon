@@ -123,7 +123,7 @@ async function getAnonymousId(): Promise<string> {
   }
 
   const thunk = findCacheDirectory({ name: 'storipress', thunk: true })
-  const cachePath = thunk && thunk('cli-cache')
+  const cachePath = thunk?.('cli-cache')
   const storage = createStorage({
     driver: fsDriver({ base: cachePath }),
   })
