@@ -10,15 +10,29 @@ import urls from '#sp-internal/storipress-urls.mjs'
 import { defineCachedEventHandler, useNitroApp, useRuntimeConfig } from '#imports'
 
 const RESOURCE = new Set(['article', 'author', 'desk', 'tag'])
-const payloadScopes = [
+interface ResourceScope {
+  payloadScope: 'posts' | 'desks' | 'authors' | 'tags'
+  urlKey: string
+  filter?: (item: any) => boolean
+}
+
+const payloadScopes: ResourceScope[] = [
   {
     payloadScope: 'posts',
     urlKey: 'article',
   },
-  { payloadScope: 'desks', urlKey: 'desk' },
-  { payloadScope: 'authors', urlKey: 'author' },
+  {
+    payloadScope: 'desks',
+    urlKey: 'desk',
+    filter: (item: { published_articles_count: number }) => item.published_articles_count > 0,
+  },
+  {
+    payloadScope: 'authors',
+    urlKey: 'author',
+    filter: (item: { suspended: boolean; slug: string }) => !item.suspended && Boolean(item.slug),
+  },
   { payloadScope: 'tags', urlKey: 'tag' },
-  ...Object.keys(urls).flatMap((key) => (RESOURCE.has(key) ? [] : [{ payloadScope: 'tags', urlKey: key }])),
+  ...Object.keys(urls).flatMap((key) => (RESOURCE.has(key) ? [] : [{ payloadScope: 'tags' as const, urlKey: key }])),
 ]
 
 const invalidContext: ResourcePageContext = import.meta.env.DEV
@@ -47,13 +61,16 @@ export default defineCachedEventHandler(async (event: H3Event) => {
   const groups: Record<string, string[]> = await groupsResponse.json()
 
   await Promise.all(
-    payloadScopes.map(async ({ payloadScope, urlKey }) => {
+    payloadScopes.map(async ({ payloadScope, urlKey, filter }) => {
       const res = await nitro.localFetch(`/_storipress/${payloadScope}/__all.json`, { method: 'GET' })
       const items = await res.json()
       const ctx = urls[urlKey]._context ?? invalidContext
       const groupKey = urls[urlKey].groupKey
       const group = groupKey ? groups[groupKey] : null
       for (const item of items) {
+        if (filter && !filter(item)) {
+          continue
+        }
         links.push(
           `/_storipress/${payloadScope}/${item.id}.js`,
           ...(urls[urlKey].enable && !groupKey ? [encodePath(urls[urlKey].toURL(item, ctx))] : []),
