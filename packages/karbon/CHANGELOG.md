@@ -5,6 +5,30 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # 0.1.0 (2023-03-15)
 
+## v0.1.72
+
+[compare changes](https://github.com/storipress/karbon/compare/v0.1.71...v0.1.72)
+
+### 🩹 Fixes
+
+- Add useSeoMeta in import ([#220](https://github.com/storipress/karbon/pull/220))
+
+### 💅 Refactors
+
+- Replace template strings with regular string literals ([c6a1f4b](https://github.com/storipress/karbon/commit/c6a1f4b))
+- Convert logical operator to optional chainining ([18e249e](https://github.com/storipress/karbon/commit/18e249e))
+
+### 🎨 Styles
+
+- Format code with prettier ([3964025](https://github.com/storipress/karbon/commit/3964025))
+- Format code with prettier ([e5ad849](https://github.com/storipress/karbon/commit/e5ad849))
+- Format ([c3c7c27](https://github.com/storipress/karbon/commit/c3c7c27))
+
+### ❤️  Contributors
+
+- DanSnow <dododavid006@gmail.com>
+- 張鴻霖(Hong-Lin Chang) ([@ches4117](http://github.com/ches4117))
+
 ## v0.1.71
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.70...v0.1.71)
