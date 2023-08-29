@@ -70,7 +70,7 @@
     "@types/find-cache-dir": "3.2.1",
     "@types/fs-extra": "11.0.1",
     "@types/jszip": "3.4.1",
-    "@types/lodash.sortby": "^4.7.7",
+    "@types/lodash.sortby": "4.7.7",
     "@types/lodash.truncate": "4.4.7",
     "@types/serialize-javascript": "5.0.2",
     "@types/tailwindcss": "3.1.0",
