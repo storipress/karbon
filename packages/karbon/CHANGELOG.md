@@ -5,6 +5,28 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # 0.1.0 (2023-03-15)
 
+## v0.1.73
+
+[compare changes](https://github.com/storipress/karbon/compare/v0.1.72...v0.1.73)
+
+### 🩹 Fixes
+
+- **deps:** Update dependency execa to v8 ([b6128e1](https://github.com/storipress/karbon/commit/b6128e1))
+- Apply filter to snapshot ([66b02ac](https://github.com/storipress/karbon/commit/66b02ac))
+
+### 🏡 Chore
+
+- Fix config ([371be04](https://github.com/storipress/karbon/commit/371be04))
+
+### 🎨 Styles
+
+- Format code with prettier ([86e78fd](https://github.com/storipress/karbon/commit/86e78fd))
+- Format ([3694b6d](https://github.com/storipress/karbon/commit/3694b6d))
+
+### ❤️ Contributors
+
+- DanSnow <dododavid006@gmail.com>
+
 ## v0.1.72
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.71...v0.1.72)
