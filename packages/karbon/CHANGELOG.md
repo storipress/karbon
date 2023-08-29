@@ -24,7 +24,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 - Format code with prettier ([e5ad849](https://github.com/storipress/karbon/commit/e5ad849))
 - Format ([c3c7c27](https://github.com/storipress/karbon/commit/c3c7c27))
 
-### ❤️  Contributors
+### ❤️ Contributors
 
 - DanSnow <dododavid006@gmail.com>
 - 張鴻霖(Hong-Lin Chang) ([@ches4117](http://github.com/ches4117))
@@ -46,7 +46,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - Format code with prettier ([405b1c6](https://github.com/storipress/karbon/commit/405b1c6))
 
-### ❤️  Contributors
+### ❤️ Contributors
 
 - Sid <sid@storipress.com>
 - Ariel Lin <smsllbear1600@gmail.com>
