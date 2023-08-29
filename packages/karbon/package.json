@@ -208,7 +208,7 @@
     "@types/tar": "6.1.5",
     "@types/uuid": "9.0.2",
     "@vitejs/plugin-vue": "4.3.3",
-    "changelogen": "0.5.4",
+    "changelogen": "0.5.5",
     "eslint": "8.48.0",
     "eslint-config-prettier": "9.0.0",
     "eslint-plugin-prettier": "5.0.0",
