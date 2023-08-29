@@ -2912,7 +2912,7 @@ __metadata:
     lodash.sortby: ^4.7.0
     lodash.truncate: ^4.4.2
     micro-aes-gcm: ^0.3.3
-    msw: 1.2.3
+    msw: 1.2.5
     node-fetch-native: ^1.1.1
     npm-run-all: 4.1.5
     nuxt: 3.6.5
@@ -2998,7 +2998,7 @@ __metadata:
     lodash.sortby: ^4.7.0
     lodash.truncate: ^4.4.2
     micro-aes-gcm: ^0.3.3
-    msw: 1.2.3
+    msw: 1.2.5
     node-fetch-native: ^1.1.1
     npm-run-all: 4.1.5
     nuxt: 3.6.5
@@ -3095,7 +3095,7 @@ __metadata:
     lodash.truncate: ^4.4.2
     micro-aes-gcm: ^0.3.3
     minimist: ^1.2.8
-    msw: 1.2.3
+    msw: 1.2.5
     node-fetch-native: ^1.1.1
     node-html-parser: ^6.1.5
     nuxt: 3.6.5
@@ -5334,16 +5334,6 @@ __metadata:
     ansi-styles: ^4.1.0
     supports-color: ^7.1.0
   checksum: 5561c7b4c063badee3e16d04bce50bd033e1be1bf4c6948639275683ffa7a1993c44639b43c22b1c505f0f813a24b1889037eb182546b48946f9fe7cdd0e7d13
-  languageName: node
-  linkType: hard
-
-"chalk@npm:4.1.1":
-  version: 4.1.1
-  resolution: "chalk@npm:4.1.1"
-  dependencies:
-    ansi-styles: ^4.1.0
-    supports-color: ^7.1.0
-  checksum: 036e973e665ba1a32c975e291d5f3d549bceeb7b1b983320d4598fb75d70fe20c5db5d62971ec0fe76cdbce83985a00ee42372416abfc3a5584465005a7855ed
   languageName: node
   linkType: hard
 
@@ -11647,16 +11637,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"msw@npm:1.2.3":
-  version: 1.2.3
-  resolution: "msw@npm:1.2.3"
+"msw@npm:1.2.5":
+  version: 1.2.5
+  resolution: "msw@npm:1.2.5"
   dependencies:
     "@mswjs/cookies": ^0.2.2
     "@mswjs/interceptors": ^0.17.5
     "@open-draft/until": ^1.0.3
     "@types/cookie": ^0.4.1
     "@types/js-levenshtein": ^1.1.1
-    chalk: 4.1.1
+    chalk: ^4.1.1
     chokidar: ^3.4.2
     cookie: ^0.4.2
     graphql: ^15.0.0 || ^16.0.0
@@ -11677,7 +11667,7 @@ __metadata:
       optional: true
   bin:
     msw: cli/index.js
-  checksum: 832a6fc3973726a97e03ce2690c3b6e1774b5156d064a478657a1b33f9933e4834af833cc8a859e1b717fa9b71f1271b3e66a1ec6eed7f76bfe79406e9ec3986
+  checksum: 652c44a100cba0382d6cdf4c2a4dfb90edd9665c7d06bc10f15bd96fe458c6a6f4943c2dec3f1a9d5efef0f7d59ae805ebdf289b52991956d95601e5f42fb8b1
   languageName: node
   linkType: hard
 
