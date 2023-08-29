@@ -96,7 +96,7 @@
     "prettier": "3.0.2",
     "tsx": "3.12.7",
     "typescript": "5.1.6",
-    "vitest": "0.34.2"
+    "vitest": "0.34.3"
   },
   "msw": {
     "workerDirectory": "public"
