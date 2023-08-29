@@ -1,11 +1,10 @@
 import { compact, first, map, pathOr, pipe } from 'remeda'
 import type { PartialDeep } from 'type-fest'
 import type { MetaFlatInput } from '@zhead/schema'
-import { useSeoMeta } from '@vueuse/head'
 import type { MaybeComputedRef } from '@vueuse/core'
 import { isDefined, resolveRef } from '@vueuse/core'
 import { watchSyncEffect } from 'vue'
-import { useHead, useNuxtApp } from '#imports'
+import { useHead, useNuxtApp, useSeoMeta } from '#imports'
 
 interface SEOItem {
   title: string
