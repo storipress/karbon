@@ -151,7 +151,7 @@ export function createStoripressBaseClient(
 function getUserAgent() {
   if (process.server) {
     const config = getStoripressConfig()
-    return { 'user-agent': config.userAgent ?? 'karbon/1.0.0' }
+    return { 'user-agent': config?.userAgent ?? 'karbon/1.0.0' }
   }
 
   return {}
