@@ -5,6 +5,27 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # 0.1.0 (2023-03-15)
 
+## v0.1.74
+
+[compare changes](https://github.com/storipress/karbon/compare/v0.1.73...v0.1.74)
+
+### 🩹 Fixes
+
+- GetUserAgent apollo error ([#233](https://github.com/storipress/karbon/pull/233))
+
+### 🏡 Chore
+
+- Fix lerna config ([3d93d28](https://github.com/storipress/karbon/commit/3d93d28))
+
+### 🎨 Styles
+
+- Format ([d45db0e](https://github.com/storipress/karbon/commit/d45db0e))
+
+### ❤️ Contributors
+
+- DanSnow <dododavid006@gmail.com>
+- Sid Chang
+
 ## v0.1.73
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.72...v0.1.73)
