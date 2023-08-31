@@ -1,4 +1,4 @@
-import { compact, first, map, pathOr, pipe } from 'remeda'
+import { compact, first, identity, map, pathOr, pipe } from 'remeda'
 import type { PartialDeep } from 'type-fest'
 import type { MetaFlatInput } from '@zhead/schema'
 import type { MaybeRefOrGetter } from '@vueuse/core'
@@ -56,37 +56,46 @@ const OG_IMAGE = [['seo', 'ogImage'], ['headline'], ['cover', 'url'], ['avatar']
 const AUTHOR_BIO = [['bio']]
 const TYPE_NAME = [['__typename']]
 
-interface HandlerContext {
+interface SEOContext {
   metaType?: Resources
   site: ReturnType<typeof useSite>
   runtimeConfig: ReturnType<typeof useRuntimeConfig>
   articleFilter: ReturnType<typeof useArticleFilter>
 }
 
-function createSEO<T>(
-  pick: (input: RawSEOInput, context: HandlerContext) => T,
-  map: (input: T, context: HandlerContext) => MetaInput | undefined | false,
-  metaType?: Resources[],
-) {
-  return (input: RawSEOInput, context: HandlerContext) => {
-    if (metaType && context.metaType && !metaType.includes(context.metaType)) return undefined
+type MetaInput = MetaFlatInput & { title?: string }
 
-    return map(pick(input, context), context)
+type SEOHandler<T = MetaInput> = (input: RawSEOInput, context: SEOContext) => T | undefined | false
+type SEOPreset<T = MetaInput> = SEOHandler<T> | SEOHandler<T>[]
+type SEOMapResult = MetaInput | undefined | false
+type SEOMapFn<T> = (input: T, context: SEOContext) => SEOMapResult
+type SEOFilterFn<T> = (input: T, ctx: SEOContext) => T
+
+function createSEO<T>(
+  pick: (input: RawSEOInput, context: SEOContext) => T,
+  map: SEOMapFn<T>,
+  filter: SEOFilterFn<T> = identity,
+): SEOHandler {
+  return (input: RawSEOInput, context: SEOContext) => {
+    return map(filter(pick(input, context), context), context)
   }
 }
 
 function simpleSEO(
   paths: string[][],
-  map: (input: string | undefined, context: HandlerContext) => MetaInput | undefined | false,
-  metaType?: Resources[],
-) {
-  return createSEO(createFirstFound(paths), map, metaType)
+  map: SEOMapFn<string | undefined>,
+  filter: SEOFilterFn<string | undefined> = identity,
+): SEOHandler {
+  return createSEO(createFirstFound(paths), map, filter)
 }
 
-type MetaInput = MetaFlatInput & { title?: string }
+function seoHtmlFilter(input: string | undefined, ctx: SEOContext) {
+  if (!input) {
+    return input
+  }
 
-type SEOHandler<T = MetaInput> = (input: RawSEOInput, context: HandlerContext) => T | undefined | false
-type SEOPreset<T = MetaInput> = SEOHandler<T> | SEOHandler<T>[]
+  return ctx.articleFilter(input)
+}
 
 interface MetaDefineSEOInput {
   type?: 'meta'
@@ -95,7 +104,7 @@ interface MetaDefineSEOInput {
 
 type DefineSEOInput = MetaDefineSEOInput
 
-type NormalizedSEOHandler = (input: RawSEOInput, context: HandlerContext) => void
+type NormalizedSEOHandler = (input: RawSEOInput, context: SEOContext) => void
 type NormalizedSEOPreset = (options: Record<string, any>) => NormalizedSEOHandler
 
 function useMeta(seo: MetaInput) {
@@ -118,8 +127,8 @@ type DefineSEOHandlerInput = MetaDefineSEOHandlerInput
 export function defineSEOHandler(inputOrHandler: DefineSEOHandlerInput | SEOHandler): NormalizedSEOHandler {
   const { handler } = typeof inputOrHandler === 'function' ? { handler: inputOrHandler } : inputOrHandler
 
-  return (input: RawSEOInput) => {
-    const seo = handler(input, {} as HandlerContext)
+  return (input: RawSEOInput, ctx: SEOContext) => {
+    const seo = handler(input, ctx)
 
     if (seo) {
       useMeta(seo)
@@ -135,7 +144,7 @@ export function defineSEOPreset(
   return (options: Record<string, any>) => {
     const maybeHandlers = setup(options)
     const handlers = Array.isArray(maybeHandlers) ? maybeHandlers : [maybeHandlers]
-    return (input: RawSEOInput, context: HandlerContext) => {
+    return (input: RawSEOInput, context: SEOContext) => {
       for (const handle of handlers) {
         const seo = handle(input, context)
 
@@ -154,7 +163,7 @@ const typeMap: Record<ResourceType, Resources> = {
   User: 'author',
   Tag: 'tag',
 }
-function getResourceURL(input: RawSEOInput, context: HandlerContext): string | undefined {
+function getResourceURL(input: RawSEOInput, context: SEOContext): string | undefined {
   // skipcq: JS-W1043
   const typeName: ResourceType = input.__typename || '_'
   const resourceType = context.metaType || typeMap[typeName]
@@ -167,7 +176,7 @@ function getResourceURL(input: RawSEOInput, context: HandlerContext): string | u
   return withoutTrailingSlash(resolveURL(siteUrl, url))
 }
 
-function getTwitterSite(_input: RawSEOInput, context: HandlerContext) {
+function getTwitterSite(_input: RawSEOInput, context: SEOContext) {
   const twitterLink = context.site.value?.socials?.Twitter
   if (!twitterLink) return undefined
 
@@ -178,18 +187,19 @@ function getTwitterSite(_input: RawSEOInput, context: HandlerContext) {
 
 export const basic = defineSEOPreset(({ twitterCard = 'summary_large_image' }) => [
   // Resource
-  simpleSEO(TITLE, (title: string | undefined) => isDefined(title) && { title }),
-  simpleSEO(OG_TITLE, (ogTitle) => isDefined(ogTitle) && { ogTitle, twitterTitle: ogTitle }),
-  simpleSEO(DESCRIPTION, (description) => isDefined(description) && { description }),
+  simpleSEO(TITLE, (title: string | undefined) => isDefined(title) && { title }, seoHtmlFilter),
+  simpleSEO(OG_TITLE, (ogTitle) => isDefined(ogTitle) && { ogTitle, twitterTitle: ogTitle }, seoHtmlFilter),
+  simpleSEO(DESCRIPTION, (description) => isDefined(description) && { description }, seoHtmlFilter),
   simpleSEO(
     OG_DESCRIPTION,
     (ogDescription) => isDefined(ogDescription) && { ogDescription, twitterDescription: ogDescription },
+    seoHtmlFilter,
   ),
   simpleSEO(OG_IMAGE, (ogImage) => isDefined(ogImage) && { ogImage, twitterImage: ogImage }),
 
   // Author
-  simpleSEO(AUTHOR_BIO, (authorBio, { articleFilter }) => {
-    const bio = truncate(articleFilter(authorBio ?? ''), {
+  simpleSEO(AUTHOR_BIO, (authorBio) => {
+    const bio = truncate(authorBio ?? '', {
       length: 150,
       separator: /,? +/,
     })
@@ -260,7 +270,7 @@ export function useSEO(
   const nuxt = useNuxtApp()
 
   watchSyncEffect(() => {
-    const context: HandlerContext = {
+    const context: SEOContext = {
       metaType,
       runtimeConfig,
       site,
