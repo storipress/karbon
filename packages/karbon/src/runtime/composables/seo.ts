@@ -1,10 +1,10 @@
-import { compact, first, map, pathOr, pipe } from 'remeda'
+import { compact, first, identity, map, pathOr, pipe } from 'remeda'
 import type { PartialDeep } from 'type-fest'
 import type { MetaFlatInput } from '@zhead/schema'
 import type { MaybeRefOrGetter } from '@vueuse/core'
 import { isDefined, toRef } from '@vueuse/core'
 import { watchSyncEffect } from 'vue'
-import { useHead, useNuxtApp, useSeoMeta } from '#imports'
+import { useArticleFilter, useHead, useNuxtApp, useSeoMeta } from '#imports'
 
 interface SEOItem {
   title: string
@@ -47,20 +47,43 @@ const OG_TITLE = [['seo', 'og', 'title'], ...TITLE]
 const OG_DESCRIPTION = [['seo', 'og', 'description'], ...DESCRIPTION]
 const OG_IMAGE = [['seo', 'ogImage'], ['headline'], ['cover', 'url']]
 
-function createSEO<T>(pick: (input: RawSEOInput) => T, map: (input: T) => MetaInput | undefined | false) {
-  return (input: RawSEOInput) => {
-    return map(pick(input))
-  }
-}
-
-function simpleSEO(paths: string[][], map: (input: string | undefined) => MetaInput | undefined | false) {
-  return createSEO(createFirstFound(paths), map)
+interface SEOContext {
+  articleFilter: (html: string) => string
 }
 
 type MetaInput = MetaFlatInput & { title?: string }
 
-type SEOHandler<T = MetaInput> = (input: RawSEOInput) => T | undefined | false
+type SEOHandler<T = MetaInput> = (input: RawSEOInput, ctx: SEOContext) => T | undefined | false
 type SEOPreset<T = MetaInput> = SEOHandler<T> | SEOHandler<T>[]
+type SEOMapResult = MetaInput | undefined | false
+type SEOMapFn<T> = (input: T) => SEOMapResult
+type SEOFilterFn<T> = (input: T, ctx: SEOContext) => T
+
+function createSEO<T>(
+  pick: (input: RawSEOInput) => T,
+  map: SEOMapFn<T>,
+  filter: SEOFilterFn<T> = identity,
+): SEOHandler {
+  return (input: RawSEOInput, ctx) => {
+    return map(filter(pick(input), ctx))
+  }
+}
+
+function simpleSEO(
+  paths: string[][],
+  map: SEOMapFn<string | undefined>,
+  filter: SEOFilterFn<string | undefined> = identity,
+): SEOHandler {
+  return createSEO(createFirstFound(paths), map, filter)
+}
+
+function seoHtmlFilter(input: string | undefined, ctx: SEOContext) {
+  if (!input) {
+    return input
+  }
+
+  return ctx.articleFilter(input)
+}
 
 interface MetaDefineSEOInput {
   type?: 'meta'
@@ -69,7 +92,7 @@ interface MetaDefineSEOInput {
 
 type DefineSEOInput = MetaDefineSEOInput
 
-type NormalizedSEOHandler = (input: RawSEOInput) => void
+type NormalizedSEOHandler = (input: RawSEOInput, ctx: SEOContext) => void
 type NormalizedSEOPreset = (options: Record<string, any>) => NormalizedSEOHandler
 
 function useMeta(seo: MetaInput) {
@@ -92,8 +115,8 @@ type DefineSEOHandlerInput = MetaDefineSEOHandlerInput
 export function defineSEOHandler(inputOrHandler: DefineSEOHandlerInput | SEOHandler): NormalizedSEOHandler {
   const { handler } = typeof inputOrHandler === 'function' ? { handler: inputOrHandler } : inputOrHandler
 
-  return (input: RawSEOInput) => {
-    const seo = handler(input)
+  return (input: RawSEOInput, ctx: SEOContext) => {
+    const seo = handler(input, ctx)
 
     if (seo) {
       useMeta(seo)
@@ -109,9 +132,9 @@ export function defineSEOPreset(
   return (options: Record<string, any>) => {
     const maybeHandlers = setup(options)
     const handlers = Array.isArray(maybeHandlers) ? maybeHandlers : [maybeHandlers]
-    return (input: RawSEOInput) => {
+    return (input: RawSEOInput, ctx: SEOContext) => {
       for (const handle of handlers) {
-        const seo = handle(input)
+        const seo = handle(input, ctx)
 
         if (seo) {
           useMeta(seo)
@@ -122,13 +145,17 @@ export function defineSEOPreset(
 }
 
 export const basic = defineSEOPreset(({ twitterCard = 'summary_large_image' }) => [
-  simpleSEO(TITLE, (title: string | undefined) => isDefined(title) && { title }),
-  simpleSEO(DESCRIPTION, (description) => isDefined(description) && { description }),
-  simpleSEO(OG_TITLE, (ogTitle) => isDefined(ogTitle) && { ogTitle }),
-  simpleSEO(OG_DESCRIPTION, (ogDescription) => isDefined(ogDescription) && { ogDescription }),
+  simpleSEO(TITLE, (title: string | undefined) => isDefined(title) && { title }, seoHtmlFilter),
+  simpleSEO(DESCRIPTION, (description) => isDefined(description) && { description }, seoHtmlFilter),
+  simpleSEO(OG_TITLE, (ogTitle) => isDefined(ogTitle) && { ogTitle }, seoHtmlFilter),
+  simpleSEO(OG_DESCRIPTION, (ogDescription) => isDefined(ogDescription) && { ogDescription }, seoHtmlFilter),
   simpleSEO(OG_IMAGE, (ogImage) => isDefined(ogImage) && { ogImage }),
-  simpleSEO(OG_TITLE, (ogTitle) => isDefined(ogTitle) && { twitterTitle: ogTitle }),
-  simpleSEO(OG_DESCRIPTION, (ogDescription) => isDefined(ogDescription) && { twitterDescription: ogDescription }),
+  simpleSEO(OG_TITLE, (ogTitle) => isDefined(ogTitle) && { twitterTitle: ogTitle }, seoHtmlFilter),
+  simpleSEO(
+    OG_DESCRIPTION,
+    (ogDescription) => isDefined(ogDescription) && { twitterDescription: ogDescription },
+    seoHtmlFilter,
+  ),
   simpleSEO(OG_IMAGE, (ogImage) => isDefined(ogImage) && { twitterImage: ogImage }),
   () => ({ twitterCard }),
 ])
@@ -176,11 +203,15 @@ export function resolveSEOPresets(configs: PresetConfigInput[]): NormalizedSEOHa
 export function useSEO(maybeRefInput: MaybeRefOrGetter<RawSEOInput>, presets: PresetConfigInput[] = loadSEOConfig()) {
   const handlers = resolveSEOPresets(presets)
   const refInput = toRef(maybeRefInput)
+  const articleFilter = useArticleFilter()
+  const ctx: SEOContext = {
+    articleFilter,
+  }
 
   watchSyncEffect(() => {
     const input = refInput.value
     for (const handle of handlers) {
-      handle(input)
+      handle(input, ctx)
     }
   })
 }
