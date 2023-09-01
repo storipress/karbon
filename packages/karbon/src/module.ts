@@ -146,6 +146,7 @@ const karbon = defineNuxtModule<ModuleOptions>({
       'p-retry',
       'remeda',
       'lodash',
+      'lodash.truncate',
       'node-html-parser',
     ]
 
