@@ -1,8 +1,8 @@
 import { compact, first, map, pathOr, pipe } from 'remeda'
 import type { PartialDeep } from 'type-fest'
 import type { MetaFlatInput } from '@zhead/schema'
-import type { MaybeComputedRef } from '@vueuse/core'
-import { isDefined, resolveRef } from '@vueuse/core'
+import type { MaybeRefOrGetter } from '@vueuse/core'
+import { isDefined, toRef } from '@vueuse/core'
 import { watchSyncEffect } from 'vue'
 import { useHead, useNuxtApp, useSeoMeta } from '#imports'
 
@@ -173,9 +173,9 @@ export function resolveSEOPresets(configs: PresetConfigInput[]): NormalizedSEOHa
   })
 }
 
-export function useSEO(maybeRefInput: MaybeComputedRef<RawSEOInput>, presets: PresetConfigInput[] = loadSEOConfig()) {
+export function useSEO(maybeRefInput: MaybeRefOrGetter<RawSEOInput>, presets: PresetConfigInput[] = loadSEOConfig()) {
   const handlers = resolveSEOPresets(presets)
-  const refInput = resolveRef(maybeRefInput)
+  const refInput = toRef(maybeRefInput)
 
   watchSyncEffect(() => {
     const input = refInput.value
