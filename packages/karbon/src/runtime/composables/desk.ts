@@ -1,6 +1,6 @@
-import sortBy from 'lodash.sortby'
+import { sortBy } from 'remeda'
 import { _useResource } from './resources'
-import { useResourceResolver } from '#imports'
+import { computed, useResourceResolver } from '#imports'
 
 export interface Desk {
   id: string
@@ -36,6 +36,6 @@ export function useDesks() {
 
   return {
     ...rest,
-    desks: computed(() => sortBy(data.value, ({ order }) => order)),
+    desks: computed(() => data.value && sortBy(data.value, ({ order }) => order)),
   }
 }

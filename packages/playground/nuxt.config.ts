@@ -9,6 +9,9 @@ import {
 } from '@storipress/karbon/helper'
 
 export default defineNuxtConfig({
+  app: {
+    // baseURL: '/blog/',
+  },
   devtools: {
     enabled: true,
 
