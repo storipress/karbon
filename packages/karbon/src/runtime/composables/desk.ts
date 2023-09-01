@@ -1,6 +1,6 @@
 import { sortBy } from 'remeda'
 import { _useResource } from './resources'
-import { useResourceResolver } from '#imports'
+import { computed, useResourceResolver } from '#imports'
 
 export interface Desk {
   id: string
