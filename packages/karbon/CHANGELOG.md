@@ -5,6 +5,20 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # 0.1.0 (2023-03-15)
 
+## v0.1.75
+
+[compare changes](https://github.com/storipress/karbon/compare/v0.1.74...v0.1.75)
+
+### 🩹 Fixes
+
+- Remove usage of deprcated type and function from vueuse ([7f8cf5f](https://github.com/storipress/karbon/commit/7f8cf5f))
+- Respect base url config if no siteCDN config ([#234](https://github.com/storipress/karbon/pull/234))
+
+### ❤️ Contributors
+
+- David Peng <dododavid006@gmail.com>
+- DanSnow <dododavid006@gmail.com>
+
 ## v0.1.74
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.73...v0.1.74)
