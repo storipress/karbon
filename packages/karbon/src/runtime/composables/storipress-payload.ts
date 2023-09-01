@@ -1,7 +1,7 @@
 import type { UseAsyncStateReturn } from '@vueuse/core'
 import { useAsyncState } from '@vueuse/core'
 import type { Ref, UnwrapRef } from 'vue'
-import { withBase } from 'ufo'
+import { joinURL, withBase } from 'ufo'
 import type { Promisable } from 'type-fest'
 import { isPromise } from 'remeda'
 import type { PayloadScope } from '../types'
@@ -25,10 +25,10 @@ async function loadStoripressPayloadWithRawURL(path: string, bypassCache = false
   if (process.server) {
     return loadStoripressPayloadWithURLServer(path, bypassCache)
   }
-  const { public: publicConfig } = useRuntimeConfig()
+  const { public: publicConfig, app } = useRuntimeConfig()
   let modulePath = publicConfig.storipress?.payloadAbsoluteURL
     ? withBase(path, publicConfig.siteCDN)
-    : withBase(path, location.origin)
+    : withBase(path, joinURL(location.origin, app.baseURL))
   if (bypassCache) {
     modulePath += `?t=${Date.now()}`
   }
