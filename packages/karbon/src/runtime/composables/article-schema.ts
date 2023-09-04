@@ -2,6 +2,7 @@ import { parse } from 'node-html-parser'
 import { withoutTrailingSlash } from 'ufo'
 import type { UseArticleReturn as Article } from '../types'
 import { defineArticle, defineOrganization, definePerson, useResourcePageMeta, useSchemaOrg, useSite } from '#imports'
+import type { ResourcePageContext } from '#build/storipress-urls.mjs'
 import urls from '#build/storipress-urls.mjs'
 
 export function useArticleSchemaOrg() {
@@ -20,6 +21,7 @@ export function useArticleSchemaOrg() {
 }
 
 type PageMeta = NonNullable<ReturnType<typeof useResourcePageMeta>['value']>
+const invalidContext = { identity: 'invalid', prefix: '', resource: 'invalid' } as unknown as ResourcePageContext
 
 function getDefineArticle(pageMeta: PageMeta, site: ReturnType<typeof useSite>) {
   const runtimeConfig = useRuntimeConfig()
@@ -32,7 +34,7 @@ function getDefineArticle(pageMeta: PageMeta, site: ReturnType<typeof useSite>) 
       familyName: last_name,
       givenName: first_name,
       name: full_name,
-      sameAs: [withoutTrailingSlash(siteUrl) + urls.author.toURL(author, urls.author._context!)],
+      sameAs: [withoutTrailingSlash(siteUrl) + urls.author.toURL(author, urls.author._context ?? invalidContext)],
     })
   })
   const doc = parse(article.html || '')
