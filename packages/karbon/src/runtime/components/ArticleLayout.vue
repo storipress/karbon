@@ -27,7 +27,7 @@ function resolveLayout(): string {
 
 useProvideArticle(props.article)
 
-useArticleSchemaOrg(useRuntimeConfig())
+useArticleSchemaOrg()
 </script>
 
 <template>
