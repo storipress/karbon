@@ -8,9 +8,9 @@ import {
   definePerson,
   onServerPrefetch,
   useResourcePageMeta,
-  useRuntimeConfig,
   useSchemaOrg,
   useSite,
+  useSiteConfig,
 } from '#imports'
 import type { ResourcePageContext } from '#build/storipress-urls.mjs'
 import urls from '#build/storipress-urls.mjs'
@@ -51,8 +51,8 @@ type PageMeta = NonNullable<ReturnType<typeof useResourcePageMeta>['value']>
 const invalidContext = { identity: 'invalid', prefix: '', resource: 'invalid' } as unknown as ResourcePageContext
 
 function getDefineArticle(pageMeta: PageMeta, site: ReturnType<typeof useSite>) {
-  const runtimeConfig = useRuntimeConfig()
-  const siteUrl = withoutTrailingSlash(runtimeConfig.public.siteUrl as string)
+  const siteConfig = useSiteConfig()
+  const siteUrl = withoutTrailingSlash(siteConfig.url)
   const article: Article = pageMeta.meta
   const authors = article.authors.map((author) => {
     const { first_name, last_name, full_name } = author
