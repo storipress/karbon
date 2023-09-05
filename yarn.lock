@@ -1866,9 +1866,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nuxt/module-builder@npm:0.5.0":
-  version: 0.5.0
-  resolution: "@nuxt/module-builder@npm:0.5.0"
+"@nuxt/module-builder@npm:0.5.1":
+  version: 0.5.1
+  resolution: "@nuxt/module-builder@npm:0.5.1"
   dependencies:
     consola: ^3.2.3
     mlly: ^1.4.1
@@ -1877,11 +1877,11 @@ __metadata:
     unbuild: ^2.0.0
   peerDependencies:
     "@nuxt/kit": ^3.7.0
-    nuxi: ^3.7.2
+    nuxi: ^3.7.3
   bin:
     nuxt-build-module: dist/cli.mjs
     nuxt-module-build: dist/cli.mjs
-  checksum: ff6f906725feefa5cc3531c53027c20c37c39a19f20f778ee3571665dbed65361f745bdc677e0c4aba6c8d8a21f09db87f5dc24ef96a29116a7615982fe5ecb8
+  checksum: 329e3e8d8bf3625028599ad06ed0160dd1df6b037f162b8774c053efa1b0a69cb31cd1a0bfb0aadf8b513a9a1a412f93a0d12fe56f9f1ac8b2800c644f241534
   languageName: node
   linkType: hard
 
@@ -2958,7 +2958,7 @@ __metadata:
     "@nuxt/eslint-config": 0.1.1
     "@nuxt/image": ^1.0.0-rc.1
     "@nuxt/kit": 3.6.5
-    "@nuxt/module-builder": 0.5.0
+    "@nuxt/module-builder": 0.5.1
     "@nuxt/schema": ^3.6.5
     "@nuxt/test-utils": 3.6.5
     "@nuxtjs/html-validator": ^1.5.1
