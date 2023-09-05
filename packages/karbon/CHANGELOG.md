@@ -5,6 +5,18 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # 0.1.0 (2023-03-15)
 
+## v0.1.78
+
+[compare changes](https://github.com/storipress/karbon/compare/v0.1.77...v0.1.78)
+
+### 🩹 Fixes
+
+- Fix import ([76cd093](https://github.com/storipress/karbon/commit/76cd093))
+
+### ❤️ Contributors
+
+- DanSnow <dododavid006@gmail.com>
+
 ## v0.1.77
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.76...v0.1.77)
