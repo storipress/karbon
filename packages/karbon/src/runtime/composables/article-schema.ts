@@ -1,22 +1,45 @@
 import { parse } from 'node-html-parser'
-import { withoutTrailingSlash } from 'ufo'
+import { resolveURL, withoutTrailingSlash } from 'ufo'
+import { Hookable } from 'hookable'
 import type { UseArticleReturn as Article } from '../types'
-import { defineArticle, defineOrganization, definePerson, useResourcePageMeta, useSchemaOrg, useSite } from '#imports'
+import {
+  defineArticle,
+  defineOrganization,
+  definePerson,
+  useResourcePageMeta,
+  useRuntimeConfig,
+  useSchemaOrg,
+  useSite,
+} from '#imports'
 import type { ResourcePageContext } from '#build/storipress-urls.mjs'
 import urls from '#build/storipress-urls.mjs'
+
+type ArticleSchema = ReturnType<typeof defineArticle>
+export const schemaOrgHooks = new Hookable<{
+  'karbon:article-schema': (schema: ArticleSchema) => ArticleSchema
+}>()
 
 export function useArticleSchemaOrg() {
   const pageMeta = useResourcePageMeta()
   const site = useSite()
 
   if (pageMeta.value) {
-    useSchemaOrg([
-      defineOrganization({
-        name: () => site.value?.name || '',
-        logo: () => site.value?.logo?.url,
-      }),
-      getDefineArticle(pageMeta.value, site),
-    ])
+    const articleSchema = getDefineArticle(pageMeta.value, site)
+    Promise.resolve(schemaOrgHooks.callHookParallel('karbon:article-schema', articleSchema))
+      .then(
+        useSchemaOrg([
+          defineOrganization({
+            name: () => site.value?.name || '',
+            logo: () => site.value?.logo?.url,
+          }),
+          articleSchema,
+        ]),
+      )
+      .catch((err) => {
+        if (process.dev) {
+          console.error(err)
+        }
+      })
   }
 }
 
@@ -34,7 +57,7 @@ function getDefineArticle(pageMeta: PageMeta, site: ReturnType<typeof useSite>) 
       familyName: last_name,
       givenName: first_name,
       name: full_name,
-      sameAs: [siteUrl + urls.author.toURL(author, urls.author._context ?? invalidContext)],
+      sameAs: [resolveURL(siteUrl, urls.author.toURL(author, urls.author._context ?? invalidContext))],
     })
   })
   const doc = parse(article.html || '')
@@ -51,14 +74,14 @@ function getDefineArticle(pageMeta: PageMeta, site: ReturnType<typeof useSite>) 
   return defineArticle({
     '@context': 'https://schema.org',
     '@type': 'Article',
-    url: pageMeta.route,
+    url: resolveURL(siteUrl, pageMeta.route),
     publisher: () =>
       defineOrganization({
         name: () => site.value?.name || '',
         logo: () => site.value?.logo?.url,
       }),
     headline: article.title,
-    mainEntityOfPage: siteUrl + pageMeta.route,
+    mainEntityOfPage: resolveURL(siteUrl, pageMeta.route),
     articleBody: article.plaintext,
     author: authors,
     image,
