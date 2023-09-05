@@ -5,6 +5,23 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # 0.1.0 (2023-03-15)
 
+## v0.1.76
+
+[compare changes](https://github.com/storipress/karbon/compare/v0.1.75...v0.1.76)
+
+### 🩹 Fixes
+
+- [SPMVP-6438] [SPMVP-6321] [SPMVP-6289] article JSON-LD ([#238](https://github.com/storipress/karbon/pull/238))
+
+### 🎨 Styles
+
+- Format ([88bce83](https://github.com/storipress/karbon/commit/88bce83))
+
+### ❤️ Contributors
+
+- DanSnow <dododavid006@gmail.com>
+- Sid Chang
+
 ## v0.1.75
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.74...v0.1.75)
