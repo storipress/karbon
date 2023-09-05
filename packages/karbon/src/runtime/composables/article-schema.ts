@@ -59,7 +59,7 @@ function getDefineArticle(pageMeta: PageMeta, site: ReturnType<typeof useSite>) 
     const url = hasAuthorPage
       ? resolveURL(siteUrl, urls.author.toURL(author, urls.author._context ?? invalidContext))
       : undefined
-    const socials = Object.values(author.socials as Record<string, string>).map((url) => withHttps(url))
+    const socials = Object.values((author.socials ?? {}) as Record<string, string>).map((url) => withHttps(url))
 
     return definePerson({
       familyName: last_name,
