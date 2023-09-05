@@ -205,6 +205,7 @@ export interface Article {
   id: string
   blurb?: string | null
   published_at?: any | null
+  updated_at?: string | null
   slug: string
   title: string
   featured: boolean
