@@ -6,6 +6,7 @@ import {
   defineArticle,
   defineOrganization,
   definePerson,
+  onServerPrefetch,
   useResourcePageMeta,
   useRuntimeConfig,
   useSchemaOrg,
