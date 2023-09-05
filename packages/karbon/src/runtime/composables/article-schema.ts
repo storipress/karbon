@@ -25,7 +25,7 @@ const invalidContext = { identity: 'invalid', prefix: '', resource: 'invalid' } 
 
 function getDefineArticle(pageMeta: PageMeta, site: ReturnType<typeof useSite>) {
   const runtimeConfig = useRuntimeConfig()
-  const siteUrl = runtimeConfig.public.siteUrl as string
+  const siteUrl = withoutTrailingSlash(runtimeConfig.public.siteUrl as string)
   const article: Article = pageMeta.meta
   const authors = article.authors.map((author) => {
     const { first_name, last_name, full_name } = author
@@ -34,7 +34,7 @@ function getDefineArticle(pageMeta: PageMeta, site: ReturnType<typeof useSite>) 
       familyName: last_name,
       givenName: first_name,
       name: full_name,
-      sameAs: [withoutTrailingSlash(siteUrl) + urls.author.toURL(author, urls.author._context ?? invalidContext)],
+      sameAs: [siteUrl + urls.author.toURL(author, urls.author._context ?? invalidContext)],
     })
   })
   const doc = parse(article.html || '')
@@ -58,14 +58,11 @@ function getDefineArticle(pageMeta: PageMeta, site: ReturnType<typeof useSite>) 
         logo: () => site.value?.logo?.url,
       }),
     headline: article.title,
-    mainEntityOfPage: {
-      '@type': 'Article',
-      '@id': pageMeta.route,
-    },
+    mainEntityOfPage: siteUrl + pageMeta.route,
     articleBody: article.plaintext,
     author: authors,
     image,
     datePublished: article.published_at,
-    dateModified: article.updated_at,
+    dateModified: article.updated_at || '',
   })
 }
