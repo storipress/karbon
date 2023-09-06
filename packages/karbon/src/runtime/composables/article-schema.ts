@@ -4,6 +4,7 @@ import { Hookable } from 'hookable'
 import type { UseArticleReturn as Article } from '../types'
 import {
   defineArticle,
+  defineBreadcrumb,
   defineOrganization,
   definePerson,
   onServerPrefetch,
@@ -26,6 +27,7 @@ export function useArticleSchemaOrg() {
 
   if (pageMeta.value) {
     const articleSchema = getDefineArticle(pageMeta.value, site)
+    const breadcrumbSchema = getDefineBreadcrumb(pageMeta.value, site)
     tryOnServer(async () => {
       await schemaOrgHooks.callHookParallel('karbon:article-schema', articleSchema)
       useSchemaOrg([
@@ -34,6 +36,7 @@ export function useArticleSchemaOrg() {
           logo: () => site.value?.logo?.url,
         }),
         articleSchema,
+        breadcrumbSchema,
       ])
     })
   }
@@ -50,7 +53,8 @@ function tryOnServer(fn: () => Promise<void>) {
 type PageMeta = NonNullable<ReturnType<typeof useResourcePageMeta>['value']>
 const invalidContext = { identity: 'invalid', prefix: '', resource: 'invalid' } as unknown as ResourcePageContext
 
-function getDefineArticle(pageMeta: PageMeta, site: ReturnType<typeof useSite>) {
+type Site = ReturnType<typeof useSite>
+function getDefineArticle(pageMeta: PageMeta, site: Site) {
   const siteConfig = useSiteConfig()
   const siteUrl = withoutTrailingSlash(siteConfig.url)
   const article: Article = pageMeta.meta
@@ -97,5 +101,20 @@ function getDefineArticle(pageMeta: PageMeta, site: ReturnType<typeof useSite>) 
     image,
     datePublished: article.published_at,
     dateModified: article.updated_at || '',
+  })
+}
+
+function getDefineBreadcrumb(pageMeta: PageMeta, site: Site) {
+  const siteConfig = useSiteConfig()
+  const siteUrl = withoutTrailingSlash(siteConfig.url)
+  const article: Article = pageMeta.meta
+  const desk = article.desk
+
+  return defineBreadcrumb({
+    itemListElement: [
+      { name: () => site.value?.name, item: '/' },
+      { name: desk.name, item: resolveURL(siteUrl, urls.desk.toURL(desk, urls.desk._context ?? invalidContext)) },
+      { name: article.title, item: pageMeta.route },
+    ],
   })
 }
