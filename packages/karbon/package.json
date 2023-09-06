@@ -205,7 +205,7 @@
     "@types/serialize-javascript": "5.0.2",
     "@types/tailwindcss": "3.1.0",
     "@types/tar": "6.1.5",
-    "@types/uuid": "9.0.2",
+    "@types/uuid": "9.0.3",
     "@vitejs/plugin-vue": "4.3.4",
     "changelogen": "0.5.5",
     "eslint": "8.48.0",
