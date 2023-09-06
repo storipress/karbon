@@ -4,6 +4,7 @@ import { Hookable } from 'hookable'
 import type { UseArticleReturn as Article } from '../types'
 import {
   defineArticle,
+  defineBreadcrumb,
   defineOrganization,
   definePerson,
   onServerPrefetch,
@@ -16,8 +17,10 @@ import type { ResourcePageContext } from '#build/storipress-urls.mjs'
 import urls from '#build/storipress-urls.mjs'
 
 type ArticleSchema = ReturnType<typeof defineArticle>
+type BreadcrumbSchema = ReturnType<typeof defineBreadcrumb>
 export const schemaOrgHooks = new Hookable<{
   'karbon:article-schema': (schema: ArticleSchema) => void
+  'karbon:breadcrumb-schema': (schema: BreadcrumbSchema) => void
 }>()
 
 export function useArticleSchemaOrg() {
@@ -26,14 +29,17 @@ export function useArticleSchemaOrg() {
 
   if (pageMeta.value) {
     const articleSchema = getDefineArticle(pageMeta.value, site)
+    const breadcrumbSchema = getDefineBreadcrumb(pageMeta.value, site)
     tryOnServer(async () => {
       await schemaOrgHooks.callHookParallel('karbon:article-schema', articleSchema)
+      await schemaOrgHooks.callHookParallel('karbon:breadcrumb-schema', breadcrumbSchema)
       useSchemaOrg([
         defineOrganization({
           name: () => site.value?.name || '',
           logo: () => site.value?.logo?.url,
         }),
         articleSchema,
+        breadcrumbSchema,
       ])
     })
   }
@@ -50,7 +56,8 @@ function tryOnServer(fn: () => Promise<void>) {
 type PageMeta = NonNullable<ReturnType<typeof useResourcePageMeta>['value']>
 const invalidContext = { identity: 'invalid', prefix: '', resource: 'invalid' } as unknown as ResourcePageContext
 
-function getDefineArticle(pageMeta: PageMeta, site: ReturnType<typeof useSite>) {
+type Site = ReturnType<typeof useSite>
+function getDefineArticle(pageMeta: PageMeta, site: Site) {
   const siteConfig = useSiteConfig()
   const siteUrl = withoutTrailingSlash(siteConfig.url)
   const article: Article = pageMeta.meta
@@ -97,5 +104,19 @@ function getDefineArticle(pageMeta: PageMeta, site: ReturnType<typeof useSite>) 
     image,
     datePublished: article.published_at,
     dateModified: article.updated_at || '',
+  })
+}
+
+function getDefineBreadcrumb(pageMeta: PageMeta, site: Site) {
+  const siteConfig = useSiteConfig()
+  const siteUrl = withoutTrailingSlash(siteConfig.url)
+  const article: Article = pageMeta.meta
+  const desk = article.desk
+  const deskItem = urls.desk.enable
+    ? [{ name: desk.name, item: resolveURL(siteUrl, urls.desk.toURL(desk, urls.desk._context ?? invalidContext)) }]
+    : []
+
+  return defineBreadcrumb({
+    itemListElement: [{ name: () => site.value?.name, item: siteUrl }, ...deskItem, { name: article.title }],
   })
 }
