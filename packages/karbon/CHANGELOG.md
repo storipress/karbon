@@ -5,6 +5,27 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # 0.1.0 (2023-03-15)
 
+## v0.1.79
+
+[compare changes](https://github.com/storipress/karbon/compare/v0.1.78...v0.1.79)
+
+### 🚀 Enhancements
+
+- [SPMVP-6288] add breadcrumb json-ld ([#239](https://github.com/storipress/karbon/pull/239))
+
+### 🩹 Fixes
+
+- Use site config ([31b15fb](https://github.com/storipress/karbon/commit/31b15fb))
+
+### 🏡 Chore
+
+- Upgrade deps ([5985c9d](https://github.com/storipress/karbon/commit/5985c9d))
+
+### ❤️ Contributors
+
+- DanSnow <dododavid006@gmail.com>
+- Sid Chang
+
 ## v0.1.78
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.77...v0.1.78)
