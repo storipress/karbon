@@ -31,7 +31,7 @@
     "vue": "^3.3.4"
   },
   "devDependencies": {
-    "unbuild": "1.2.1"
+    "unbuild": "2.0.0"
   },
   "publishConfig": {
     "access": "public"

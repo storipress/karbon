@@ -172,7 +172,7 @@
     "ts-pattern": "^5.0.4",
     "type-fest": "^4.0.0",
     "typesense-instantsearch-adapter": "^2.7.0",
-    "unbuild": "^1.2.1",
+    "unbuild": "^2.0.0",
     "unenv": "^1.5.2",
     "unplugin-auto-import": "^0.16.6",
     "unplugin-vue-components": "^0.25.1",

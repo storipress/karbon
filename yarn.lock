@@ -149,7 +149,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/code-frame@npm:^7.0.0, @babel/code-frame@npm:^7.10.0, @babel/code-frame@npm:^7.12.13, @babel/code-frame@npm:^7.16.0, @babel/code-frame@npm:^7.18.6, @babel/code-frame@npm:^7.22.10, @babel/code-frame@npm:^7.22.5":
+"@babel/code-frame@npm:^7.0.0, @babel/code-frame@npm:^7.10.0, @babel/code-frame@npm:^7.12.13, @babel/code-frame@npm:^7.16.0, @babel/code-frame@npm:^7.22.10, @babel/code-frame@npm:^7.22.5":
   version: 7.22.13
   resolution: "@babel/code-frame@npm:7.22.13"
   dependencies:
@@ -2393,25 +2393,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rollup/plugin-commonjs@npm:^24.1.0":
-  version: 24.1.0
-  resolution: "@rollup/plugin-commonjs@npm:24.1.0"
-  dependencies:
-    "@rollup/pluginutils": ^5.0.1
-    commondir: ^1.0.1
-    estree-walker: ^2.0.2
-    glob: ^8.0.3
-    is-reference: 1.2.1
-    magic-string: ^0.27.0
-  peerDependencies:
-    rollup: ^2.68.0||^3.0.0
-  peerDependenciesMeta:
-    rollup:
-      optional: true
-  checksum: 42faafc9bc8e04d75c86bb50d693ebb9c5eee19bf9ab3c09780b872547d12ff5ea85cfec7da75f5176d0aa4b5233101f667f44b85b331450a7bb14c95180852e
-  languageName: node
-  linkType: hard
-
 "@rollup/plugin-commonjs@npm:^25.0.2, @rollup/plugin-commonjs@npm:^25.0.4":
   version: 25.0.4
   resolution: "@rollup/plugin-commonjs@npm:25.0.4"
@@ -2461,7 +2442,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rollup/plugin-node-resolve@npm:^15.0.2, @rollup/plugin-node-resolve@npm:^15.1.0, @rollup/plugin-node-resolve@npm:^15.2.1":
+"@rollup/plugin-node-resolve@npm:^15.1.0, @rollup/plugin-node-resolve@npm:^15.2.1":
   version: 15.2.1
   resolution: "@rollup/plugin-node-resolve@npm:15.2.1"
   dependencies:
@@ -2750,7 +2731,7 @@ __metadata:
     consola: ^3.2.3
     giget: ^1.1.2
     minimist: ^1.2.8
-    unbuild: 1.2.1
+    unbuild: 2.0.0
   bin:
     create-karbon: ./dist/index.mjs
   languageName: unknown
@@ -2762,7 +2743,7 @@ __metadata:
   dependencies:
     hookable: ^5.5.3
     remeda: ^1.24.0
-    unbuild: 1.2.1
+    unbuild: 2.0.0
     unctx: ^2.3.1
     vue: ^3.3.4
   languageName: unknown
@@ -2775,7 +2756,7 @@ __metadata:
     "@types/node": 18.17.14
     jose: ^4.14.4
     typescript: 5.1.6
-    unbuild: 1.2.1
+    unbuild: 2.0.0
   languageName: unknown
   linkType: soft
 
@@ -3041,7 +3022,7 @@ __metadata:
     type-fest: ^4.0.0
     typescript: 5.1.6
     typesense-instantsearch-adapter: ^2.7.0
-    unbuild: ^1.2.1
+    unbuild: ^2.0.0
     unenv: ^1.5.2
     unplugin-auto-import: ^0.16.6
     unplugin-vue-components: ^0.25.1
@@ -5749,7 +5730,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"consola@npm:^3.0.1, consola@npm:^3.0.2, consola@npm:^3.1.0, consola@npm:^3.2.2, consola@npm:^3.2.3":
+"consola@npm:^3.0.1, consola@npm:^3.1.0, consola@npm:^3.2.2, consola@npm:^3.2.3":
   version: 3.2.3
   resolution: "consola@npm:3.2.3"
   checksum: 32ec70e177dd2385c42e38078958cc7397be91db21af90c6f9faa0b16168b49b1c61d689338604bbb2d64370b9347a35f42a9197663a913d3a405bb0ce728499
@@ -6913,7 +6894,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"esbuild@npm:^0.17.16, esbuild@npm:^0.17.5, esbuild@npm:~0.17.6":
+"esbuild@npm:^0.17.5, esbuild@npm:~0.17.6":
   version: 0.17.18
   resolution: "esbuild@npm:0.17.18"
   dependencies:
@@ -11316,7 +11297,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mkdist@npm:^1.2.0, mkdist@npm:^1.3.0":
+"mkdist@npm:^1.3.0":
   version: 1.3.0
   resolution: "mkdist@npm:1.3.0"
   dependencies:
@@ -14332,22 +14313,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup-plugin-dts@npm:^5.3.0":
-  version: 5.3.0
-  resolution: "rollup-plugin-dts@npm:5.3.0"
-  dependencies:
-    "@babel/code-frame": ^7.18.6
-    magic-string: ^0.30.0
-  peerDependencies:
-    rollup: ^3.0.0
-    typescript: ^4.1 || ^5.0
-  dependenciesMeta:
-    "@babel/code-frame":
-      optional: true
-  checksum: ba3a6065598586c52af60211877a234b8c829b8a7ecd6e6b426e52ec4dc2c8c8ac6e1fb9f47db6afd91858be0dcb09fd3d312c865e972fb72ae8c9ee00eb1d36
-  languageName: node
-  linkType: hard
-
 "rollup-plugin-dts@npm:^6.0.0":
   version: 6.0.0
   resolution: "rollup-plugin-dts@npm:6.0.0"
@@ -14383,7 +14348,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup@npm:^3.2.5, rollup@npm:^3.20.2, rollup@npm:^3.21.0, rollup@npm:^3.25.2, rollup@npm:^3.25.3, rollup@npm:^3.28.1":
+"rollup@npm:^3.2.5, rollup@npm:^3.21.0, rollup@npm:^3.25.2, rollup@npm:^3.25.3, rollup@npm:^3.28.1":
   version: 3.28.1
   resolution: "rollup@npm:3.28.1"
   dependencies:
@@ -16091,7 +16056,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:>=3 < 6, typescript@npm:^5.0.4":
+"typescript@npm:>=3 < 6":
   version: 5.2.2
   resolution: "typescript@npm:5.2.2"
   bin:
@@ -16121,7 +16086,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@>=3 < 6#~builtin<compat/typescript>, typescript@patch:typescript@^5.0.4#~builtin<compat/typescript>":
+"typescript@patch:typescript@>=3 < 6#~builtin<compat/typescript>":
   version: 5.2.2
   resolution: "typescript@patch:typescript@npm%3A5.2.2#~builtin<compat/typescript>::version=5.2.2&hash=f3b441"
   bin:
@@ -16199,42 +16164,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"unbuild@npm:1.2.1, unbuild@npm:^1.2.1":
-  version: 1.2.1
-  resolution: "unbuild@npm:1.2.1"
-  dependencies:
-    "@rollup/plugin-alias": ^5.0.0
-    "@rollup/plugin-commonjs": ^24.1.0
-    "@rollup/plugin-json": ^6.0.0
-    "@rollup/plugin-node-resolve": ^15.0.2
-    "@rollup/plugin-replace": ^5.0.2
-    "@rollup/pluginutils": ^5.0.2
-    chalk: ^5.2.0
-    consola: ^3.0.2
-    defu: ^6.1.2
-    esbuild: ^0.17.16
-    globby: ^13.1.4
-    hookable: ^5.5.3
-    jiti: ^1.18.2
-    magic-string: ^0.30.0
-    mkdist: ^1.2.0
-    mlly: ^1.2.0
-    mri: ^1.2.0
-    pathe: ^1.1.0
-    pkg-types: ^1.0.2
-    pretty-bytes: ^6.1.0
-    rollup: ^3.20.2
-    rollup-plugin-dts: ^5.3.0
-    scule: ^1.0.0
-    typescript: ^5.0.4
-    untyped: ^1.3.2
-  bin:
-    unbuild: dist/cli.mjs
-  checksum: 183aff70af75ac4ac3c4dafa0929898783c38143a7040a5a24ed359c4245ef260a4a66f42d44ee3afc7870eca50ff6bb659ed034caf8204d2be07bbc1e4ae76f
-  languageName: node
-  linkType: hard
-
-"unbuild@npm:^2.0.0":
+"unbuild@npm:2.0.0, unbuild@npm:^2.0.0":
   version: 2.0.0
   resolution: "unbuild@npm:2.0.0"
   dependencies:
