@@ -26,12 +26,12 @@
   },
   "dependencies": {
     "hookable": "^5.5.3",
-    "remeda": "^1.24.0",
+    "remeda": "^1.26.0",
     "unctx": "^2.3.1",
     "vue": "^3.3.4"
   },
   "devDependencies": {
-    "unbuild": "1.2.1"
+    "unbuild": "2.0.0"
   },
   "publishConfig": {
     "access": "public"
