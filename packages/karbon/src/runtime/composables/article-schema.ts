@@ -112,12 +112,11 @@ function getDefineBreadcrumb(pageMeta: PageMeta, site: Site) {
   const siteUrl = withoutTrailingSlash(siteConfig.url)
   const article: Article = pageMeta.meta
   const desk = article.desk
+  const deskItem = urls.desk.enable
+    ? [{ name: desk.name, item: resolveURL(siteUrl, urls.desk.toURL(desk, urls.desk._context ?? invalidContext)) }]
+    : []
 
   return defineBreadcrumb({
-    itemListElement: [
-      { name: () => site.value?.name, item: '/' },
-      { name: desk.name, item: resolveURL(siteUrl, urls.desk.toURL(desk, urls.desk._context ?? invalidContext)) },
-      { name: article.title, item: pageMeta.route },
-    ],
+    itemListElement: [{ name: () => site.value?.name, item: siteUrl }, ...deskItem, { name: article.title }],
   })
 }
