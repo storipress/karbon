@@ -5,6 +5,22 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # 0.1.0 (2023-03-15)
 
+## v0.1.80
+
+[compare changes](https://github.com/storipress/karbon/compare/v0.1.79...v0.1.80)
+
+### 🩹 Fixes
+
+- Ensure user social exist ([09e8c26](https://github.com/storipress/karbon/commit/09e8c26))
+
+### 🎨 Styles
+
+- Format ([adc973f](https://github.com/storipress/karbon/commit/adc973f))
+
+### ❤️ Contributors
+
+- DanSnow <dododavid006@gmail.com>
+
 ## v0.1.79
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.78...v0.1.79)
