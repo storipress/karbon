@@ -17,8 +17,10 @@ import type { ResourcePageContext } from '#build/storipress-urls.mjs'
 import urls from '#build/storipress-urls.mjs'
 
 type ArticleSchema = ReturnType<typeof defineArticle>
+type BreadcrumbSchema = ReturnType<typeof defineBreadcrumb>
 export const schemaOrgHooks = new Hookable<{
   'karbon:article-schema': (schema: ArticleSchema) => void
+  'karbon:breadcrumb-schema': (schema: BreadcrumbSchema) => void
 }>()
 
 export function useArticleSchemaOrg() {
@@ -30,6 +32,7 @@ export function useArticleSchemaOrg() {
     const breadcrumbSchema = getDefineBreadcrumb(pageMeta.value, site)
     tryOnServer(async () => {
       await schemaOrgHooks.callHookParallel('karbon:article-schema', articleSchema)
+      await schemaOrgHooks.callHookParallel('karbon:breadcrumb-schema', breadcrumbSchema)
       useSchemaOrg([
         defineOrganization({
           name: () => site.value?.name || '',
