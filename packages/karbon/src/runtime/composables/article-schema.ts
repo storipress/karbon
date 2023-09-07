@@ -8,6 +8,7 @@ import {
   defineOrganization,
   definePerson,
   onServerPrefetch,
+  useNuxtApp,
   useResourcePageMeta,
   useSchemaOrg,
   useSite,
@@ -30,19 +31,23 @@ export function useArticleSchemaOrg() {
   const site = useSite()
 
   if (pageMeta.value) {
+    const nuxtApp = useNuxtApp()
     const articleSchema = getDefineArticle(pageMeta.value, site)
     const breadcrumbSchema = getDefineBreadcrumb(pageMeta.value, site)
     tryOnServer(async () => {
       await schemaOrgHooks.callHookParallel('karbon:article-schema', articleSchema)
       await schemaOrgHooks.callHookParallel('karbon:breadcrumb-schema', breadcrumbSchema)
-      useSchemaOrg([
-        defineOrganization({
-          name: () => site.value?.name || '',
-          logo: () => site.value?.logo?.url,
-        }),
-        articleSchema,
-        breadcrumbSchema,
-      ])
+      // ensure we have Nuxt context
+      nuxtApp.runWithContext(() => {
+        useSchemaOrg([
+          defineOrganization({
+            name: () => site.value?.name || '',
+            logo: () => site.value?.logo?.url,
+          }),
+          articleSchema,
+          breadcrumbSchema,
+        ])
+      })
     })
   }
 }
