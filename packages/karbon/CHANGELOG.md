@@ -5,6 +5,18 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # 0.1.0 (2023-03-15)
 
+## v0.1.81
+
+[compare changes](https://github.com/storipress/karbon/compare/v0.1.80...v0.1.81)
+
+### 🚀 Enhancements
+
+- [SPMVP-6352] avoid executing useArticleSchemaOrg on client side ([#244](https://github.com/storipress/karbon/pull/244))
+
+### ❤️ Contributors
+
+- Sid Chang
+
 ## v0.1.80
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.79...v0.1.80)
