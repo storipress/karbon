@@ -24,6 +24,8 @@ export const schemaOrgHooks = new Hookable<{
 }>()
 
 export function useArticleSchemaOrg() {
+  if (process.client) return null
+
   const pageMeta = useResourcePageMeta()
   const site = useSite()
 
@@ -43,6 +45,7 @@ export function useArticleSchemaOrg() {
       ])
     })
   }
+  return null
 }
 
 function tryOnServer(fn: () => Promise<void>) {
