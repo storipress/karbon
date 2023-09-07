@@ -5,6 +5,22 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # 0.1.0 (2023-03-15)
 
+## v0.1.82
+
+[compare changes](https://github.com/storipress/karbon/compare/v0.1.81...v0.1.82)
+
+### 🩹 Fixes
+
+- Ensure nuxt context exist ([847de8d](https://github.com/storipress/karbon/commit/847de8d))
+
+### 🎨 Styles
+
+- Format ([2cbfade](https://github.com/storipress/karbon/commit/2cbfade))
+
+### ❤️ Contributors
+
+- DanSnow <dododavid006@gmail.com>
+
 ## v0.1.81
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.80...v0.1.81)
