@@ -24,6 +24,8 @@ export const schemaOrgHooks = new Hookable<{
 }>()
 
 export function useArticleSchemaOrg() {
+  if (process.client) return
+
   const pageMeta = useResourcePageMeta()
   const site = useSite()
 
