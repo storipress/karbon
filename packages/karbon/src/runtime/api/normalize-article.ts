@@ -16,6 +16,7 @@ export interface RawArticleLike {
   id: string
   title: string
   blurb: string
+  bio: string
   seo: string
   cover: string
   html: string
@@ -40,9 +41,18 @@ export interface RawSEO {
   ogImage?: string
 }
 
+function filterHTMLTag(text: string) {
+  if (!text) {
+    return ''
+  }
+
+  return text.replace(/<\/?[^>]*>/g, '').trim()
+}
+
 export function normalizeArticle({
   title,
   blurb,
+  bio,
   seo,
   cover,
   plan,
@@ -56,6 +66,8 @@ export function normalizeArticle({
     ...rest,
     id,
     plan,
+    bio: filterHTMLTag(bio),
+    bioHtml: bio,
     title: unwrapParagraph(title),
     blurb: unwrapParagraph(blurb),
     seo: destr<RawSEO>(seo),
