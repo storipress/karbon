@@ -41,14 +41,6 @@ export interface RawSEO {
   ogImage?: string
 }
 
-function filterHTMLTag(text: string) {
-  if (!text) {
-    return ''
-  }
-
-  return text.replace(/<\/?[^>]*>/g, '').trim()
-}
-
 export function normalizeArticle({
   title,
   blurb,
@@ -62,11 +54,13 @@ export function normalizeArticle({
   authors,
   ...rest
 }: RawArticleLike) {
+  const articleFilter = useArticleFilter()
+
   return {
     ...rest,
     id,
     plan,
-    bio: filterHTMLTag(bio),
+    bio: articleFilter(bio),
     bioHtml: bio,
     title: unwrapParagraph(title),
     blurb: unwrapParagraph(blurb),

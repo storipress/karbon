@@ -278,25 +278,25 @@ const karbon = defineNuxtModule<ModuleOptions>({
     const resolvedSEO = await resolveSEOProviders(seo)
     const seoConfig = `
     ${resolvedSEO
-      .filter((x) => isUserSEOConfig(x))
-      .map(({ importName, importPath }) => genImport(importPath as string, importName))
-      .join('\n')}
+        .filter((x) => isUserSEOConfig(x))
+        .map(({ importName, importPath }) => genImport(importPath as string, importName))
+        .join('\n')}
 
       export default ${genArrayFromRaw(
-        resolvedSEO.map((config) => {
-          if (config.preset) {
-            return genObjectFromRaw({
-              preset: JSON.stringify(config.preset),
-              options: JSON.stringify(config.options),
-            })
-          } else {
-            return genObjectFromRaw({
-              presetFactory: config.importName,
-              options: JSON.stringify(config.options),
-            })
-          }
-        }),
-      )}
+          resolvedSEO.map((config) => {
+            if (config.preset) {
+              return genObjectFromRaw({
+                preset: JSON.stringify(config.preset),
+                options: JSON.stringify(config.options),
+              })
+            } else {
+              return genObjectFromRaw({
+                presetFactory: config.importName,
+                options: JSON.stringify(config.options),
+              })
+            }
+          }),
+        )}
     `
 
     addTemplate({
@@ -444,6 +444,10 @@ const karbon = defineNuxtModule<ModuleOptions>({
       './runtime/plugins/storipress',
       './runtime/plugins/storipress-payload',
       './runtime/plugins/custom-field',
+      {
+        src: './runtime/plugins/entities.client',
+        mode: 'client',
+      },
       // Nuxt will remove same plugin
       // ref: https://github.com/nuxt/nuxt/blob/main/packages/kit/src/plugin.ts#L67
       enablePaywall && {
@@ -474,12 +478,12 @@ const karbon = defineNuxtModule<ModuleOptions>({
       addPlugin(
         typeof plugin === 'string'
           ? {
-              src: resolver.resolve(plugin),
-            }
+            src: resolver.resolve(plugin),
+          }
           : {
-              ...plugin,
-              src: resolver.resolve(plugin.src),
-            },
+            ...plugin,
+            src: resolver.resolve(plugin.src),
+          },
       )
     }
 
