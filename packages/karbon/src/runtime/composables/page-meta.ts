@@ -49,6 +49,7 @@ export interface Tag {
 export interface Author {
   avatar: string
   bio: string
+  bioHTML: string
   created_at: string
   desks: Desk[]
   email: string
