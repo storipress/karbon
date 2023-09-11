@@ -448,6 +448,10 @@ const karbon = defineNuxtModule<ModuleOptions>({
         src: './runtime/plugins/entities.client',
         mode: 'client',
       },
+      {
+        src: './runtime/plugins/entities.server',
+        mode: 'server',
+      },
       // Nuxt will remove same plugin
       // ref: https://github.com/nuxt/nuxt/blob/main/packages/kit/src/plugin.ts#L67
       enablePaywall && {
