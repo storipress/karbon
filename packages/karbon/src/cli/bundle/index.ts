@@ -102,6 +102,7 @@ export async function bundle(path: string, vuefileName: string, layoutName: stri
               corePlugins: {
                 preflight: false,
               },
+              darkMode: ['class', '.force-use-dark-mode'],
             },
           }),
         ],
