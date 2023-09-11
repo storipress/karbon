@@ -1,6 +1,8 @@
 ![Karbon](https://user-images.githubusercontent.com/53453555/225268246-0f8e1ca6-0f24-4d77-8fa6-c298c00c741e.png)
 
 <p align="center">
+    <a href="https://codeclimate.com/github/storipress/karbon/maintainability"><img src="https://api.codeclimate.com/v1/badges/d3374e57dd63a3565c18/maintainability" /></a>
+    <a href="https://codeclimate.com/github/storipress/karbon/test_coverage"><img src="https://api.codeclimate.com/v1/badges/d3374e57dd63a3565c18/test_coverage" /></a>
     <a href="https://www.npmjs.com/package/@storipress/karbon"><img src="https://img.shields.io/npm/v/@storipress/karbon?sanitize=true" alt="Version"></a>
     <a href="https://github.com/storipress/karbon/blob/main/LICENSE.md"><img src="https://img.shields.io/npm/l/@storipress/karbon.svg?sanitize=true" alt="License"></a>
     <a href="https://npmcharts.com/compare/@storipress/karbon?minimal=true"><img src="https://img.shields.io/npm/dm/@storipress/karbon?sanitize=true" alt="Downloads"></a>
