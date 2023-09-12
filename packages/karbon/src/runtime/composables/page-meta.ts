@@ -9,6 +9,7 @@ import {
   navigateTo,
   onBeforeUnmount,
   onMounted,
+  useArticleFilter,
   useDeskFeedLink,
   useNuxtApp,
   useRequestEvent,
@@ -124,10 +125,11 @@ export function setupPage<Type extends PageType>({ type, seo = true }: SetupPage
   }
 
   if (type === 'author') {
+    const useArticleFilterTag = useArticleFilter()
     return computed(() => {
       return {
         ...meta.value,
-        bio: filterHTMLTag(meta.value.bio),
+        bio: useArticleFilterTag(meta.value.bio),
         bioHTML: meta.value.bio,
       }
     })
