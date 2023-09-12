@@ -2,6 +2,7 @@ import { destr } from 'destr'
 import truncate from 'lodash.truncate'
 import type { Segment } from '../lib/split-article'
 import type { ArticlePlan } from '../types'
+import { useArticleFilter } from '#imports'
 
 export interface RawUserLike {
   id: string
