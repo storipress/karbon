@@ -13,7 +13,7 @@ const type = useField('custom-field-for', FieldType.Text)
         <li>email: {{ author.email }}</li>
         <li>avatar: {{ author.avatar }}</li>
         <li>location: {{ author.location }}</li>
-        <li>bio: {{ author.bioHTML }}</li>
+        <li>bio: <span v-html="author.bioHTML"></span></li>
       </ul>
     </div>
     <div>Custom field for: {{ type }}</div>

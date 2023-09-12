@@ -123,6 +123,16 @@ export function setupPage<Type extends PageType>({ type, seo = true }: SetupPage
     useSEO(meta.value)
   }
 
+  if (type === 'author') {
+    return computed(() => {
+      return {
+        ...meta.value,
+        bio: filterHTMLTag(meta.value.bio),
+        bioHTML: meta.value.bio,
+      }
+    })
+  }
+
   return meta
 }
 

@@ -61,7 +61,7 @@ export function normalizeArticle({
     id,
     plan,
     bio: articleFilter(bio),
-    bioHtml: bio,
+    bioHTML: bio,
     title: unwrapParagraph(title),
     blurb: unwrapParagraph(blurb),
     seo: destr<RawSEO>(seo),
