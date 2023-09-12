@@ -5,6 +5,23 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # 0.1.0 (2023-03-15)
 
+## v0.1.83
+
+[compare changes](https://github.com/storipress/karbon/compare/v0.1.82...v0.1.83)
+
+### 🩹 Fixes
+
+- CLI > add tailwind darkMode config ([b63091c](https://github.com/storipress/karbon/commit/b63091c))
+
+### 🎨 Styles
+
+- Format ([9fdbf5f](https://github.com/storipress/karbon/commit/9fdbf5f))
+
+### ❤️ Contributors
+
+- DanSnow <dododavid006@gmail.com>
+- Sid <sid@storipress.com>
+
 ## v0.1.82
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.81...v0.1.82)
