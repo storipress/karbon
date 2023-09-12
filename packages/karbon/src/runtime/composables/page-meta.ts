@@ -49,6 +49,7 @@ export interface Tag {
 export interface Author {
   avatar: string
   bio: string
+  bioHTML: string
   created_at: string
   desks: Desk[]
   email: string
@@ -120,6 +121,16 @@ export function setupPage<Type extends PageType>({ type, seo = true }: SetupPage
 
   if (seo && meta.value) {
     useSEO(meta.value)
+  }
+
+  if (type === 'author') {
+    return computed(() => {
+      return {
+        ...meta.value,
+        bio: filterHTMLTag(meta.value.bio),
+        bioHTML: meta.value.bio,
+      }
+    })
   }
 
   return meta

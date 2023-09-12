@@ -16,6 +16,7 @@ export interface RawArticleLike {
   id: string
   title: string
   blurb: string
+  bio: string
   seo: string
   cover: string
   html: string
@@ -43,6 +44,7 @@ export interface RawSEO {
 export function normalizeArticle({
   title,
   blurb,
+  bio,
   seo,
   cover,
   plan,
@@ -52,10 +54,14 @@ export function normalizeArticle({
   authors,
   ...rest
 }: RawArticleLike) {
+  const articleFilter = useArticleFilter()
+
   return {
     ...rest,
     id,
     plan,
+    bio: articleFilter(bio),
+    bioHTML: bio,
     title: unwrapParagraph(title),
     blurb: unwrapParagraph(blurb),
     seo: destr<RawSEO>(seo),

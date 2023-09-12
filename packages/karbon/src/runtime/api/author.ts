@@ -64,7 +64,6 @@ export async function listAuthors() {
 export async function getAuthor(id: string) {
   const client = useStoripressClient()
   const { data } = await client.query({ query: GetAuthor, variables: { id } })
-
   return normalizeAuthor(data.user)
 }
 
