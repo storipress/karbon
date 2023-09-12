@@ -82,7 +82,7 @@
     "@types/lodash.truncate": "4.4.7",
     "@types/serialize-javascript": "5.0.2",
     "@types/tailwindcss": "3.1.0",
-    "@types/tar": "6.1.5",
+    "@types/tar": "6.1.6",
     "@types/uuid": "9.0.3",
     "@vitejs/plugin-vue": "4.3.4",
     "eslint": "8.49.0",
