@@ -5,6 +5,23 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # 0.1.0 (2023-03-15)
 
+## v0.1.84
+
+[compare changes](https://github.com/storipress/karbon/compare/v0.1.83...v0.1.84)
+
+### 🚀 Enhancements
+
+- Bio use v-html ([#250](https://github.com/storipress/karbon/pull/250))
+
+### 🎨 Styles
+
+- Format ([a206866](https://github.com/storipress/karbon/commit/a206866))
+
+### ❤️ Contributors
+
+- DanSnow <dododavid006@gmail.com>
+- 張鴻霖(Hong-Lin Chang) ([@ches4117](http://github.com/ches4117))
+
 ## v0.1.83
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.82...v0.1.83)
