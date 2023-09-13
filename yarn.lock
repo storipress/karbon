@@ -576,23 +576,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@esbuild-kit/core-utils@npm:^3.0.0, @esbuild-kit/core-utils@npm:^3.2.2":
-  version: 3.2.2
-  resolution: "@esbuild-kit/core-utils@npm:3.2.2"
+"@esbuild-kit/core-utils@npm:^3.0.0, @esbuild-kit/core-utils@npm:^3.3.0":
+  version: 3.3.0
+  resolution: "@esbuild-kit/core-utils@npm:3.3.0"
   dependencies:
     esbuild: ~0.18.20
     source-map-support: ^0.5.21
-  checksum: c2822ff9953475ab55f4c0b2e84721c4ddfe835c5cd9f58adf74bfc2d3f71ea8414b661ddd590815d284330a436e966586916a0e41501e730d11877e5c07d2c8
+  checksum: fc39137b8b68fa5b415bfa1096419ee7186bd2ef2fdca8fc2aa20959cec609a10e422201f6263f295c0746b4bd0ca1efceffe9c715a5a8b91a82c19d1b8e34c7
   languageName: node
   linkType: hard
 
-"@esbuild-kit/esm-loader@npm:^2.5.5":
-  version: 2.5.5
-  resolution: "@esbuild-kit/esm-loader@npm:2.5.5"
+"@esbuild-kit/esm-loader@npm:^2.6.3":
+  version: 2.6.3
+  resolution: "@esbuild-kit/esm-loader@npm:2.6.3"
   dependencies:
-    "@esbuild-kit/core-utils": ^3.0.0
-    get-tsconfig: ^4.4.0
-  checksum: 9d4a03ffc937fbec75a8456c3d45d7cdb1a65768416791a5720081753502bc9f485ba27942a46f564b12483b140a8a46c12433a4496430d93e4513e430484ec7
+    "@esbuild-kit/core-utils": ^3.3.0
+    get-tsconfig: ^4.7.0
+  checksum: 60264538da15d8ac0a43b0700fae9025ac2cca5b2b8d02bb182fd9911dad1a71efbd9e2e4c16d4ab3c8348b790891acb8accce24034b48c2a45b9c7da25d8cac
   languageName: node
   linkType: hard
 
@@ -3223,7 +3223,7 @@ __metadata:
     serialize-javascript: ^6.0.1
     tailwindcss: ^3.3.3
     tiny-invariant: ^1.3.1
-    tsx: 3.12.8
+    tsx: 3.12.10
     type-fest: ^4.3.1
     typescript: 5.2.2
     typesense-instantsearch-adapter: ^2.7.1
@@ -3308,7 +3308,7 @@ __metadata:
     serialize-javascript: ^6.0.1
     tailwindcss: ^3.3.3
     tiny-invariant: ^1.3.1
-    tsx: 3.12.8
+    tsx: 3.12.10
     type-fest: ^4.3.1
     typescript: 5.2.2
     typesense-instantsearch-adapter: ^2.7.1
@@ -3415,7 +3415,7 @@ __metadata:
     tiny-invariant: ^1.3.1
     ts-pattern: ^5.0.5
     tsup: 7.2.0
-    tsx: 3.12.8
+    tsx: 3.12.10
     type-fest: ^4.3.1
     typescript: 5.2.2
     typesense-instantsearch-adapter: ^2.7.1
@@ -8997,7 +8997,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"get-tsconfig@npm:^4.4.0, get-tsconfig@npm:^4.6.2":
+"get-tsconfig@npm:^4.4.0, get-tsconfig@npm:^4.6.2, get-tsconfig@npm:^4.7.0":
   version: 4.7.0
   resolution: "get-tsconfig@npm:4.7.0"
   dependencies:
@@ -16746,20 +16746,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tsx@npm:3.12.8, tsx@npm:^3.2.1":
-  version: 3.12.8
-  resolution: "tsx@npm:3.12.8"
+"tsx@npm:3.12.10, tsx@npm:^3.2.1":
+  version: 3.12.10
+  resolution: "tsx@npm:3.12.10"
   dependencies:
     "@esbuild-kit/cjs-loader": ^2.4.2
-    "@esbuild-kit/core-utils": ^3.2.2
-    "@esbuild-kit/esm-loader": ^2.5.5
+    "@esbuild-kit/core-utils": ^3.3.0
+    "@esbuild-kit/esm-loader": ^2.6.3
     fsevents: ~2.3.2
   dependenciesMeta:
     fsevents:
       optional: true
   bin:
     tsx: dist/cli.js
-  checksum: b27575672693e648106c0230587b5d4d901f0c714517b173e6b220d9907971f465c46cccfbf59ef68dcc0cdf7b30867b0d08aa1995d28b9ed0a580afe0e22cec
+  checksum: 84fbbdbb90a05ecc764aee92fbe234b45939ccba34a08298fcec2bb9cb2ecb7676b21e676dd12681279490a7ac55bb81897ce503775cbcce0f76703eb282bb37
   languageName: node
   linkType: hard
 
