@@ -49,11 +49,22 @@ const { state: articleSegments, execute } = useAsyncState<Segment[]>(
 )
 
 const wrapArticleSegments = computed(() => {
-  let paragraphNum = 0
-  return articleSegments.value.map((item) => ({
-    ...item,
-    paragraphNum: (paragraphNum += item.type === 'p' ? 1 : 0),
-  }))
+  let findedFirst = false
+  return articleSegments.value.map((item) => {
+    if (findedFirst) {
+      return item
+    }
+
+    if (item.type === 'p') {
+      findedFirst = true
+      return {
+        ...item,
+        paragraphNum: 1,
+      }
+    }
+
+    return item
+  })
 })
 
 watch(
