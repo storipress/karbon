@@ -4,6 +4,7 @@ import type { MetaFlatInput } from '@zhead/schema'
 import type { MaybeRefOrGetter } from '@vueuse/core'
 import { isDefined, toRef } from '@vueuse/core'
 import { watchSyncEffect } from 'vue'
+import truncate from 'lodash.truncate'
 import { useHead, useNuxtApp, useSeoMeta } from '#imports'
 
 interface SEOItem {
@@ -46,6 +47,7 @@ const DESCRIPTION = [['seo', 'meta', 'description'], ['plaintext']]
 const OG_TITLE = [['seo', 'og', 'title'], ...TITLE]
 const OG_DESCRIPTION = [['seo', 'og', 'description'], ...DESCRIPTION]
 const OG_IMAGE = [['seo', 'ogImage'], ['headline'], ['cover', 'url']]
+const AUTHOR_BIO = [['bio']]
 
 function createSEO<T>(pick: (input: RawSEOInput) => T, map: (input: T) => MetaInput | undefined | false) {
   return (input: RawSEOInput) => {
@@ -124,6 +126,13 @@ export function defineSEOPreset(
 export const basic = defineSEOPreset(({ twitterCard = 'summary_large_image' }) => [
   simpleSEO(TITLE, (title: string | undefined) => isDefined(title) && { title }),
   simpleSEO(DESCRIPTION, (description) => isDefined(description) && { description }),
+  simpleSEO(AUTHOR_BIO, (authorBio) => {
+    const bio = truncate(authorBio, {
+      length: 150,
+      separator: /,? +/,
+    })
+    return isDefined(authorBio) && { description: bio, ogDescription: bio }
+  }),
   simpleSEO(OG_TITLE, (ogTitle) => isDefined(ogTitle) && { ogTitle }),
   simpleSEO(OG_DESCRIPTION, (ogDescription) => isDefined(ogDescription) && { ogDescription }),
   simpleSEO(OG_IMAGE, (ogImage) => isDefined(ogImage) && { ogImage }),
