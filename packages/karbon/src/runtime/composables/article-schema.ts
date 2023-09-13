@@ -29,6 +29,7 @@ export function useArticleSchemaOrg() {
 
   const pageMeta = useResourcePageMeta()
   const site = useSite()
+  if (pageMeta.value?.type !== 'article') return
 
   if (pageMeta.value) {
     const nuxtApp = useNuxtApp()
