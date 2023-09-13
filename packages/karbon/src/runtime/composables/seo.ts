@@ -44,8 +44,10 @@ function createFirstFound(paths: string[][]) {
 
 const TITLE = [['seo', 'meta', 'title'], ['title']]
 const DESCRIPTION = [['seo', 'meta', 'description'], ['plaintext']]
+const DESK_DESCRIPTION = [['deskSEO', 'meta', 'description']]
 const OG_TITLE = [['seo', 'og', 'title'], ...TITLE]
 const OG_DESCRIPTION = [['seo', 'og', 'description'], ...DESCRIPTION]
+const OG_DESK_DESCRIPTION = [['deskSEO', 'og', 'description']]
 const OG_IMAGE = [['seo', 'ogImage'], ['headline'], ['cover', 'url']]
 const AUTHOR_BIO = [['bio']]
 
@@ -126,6 +128,7 @@ export function defineSEOPreset(
 export const basic = defineSEOPreset(({ twitterCard = 'summary_large_image' }) => [
   simpleSEO(TITLE, (title: string | undefined) => isDefined(title) && { title }),
   simpleSEO(DESCRIPTION, (description) => isDefined(description) && { description }),
+  simpleSEO(DESK_DESCRIPTION, (description) => isDefined(description) && { description }),
   simpleSEO(AUTHOR_BIO, (authorBio) => {
     const bio = truncate(authorBio, {
       length: 150,
@@ -135,6 +138,7 @@ export const basic = defineSEOPreset(({ twitterCard = 'summary_large_image' }) =
   }),
   simpleSEO(OG_TITLE, (ogTitle) => isDefined(ogTitle) && { ogTitle }),
   simpleSEO(OG_DESCRIPTION, (ogDescription) => isDefined(ogDescription) && { ogDescription }),
+  simpleSEO(OG_DESK_DESCRIPTION, (ogDescription) => isDefined(ogDescription) && { ogDescription }),
   simpleSEO(OG_IMAGE, (ogImage) => isDefined(ogImage) && { ogImage }),
   simpleSEO(OG_TITLE, (ogTitle) => isDefined(ogTitle) && { twitterTitle: ogTitle }),
   simpleSEO(OG_DESCRIPTION, (ogDescription) => isDefined(ogDescription) && { twitterDescription: ogDescription }),
