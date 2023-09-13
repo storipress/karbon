@@ -58,6 +58,11 @@ export const ListArticles = gql`
             }
           }
         }
+        tags {
+          id
+          slug
+          name
+        }
         authors {
           id
           slug
