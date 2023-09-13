@@ -5,7 +5,10 @@ import type { MaybeRefOrGetter } from '@vueuse/core'
 import { isDefined, toRef } from '@vueuse/core'
 import { watchSyncEffect } from 'vue'
 import truncate from 'lodash.truncate'
+import { resolveURL, withTrailingSlash } from 'ufo'
+import type { BaseMeta, Resources } from '../types'
 import { useHead, useNuxtApp, useSeoMeta } from '#imports'
+import urls from '#build/storipress-urls.mjs'
 
 interface SEOItem {
   title: string
@@ -50,6 +53,7 @@ const OG_DESCRIPTION = [['seo', 'og', 'description'], ...DESCRIPTION]
 const OG_DESK_DESCRIPTION = [['deskSEO', 'og', 'description']]
 const OG_IMAGE = [['seo', 'ogImage'], ['headline'], ['cover', 'url']]
 const AUTHOR_BIO = [['bio']]
+const TYPE_NAME = [['__typename']]
 
 function createSEO<T>(pick: (input: RawSEOInput) => T, map: (input: T) => MetaInput | undefined | false) {
   return (input: RawSEOInput) => {
@@ -125,6 +129,25 @@ export function defineSEOPreset(
   }
 }
 
+type ResourceType = 'Article' | 'Desk' | 'Tag' | 'User'
+const typeMap: Record<ResourceType, Resources> = {
+  Article: 'article',
+  Desk: 'desk',
+  User: 'author',
+  Tag: 'tag',
+}
+function getResourceURL(input: RawSEOInput): string | undefined {
+  const typeName: ResourceType = input.__typename || '_'
+  const resourceType = typeMap[typeName]
+  const resourceUrls = urls[resourceType]
+  if (!resourceUrls?.enable) return
+
+  const runtimeConfig = useRuntimeConfig()
+  const siteUrl = (runtimeConfig?.public?.siteUrl as string) || '/'
+  const url = resourceUrls.toURL(input as BaseMeta, resourceUrls._context!)
+  return withTrailingSlash(resolveURL(siteUrl, url))
+}
+
 export const basic = defineSEOPreset(({ twitterCard = 'summary_large_image' }) => [
   simpleSEO(TITLE, (title: string | undefined) => isDefined(title) && { title }),
   simpleSEO(DESCRIPTION, (description) => isDefined(description) && { description }),
@@ -143,6 +166,12 @@ export const basic = defineSEOPreset(({ twitterCard = 'summary_large_image' }) =
   simpleSEO(OG_TITLE, (ogTitle) => isDefined(ogTitle) && { twitterTitle: ogTitle }),
   simpleSEO(OG_DESCRIPTION, (ogDescription) => isDefined(ogDescription) && { twitterDescription: ogDescription }),
   simpleSEO(OG_IMAGE, (ogImage) => isDefined(ogImage) && { twitterImage: ogImage }),
+  simpleSEO(TYPE_NAME, (typeName) => {
+    const type = typeName as ResourceType
+    if (type === 'Article') return { ogType: 'article' }
+    return { ogType: 'website' }
+  }),
+  createSEO(getResourceURL, (ogUrl) => isDefined(ogUrl) && { ogUrl }),
   () => ({ twitterCard }),
 ])
 
