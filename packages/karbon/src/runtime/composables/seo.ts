@@ -7,6 +7,7 @@ import { watchSyncEffect } from 'vue'
 import truncate from 'lodash.truncate'
 import { resolveURL, withTrailingSlash } from 'ufo'
 import type { BaseMeta, Resources } from '../types'
+import { invalidContext } from '../utils/invalid-context'
 import { useHead, useNuxtApp, useSeoMeta } from '#imports'
 import urls from '#build/storipress-urls.mjs'
 
@@ -137,14 +138,16 @@ const typeMap: Record<ResourceType, Resources> = {
   Tag: 'tag',
 }
 function getResourceURL(input: RawSEOInput): string | undefined {
+  // skipcq: JS-W1043
   const typeName: ResourceType = input.__typename || '_'
   const resourceType = typeMap[typeName]
   const resourceUrls = urls[resourceType]
-  if (!resourceUrls?.enable) return
+  if (!resourceUrls?.enable) return undefined
 
   const runtimeConfig = useRuntimeConfig()
+  // skipcq: JS-W1043
   const siteUrl = (runtimeConfig?.public?.siteUrl as string) || '/'
-  const url = resourceUrls.toURL(input as BaseMeta, resourceUrls._context!)
+  const url = resourceUrls.toURL(input as BaseMeta, resourceUrls._context ?? invalidContext)
   return withTrailingSlash(resolveURL(siteUrl, url))
 }
 
