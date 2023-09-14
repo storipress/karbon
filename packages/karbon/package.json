@@ -189,7 +189,7 @@
     "zod-validation-error": "^1.5.0"
   },
   "devDependencies": {
-    "@antfu/eslint-config-vue": "0.41.0",
+    "@antfu/eslint-config-vue": "0.42.0",
     "@nuxt/eslint-config": "0.2.0",
     "@nuxt/kit": "3.6.5",
     "@nuxt/module-builder": "0.5.1",
