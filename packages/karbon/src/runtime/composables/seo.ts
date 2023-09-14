@@ -5,7 +5,7 @@ import type { MaybeRefOrGetter } from '@vueuse/core'
 import { isDefined, toRef } from '@vueuse/core'
 import { watchSyncEffect } from 'vue'
 import truncate from 'lodash.truncate'
-import { resolveURL, withTrailingSlash } from 'ufo'
+import { resolveURL, withoutTrailingSlash } from 'ufo'
 import type { BaseMeta, Resources } from '../types'
 import { invalidContext } from '../utils/invalid-context'
 import { useHead, useNuxtApp, useSeoMeta } from '#imports'
@@ -56,9 +56,12 @@ const OG_IMAGE = [['seo', 'ogImage'], ['headline'], ['cover', 'url']]
 const AUTHOR_BIO = [['bio']]
 const TYPE_NAME = [['__typename']]
 
-function createSEO<T>(pick: (input: RawSEOInput) => T, map: (input: T) => MetaInput | undefined | false) {
-  return (input: RawSEOInput) => {
-    return map(pick(input))
+function createSEO<T>(
+  pick: (input: RawSEOInput, metaType?: Resources) => T,
+  map: (input: T) => MetaInput | undefined | false,
+) {
+  return (input: RawSEOInput, metaType?: Resources) => {
+    return map(pick(input, metaType))
   }
 }
 
@@ -68,7 +71,7 @@ function simpleSEO(paths: string[][], map: (input: string | undefined) => MetaIn
 
 type MetaInput = MetaFlatInput & { title?: string }
 
-type SEOHandler<T = MetaInput> = (input: RawSEOInput) => T | undefined | false
+type SEOHandler<T = MetaInput> = (input: RawSEOInput, metaType?: Resources) => T | undefined | false
 type SEOPreset<T = MetaInput> = SEOHandler<T> | SEOHandler<T>[]
 
 interface MetaDefineSEOInput {
@@ -78,7 +81,7 @@ interface MetaDefineSEOInput {
 
 type DefineSEOInput = MetaDefineSEOInput
 
-type NormalizedSEOHandler = (input: RawSEOInput) => void
+type NormalizedSEOHandler = (input: RawSEOInput, metaType?: Resources) => void
 type NormalizedSEOPreset = (options: Record<string, any>) => NormalizedSEOHandler
 
 function useMeta(seo: MetaInput) {
@@ -118,9 +121,9 @@ export function defineSEOPreset(
   return (options: Record<string, any>) => {
     const maybeHandlers = setup(options)
     const handlers = Array.isArray(maybeHandlers) ? maybeHandlers : [maybeHandlers]
-    return (input: RawSEOInput) => {
+    return (input: RawSEOInput, metaType?: Resources) => {
       for (const handle of handlers) {
-        const seo = handle(input)
+        const seo = handle(input, metaType)
 
         if (seo) {
           useMeta(seo)
@@ -137,10 +140,10 @@ const typeMap: Record<ResourceType, Resources> = {
   User: 'author',
   Tag: 'tag',
 }
-function getResourceURL(input: RawSEOInput): string | undefined {
+function getResourceURL(input: RawSEOInput, metaType?: Resources): string | undefined {
   // skipcq: JS-W1043
   const typeName: ResourceType = input.__typename || '_'
-  const resourceType = typeMap[typeName]
+  const resourceType = metaType || typeMap[typeName]
   const resourceUrls = urls[resourceType]
   if (!resourceUrls?.enable) return undefined
 
@@ -148,7 +151,7 @@ function getResourceURL(input: RawSEOInput): string | undefined {
   // skipcq: JS-W1043
   const siteUrl = (runtimeConfig?.public?.siteUrl as string) || '/'
   const url = resourceUrls.toURL(input as BaseMeta, resourceUrls._context ?? invalidContext)
-  return withTrailingSlash(resolveURL(siteUrl, url))
+  return withoutTrailingSlash(resolveURL(siteUrl, url))
 }
 
 export const basic = defineSEOPreset(({ twitterCard = 'summary_large_image' }) => [
@@ -218,14 +221,18 @@ export function resolveSEOPresets(configs: PresetConfigInput[]): NormalizedSEOHa
   })
 }
 
-export function useSEO(maybeRefInput: MaybeRefOrGetter<RawSEOInput>, presets: PresetConfigInput[] = loadSEOConfig()) {
+export function useSEO(
+  maybeRefInput: MaybeRefOrGetter<RawSEOInput>,
+  presets: PresetConfigInput[] = loadSEOConfig(),
+  metaType?: Resources,
+) {
   const handlers = resolveSEOPresets(presets)
   const refInput = toRef(maybeRefInput)
 
   watchSyncEffect(() => {
     const input = refInput.value
     for (const handle of handlers) {
-      handle(input)
+      handle(input, metaType)
     }
   })
 }

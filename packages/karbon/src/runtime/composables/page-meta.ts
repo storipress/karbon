@@ -1,7 +1,7 @@
 import type { Ref } from 'vue'
 import { useCurrentElement, whenever } from '@vueuse/core'
 import type { EventName } from '../api/track'
-import type { UseArticleReturn as Article } from '../types'
+import type { UseArticleReturn as Article, Resources } from '../types'
 import { useSEO } from './seo'
 import { useStaticState } from './storipress-payload'
 import {
@@ -121,7 +121,7 @@ export function setupPage<Type extends PageType>({ type, seo = true }: SetupPage
   })
 
   if (seo && meta.value) {
-    useSEO(meta.value)
+    useSEO(meta.value, undefined, pageMeta.value?.type as Resources)
   }
 
   if (type === 'author') {
