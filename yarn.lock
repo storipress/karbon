@@ -3194,7 +3194,7 @@ __metadata:
     "@types/serialize-javascript": 5.0.2
     "@types/tailwindcss": 3.1.0
     "@types/tar": 6.1.6
-    "@types/uuid": 9.0.3
+    "@types/uuid": 9.0.4
     "@vitejs/plugin-vue": 4.3.4
     "@vueuse/core": ^10.1.2
     "@vueuse/head": ^1.1.26
@@ -3281,7 +3281,7 @@ __metadata:
     "@types/serialize-javascript": 5.0.2
     "@types/tailwindcss": 3.1.0
     "@types/tar": 6.1.6
-    "@types/uuid": 9.0.3
+    "@types/uuid": 9.0.4
     "@vitejs/plugin-vue": 4.3.4
     "@vueuse/core": ^10.1.2
     "@vueuse/head": ^1.1.26
@@ -3369,7 +3369,7 @@ __metadata:
     "@types/serialize-javascript": 5.0.2
     "@types/tailwindcss": 3.1.0
     "@types/tar": 6.1.6
-    "@types/uuid": 9.0.3
+    "@types/uuid": 9.0.4
     "@vitejs/plugin-vue": 4.3.4
     "@vueuse/core": ^10.1.2
     "@vueuse/head": ^1.1.26
@@ -3815,10 +3815,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/uuid@npm:9.0.3":
-  version: 9.0.3
-  resolution: "@types/uuid@npm:9.0.3"
-  checksum: 3dde198defd71c067dd14b3050a8fe6d1ead5fe94ec318472e2c30a399d13f18941fe66cffabdcac7267177c9de2f975fdee6f0cc87cde610a2578e1ce4cc3af
+"@types/uuid@npm:9.0.4":
+  version: 9.0.4
+  resolution: "@types/uuid@npm:9.0.4"
+  checksum: 356e2504456eaebbc43a5af5ca6c07d71f5ae5520b5767cb1c62cd0ec55475fc4ee3d16a2874f4a5fce78e40e8583025afd3a7d9ba41f82939de310665f53f0e
   languageName: node
   linkType: hard
 
