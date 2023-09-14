@@ -213,7 +213,7 @@
     "eslint-plugin-prettier": "5.0.0",
     "fs-extra": "11.1.1",
     "globby": "13.2.2",
-    "msw": "1.3.0",
+    "msw": "1.3.1",
     "nuxt": "3.6.5",
     "nx": "16.8.1",
     "prettier": "3.0.3",
