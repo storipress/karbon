@@ -5,6 +5,28 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # 0.1.0 (2023-03-15)
 
+## v0.1.87
+
+[compare changes](https://github.com/storipress/karbon/compare/v0.1.86...v0.1.87)
+
+### 🚀 Enhancements
+
+- Query listArticles add tags data ([4eb7b95](https://github.com/storipress/karbon/commit/4eb7b95))
+
+### 🩹 Fixes
+
+- Only set paragraph num in first paragraph ([d051cb3](https://github.com/storipress/karbon/commit/d051cb3))
+
+### 🎨 Styles
+
+- Format ([85b29ba](https://github.com/storipress/karbon/commit/85b29ba))
+
+### ❤️ Contributors
+
+- DanSnow <dododavid006@gmail.com>
+- Ches4117 ([@ches4117](http://github.com/ches4117))
+- Sid <sid@storipress.com>
+
 ## v0.1.86
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.85...v0.1.86)
