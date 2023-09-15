@@ -5,10 +5,10 @@ import type { MaybeRefOrGetter } from '@vueuse/core'
 import { isDefined, toRef } from '@vueuse/core'
 import { watchSyncEffect } from 'vue'
 import truncate from 'lodash.truncate'
-import { resolveURL, withoutTrailingSlash } from 'ufo'
+import { parseURL, resolveURL, withHttps, withoutTrailingSlash } from 'ufo'
 import type { BaseMeta, Resources } from '../types'
 import { invalidContext } from '../utils/invalid-context'
-import { useHead, useNuxtApp, useSeoMeta } from '#imports'
+import { getSite, useHead, useNuxtApp, useSeoMeta } from '#imports'
 import urls from '#build/storipress-urls.mjs'
 
 interface SEOItem {
@@ -56,12 +56,18 @@ const OG_IMAGE = [['seo', 'ogImage'], ['headline'], ['cover', 'url']]
 const AUTHOR_BIO = [['bio']]
 const TYPE_NAME = [['__typename']]
 
+interface HandlerContext {
+  metaType?: Resources
+  site?: Awaited<ReturnType<typeof getSite>>
+  runtimeConfig?: ReturnType<typeof useRuntimeConfig>
+}
+
 function createSEO<T>(
-  pick: (input: RawSEOInput, metaType?: Resources) => T,
+  pick: (input: RawSEOInput, context: HandlerContext) => T,
   map: (input: T) => MetaInput | undefined | false,
 ) {
-  return (input: RawSEOInput, metaType?: Resources) => {
-    return map(pick(input, metaType))
+  return (input: RawSEOInput, context: HandlerContext) => {
+    return map(pick(input, context))
   }
 }
 
@@ -71,7 +77,7 @@ function simpleSEO(paths: string[][], map: (input: string | undefined) => MetaIn
 
 type MetaInput = MetaFlatInput & { title?: string }
 
-type SEOHandler<T = MetaInput> = (input: RawSEOInput, metaType?: Resources) => T | undefined | false
+type SEOHandler<T = MetaInput> = (input: RawSEOInput, context: HandlerContext) => T | undefined | false
 type SEOPreset<T = MetaInput> = SEOHandler<T> | SEOHandler<T>[]
 
 interface MetaDefineSEOInput {
@@ -81,7 +87,7 @@ interface MetaDefineSEOInput {
 
 type DefineSEOInput = MetaDefineSEOInput
 
-type NormalizedSEOHandler = (input: RawSEOInput, metaType?: Resources) => void
+type NormalizedSEOHandler = (input: RawSEOInput, context: HandlerContext) => void
 type NormalizedSEOPreset = (options: Record<string, any>) => NormalizedSEOHandler
 
 function useMeta(seo: MetaInput) {
@@ -105,7 +111,7 @@ export function defineSEOHandler(inputOrHandler: DefineSEOHandlerInput | SEOHand
   const { handler } = typeof inputOrHandler === 'function' ? { handler: inputOrHandler } : inputOrHandler
 
   return (input: RawSEOInput) => {
-    const seo = handler(input)
+    const seo = handler(input, {} as HandlerContext)
 
     if (seo) {
       useMeta(seo)
@@ -121,9 +127,9 @@ export function defineSEOPreset(
   return (options: Record<string, any>) => {
     const maybeHandlers = setup(options)
     const handlers = Array.isArray(maybeHandlers) ? maybeHandlers : [maybeHandlers]
-    return (input: RawSEOInput, metaType?: Resources) => {
+    return (input: RawSEOInput, context: HandlerContext) => {
       for (const handle of handlers) {
-        const seo = handle(input, metaType)
+        const seo = handle(input, context)
 
         if (seo) {
           useMeta(seo)
@@ -140,18 +146,26 @@ const typeMap: Record<ResourceType, Resources> = {
   User: 'author',
   Tag: 'tag',
 }
-function getResourceURL(input: RawSEOInput, metaType?: Resources): string | undefined {
+function getResourceURL(input: RawSEOInput, context: HandlerContext): string | undefined {
   // skipcq: JS-W1043
   const typeName: ResourceType = input.__typename || '_'
-  const resourceType = metaType || typeMap[typeName]
+  const resourceType = context.metaType || typeMap[typeName]
   const resourceUrls = urls[resourceType]
   if (!resourceUrls?.enable) return undefined
 
-  const runtimeConfig = useRuntimeConfig()
   // skipcq: JS-W1043
-  const siteUrl = (runtimeConfig?.public?.siteUrl as string) || '/'
+  const siteUrl = (context.runtimeConfig?.public?.siteUrl as string) || '/'
   const url = resourceUrls.toURL(input as BaseMeta, resourceUrls._context ?? invalidContext)
   return withoutTrailingSlash(resolveURL(siteUrl, url))
+}
+
+function getTwitterSite(_input: RawSEOInput, context: HandlerContext) {
+  const twitterLink = context.site?.socials?.Twitter
+  if (!twitterLink) return undefined
+
+  const { pathname } = parseURL(withHttps(twitterLink))
+  const accountPath = pathname.split('/')[1]
+  return accountPath ? `@${accountPath}` : undefined
 }
 
 export const basic = defineSEOPreset(({ twitterCard = 'summary_large_image' }) => [
@@ -178,6 +192,7 @@ export const basic = defineSEOPreset(({ twitterCard = 'summary_large_image' }) =
     return { ogType: 'website' }
   }),
   createSEO(getResourceURL, (ogUrl) => isDefined(ogUrl) && { ogUrl }),
+  createSEO(getTwitterSite, (twitterSite) => isDefined(twitterSite) && { twitterSite }),
   () => ({ twitterCard }),
 ])
 
@@ -226,13 +241,20 @@ export function useSEO(
   presets: PresetConfigInput[] = loadSEOConfig(),
   metaType?: Resources,
 ) {
+  const runtimeConfig = useRuntimeConfig()
   const handlers = resolveSEOPresets(presets)
   const refInput = toRef(maybeRefInput)
 
-  watchSyncEffect(() => {
+  watchSyncEffect(async () => {
+    const site = await getSite()
+    const context: HandlerContext = {
+      metaType,
+      runtimeConfig,
+      site,
+    }
     const input = refInput.value
     for (const handle of handlers) {
-      handle(input, metaType)
+      handle(input, context)
     }
   })
 }
