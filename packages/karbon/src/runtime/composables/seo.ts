@@ -46,13 +46,13 @@ function createFirstFound(paths: string[][]) {
   }
 }
 
-const TITLE = [['seo', 'meta', 'title'], ['title']]
-const DESCRIPTION = [['seo', 'meta', 'description'], ['plaintext']]
+const TITLE = [['seo', 'meta', 'title'], ['title'], ['name']]
 const DESK_DESCRIPTION = [['deskSEO', 'meta', 'description']]
+const DESCRIPTION = [['seo', 'meta', 'description'], ['plaintext'], ...DESK_DESCRIPTION]
 const OG_TITLE = [['seo', 'og', 'title'], ...TITLE]
-const OG_DESCRIPTION = [['seo', 'og', 'description'], ...DESCRIPTION]
 const OG_DESK_DESCRIPTION = [['deskSEO', 'og', 'description']]
-const OG_IMAGE = [['seo', 'ogImage'], ['headline'], ['cover', 'url']]
+const OG_DESCRIPTION = [['seo', 'og', 'description'], ...OG_DESK_DESCRIPTION, ...DESCRIPTION]
+const OG_IMAGE = [['seo', 'ogImage'], ['headline'], ['cover', 'url'], ['avatar']]
 const AUTHOR_BIO = [['bio']]
 const TYPE_NAME = [['__typename']]
 
@@ -65,14 +65,21 @@ interface HandlerContext {
 function createSEO<T>(
   pick: (input: RawSEOInput, context: HandlerContext) => T,
   map: (input: T) => MetaInput | undefined | false,
+  metaType?: Resources[],
 ) {
   return (input: RawSEOInput, context: HandlerContext) => {
+    if (metaType && context.metaType && !metaType.includes(context.metaType)) return undefined
+
     return map(pick(input, context))
   }
 }
 
-function simpleSEO(paths: string[][], map: (input: string | undefined) => MetaInput | undefined | false) {
-  return createSEO(createFirstFound(paths), map)
+function simpleSEO(
+  paths: string[][],
+  map: (input: string | undefined) => MetaInput | undefined | false,
+  metaType?: Resources[],
+) {
+  return createSEO(createFirstFound(paths), map, metaType)
 }
 
 type MetaInput = MetaFlatInput & { title?: string }
@@ -169,23 +176,26 @@ function getTwitterSite(_input: RawSEOInput, context: HandlerContext) {
 }
 
 export const basic = defineSEOPreset(({ twitterCard = 'summary_large_image' }) => [
+  // Resource
   simpleSEO(TITLE, (title: string | undefined) => isDefined(title) && { title }),
+  simpleSEO(OG_TITLE, (ogTitle) => isDefined(ogTitle) && { ogTitle, twitterTitle: ogTitle }),
   simpleSEO(DESCRIPTION, (description) => isDefined(description) && { description }),
-  simpleSEO(DESK_DESCRIPTION, (description) => isDefined(description) && { description }),
+  simpleSEO(
+    OG_DESCRIPTION,
+    (ogDescription) => isDefined(ogDescription) && { ogDescription, twitterDescription: ogDescription },
+  ),
+  simpleSEO(OG_IMAGE, (ogImage) => isDefined(ogImage) && { ogImage, twitterImage: ogImage }),
+
+  // Author
   simpleSEO(AUTHOR_BIO, (authorBio) => {
     const bio = truncate(authorBio, {
       length: 150,
       separator: /,? +/,
     })
-    return isDefined(authorBio) && { description: bio, ogDescription: bio }
+    return isDefined(authorBio) && { description: bio, ogDescription: bio, twitterDescription: bio }
   }),
-  simpleSEO(OG_TITLE, (ogTitle) => isDefined(ogTitle) && { ogTitle }),
-  simpleSEO(OG_DESCRIPTION, (ogDescription) => isDefined(ogDescription) && { ogDescription }),
-  simpleSEO(OG_DESK_DESCRIPTION, (ogDescription) => isDefined(ogDescription) && { ogDescription }),
-  simpleSEO(OG_IMAGE, (ogImage) => isDefined(ogImage) && { ogImage }),
-  simpleSEO(OG_TITLE, (ogTitle) => isDefined(ogTitle) && { twitterTitle: ogTitle }),
-  simpleSEO(OG_DESCRIPTION, (ogDescription) => isDefined(ogDescription) && { twitterDescription: ogDescription }),
-  simpleSEO(OG_IMAGE, (ogImage) => isDefined(ogImage) && { twitterImage: ogImage }),
+
+  // Common
   simpleSEO(TYPE_NAME, (typeName) => {
     const type = typeName as ResourceType
     if (type === 'Article') return { ogType: 'article' }
