@@ -29,11 +29,12 @@ export interface Site {
   favicon?: string | null
   timezone: string
   plan: string
+  lang: string
 }
 
 export async function getSite(): Promise<Partial<Site>> {
   const site = (await loadStoripressPayloadWithURL('_site')) as GetSiteQuery['site']
-  const { name: publicationName, logo, socials, favicon, timezone, plan } = site || {}
+  const { name: publicationName, logo, socials, favicon, timezone, plan, lang } = site || {}
   const socialLinks: Record<SocialMediaKey, string> = JSON.parse(socials || '{}')
 
   return {
@@ -45,6 +46,7 @@ export async function getSite(): Promise<Partial<Site>> {
     favicon,
     timezone,
     plan,
+    lang,
   }
 }
 

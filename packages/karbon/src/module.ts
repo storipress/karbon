@@ -444,6 +444,7 @@ const karbon = defineNuxtModule<ModuleOptions>({
       './runtime/plugins/storipress',
       './runtime/plugins/storipress-payload',
       './runtime/plugins/custom-field',
+      './runtime/plugins/html-attribute',
       {
         src: './runtime/plugins/entities.client',
         mode: 'client',
