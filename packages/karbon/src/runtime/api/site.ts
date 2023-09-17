@@ -24,6 +24,7 @@ export interface GetSiteQuery {
       transformation?: any | null
     } | null
     plan: string
+    lang: string
   }
 }
 
@@ -48,6 +49,7 @@ const getSiteQuery = gql`
         transformation
       }
       plan
+      lang
     }
   }
 `
