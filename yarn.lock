@@ -3187,7 +3187,7 @@ __metadata:
     "@sentry/node": ^7.67.0
     "@sentry/tracing": ^7.67.0
     "@types/find-cache-dir": 3.2.1
-    "@types/fs-extra": 11.0.1
+    "@types/fs-extra": 11.0.2
     "@types/jszip": 3.4.1
     "@types/lodash.sortby": 4.7.7
     "@types/lodash.truncate": 4.4.7
@@ -3274,7 +3274,7 @@ __metadata:
     "@storipress/karbon": "workspace:*"
     "@storipress/vue-advertising": ^1.1.0
     "@types/find-cache-dir": 3.2.1
-    "@types/fs-extra": 11.0.1
+    "@types/fs-extra": 11.0.2
     "@types/jszip": 3.4.1
     "@types/lodash.sortby": 4.7.7
     "@types/lodash.truncate": 4.4.7
@@ -3360,7 +3360,7 @@ __metadata:
     "@storipress/jose-browser": ^1.1.5
     "@storipress/vue-advertising": ^1.1.0
     "@types/find-cache-dir": 3.2.1
-    "@types/fs-extra": 11.0.1
+    "@types/fs-extra": 11.0.2
     "@types/js-yaml": 4.0.5
     "@types/jszip": 3.4.1
     "@types/lodash.sortby": 4.7.7
@@ -3581,13 +3581,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/fs-extra@npm:11.0.1":
-  version: 11.0.1
-  resolution: "@types/fs-extra@npm:11.0.1"
+"@types/fs-extra@npm:11.0.2":
+  version: 11.0.2
+  resolution: "@types/fs-extra@npm:11.0.2"
   dependencies:
     "@types/jsonfile": "*"
     "@types/node": "*"
-  checksum: 3e930346e5d84f419deb8ced1c582beef8cb20d0bd8a0eb145a37d75bab0572a1895f0e48a0d681d386b3a58b9a992b2d2acecc464bcaec2548f53ea00718651
+  checksum: 5b3e30343ee62d2e393e1029355f13f64bab6f3416226e22492483f99da840e2e53ca22cbfa4ac3749f2f83f7086d19c009005c8fa175da01df0fae59c2d73e1
   languageName: node
   linkType: hard
 
