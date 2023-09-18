@@ -465,8 +465,6 @@ const karbon = defineNuxtModule<ModuleOptions>({
         // If not enable paywall, need to make noop paywall available on client-side
         mode: enablePaywall ? 'server' : 'all',
       },
-      { src: './runtime/plugins/entities.client', mode: 'client' },
-      { src: './runtime/plugins/entities.server', mode: 'server' },
       flags.lazySearch
         ? './runtime/plugins/storipress-search-client-noop'
         : './runtime/plugins/storipress-search-client',
