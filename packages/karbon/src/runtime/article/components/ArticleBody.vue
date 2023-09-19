@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import Prism from 'prismjs'
+import 'prismjs/themes/prism.css'
 import { useAsyncState, whenever } from '@vueuse/core'
 import { AdvertisingSlot } from '@storipress/vue-advertising'
 import { useArticle, useOptionalArticle } from '../utils'
@@ -34,6 +36,7 @@ const article = useOptionalArticle()
 const articleID = computed(() => article?.id)
 const paywallID = computed(() => `paywall-${articleID.value || crypto.randomUUID()}`)
 const articlePlan = computed(() => article?.plan || ArticlePlan.Free)
+const parser = new DOMParser()
 
 const getDecryptKey = useDecryptClient<ViewableApiResult>()
 watchEffect(() => {
@@ -60,6 +63,21 @@ const wrapArticleSegments = computed(() => {
       return {
         ...item,
         paragraphNum: 1,
+      }
+    }
+
+    if (item.type === 'pre') {
+      const htmlDoc = parser.parseFromString(item.html, 'text/html')
+      const codeElement = htmlDoc.getElementsByTagName('code')[0]
+      let lang = codeElement.className.split('-')[1]
+      lang = lang === 'typescript' ? 'javascript' : lang
+      return {
+        ...item,
+        html: `<pre class="language-${lang}"><code class="language-${lang}">${Prism.highlight(
+          codeElement.innerText,
+          Prism.languages[lang],
+          lang,
+        )}</code></pre>`,
       }
     }
 
