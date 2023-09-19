@@ -8,7 +8,7 @@ import truncate from 'lodash.truncate'
 import { parseURL, resolveURL, withHttps, withoutTrailingSlash } from 'ufo'
 import type { BaseMeta, Resources } from '../types'
 import { invalidContext } from '../utils/invalid-context'
-import { getSite, useHead, useNuxtApp, useSeoMeta } from '#imports'
+import { getSite, useArticleFilter, useHead, useNuxtApp, useSeoMeta } from '#imports'
 import urls from '#build/storipress-urls.mjs'
 
 interface SEOItem {
@@ -58,25 +58,26 @@ const TYPE_NAME = [['__typename']]
 
 interface HandlerContext {
   metaType?: Resources
-  site?: Awaited<ReturnType<typeof getSite>>
-  runtimeConfig?: ReturnType<typeof useRuntimeConfig>
+  site: Awaited<ReturnType<typeof getSite>>
+  runtimeConfig: ReturnType<typeof useRuntimeConfig>
+  articleFilter: ReturnType<typeof useArticleFilter>
 }
 
 function createSEO<T>(
   pick: (input: RawSEOInput, context: HandlerContext) => T,
-  map: (input: T) => MetaInput | undefined | false,
+  map: (input: T, context: HandlerContext) => MetaInput | undefined | false,
   metaType?: Resources[],
 ) {
   return (input: RawSEOInput, context: HandlerContext) => {
     if (metaType && context.metaType && !metaType.includes(context.metaType)) return undefined
 
-    return map(pick(input, context))
+    return map(pick(input, context), context)
   }
 }
 
 function simpleSEO(
   paths: string[][],
-  map: (input: string | undefined) => MetaInput | undefined | false,
+  map: (input: string | undefined, context: HandlerContext) => MetaInput | undefined | false,
   metaType?: Resources[],
 ) {
   return createSEO(createFirstFound(paths), map, metaType)
@@ -187,8 +188,8 @@ export const basic = defineSEOPreset(({ twitterCard = 'summary_large_image' }) =
   simpleSEO(OG_IMAGE, (ogImage) => isDefined(ogImage) && { ogImage, twitterImage: ogImage }),
 
   // Author
-  simpleSEO(AUTHOR_BIO, (authorBio) => {
-    const bio = truncate(authorBio, {
+  simpleSEO(AUTHOR_BIO, (authorBio, { articleFilter }) => {
+    const bio = truncate(articleFilter(authorBio ?? ''), {
       length: 150,
       separator: /,? +/,
     })
@@ -254,6 +255,7 @@ export function useSEO(
   const runtimeConfig = useRuntimeConfig()
   const handlers = resolveSEOPresets(presets)
   const refInput = toRef(maybeRefInput)
+  const articleFilter = useArticleFilter()
 
   watchSyncEffect(async () => {
     const site = await getSite()
@@ -261,6 +263,7 @@ export function useSEO(
       metaType,
       runtimeConfig,
       site,
+      articleFilter,
     }
     const input = refInput.value
     for (const handle of handlers) {
