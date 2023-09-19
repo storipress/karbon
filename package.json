@@ -93,7 +93,7 @@
     "vitest": "0.34.4"
   },
   "resolutions": {
-    "graphql": "16.6.0",
+    "graphql": "16.8.1",
     "nuxt": "3.6.5",
     "@nuxt/kit": "3.6.5",
     "@nuxt/schema": "3.6.5"
