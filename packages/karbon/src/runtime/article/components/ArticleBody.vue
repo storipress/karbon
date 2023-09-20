@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import 'prismjs/themes/prism.css'
 import { useAsyncState, whenever } from '@vueuse/core'
 import { AdvertisingSlot } from '@storipress/vue-advertising'
 
