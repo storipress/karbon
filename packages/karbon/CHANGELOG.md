@@ -5,6 +5,33 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # 0.1.0 (2023-03-15)
 
+## v0.1.88
+
+[compare changes](https://github.com/storipress/karbon/compare/v0.1.87...v0.1.88)
+
+### 🚀 Enhancements
+
+- Add prism for codeblock ([9ea8d9b](https://github.com/storipress/karbon/commit/9ea8d9b))
+- Add prism highlight ([b11ba59](https://github.com/storipress/karbon/commit/b11ba59))
+
+### 🩹 Fixes
+
+- HTML add lang tag ([76d5e79](https://github.com/storipress/karbon/commit/76d5e79))
+
+### 🏡 Chore
+
+- Remove unneeded import ([74f8b05](https://github.com/storipress/karbon/commit/74f8b05))
+
+### 🎨 Styles
+
+- Format ([ba4a16a](https://github.com/storipress/karbon/commit/ba4a16a))
+
+### ❤️ Contributors
+
+- DanSnow <dododavid006@gmail.com>
+- Ches4117 ([@ches4117](http://github.com/ches4117))
+- Sid <sid@storipress.com>
+
 ## v0.1.87
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.86...v0.1.87)
