@@ -1,11 +1,14 @@
-import { addRouteMiddleware, defineNuxtPlugin, defineNuxtRouteMiddleware, getSite } from '#imports'
+import { addRouteMiddleware, defineNuxtPlugin, defineNuxtRouteMiddleware, getSite, useNuxtApp } from '#imports'
 
 const setHtmlLang = defineNuxtRouteMiddleware(async () => {
+  const nuxt = useNuxtApp()
   const site = await getSite()
-  useHead({
-    htmlAttrs: {
-      lang: site.lang,
-    },
+  nuxt.runWithContext(() => {
+    useHead({
+      htmlAttrs: {
+        lang: site.lang,
+      },
+    })
   })
 })
 
