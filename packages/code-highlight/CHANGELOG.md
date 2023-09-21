@@ -1,6 +1,5 @@
 # Changelog
 
-
 ## v0.0.1
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.91...v0.0.1)
@@ -14,4 +13,3 @@
 
 - DanSnow <dododavid006@gmail.com>
 - Ches4117 ([@ches4117](http://github.com/ches4117))
-
