@@ -1,4 +1,4 @@
-import { addRouteMiddleware, defineNuxtPlugin, defineNuxtRouteMiddleware, getSite, useNuxtApp } from '#imports'
+import { addRouteMiddleware, defineNuxtPlugin, defineNuxtRouteMiddleware, getSite, useHead, useNuxtApp } from '#imports'
 
 const setHtmlLang = defineNuxtRouteMiddleware(async () => {
   const nuxt = useNuxtApp()
