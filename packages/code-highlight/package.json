@@ -20,6 +20,9 @@
   "dependencies": {
     "@types/prismjs": "^1.26.0"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "devDependencies": {
     "@babel/core": "^7.22.20",
     "babel-plugin-prismjs": "^2.1.0",
