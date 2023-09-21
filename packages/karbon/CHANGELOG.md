@@ -5,6 +5,18 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # 0.1.0 (2023-03-15)
 
+## v0.1.89
+
+[compare changes](https://github.com/storipress/karbon/compare/v0.1.88...v0.1.89)
+
+### 🩹 Fixes
+
+- [SPMVP-6421] [SPMVP-6422] [SPMVP-6424] [SPMVP-6423] seo meta issues ([#256](https://github.com/storipress/karbon/pull/256))
+
+### ❤️ Contributors
+
+- Sid Chang
+
 ## v0.1.88
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.87...v0.1.88)
