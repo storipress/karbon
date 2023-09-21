@@ -5,6 +5,23 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # 0.1.0 (2023-03-15)
 
+## v0.1.92
+
+[compare changes](https://github.com/storipress/karbon/compare/v0.0.1...v0.1.92)
+
+### 🩹 Fixes
+
+- Fix code highlight esm compatible ([944e8db](https://github.com/storipress/karbon/commit/944e8db))
+
+### 🏡 Chore
+
+- Add files ([e7fc4ef](https://github.com/storipress/karbon/commit/e7fc4ef))
+- Add publish config ([d56332d](https://github.com/storipress/karbon/commit/d56332d))
+
+### ❤️ Contributors
+
+- DanSnow <dododavid006@gmail.com>
+
 ## v0.1.91
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.90...v0.1.91)
