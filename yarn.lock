@@ -3420,6 +3420,7 @@ __metadata:
     pathe: ^1.1.1
     prettier: 3.0.3
     pretty-bytes: ^6.1.1
+    prismjs: ^1.29.0
     remeda: ^1.26.0
     sass: ^1.66.1
     scule: ^1.0.0
