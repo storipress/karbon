@@ -121,6 +121,7 @@
     "@sentry/node": "^7.67.0",
     "@sentry/tracing": "^7.67.0",
     "@storipress/builder-component": "^1.4.1",
+    "@storipress/code-highlight": "^0.0.1",
     "@storipress/custom-field": "^1.1.7",
     "@storipress/jose-browser": "^1.1.5",
     "@storipress/vue-advertising": "^1.1.0",
