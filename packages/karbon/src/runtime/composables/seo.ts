@@ -8,7 +8,7 @@ import truncate from 'lodash.truncate'
 import { parseURL, resolveURL, withHttps, withoutTrailingSlash } from 'ufo'
 import type { BaseMeta, Resources } from '../types'
 import { invalidContext } from '../utils/invalid-context'
-import { useArticleFilter, useHead, useNuxtApp, useSeoMeta, useSite } from '#imports'
+import { useArticleFilter, useHead, useNuxtApp, useRuntimeConfig, useSeoMeta, useSite } from '#imports'
 import urls from '#build/storipress-urls.mjs'
 
 interface SEOItem {
