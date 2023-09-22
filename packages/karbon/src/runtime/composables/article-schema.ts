@@ -2,6 +2,7 @@ import { parse } from 'node-html-parser'
 import { resolveURL, withHttps, withoutTrailingSlash } from 'ufo'
 import { Hookable } from 'hookable'
 import type { UseArticleReturn as Article } from '../types'
+import { ArticlePlan } from '../types'
 import {
   defineArticle,
   defineBreadcrumb,
@@ -98,6 +99,18 @@ function getDefineArticle(pageMeta: PageMeta, site: Site) {
     ),
   ]
 
+  const paywallOption =
+    article.plan === ArticlePlan.Subscriber
+      ? {
+          isAccessibleForFree: false,
+          hasPart: {
+            '@type': 'WebPageElement',
+            isAccessibleForFree: false,
+            cssSelector: `#paywall-${article.id}`,
+          },
+        }
+      : {}
+
   return defineArticle({
     '@context': 'https://schema.org',
     '@type': 'Article',
@@ -114,6 +127,7 @@ function getDefineArticle(pageMeta: PageMeta, site: Site) {
     image,
     datePublished: article.published_at,
     dateModified: article.updated_at || '',
+    ...paywallOption,
   })
 }
 
