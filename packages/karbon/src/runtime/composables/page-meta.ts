@@ -15,6 +15,7 @@ import {
   useDeskFeedLink,
   useNuxtApp,
   useRequestEvent,
+  useSeoMeta,
 } from '#imports'
 
 export type PageType = 'article' | 'desk' | 'tag' | 'author'
