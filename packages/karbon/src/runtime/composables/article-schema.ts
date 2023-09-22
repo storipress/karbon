@@ -100,7 +100,7 @@ function getDefineArticle(pageMeta: PageMeta, site: Site) {
   ]
 
   const paywallOption =
-    article.plan === ArticlePlan.Subscriber
+    article.plan !== ArticlePlan.Free
       ? {
           isAccessibleForFree: false,
           hasPart: {
