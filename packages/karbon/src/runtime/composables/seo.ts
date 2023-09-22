@@ -8,7 +8,7 @@ import truncate from 'lodash.truncate'
 import { parseURL, resolveURL, withHttps, withoutTrailingSlash } from 'ufo'
 import type { BaseMeta, Resources } from '../types'
 import { invalidContext } from '../utils/invalid-context'
-import { useArticleFilter, useHead, useNuxtApp, useRuntimeConfig, useSeoMeta, useSite } from '#imports'
+import { getSite, useArticleFilter, useHead, useNuxtApp, useRuntimeConfig, useSeoMeta } from '#imports'
 import urls from '#build/storipress-urls.mjs'
 
 interface SEOItem {
@@ -58,7 +58,7 @@ const TYPE_NAME = [['__typename']]
 
 interface SEOContext {
   metaType?: Resources
-  site: ReturnType<typeof useSite>
+  site: Awaited<ReturnType<typeof getSite>>
   runtimeConfig: ReturnType<typeof useRuntimeConfig>
   articleFilter: ReturnType<typeof useArticleFilter>
 }
@@ -177,7 +177,7 @@ function getResourceURL(input: RawSEOInput, context: SEOContext): string | undef
 }
 
 function getTwitterSite(_input: RawSEOInput, context: SEOContext) {
-  const twitterLink = context.site.value?.socials?.Twitter
+  const twitterLink = context.site?.socials?.Twitter
   if (!twitterLink) return undefined
 
   const { pathname } = parseURL(withHttps(twitterLink))
@@ -266,10 +266,10 @@ export function useSEO(
   const handlers = resolveSEOPresets(presets)
   const refInput = toRef(maybeRefInput)
   const articleFilter = useArticleFilter()
-  const site = useSite()
   const nuxt = useNuxtApp()
 
-  watchSyncEffect(() => {
+  watchSyncEffect(async () => {
+    const site = await getSite()
     const context: SEOContext = {
       metaType,
       runtimeConfig,
