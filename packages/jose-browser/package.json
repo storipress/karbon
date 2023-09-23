@@ -1,7 +1,7 @@
 {
   "name": "@storipress/jose-browser",
   "version": "1.1.5",
-  "packageManager": "yarn@3.6.2",
+  "packageManager": "yarn@3.6.3",
   "license": "MIT",
   "repository": "git@github.com:storipress/karbon.git",
   "bugs": {
