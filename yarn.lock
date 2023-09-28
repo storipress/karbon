@@ -3146,12 +3146,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@storipress/common-style@npm:^0.0.4":
-  version: 0.0.4
-  resolution: "@storipress/common-style@npm:0.0.4"
+"@storipress/common-style@npm:^0.0.6":
+  version: 0.0.6
+  resolution: "@storipress/common-style@npm:0.0.6"
   dependencies:
     vue: ^3.3.4
-  checksum: 6b58a39e2bb1702b3dfe87b639af6021688026090a9fb587c2fa61ee76f3cb8b68b1c819055d3dcc54ef84a2f5f90d2b00789354c5cff9fb720e67e74d7ecbe7
+  checksum: 032e05fec2feb7020f44598d5f611d62433d6de03b4467ca286c1a8526bde22eb6ea953b3f0fd1c4e09c44328981c7f6ebcb0cd1bc3ac56d9c1ca999fa3be018
   languageName: node
   linkType: hard
 
@@ -3209,7 +3209,7 @@ __metadata:
     "@rudderstack/rudder-sdk-node": ^2.0.4
     "@sentry/node": ^7.67.0
     "@sentry/tracing": ^7.67.0
-    "@storipress/common-style": ^0.0.4
+    "@storipress/common-style": ^0.0.6
     "@types/find-cache-dir": 3.2.1
     "@types/fs-extra": 11.0.2
     "@types/jszip": 3.4.1

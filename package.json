@@ -22,7 +22,7 @@
     "@rudderstack/rudder-sdk-node": "^2.0.4",
     "@sentry/node": "^7.67.0",
     "@sentry/tracing": "^7.67.0",
-    "@storipress/common-style": "^0.0.4",
+    "@storipress/common-style": "^0.0.6",
     "@vueuse/core": "^10.1.2",
     "@vueuse/head": "^1.1.26",
     "@vueuse/nuxt": "^10.1.2",
