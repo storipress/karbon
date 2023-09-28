@@ -153,7 +153,7 @@ const karbon = defineNuxtModule<ModuleOptions>({
     versionSafe()
 
     nuxt.options.experimental.payloadExtraction = true
-    nuxt.options.css.push(resolver.resolve('./runtime/assets/article-base.css'))
+    nuxt.options.css.push('@storipress/common-style/image-style.scss')
 
     nuxt.options.vite.optimizeDeps ??= {}
     nuxt.options.vite.optimizeDeps.include ??= []
