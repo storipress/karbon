@@ -6,7 +6,8 @@
     ".": {
       "types": "./dist/code-highlight.d.ts",
       "import": "./dist/code-highlight.mjs"
-    }
+    },
+    "./style.css": "./dist/code-highlight.css"
   },
   "files": [
     "dist"
