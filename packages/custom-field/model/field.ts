@@ -11,6 +11,7 @@ export enum FieldType {
   RichText = 'RICHTEXT',
   Json = 'JSON',
   Ref = 'REF',
+  Select = 'SELECT',
 }
 
 export interface FieldTypeMap {
@@ -24,6 +25,7 @@ export interface FieldTypeMap {
   [FieldType.RichText]: unknown
   [FieldType.Json]: unknown
   [FieldType.Ref]: unknown
+  [FieldType.Select]: unknown
 }
 
 const VALID_TYPE = new Set<string>(values(FieldType))

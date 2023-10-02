@@ -180,6 +180,35 @@ const GetArticle = gql`
             id
             jsonValue: value
           }
+          ... on CustomFieldReferenceValue {
+            id
+            referenceValue: value {
+              ... on Article {
+                __typename
+                id
+                title
+              }
+              ... on Desk {
+                __typename
+                id
+                name
+              }
+              ... on Tag {
+                __typename
+                id
+                name
+              }
+              ... on User {
+                __typename
+                id
+                full_name
+              }
+            }
+          }
+          ... on CustomFieldSelectValue {
+            id
+            selectValue: value
+          }
         }
         group {
           id
@@ -237,6 +266,35 @@ const GetArticle = gql`
           ... on CustomFieldJsonValue {
             id
             jsonValue: value
+          }
+          ... on CustomFieldReferenceValue {
+            id
+            referenceValue: value {
+              ... on Article {
+                __typename
+                id
+                title
+              }
+              ... on Desk {
+                __typename
+                id
+                name
+              }
+              ... on Tag {
+                __typename
+                id
+                name
+              }
+              ... on User {
+                __typename
+                id
+                full_name
+              }
+            }
+          }
+          ... on CustomFieldSelectValue {
+            id
+            selectValue: value
           }
         }
         group {
