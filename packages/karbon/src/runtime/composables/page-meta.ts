@@ -1,10 +1,10 @@
 import type { Ref } from 'vue'
-import { until, useCurrentElement, whenever } from '@vueuse/core'
+import { useCurrentElement, whenever } from '@vueuse/core'
 import type { EventName } from '../api/track'
 import type { UseArticleReturn as Article } from '../types'
 import { useSEO } from './seo'
 import { useStaticState } from './storipress-payload'
-import { useArticleLoader } from './front-page'
+import { getAllArticles } from './front-page'
 import {
   computed,
   navigateTo,
@@ -129,18 +129,17 @@ export function setupPage<Type extends PageType>({ type, seo = true }: SetupPage
 
   if (type === 'author') {
     const useArticleFilterTag = useArticleFilter()
-    const { preload } = useArticleLoader({
-      preload: 1,
-      chunk: false,
-      condition: [{ type, key: 'id', value: meta.value.id }],
-    })
-    onServerPrefetch(async () => {
-      await until(() => Boolean(preload.value)).toBeTruthy({ timeout: 2000 })
+    const nuxt = useNuxtApp()
+    const authorId = meta.value.id
 
-      const hasArticle = Boolean(preload.value?.length)
+    onServerPrefetch(async () => {
+      const source = (await getAllArticles()).data.value ?? []
+      const hasArticle = source.some(({ authors }) => {
+        return authors.some((author) => author.id === authorId)
+      })
       if (hasArticle) return
 
-      useSeoMeta({ robots: 'noindex' })
+      nuxt.runWithContext(() => useSeoMeta({ robots: 'noindex' }))
     })
 
     return computed(() => {
