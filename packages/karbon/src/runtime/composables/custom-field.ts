@@ -12,17 +12,12 @@ interface ReferenceValue {
 }
 
 function getReferenceResourceID({ articleId, deskId, tagId, userId }: ReferenceValue = {}): ResourceID {
-  switch (true) {
-    case Boolean(deskId):
-      return { type: 'desk', id: deskId! }
-    case Boolean(tagId):
-      return { type: 'tag', id: tagId! }
-    case Boolean(userId):
-      return { type: 'author', id: userId! }
-    case Boolean(articleId):
-    default:
-      return { type: 'article', id: articleId! }
-  }
+  if (articleId) return { type: 'article', id: articleId }
+  if (deskId) return { type: 'desk', id: deskId }
+  if (tagId) return { type: 'tag', id: tagId }
+  if (userId) return { type: 'author', id: userId }
+
+  return null as never
 }
 
 export function useField(key: string): UseFieldReturn<undefined, false>
