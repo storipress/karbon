@@ -16,6 +16,42 @@ import { normalizeArticle } from './normalize-article'
 
 export type { NormalizeArticle, PaidContent } from './normalize-article'
 
+const fragment = gql`
+  fragment CustomFieldReferenceValue on CustomFieldReferenceValue {
+    id
+    referenceValue: value {
+      ... on Article {
+        __typename
+        id
+        articleId: id
+        title
+      }
+      ... on Desk {
+        __typename
+        id
+        deskId: id
+        name
+      }
+      ... on Tag {
+        __typename
+        id
+        tagId: id
+        name
+      }
+      ... on User {
+        __typename
+        id
+        userId: id
+        full_name
+      }
+    }
+  }
+  fragment CustomFieldSelectValue on CustomFieldSelectValue {
+    id
+    selectValue: value
+  }
+`
+
 export const ListArticles = gql`
   query ListArticles($page: Int!) {
     articles(page: $page, sortBy: [{ column: PUBLISHED_AT, order: DESC }], published: true) {
@@ -186,21 +222,25 @@ const GetArticle = gql`
               ... on Article {
                 __typename
                 id
+                articleId: id
                 title
               }
               ... on Desk {
                 __typename
                 id
+                deskId: id
                 name
               }
               ... on Tag {
                 __typename
                 id
+                tagId: id
                 name
               }
               ... on User {
                 __typename
                 id
+                userId: id
                 full_name
               }
             }
@@ -273,21 +313,25 @@ const GetArticle = gql`
               ... on Article {
                 __typename
                 id
+                articleId: id
                 title
               }
               ... on Desk {
                 __typename
                 id
+                deskId: id
                 name
               }
               ... on Tag {
                 __typename
                 id
+                tagId: id
                 name
               }
               ... on User {
                 __typename
                 id
+                userId: id
                 full_name
               }
             }
