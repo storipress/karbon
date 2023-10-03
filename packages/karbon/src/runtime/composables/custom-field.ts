@@ -1,3 +1,4 @@
+import { destr } from 'destr'
 import type { UseFieldOptions, UseFieldReturn } from '@storipress/custom-field'
 import { FieldType, useField as _useField, normalizeOptions } from '@storipress/custom-field'
 import type { ResourceID } from '../types'
@@ -66,6 +67,17 @@ export function useField(
 
     return computed(() => {
       return data.value?.map((resource) => resource?.meta)
+    })
+  }
+
+  if (type === FieldType.Select) {
+    return computed(() => {
+      const selValue = field.value as string[]
+
+      return selValue.map((str) => {
+        const valueObject = destr(str) ?? {}
+        return Object.values(valueObject)[0]
+      })
     })
   }
 
