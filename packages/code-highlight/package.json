@@ -1,6 +1,6 @@
 {
   "name": "@storipress/code-highlight",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "packageManager": "yarn@3.6.3",
   "exports": {
     ".": {
