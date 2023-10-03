@@ -5,6 +5,40 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # 0.1.0 (2023-03-15)
 
+## v0.1.94
+
+[compare changes](https://github.com/storipress/karbon/compare/v0.1.93...v0.1.94)
+
+### 🚀 Enhancements
+
+- Add schema for paywall content ([7bf1262](https://github.com/storipress/karbon/commit/7bf1262))
+- Add isAccessibleForFree schema for paywall content ([f7f837d](https://github.com/storipress/karbon/commit/f7f837d))
+- Add json, swift ([926a2bd](https://github.com/storipress/karbon/commit/926a2bd))
+- Add Noindex to authors pages with no articles ([bc31f78](https://github.com/storipress/karbon/commit/bc31f78))
+
+### 🩹 Fixes
+
+- UseFillArticles error ([dac93f3](https://github.com/storipress/karbon/commit/dac93f3))
+- Import code-highlight css ([323d36d](https://github.com/storipress/karbon/commit/323d36d))
+- Add useSeoMeta import ([e289378](https://github.com/storipress/karbon/commit/e289378))
+- Use getAllArticles to replace useArticleLoader ([7b020a7](https://github.com/storipress/karbon/commit/7b020a7))
+
+### 🏡 Chore
+
+- Import prism css in prism-languages ([6343b48](https://github.com/storipress/karbon/commit/6343b48))
+
+### 🎨 Styles
+
+- Format code with Prettier ([055b190](https://github.com/storipress/karbon/commit/055b190))
+- Format code with Prettier ([a244894](https://github.com/storipress/karbon/commit/a244894))
+- Format ([79507cd](https://github.com/storipress/karbon/commit/79507cd))
+
+### ❤️ Contributors
+
+- DanSnow <dododavid006@gmail.com>
+- Sid <sid@storipress.com>
+- Ches4117 ([@ches4117](http://github.com/ches4117))
+
 ## v0.1.93
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.92...v0.1.93)
