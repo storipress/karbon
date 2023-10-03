@@ -5,6 +5,18 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # 0.1.0 (2023-03-15)
 
+## v0.1.95
+
+[compare changes](https://github.com/storipress/karbon/compare/v0.0.3...v0.1.95)
+
+### 🩹 Fixes
+
+- **karbon:** Upgrade dep ([da8bd69](https://github.com/storipress/karbon/commit/da8bd69))
+
+### ❤️ Contributors
+
+- DanSnow <dododavid006@gmail.com>
+
 ## v0.1.94
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.93...v0.1.94)
