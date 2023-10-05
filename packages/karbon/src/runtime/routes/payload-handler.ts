@@ -1,5 +1,6 @@
 import { filter, first, pipe } from 'remeda'
 import { setHeader } from 'h3'
+import { FieldType } from '@storipress/custom-field'
 import type { Identifiable } from '../types'
 import {
   ALL_RESOURCE_JSON_PATH,
@@ -11,20 +12,18 @@ import {
 import { NOT_FOUND, defineSnapshotHandler } from './snapshot-handler'
 import { shouldBypassCache } from './cache-control'
 
-export enum FieldType {
-  Text = 'TEXT',
-  Number = 'NUM',
-  Bool = 'BOOL',
-  File = 'FILE',
-  URL = 'URL',
-  Color = 'COLOR',
-  Date = 'DATE',
-  RichText = 'RICHTEXT',
-  Json = 'JSON',
-  Ref = 'REF',
-}
-
-type CustomFieldType = 'text' | 'number' | 'color' | 'url' | 'boolean' | 'richText' | 'file' | 'date' | 'json'
+type CustomFieldType =
+  | 'text'
+  | 'number'
+  | 'color'
+  | 'url'
+  | 'boolean'
+  | 'richText'
+  | 'file'
+  | 'date'
+  | 'json'
+  | 'reference'
+  | 'select'
 enum FieldTypeMap {
   boolean = 'Bool',
   color = 'Color',
@@ -35,6 +34,8 @@ enum FieldTypeMap {
   richText = 'RichText',
   text = 'Text',
   url = 'URL',
+  reference = 'Ref',
+  select = 'Select',
 }
 interface MetaFieldValue {
   __typename: string
@@ -145,6 +146,8 @@ const SWITCH_VALUE_MAP: Record<string, string> = {
   CustomFieldRichTextValue: 'jsonValue',
   CustomFieldFileValue: 'fileValue',
   CustomFieldDateValue: 'dateValue',
+  CustomFieldReferenceValue: 'referenceValue',
+  CustomFieldSelectValue: 'selectValue',
 }
 function getFieldValue(value: MetaFieldValue) {
   const valueKey = SWITCH_VALUE_MAP[value.__typename]

@@ -64,7 +64,7 @@ export function useField(
   })
 }
 
-function normalizeOptions<Type extends FieldType, IsAll extends boolean = false>(
+export function normalizeOptions<Type extends FieldType, IsAll extends boolean = false>(
   type?: Type | UseFieldOptions<Type, IsAll>,
   all?: IsAll,
 ): UseFieldOptions<Type, IsAll> {
