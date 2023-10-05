@@ -45,7 +45,7 @@ export function useField(
     const { resolveFromID } = useResourceResolver()
 
     const { data } = useAsyncData(
-      'resourceMeta',
+      `resource-meta-${key}::${type}`,
       async () => {
         const refValue = field.value as ReferenceValue[]
         const promises = refValue.map((value) => {
