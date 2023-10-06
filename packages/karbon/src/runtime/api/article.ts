@@ -5,80 +5,18 @@ import { encrypt } from 'micro-aes-gcm'
 // This file contains global crypto polyfill
 import { CompactEncrypt } from '@storipress/jose-browser'
 import { useStoripressClient } from '../composables/storipress-client'
+import type { TypesenseFilter } from '../composables/typesense-client'
+import { PER_PAGE, getSearchQuery, useTypesenseClient } from '../composables/typesense-client'
 import { splitPaidContent } from '../lib/split-paid-content'
 import type { NormalSegment } from '../lib/split-article'
 import { splitArticle } from '../lib/split-article'
 import { getStoripressConfig } from '../composables/storipress-base-client'
 import { verboseInvariant } from '../utils/verbose-invariant'
-import { getAllWithPagination } from './helper'
 import type { PaidContent, RawArticleLike, _NormalizeArticle } from './normalize-article'
 import { normalizeArticle } from './normalize-article'
 
 export type { NormalizeArticle, PaidContent } from './normalize-article'
 
-export const ListArticles = gql`
-  query ListArticles($page: Int!) {
-    articles(page: $page, sortBy: [{ column: PUBLISHED_AT, order: DESC }], published: true) {
-      paginatorInfo {
-        lastPage
-        hasMorePages
-        count
-      }
-      data {
-        id
-        title
-        blurb
-        slug
-        sid
-        published_at
-        updated_at
-        featured
-        plan
-        cover
-        seo
-        layout {
-          id
-          name
-        }
-        desk {
-          id
-          name
-          slug
-          layout {
-            id
-            name
-          }
-          desk {
-            id
-            name
-            slug
-            layout {
-              id
-              name
-            }
-          }
-        }
-        tags {
-          id
-          slug
-          name
-        }
-        authors {
-          id
-          slug
-          bio
-          socials
-          avatar
-          email
-          location
-          first_name
-          last_name
-          full_name
-        }
-      }
-    }
-  }
-`
 const GetArticle = gql`
   query GetArticle($id: ID!) {
     article(id: $id) {
@@ -315,14 +253,23 @@ const GetArticle = gql`
   }
 `
 
-export async function listArticles(filter?: { desk: string; tag: string; author: string }) {
-  return getAllWithPagination(ListArticles, filter, ({ articles: { paginatorInfo, data } }) => {
-    const res = data.map((data: RawArticleLike) => normalizeArticle(data))
-    return {
-      paginatorInfo,
-      data: res,
-    }
-  })
+export async function listArticles(filter?: TypesenseFilter) {
+  const typesenseClient = useTypesenseClient()
+  const documents = typesenseClient?.collections('articles').documents()
+
+  const articles = []
+  let hasMore = true
+  let page = 1
+  while (hasMore) {
+    const searchResult = await documents?.search(getSearchQuery(page, filter), {})
+    const currentPageArticles =
+      searchResult?.hits?.map(({ document }) => normalizeArticle(document as RawArticleLike)) ?? []
+    articles.push(...currentPageArticles)
+
+    hasMore = searchResult.found > searchResult.page * PER_PAGE
+    page = searchResult.page + 1
+  }
+  return articles
 }
 
 export async function getArticle(id: string) {
