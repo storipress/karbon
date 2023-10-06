@@ -22,26 +22,28 @@ export function useTypesenseClient() {
 }
 
 export interface TypesenseFilter {
-  desk?: string
-  tag?: string
-  author?: string
   desk_ids?: string[]
+  author_ids?: string[]
+  author_names?: string[]
+  tag_ids?: string[]
+  tag_names?: string[]
 }
 
 export const PER_PAGE = 100
 
 export function getSearchQuery(page = 1, filter: TypesenseFilter = {}) {
-  const { desk, tag, author, desk_ids: deskIds } = filter
-  let filterBy = ''
-  if (desk) filterBy += ` && (desk.id:= ${desk} || desk.desk.id:= ${desk})`
-  if (tag) filterBy += ` && tag_ids:=${tag}`
-  if (author) filterBy += ` && author_ids:${author}`
-  if (deskIds) filterBy += ` && desk_id:[${deskIds.join()}`
+  const { desk_ids, author_ids, author_names, tag_ids, tag_names } = filter
+  let filterBy = 'published:=true'
+  if (desk_ids?.length) filterBy += ` && desk_id:=[${desk_ids.join()}]`
+  if (author_ids?.length) filterBy += ` && author_ids:=[${author_ids.join()}]`
+  if (author_names?.length) filterBy += ` && author_names:=[${author_names.join()}]`
+  if (tag_ids?.length) filterBy += ` && tag_ids:=[${tag_ids.join()}]`
+  if (tag_names?.length) filterBy += ` && tag_names:=[${tag_names.join()}]`
 
   return {
     q: '*',
     sort_by: 'published_at:desc,order:asc',
-    filter_by: `published:=true${filterBy}`,
+    filter_by: filterBy,
     per_page: PER_PAGE,
     page,
     preset: `list-articles-${page}`,
