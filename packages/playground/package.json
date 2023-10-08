@@ -74,7 +74,7 @@
     "@nuxt/devtools": "0.8.0",
     "@nuxt/image": "1.0.0-rc.1",
     "@nuxtjs/tailwindcss": "6.8.0",
-    "@rollup/plugin-virtual": "3.0.1",
+    "@rollup/plugin-virtual": "3.0.2",
     "@types/find-cache-dir": "3.2.1",
     "@types/fs-extra": "11.0.2",
     "@types/jszip": "3.4.1",
