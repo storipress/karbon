@@ -1,5 +1,6 @@
 import { gql } from '@apollo/client/core/index.js'
 import { useStoripressClient } from '../composables/storipress-client'
+import type { TypesenseFilter } from '../composables/typesense-client'
 import { listArticles } from './article'
 
 const GetDesk = gql`
@@ -22,7 +23,7 @@ const GetDesk = gql`
   }
 `
 
-export function listFeedArticles(filter?: { desk: string; tag: string; author: string; desk_ids: string[] }) {
+export function listFeedArticles(filter: TypesenseFilter = {}) {
   return listArticles(filter)
 }
 
