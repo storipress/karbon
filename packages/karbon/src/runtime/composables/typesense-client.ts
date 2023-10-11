@@ -46,6 +46,6 @@ export function getSearchQuery(page = 1, filter: TypesenseFilter = {}) {
     filter_by: filterBy,
     per_page: PER_PAGE,
     page,
-    preset: `list-articles-${page}`,
+    query_by: 'title',
   }
 }
