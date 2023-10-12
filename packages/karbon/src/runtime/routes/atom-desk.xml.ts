@@ -3,34 +3,20 @@ import { Feed } from 'feed'
 import { encodePath, joinURL, withTrailingSlash } from 'ufo'
 import path from 'pathe'
 import { getDeskWithSlug } from '@storipress/karbon/internal'
-import type { Author } from '../composables/page-meta'
 import { listArticles } from '../api/article'
 import { useRuntimeConfig } from '#imports'
 import urls from '#sp-internal/storipress-urls.mjs'
-
-interface TArticle {
-  title: string
-  id: string
-  link: string
-  description: string
-  content: string
-  date: Date
-  author: Author[]
-  plaintext: string
-  html: string
-  published_at: string
-}
 
 export default defineEventHandler(async (e) => {
   setHeader(e, 'Content-Type', 'text/xml; charset=UTF-8')
   if (!process.dev) setHeader(e, 'Cache-Control', 'max-age=600, must-revalidate')
 
-  const fileName = e.context.params?.slug || ''
+  const fileName = e.context.params?.slug ?? ''
   if (!fileName.endsWith('.xml')) {
     return sendNoContent(e, 404)
   }
 
-  const slug = path.parse(fileName || '').name
+  const slug = path.parse(fileName).name
   const desk = await getDeskWithSlug(slug)
   if (!desk?.id) {
     return sendNoContent(e, 404)
