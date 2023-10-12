@@ -24,6 +24,7 @@ export interface RawArticleLike {
   plaintext: string
   plan: ArticlePlan
   authors: RawUserLike[]
+  published_at: string
 }
 
 export interface PaidContent {

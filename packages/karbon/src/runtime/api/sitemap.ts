@@ -3,7 +3,6 @@ import { identity } from 'remeda'
 import { createStoripressClient } from '../composables/storipress-client'
 import { storipressConfigCtx } from '../composables/storipress-base-client'
 import type { ModuleRuntimeConfig } from '../types'
-import { PER_PAGE, getSearchQuery, useTypesenseClient } from '../composables/typesense-client'
 
 const ListArticles = gql`
   query ListArticles($page: Int!) {
@@ -130,25 +129,13 @@ export const payloadScopes: ResourceScope[] = [
 export async function getResources(runtimeConfig?: ModuleRuntimeConfig['storipress']) {
   runtimeConfig && storipressConfigCtx.set(runtimeConfig)
   const client = createStoripressClient()
-  const typesenseClient = useTypesenseClient()
 
   const result = await Promise.all(
     payloadScopes.map(async ({ payloadScope, query, queryKey, filter = identity }) => {
       let resources: any = []
       switch (payloadScope) {
         case 'posts': {
-          const documents = typesenseClient?.collections('articles').documents()
-
-          let hasMore = true
-          let page = 1
-          while (hasMore) {
-            const searchResult = await documents?.search(getSearchQuery(page), {})
-            const currentPageArticles = searchResult?.hits?.map(({ document }) => document) ?? []
-            resources.push(...currentPageArticles)
-
-            hasMore = searchResult.found > searchResult.page * PER_PAGE
-            page = searchResult.page + 1
-          }
+          resources = (await $fetch('/_storipress/posts/__all.json')) ?? []
           break
         }
         default: {

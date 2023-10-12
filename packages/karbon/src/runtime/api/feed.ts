@@ -1,7 +1,5 @@
 import { gql } from '@apollo/client/core/index.js'
 import { useStoripressClient } from '../composables/storipress-client'
-import type { TypesenseFilter } from '../composables/typesense-client'
-import { listArticles } from './article'
 
 const GetDesk = gql`
   query GetDesk($slug: String) {
@@ -23,8 +21,9 @@ const GetDesk = gql`
   }
 `
 
-export function listFeedArticles(filter: TypesenseFilter = {}) {
-  return listArticles(filter)
+export async function listFeedArticles() {
+  const allArticles = (await $fetch('/_storipress/posts/__all.json')) ?? []
+  return allArticles
 }
 
 export async function getDeskWithSlug(slug: string) {
