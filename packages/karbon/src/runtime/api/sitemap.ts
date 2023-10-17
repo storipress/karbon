@@ -3,7 +3,6 @@ import { identity } from 'remeda'
 import { createStoripressClient } from '../composables/storipress-client'
 import { storipressConfigCtx } from '../composables/storipress-base-client'
 import type { ModuleRuntimeConfig } from '../types'
-import { getAllWithPaginationViaGetPage } from './helper'
 
 const ListArticles = gql`
   query ListArticles($page: Int!) {
@@ -136,11 +135,7 @@ export async function getResources(runtimeConfig?: ModuleRuntimeConfig['storipre
       let resources: any = []
       switch (payloadScope) {
         case 'posts': {
-          const getPage = async (page: number) => {
-            const { data } = await client.query({ query, variables: { page } })
-            return data.articles
-          }
-          resources = await getAllWithPaginationViaGetPage(getPage)
+          resources = (await $fetch('/_storipress/posts/__all.json')) ?? []
           break
         }
         default: {

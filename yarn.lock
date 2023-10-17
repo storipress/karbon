@@ -3448,6 +3448,7 @@ __metadata:
     tsx: 3.12.10
     type-fest: ^4.3.1
     typescript: 5.2.2
+    typesense: ^1.7.1
     typesense-instantsearch-adapter: ^2.7.1
     unbuild: ^2.0.0
     unenv: ^1.7.4
@@ -17042,7 +17043,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typesense@npm:^1.7.0":
+"typesense@npm:^1.7.0, typesense@npm:^1.7.1":
   version: 1.7.1
   resolution: "typesense@npm:1.7.1"
   dependencies:

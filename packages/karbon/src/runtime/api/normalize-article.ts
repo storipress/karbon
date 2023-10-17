@@ -1,7 +1,7 @@
 import { destr } from 'destr'
 import truncate from 'lodash.truncate'
 import type { Segment } from '../lib/split-article'
-import type { ArticlePlan } from '../types'
+import type { ArticleDesk, ArticlePlan, ArticleTag } from '../types'
 import { useArticleFilter } from '#imports'
 
 export interface RawUserLike {
@@ -24,6 +24,9 @@ export interface RawArticleLike {
   plaintext: string
   plan: ArticlePlan
   authors: RawUserLike[]
+  tags: ArticleTag[]
+  desk: ArticleDesk
+  published_at: string
 }
 
 export interface PaidContent {
@@ -53,9 +56,12 @@ export function normalizeArticle({
   html,
   id,
   authors,
+  desk,
+  tags,
   ...rest
 }: RawArticleLike) {
   const articleFilter = useArticleFilter()
+  const rootDesk = desk.desk ? { desk: { ...desk.desk, id: String(desk.desk.id) } } : {}
 
   return {
     ...rest,
@@ -74,10 +80,20 @@ export function normalizeArticle({
       separator: /,? +/,
     }),
     cover: destr(cover),
-    authors: authors?.map(({ socials, ...rest }) => ({
+    authors: authors?.map(({ socials, id, ...rest }) => ({
       ...rest,
+      id: String(id),
       socials: destr(socials),
       name: rest.full_name,
+    })),
+    desk: {
+      ...desk,
+      ...rootDesk,
+      id: String(desk.id),
+    },
+    tags: tags?.map(({ id, ...rest }) => ({
+      ...rest,
+      id: String(id),
     })),
   }
 }
