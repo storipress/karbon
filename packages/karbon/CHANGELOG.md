@@ -5,6 +5,30 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # 0.1.0 (2023-03-15)
 
+## v0.1.96
+
+[compare changes](https://github.com/storipress/karbon/compare/v0.1.95...v0.1.96)
+
+### 🚀 Enhancements
+
+- [SPMVP-6575] karbon support dropdown reference type ([#279](https://github.com/storipress/karbon/pull/279))
+- [SPMVP -6521] use typesense to fetch article list in karbon to reduce api server load ([#281](https://github.com/storipress/karbon/pull/281))
+
+### 🩹 Fixes
+
+- **deps:** Update dependency zod to v3.22.3 [security] ([127929d](https://github.com/storipress/karbon/commit/127929d))
+
+### 🏡 Chore
+
+- Remove unused file ([5a5e478](https://github.com/storipress/karbon/commit/5a5e478))
+- Upgrade deps ([505c4a9](https://github.com/storipress/karbon/commit/505c4a9))
+- Upgrade yarn to v4 ([818c609](https://github.com/storipress/karbon/commit/818c609))
+
+### ❤️ Contributors
+
+- DanSnow <dododavid006@gmail.com>
+- Sid Chang
+
 ## v0.1.95
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.0.3...v0.1.95)
