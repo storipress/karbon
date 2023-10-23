@@ -3368,7 +3368,7 @@ __metadata:
     "@storipress/vue-advertising": "npm:^1.1.0"
     "@types/find-cache-dir": "npm:3.2.1"
     "@types/fs-extra": "npm:11.0.2"
-    "@types/js-yaml": "npm:4.0.7"
+    "@types/js-yaml": "npm:4.0.8"
     "@types/jszip": "npm:3.4.1"
     "@types/lodash.sortby": "npm:4.7.7"
     "@types/lodash.truncate": "npm:4.4.7"
@@ -3631,10 +3631,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/js-yaml@npm:4.0.7":
-  version: 4.0.7
-  resolution: "@types/js-yaml@npm:4.0.7"
-  checksum: 4bf4fbd6a64cf9ffbff648bb8bc0d4065575ac8ec4e0a06004d6107b2fc192b28431e68d52309dc804b6862f3460d6c5c44cffed009746a7809c20973e36e351
+"@types/js-yaml@npm:4.0.8":
+  version: 4.0.8
+  resolution: "@types/js-yaml@npm:4.0.8"
+  checksum: 4ff6e50255f2fec044b032b43ef864885ebf64bf110ddb06a9390c80b695a0d595b1127ff83b9d81191d07bba4f28ac8ef020b98997fc03c5f6ffbd3f5b38c39
   languageName: node
   linkType: hard
 
