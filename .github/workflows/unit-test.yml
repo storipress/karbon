@@ -17,7 +17,7 @@ jobs:
           key: cache-nx-${{ hashFiles('yarn.lock') }}-${{ github.sha }}
           restore-keys: |
             cache-nx-${{ hashFiles('yarn.lock') }}-
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: '18'
           cache: yarn
