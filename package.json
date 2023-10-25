@@ -19,7 +19,6 @@
     "@nuxt/devalue": "^2.0.2",
     "@nuxt/kit": "3.6.5",
     "@nuxtjs/html-validator": "^1.5.1",
-    "@rudderstack/rudder-sdk-node": "^2.0.5",
     "@sentry/node": "^7.74.0",
     "@sentry/tracing": "^7.74.0",
     "@vueuse/core": "^10.1.2",
