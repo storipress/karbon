@@ -3057,7 +3057,7 @@ __metadata:
   resolution: "@storipress/code-highlight@workspace:packages/code-highlight"
   dependencies:
     "@babel/core": "npm:7.23.2"
-    "@types/prismjs": "npm:^1.26.1"
+    "@types/prismjs": "npm:^1.26.2"
     babel-plugin-prismjs: "npm:2.1.0"
     changelogen: "npm:0.5.5"
     eslint: "npm:8.52.0"
@@ -3070,7 +3070,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@storipress/create-karbon@workspace:packages/create-karbon"
   dependencies:
-    "@types/node": "npm:18.18.5"
+    "@types/node": "npm:^20.8.8"
     consola: "npm:^3.2.3"
     giget: "npm:^1.1.3"
     minimist: "npm:^1.2.8"
@@ -3096,7 +3096,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@storipress/jose-browser@workspace:packages/jose-browser"
   dependencies:
-    "@types/node": "npm:18.18.5"
+    "@types/node": "npm:^20.8.8"
     jose: "npm:^4.14.4"
     typescript: "npm:5.2.2"
     unbuild: "npm:2.0.0"
@@ -3119,15 +3119,14 @@ __metadata:
     "@rollup/plugin-virtual": "npm:3.0.2"
     "@sentry/node": "npm:^7.75.0"
     "@sentry/tracing": "npm:^7.75.0"
-    "@types/find-cache-dir": "npm:3.2.1"
-    "@types/fs-extra": "npm:11.0.2"
-    "@types/jszip": "npm:3.4.1"
-    "@types/lodash.sortby": "npm:4.7.7"
-    "@types/lodash.truncate": "npm:4.4.7"
-    "@types/serialize-javascript": "npm:5.0.2"
-    "@types/tailwindcss": "npm:3.1.0"
-    "@types/tar": "npm:6.1.6"
-    "@types/uuid": "npm:9.0.5"
+    "@types/fs-extra": "npm:^11.0.3"
+    "@types/jszip": "npm:^3.4.1"
+    "@types/lodash.sortby": "npm:^4.7.8"
+    "@types/lodash.truncate": "npm:^4.4.8"
+    "@types/serialize-javascript": "npm:^5.0.3"
+    "@types/tailwindcss": "npm:^3.1.0"
+    "@types/tar": "npm:^6.1.7"
+    "@types/uuid": "npm:^9.0.6"
     "@vitejs/plugin-vue": "npm:4.4.0"
     "@vueuse/core": "npm:^10.1.2"
     "@vueuse/head": "npm:^1.1.26"
@@ -3141,7 +3140,7 @@ __metadata:
     eslint-plugin-prettier: "npm:5.0.1"
     events: "npm:^3.3.0"
     fast-deep-equal: "npm:^3.1.3"
-    find-cache-dir: "npm:^4.0.0"
+    find-cache-dir: "npm:^5.0.0"
     fs-extra: "npm:11.1.1"
     globby: "npm:13.2.2"
     graphql: "npm:^16.6.0"
@@ -3206,15 +3205,14 @@ __metadata:
     "@storipress/custom-field": "workspace:*"
     "@storipress/karbon": "workspace:*"
     "@storipress/vue-advertising": "npm:^1.1.0"
-    "@types/find-cache-dir": "npm:3.2.1"
-    "@types/fs-extra": "npm:11.0.2"
-    "@types/jszip": "npm:3.4.1"
-    "@types/lodash.sortby": "npm:4.7.7"
-    "@types/lodash.truncate": "npm:4.4.7"
-    "@types/serialize-javascript": "npm:5.0.2"
-    "@types/tailwindcss": "npm:3.1.0"
-    "@types/tar": "npm:6.1.6"
-    "@types/uuid": "npm:9.0.5"
+    "@types/fs-extra": "npm:^11.0.3"
+    "@types/jszip": "npm:^3.4.1"
+    "@types/lodash.sortby": "npm:^4.7.8"
+    "@types/lodash.truncate": "npm:^4.4.8"
+    "@types/serialize-javascript": "npm:^5.0.3"
+    "@types/tailwindcss": "npm:^3.1.0"
+    "@types/tar": "npm:^6.1.7"
+    "@types/uuid": "npm:^9.0.6"
     "@vitejs/plugin-vue": "npm:4.4.0"
     "@vueuse/core": "npm:^10.1.2"
     "@vueuse/head": "npm:^1.1.26"
@@ -3228,7 +3226,7 @@ __metadata:
     eslint-plugin-prettier: "npm:5.0.1"
     events: "npm:^3.3.0"
     fast-deep-equal: "npm:^3.1.3"
-    find-cache-dir: "npm:^4.0.0"
+    find-cache-dir: "npm:^5.0.0"
     fs-extra: "npm:11.1.1"
     globby: "npm:13.2.2"
     graphql: "npm:^16.7.1"
@@ -3293,17 +3291,16 @@ __metadata:
     "@storipress/custom-field": "npm:^1.1.7"
     "@storipress/jose-browser": "npm:^1.1.5"
     "@storipress/vue-advertising": "npm:^1.1.0"
-    "@types/find-cache-dir": "npm:3.2.1"
-    "@types/fs-extra": "npm:11.0.2"
-    "@types/js-yaml": "npm:4.0.8"
-    "@types/jszip": "npm:3.4.1"
-    "@types/lodash.sortby": "npm:4.7.7"
-    "@types/lodash.truncate": "npm:4.4.7"
-    "@types/minimist": "npm:1.2.3"
-    "@types/serialize-javascript": "npm:5.0.2"
-    "@types/tailwindcss": "npm:3.1.0"
-    "@types/tar": "npm:6.1.6"
-    "@types/uuid": "npm:9.0.5"
+    "@types/fs-extra": "npm:^11.0.3"
+    "@types/js-yaml": "npm:^4.0.8"
+    "@types/jszip": "npm:^3.4.1"
+    "@types/lodash.sortby": "npm:^4.7.8"
+    "@types/lodash.truncate": "npm:^4.4.8"
+    "@types/minimist": "npm:^1.2.4"
+    "@types/serialize-javascript": "npm:^5.0.3"
+    "@types/tailwindcss": "npm:^3.1.0"
+    "@types/tar": "npm:^6.1.7"
+    "@types/uuid": "npm:^9.0.6"
     "@vitejs/plugin-vue": "npm:4.4.0"
     "@vueuse/core": "npm:^10.1.2"
     "@vueuse/head": "npm:^1.1.26"
@@ -3325,7 +3322,7 @@ __metadata:
     fast-xml-parser: "npm:^4.3.2"
     feed: "npm:^4.2.2"
     file-type: "npm:^18.5.0"
-    find-cache-dir: "npm:^4.0.0"
+    find-cache-dir: "npm:^5.0.0"
     fs-extra: "npm:11.1.1"
     globby: "npm:13.2.2"
     graphql: "npm:^16.7.1"
@@ -3511,20 +3508,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/find-cache-dir@npm:3.2.1":
-  version: 3.2.1
-  resolution: "@types/find-cache-dir@npm:3.2.1"
-  checksum: bf5c4e96da40247cd9e6327f54dfccda961a0fb2d70e3c71bd05def94de4c2e6fb310fe8ecb0f04ecf5dbc52214e184b55a2337b0f87250d4ae1e2e7d58321e4
-  languageName: node
-  linkType: hard
-
-"@types/fs-extra@npm:11.0.2":
-  version: 11.0.2
-  resolution: "@types/fs-extra@npm:11.0.2"
+"@types/fs-extra@npm:^11.0.3":
+  version: 11.0.3
+  resolution: "@types/fs-extra@npm:11.0.3"
   dependencies:
     "@types/jsonfile": "npm:*"
     "@types/node": "npm:*"
-  checksum: d490ab47449e921c5ba3f4646113b444081c64e87040de92f26cc6dd1f43c93744e547e4c063ec8e4f14936b5738fc6270facd8fa6df818701fffefe95e2a99d
+  checksum: da06cafdfed66ac695fd1a6a152c66bd28c1731bcf27f7640136d6b8165bfe5995109ee0bb2e830d30e49d9f26f889c901de4bacce644963dc538ed92a280e90
   languageName: node
   linkType: hard
 
@@ -3558,7 +3548,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/js-yaml@npm:4.0.8":
+"@types/js-yaml@npm:^4.0.8":
   version: 4.0.8
   resolution: "@types/js-yaml@npm:4.0.8"
   checksum: 4ff6e50255f2fec044b032b43ef864885ebf64bf110ddb06a9390c80b695a0d595b1127ff83b9d81191d07bba4f28ac8ef020b98997fc03c5f6ffbd3f5b38c39
@@ -3581,7 +3571,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jszip@npm:3.4.1":
+"@types/jszip@npm:^3.4.1":
   version: 3.4.1
   resolution: "@types/jszip@npm:3.4.1"
   dependencies:
@@ -3599,21 +3589,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/lodash.sortby@npm:4.7.7":
-  version: 4.7.7
-  resolution: "@types/lodash.sortby@npm:4.7.7"
+"@types/lodash.sortby@npm:^4.7.8":
+  version: 4.7.8
+  resolution: "@types/lodash.sortby@npm:4.7.8"
   dependencies:
     "@types/lodash": "npm:*"
-  checksum: 94164b49810e37cc3795c133a6375245cdfc0e6804680e34d7039889954e7201c820d658fff89fcda0a1ce68774286f49ce95f83004d8188c4434cdfc2ca55c4
+  checksum: 94298ff29aff0ca74de4089f3747eda65b944738e273d7430a4afe6d2934e152700e8176af4d61f286deaf5a527b9e3d25b2aee24bd00ee96b5252b7279be18b
   languageName: node
   linkType: hard
 
-"@types/lodash.truncate@npm:4.4.7":
-  version: 4.4.7
-  resolution: "@types/lodash.truncate@npm:4.4.7"
+"@types/lodash.truncate@npm:^4.4.8":
+  version: 4.4.8
+  resolution: "@types/lodash.truncate@npm:4.4.8"
   dependencies:
     "@types/lodash": "npm:*"
-  checksum: d95ed373b514d63535f07a523244c6513bdbf4512f6b96cac28fde408be5a1212d9f5de847614c521508752a4cc150cc470b1295ad543ee31b79cb0bd310e716
+  checksum: 98430f4aa01d0ea3ec9638a18a463caca64dd08544742a66385ca4f314520236932a8c027b280ec1be88f3d7b4234bc0a0c6325ef89a2cb0cfb8d5281e8b2e68
   languageName: node
   linkType: hard
 
@@ -3640,10 +3630,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/minimist@npm:1.2.3, @types/minimist@npm:^1.2.0":
-  version: 1.2.3
-  resolution: "@types/minimist@npm:1.2.3"
-  checksum: 666ea4f8c39dcbdfbc3171fe6b3902157c845cc9cb8cee33c10deb706cda5e0cc80f98ace2d6d29f6774b0dc21180c96cd73c592a1cbefe04777247c7ba0e84b
+"@types/minimist@npm:^1.2.0, @types/minimist@npm:^1.2.4":
+  version: 1.2.4
+  resolution: "@types/minimist@npm:1.2.4"
+  checksum: d7912f9a466312cbc1333800272b9208178140ef4da2ccec3fa82231c8e67f57f84275b3c19109c4f68f1b7b057baeacc6b80af1de14b58b46e6b54233e44c6a
   languageName: node
   linkType: hard
 
@@ -3654,17 +3644,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*":
-  version: 20.1.3
-  resolution: "@types/node@npm:20.1.3"
-  checksum: cea8db4b3c0d132e083f99456ef86c0851c3dd47276f69cd9f6d9a53746c12517ae375d88646b1bd59145c207c065f7e2d564735f889bd5ec7ced968ec60e237
-  languageName: node
-  linkType: hard
-
-"@types/node@npm:18.18.5":
-  version: 18.18.5
-  resolution: "@types/node@npm:18.18.5"
-  checksum: a7363aab9f402290799d3e2696fbc70c76a8a65e2354f72b8f399c38edc346f600066f8ac59dde985cfc64160cfeb63ed7fc917aecdfe7ec469345d3ce029bda
+"@types/node@npm:*, @types/node@npm:^20.8.8":
+  version: 20.8.8
+  resolution: "@types/node@npm:20.8.8"
+  dependencies:
+    undici-types: "npm:~5.25.1"
+  checksum: 17c8641cd1ac341afae555a0bc9b1cc8cffe3d7e73f44540ae6a4d008551dfb64f9e29f35be3c7ad99c4131108d88966ab0437f5160539992a6f4368c50c224f
   languageName: node
   linkType: hard
 
@@ -3682,10 +3667,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/prismjs@npm:^1.26.1":
-  version: 1.26.1
-  resolution: "@types/prismjs@npm:1.26.1"
-  checksum: 83086d4de54a1a333e2bef6ab9f34eb9cd9f2e8598150f9f965d9ecd8eeac0d7705b577035ef9786aeb3906b3295afb0d2a6a3e33bebe88217338515b23fdf0f
+"@types/prismjs@npm:^1.26.2":
+  version: 1.26.2
+  resolution: "@types/prismjs@npm:1.26.2"
+  checksum: d86561508d423eaf1dc2dda1e7f465888731a6af40577eac1a8a52aaac330dee121c702f23868e0a96fca9c907f960286e2f3431e3f16cd13612276745e9235c
   languageName: node
   linkType: hard
 
@@ -3717,10 +3702,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/serialize-javascript@npm:5.0.2":
-  version: 5.0.2
-  resolution: "@types/serialize-javascript@npm:5.0.2"
-  checksum: eb14df7716b88740d6322e1c17863fa08350287d9594fae99e686aae9d584ac9d7f9e5498e06e20f5c292e214bc56a23cbf2a954ff804b97be6ff5b0af642ec8
+"@types/serialize-javascript@npm:^5.0.3":
+  version: 5.0.3
+  resolution: "@types/serialize-javascript@npm:5.0.3"
+  checksum: 530229a3370288fc5ffc45d1a249bfb4d0a25aa8208e59a0cdd71008601bc96c9015f96f9d5addf2a21f880fea5932a7069cb98faf51ac8ba35b9ac8176bf874
   languageName: node
   linkType: hard
 
@@ -3733,7 +3718,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/tailwindcss@npm:3.1.0":
+"@types/tailwindcss@npm:^3.1.0":
   version: 3.1.0
   resolution: "@types/tailwindcss@npm:3.1.0"
   dependencies:
@@ -3742,13 +3727,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/tar@npm:6.1.6":
-  version: 6.1.6
-  resolution: "@types/tar@npm:6.1.6"
+"@types/tar@npm:^6.1.7":
+  version: 6.1.7
+  resolution: "@types/tar@npm:6.1.7"
   dependencies:
     "@types/node": "npm:*"
     minipass: "npm:^4.0.0"
-  checksum: 23c66c834c6878ee9fe080c3278162a497e389d38f2b13d19a28953ee56d8fb2577cff3d6ce118b5b2041da9f717aad624a0a43d1768d5a2d45017cfcac86dac
+  checksum: 993356915640469175b43c39386877a062252e5091ca6335bb303a9d9aae3b3bdeaae3b757faa58d220bd2c4926b6ad4a1f9a30a8a2daf7d985514a3ca72d698
   languageName: node
   linkType: hard
 
@@ -3759,10 +3744,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/uuid@npm:9.0.5":
-  version: 9.0.5
-  resolution: "@types/uuid@npm:9.0.5"
-  checksum: 7577940949619768303c0bf0a7cc235fac3cfae1c0bb4a2e85bfb87b2eb1024955ab446f775394d259442cd769b663b6ce43c39bdfc955d946bf833804ddb421
+"@types/uuid@npm:^9.0.6":
+  version: 9.0.6
+  resolution: "@types/uuid@npm:9.0.6"
+  checksum: 739dcb2e620ff097fa916edeab455eb75640c4883a850784fdb15b32f67b719e05275c6d6419bb6da11350d26bd14ed05ba5e992ff228411cdd98cbc772d71ef
   languageName: node
   linkType: hard
 
@@ -8532,13 +8517,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"find-cache-dir@npm:^4.0.0":
-  version: 4.0.0
-  resolution: "find-cache-dir@npm:4.0.0"
+"find-cache-dir@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "find-cache-dir@npm:5.0.0"
   dependencies:
     common-path-prefix: "npm:^3.0.0"
     pkg-dir: "npm:^7.0.0"
-  checksum: 52a456a80deeb27daa3af6e06059b63bdb9cc4af4d845fc6d6229887e505ba913cd56000349caa60bc3aa59dacdb5b4c37903d4ba34c75102d83cab330b70d2f
+  checksum: 1be046a2d6d98698d181352139bdd2f3e45cad4a0b3c9f06a611124ca52d823b0b327f5a629d7c5268b7fad54a202104765e572f8415b89ac35f76818fb3b75e
   languageName: node
   linkType: hard
 
@@ -16888,6 +16873,13 @@ __metadata:
     magic-string: "npm:^0.30.0"
     unplugin: "npm:^1.3.1"
   checksum: 893d35bb4ef8dfa49abf001a3a73c82ea1fd1e0712e949eb32665962fb076dc3f730a48e6679c54e996164e76e1a4853b87eaf9be20cb69d10f6658a8d5a2011
+  languageName: node
+  linkType: hard
+
+"undici-types@npm:~5.25.1":
+  version: 5.25.3
+  resolution: "undici-types@npm:5.25.3"
+  checksum: 9a57f2dd6fecb2d0f7d9b86aa6f417609a0ffc73247a95aa25c078cf36cbbfe6c164b63b8dace7ad01126e6510f284c185b69c78356bb1d6b279f195acffcaf4
   languageName: node
   linkType: hard
 

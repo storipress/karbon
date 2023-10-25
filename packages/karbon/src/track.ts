@@ -4,6 +4,7 @@ import fsDriver from 'unstorage/drivers/fs'
 import findCacheDirectory from 'find-cache-dir'
 import * as Sentry from '@sentry/node'
 import '@sentry/tracing'
+import path from 'pathe'
 import type { ResourcePage } from './runtime/types'
 
 export enum EventName {
@@ -122,8 +123,8 @@ async function getAnonymousId(): Promise<string> {
     return cachedAnonymousId
   }
 
-  const thunk = findCacheDirectory({ name: 'storipress', thunk: true })
-  const cachePath = thunk?.('cli-cache')
+  const cacheDir = findCacheDirectory({ name: 'storipress' })
+  const cachePath = cacheDir ? path.join(cacheDir, 'cli-cache') : 'cli-cache'
   const storage = createStorage({
     driver: fsDriver({ base: cachePath }),
   })

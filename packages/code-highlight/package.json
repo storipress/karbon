@@ -19,7 +19,7 @@
     "release": "yarn run lint && yarn run prepack && changelogen --release && yarn npm publish && git push --follow-tags"
   },
   "dependencies": {
-    "@types/prismjs": "^1.26.1"
+    "@types/prismjs": "^1.26.2"
   },
   "publishConfig": {
     "access": "public"
