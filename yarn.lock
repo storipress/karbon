@@ -1158,6 +1158,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@haverstack/axios-fetch-adapter@npm:0.8.0":
+  version: 0.8.0
+  resolution: "@haverstack/axios-fetch-adapter@npm:0.8.0"
+  peerDependencies:
+    axios: ^0.21.1
+  checksum: b4862a298f81d6bf951ed1df90a7ebf9200b3fe335d75a3e12326b9714da94196b41eac9cf56890a48e52ad40804d6e9fafee1fd1928194ce763c0719d5b3cab
+  languageName: node
+  linkType: hard
+
 "@headlessui/vue@npm:^1.7.13":
   version: 1.7.16
   resolution: "@headlessui/vue@npm:1.7.16"
@@ -3274,6 +3283,7 @@ __metadata:
     "@antfu/eslint-config-vue": "npm:0.42.1"
     "@apollo/client": "npm:^3.8.6"
     "@babel/runtime": "npm:^7.23.2"
+    "@haverstack/axios-fetch-adapter": "npm:0.8.0"
     "@iframely/embed.js": "npm:^1.10.3"
     "@nuxt/devalue": "npm:^2.0.2"
     "@nuxt/eslint-config": "npm:0.2.0"
@@ -3307,6 +3317,7 @@ __metadata:
     "@vueuse/math": "npm:^10.1.2"
     "@vueuse/nuxt": "npm:^10.1.2"
     "@zhead/schema": "npm:^1.1.0"
+    axios: "npm:0.26.1"
     chalk: "npm:^5.3.0"
     changelogen: "npm:0.5.5"
     cross-fetch: "npm:^4.0.0"
@@ -5303,7 +5314,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:^0.26.0":
+"axios@npm:0.26.1, axios@npm:^0.26.0":
   version: 0.26.1
   resolution: "axios@npm:0.26.1"
   dependencies:

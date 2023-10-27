@@ -112,6 +112,7 @@
   "dependencies": {
     "@apollo/client": "^3.8.6",
     "@babel/runtime": "^7.23.2",
+    "@haverstack/axios-fetch-adapter": "0.8.0",
     "@iframely/embed.js": "^1.10.3",
     "@nuxt/devalue": "^2.0.2",
     "@nuxt/image": "^1.0.0-rc.1",
@@ -130,6 +131,7 @@
     "@vueuse/math": "^10.1.2",
     "@vueuse/nuxt": "^10.1.2",
     "@zhead/schema": "^1.1.0",
+    "axios": "0.26.1",
     "chalk": "^5.3.0",
     "cross-fetch": "^4.0.0",
     "defu": "^6.1.3",
