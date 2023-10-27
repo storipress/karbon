@@ -1,4 +1,6 @@
 import { SearchClient } from 'typesense'
+import axios from 'axios'
+import * as adapter from '@haverstack/axios-fetch-adapter'
 import { getStoripressConfig } from './storipress-base-client'
 
 let typesenseClient: SearchClient
@@ -6,6 +8,7 @@ let typesenseClient: SearchClient
 export function useTypesenseClient() {
   if (typesenseClient) return typesenseClient
 
+  axios.defaults.adapter = getAdapter()
   const storipress = getStoripressConfig()
   typesenseClient = new SearchClient({
     nodes: [
@@ -48,4 +51,14 @@ export function getSearchQuery(page = 1, filter: TypesenseFilter = {}) {
     page,
     query_by: 'title',
   }
+}
+
+// workaround for package issue
+function getAdapter() {
+  const createFetchAdapter = (adapter.default as any).createFetchAdapter
+  if (typeof createFetchAdapter === 'function') {
+    return createFetchAdapter()
+  }
+
+  return adapter.createFetchAdapter()
 }

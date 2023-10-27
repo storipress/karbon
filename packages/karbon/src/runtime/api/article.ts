@@ -1,9 +1,11 @@
 import { Buffer } from 'node:buffer'
 import { gql } from '@apollo/client/core/index.js'
 import { encrypt } from 'micro-aes-gcm'
+import { destr } from 'destr'
 
 // This file contains global crypto polyfill
 import { CompactEncrypt } from '@storipress/jose-browser'
+import type { SearchResponse } from 'typesense/lib/Typesense/Documents'
 import { useStoripressClient } from '../composables/storipress-client'
 import type { TypesenseFilter } from '../composables/typesense-client'
 import { PER_PAGE, getSearchQuery, useTypesenseClient } from '../composables/typesense-client'
@@ -255,13 +257,14 @@ const GetArticle = gql`
 
 export async function listArticles(filter?: TypesenseFilter) {
   const typesenseClient = useTypesenseClient()
-  const documents = typesenseClient?.collections('articles').documents()
+  const documents = typesenseClient.collections('articles').documents()
 
   const articles = []
   let hasMore = true
   let page = 1
   while (hasMore) {
-    const searchResult = await documents?.search(getSearchQuery(page, filter), {})
+    // `destr` is workaround for fetch adapter not automatically parse response
+    const searchResult = destr<SearchResponse<RawArticleLike>>(await documents.search(getSearchQuery(page, filter), {}))
     const currentPageArticles =
       searchResult?.hits?.map(({ document }) => normalizeArticle(document as RawArticleLike)) ?? []
     articles.push(...currentPageArticles)
