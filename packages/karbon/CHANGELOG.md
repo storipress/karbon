@@ -5,6 +5,28 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # 0.1.0 (2023-03-15)
 
+## v0.1.97
+
+[compare changes](https://github.com/storipress/karbon/compare/v0.1.96...v0.1.97)
+
+### 🩹 Fixes
+
+- Upgrade find-cache-dir + types ([0e160d8](https://github.com/storipress/karbon/commit/0e160d8))
+- Use axios fetch adapter for typesense ([52ed6e5](https://github.com/storipress/karbon/commit/52ed6e5))
+
+### 🏡 Chore
+
+- Remove unused package ([c04e93a](https://github.com/storipress/karbon/commit/c04e93a))
+- Upgrade deps ([03e9245](https://github.com/storipress/karbon/commit/03e9245))
+
+### 🤖 CI
+
+- Update node version ([b18c6e8](https://github.com/storipress/karbon/commit/b18c6e8))
+
+### ❤️ Contributors
+
+- DanSnow <dododavid006@gmail.com>
+
 ## v0.1.96
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.95...v0.1.96)
