@@ -1,2 +1,2 @@
-export const ignoreSet = new Set(['NuxtLink'])
-export const targetSet = new Set(['ArticleTitle', 'ArticleHeroPhoto', 'ArticleBody', 'ArticleBlurb'])
+export const ignoreSet = new Set(['NuxtLink', 'ClientOnly'])
+export const targetSet = new Set(['ArticleTitle', 'ArticleHeroPhoto', 'ArticleBody', 'ArticleBlurb', 'Icon'])
