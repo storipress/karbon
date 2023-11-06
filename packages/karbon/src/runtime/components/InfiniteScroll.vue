@@ -10,6 +10,7 @@ const props = withDefaults(
     source: () => AsyncGenerator<Article | Article[]>
     distance?: number
     el?: HTMLElement | null
+    preload?: boolean
   }>(),
   {
     as: 'div',
@@ -28,7 +29,9 @@ const el = computed(() => {
   return root
 })
 
-const { loading, list, isDone, loadMore, onLoadMore, onLoadDone } = useLoadMore<Article | Article[]>(props.source)
+const { loading, list, isDone, loadMore, onLoadMore, onLoadDone } = useLoadMore<Article | Article[]>(props.source, {
+  preload: props.preload,
+})
 
 onLoadMore((item) => emit('moreLoaded', item))
 onLoadDone(() => emit('done'))

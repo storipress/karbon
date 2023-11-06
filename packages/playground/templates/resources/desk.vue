@@ -35,7 +35,7 @@ const { preload, createLoadMore } = useArticleLoader({ preload: 4, chunk: 4 })
 
     <div class="flex gap-2"><ArticleLayout v-for="article of preload" :key="article.id" :article="article" /></div>
     <div>Infinite scroll start</div>
-    <InfiniteScroll v-slot="articles" :source="createLoadMore">
+    <InfiniteScroll v-slot="articles" :source="createLoadMore" preload>
       <div class="flex gap-2 mb-2">
         <ArticleLayout v-for="article of articles.items as Article[]" :key="article.id" :article="article" />
       </div>
