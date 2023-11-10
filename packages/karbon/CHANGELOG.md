@@ -5,6 +5,28 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # 0.1.0 (2023-03-15)
 
+## v0.1.98
+
+[compare changes](https://github.com/storipress/karbon/compare/v0.1.97...v0.1.98)
+
+### 🚀 Enhancements
+
+- Preload next article for infinite scroll ([fdcaccd](https://github.com/storipress/karbon/commit/fdcaccd))
+
+### 🩹 Fixes
+
+- CLI > handle Icon component resolver ([d3a34f3](https://github.com/storipress/karbon/commit/d3a34f3))
+- Normalize possible unix timestamp ([65a7d01](https://github.com/storipress/karbon/commit/65a7d01))
+
+### 🏡 Chore
+
+- Format ([9d81e7d](https://github.com/storipress/karbon/commit/9d81e7d))
+
+### ❤️ Contributors
+
+- DanSnow <dododavid006@gmail.com>
+- Sid <sid@storipress.com>
+
 ## v0.1.97
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.96...v0.1.97)
