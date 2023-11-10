@@ -26,7 +26,7 @@ export interface RawArticleLike {
   authors: RawUserLike[]
   tags: ArticleTag[]
   desk: ArticleDesk
-  published_at: string
+  published_at: string | number
 }
 
 export interface PaidContent {
@@ -58,6 +58,7 @@ export function normalizeArticle({
   authors,
   desk,
   tags,
+  published_at,
   ...rest
 }: RawArticleLike) {
   const articleFilter = useArticleFilter()
@@ -69,6 +70,8 @@ export function normalizeArticle({
     plan,
     bio: articleFilter(bio),
     bioHTML: bio,
+    // published_at could be unix timestamp
+    published_at: typeof published_at === 'string' ? published_at : new Date(published_at * 1000).toISOString(),
     title: unwrapParagraph(title),
     blurb: unwrapParagraph(blurb),
     seo: destr<RawSEO>(seo),
