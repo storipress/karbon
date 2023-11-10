@@ -3317,7 +3317,7 @@ __metadata:
     "@vueuse/math": "npm:^10.1.2"
     "@vueuse/nuxt": "npm:^10.1.2"
     "@zhead/schema": "npm:^1.1.0"
-    axios: "npm:0.26.1"
+    axios: "npm:1.6.0"
     chalk: "npm:^5.3.0"
     changelogen: "npm:0.5.5"
     cross-fetch: "npm:^4.0.0"
@@ -5314,7 +5314,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:0.26.1, axios@npm:^0.26.0":
+"axios@npm:1.6.0":
+  version: 1.6.0
+  resolution: "axios@npm:1.6.0"
+  dependencies:
+    follow-redirects: "npm:^1.15.0"
+    form-data: "npm:^4.0.0"
+    proxy-from-env: "npm:^1.1.0"
+  checksum: f069d938a05d2293e27c7cd6f0c08a1cb764f7cc43a1e637572f8d5928837ecd735890ad67a867d696094ee4b8b4dfdb3727a57aae600845e4c295581cb32f9a
+  languageName: node
+  linkType: hard
+
+"axios@npm:^0.26.0":
   version: 0.26.1
   resolution: "axios@npm:0.26.1"
   dependencies:
