@@ -72,6 +72,7 @@ const GetArticle = gql`
         last_name
         full_name
       }
+      shadow_authors
       plan
       metafields {
         id

@@ -240,6 +240,7 @@ export interface Article {
     full_name?: string
     name?: string
   }[]
+  shadow_authors?: string[]
   layout?: { __typename?: 'Layout'; id: string; name: string } | null
   tags: Array<{ __typename?: 'Tag'; id: string; name: string; slug: string }>
   relevances: { id: string; title: string }[]
