@@ -5,7 +5,7 @@
   "scripts": {
     "dev:prepare": "yarn workspace @storipress/karbon-playground nuxt prepare",
     "build": "nx run @storipress/karbon:build && yarn dev:prepare",
-    "test": "lerna run test --scope='@storipress/*'",
+    "test": "vitest",
     "publish:all": "lerna publish --no-private",
     "postinstall": "yarn build"
   },
