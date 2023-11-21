@@ -26,3 +26,5 @@ dist
 siteTemplate.zip
 functions
 
+
+.nx/cache
