@@ -1,4 +1,4 @@
-import { compact, first, identity, map, pathOr, pipe } from 'remeda'
+import { compact, filter, first, identity, map, pathOr, pipe } from 'remeda'
 import type { PartialDeep } from 'type-fest'
 import type { MetaFlatInput } from '@zhead/schema'
 import type { MaybeRefOrGetter } from '@vueuse/core'
@@ -41,6 +41,7 @@ function createFirstFound(paths: string[][]) {
       paths,
       map((p) => path(input, p)),
       compact,
+      filter<string | undefined>(Boolean),
       first(),
     )
   }
