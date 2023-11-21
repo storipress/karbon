@@ -5,6 +5,32 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # 0.1.0 (2023-03-15)
 
+## v0.1.99
+
+[compare changes](https://github.com/storipress/karbon/compare/v0.1.98...v0.1.99)
+
+### 🚀 Enhancements
+
+- Use `shadow_authors` to provide author name for publication after migrated [SPMVP-6368] ([ab931bc](https://github.com/storipress/karbon/commit/ab931bc))
+
+### 🩹 Fixes
+
+- Page missing og:image ([04608d1](https://github.com/storipress/karbon/commit/04608d1))
+
+### 🏡 Chore
+
+- Upgrade deps ([0909d68](https://github.com/storipress/karbon/commit/0909d68))
+- Upgrade deps ([3f69b3f](https://github.com/storipress/karbon/commit/3f69b3f))
+- Update config ([1a6c5cf](https://github.com/storipress/karbon/commit/1a6c5cf))
+- Use workspace test ([a6369f3](https://github.com/storipress/karbon/commit/a6369f3))
+- Remove lerna ([a2e6be5](https://github.com/storipress/karbon/commit/a2e6be5))
+
+### ❤️ Contributors
+
+- DanSnow <dododavid006@gmail.com>
+- Sid <sid@storipress.com>
+- Ariel Lin <smsllbear1600@gmail.com>
+
 ## v0.1.98
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.97...v0.1.98)
