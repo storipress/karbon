@@ -15,7 +15,6 @@ import { once } from 'remeda'
 import type { OutputChunk, OutputOptions } from 'rollup'
 import type { BuildOptions } from 'vite'
 import invariant from 'tiny-invariant'
-import fs from 'fs-extra'
 import importerChecker from '../plugins/importer-checker'
 import { ignoreSet, targetSet } from './setting'
 
