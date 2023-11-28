@@ -169,9 +169,9 @@ async function testBuild() {
 
     if (packageManager === 'yarn') {
       await configYarn(path.resolve(tempPath, './.yarnrc.yml'))
-      // eslint-disable-next-line @typescript-eslint/no-require-imports
-      const packageJson = require(path.resolve(tempPath, './package.json'))
-      const version = packageJson?.packageManager?.split?.('@')?.[1] || 'berry'
+      // eslint-disable-next-line @typescript-eslint/no-require-imports, @typescript-eslint/no-var-requires
+      const packageJson = require(path.resolve(tempPath, './package.json')) // skipcq: JS-0359
+      const version = packageJson?.packageManager?.split?.('@')?.[1] || 'berry' // skipcq: JS-W1043
 
       await $$`yarn set version ${version}`
     }
