@@ -15,6 +15,7 @@ import { once } from 'remeda'
 import type { OutputChunk, OutputOptions } from 'rollup'
 import type { BuildOptions } from 'vite'
 import invariant from 'tiny-invariant'
+import fs from 'fs-extra'
 import importerChecker from '../plugins/importer-checker'
 import { ignoreSet, targetSet } from './setting'
 
@@ -73,6 +74,8 @@ export async function bundle(path: string, vuefileName: string, layoutName: stri
   const rollupOptions = createConfig(name, dir, ssr)
   const config = await loadNuxtConfigOnce()
 
+  const tailwindConfigPath = `${process.cwd()}/tailwind.config.js`
+
   await viteBuild({
     clearScreen: false,
     resolve: {
@@ -93,17 +96,22 @@ export async function bundle(path: string, vuefileName: string, layoutName: stri
       postcss: {
         plugins: [
           tailwind({
-            config: {
-              content: [
-                `${process.cwd()}/templates/article-layouts/*.{vue,ts,tsx}`,
-                `${process.cwd()}/templates/editor-blocks/*.{vue,ts,tsx}`,
-                `${process.cwd()}/templates/components/**/*.{vue,ts,tsx}`,
-              ],
-              corePlugins: {
-                preflight: false,
+            presets: [
+              {
+                config: {
+                  content: [
+                    `${process.cwd()}/templates/article-layouts/*.{vue,ts,tsx}`,
+                    `${process.cwd()}/templates/editor-blocks/*.{vue,ts,tsx}`,
+                    `${process.cwd()}/templates/components/**/*.{vue,ts,tsx}`,
+                  ],
+                  corePlugins: {
+                    preflight: false,
+                  },
+                  darkMode: ['class', '.force-use-dark-mode'],
+                },
               },
-              darkMode: ['class', '.force-use-dark-mode'],
-            },
+            ],
+            config: tailwindConfigPath,
           }),
         ],
       },
@@ -114,15 +122,15 @@ export async function bundle(path: string, vuefileName: string, layoutName: stri
         : [
             virtual({
               entry: `
-      import component from './${join(path)}'
-      import './main.css'
-      
-      export default component
-`,
+                import component from './${join(path)}'
+                import './main.css'
+                
+                export default component
+              `,
               'main.css': `@tailwind base;
-@tailwind components;
-@tailwind utilities;
-`,
+                @tailwind components;
+                @tailwind utilities;
+              `,
             }),
           ]),
       tsconfigPaths(),
@@ -150,7 +158,7 @@ export async function bundle(path: string, vuefileName: string, layoutName: stri
           'vue',
           {
             '@storipress/custom-field': ['useField', 'FieldType'],
-            '@storipress/sdk/article/utils': ['useArticle', 'useRecommendArticle', 'useSite'],
+            '@storipress/sdk/article/utils': ['useArticle', 'useRecommendArticle', 'useSite', 'useColorMode'],
             '@storipress/sdk/resources': ['useResourceResolver'],
           },
         ],
