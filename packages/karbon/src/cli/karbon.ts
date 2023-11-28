@@ -169,7 +169,11 @@ async function testBuild() {
 
     if (packageManager === 'yarn') {
       await configYarn(path.resolve(tempPath, './.yarnrc.yml'))
-      await $$`yarn set version berry`
+      // eslint-disable-next-line @typescript-eslint/no-require-imports
+      const packageJson = require(path.resolve(tempPath, './package.json'))
+      const version = packageJson?.packageManager?.split?.('@')?.[1] || 'berry'
+
+      await $$`yarn set version ${version}`
     }
     await $$`${packageManager} install`
     const { exitCode, stderr } = await $$`npx nuxi build`
