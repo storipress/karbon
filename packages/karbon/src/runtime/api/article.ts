@@ -15,7 +15,7 @@ import { splitArticle } from '../lib/split-article'
 import { getStoripressConfig } from '../composables/storipress-base-client'
 import { verboseInvariant } from '../utils/verbose-invariant'
 import type { PaidContent, RawArticleLike, _NormalizeArticle } from './normalize-article'
-import { normalizeArticle } from './normalize-article'
+import { filterArticleProperties, normalizeArticle } from './normalize-article'
 
 export type { NormalizeArticle, PaidContent } from './normalize-article'
 
@@ -267,7 +267,10 @@ export async function listArticles(filter?: TypesenseFilter) {
     // `destr` is workaround for fetch adapter not automatically parse response
     const searchResult = destr<SearchResponse<RawArticleLike>>(await documents.search(getSearchQuery(page, filter), {}))
     const currentPageArticles =
-      searchResult?.hits?.map(({ document }) => normalizeArticle(document as RawArticleLike)) ?? []
+      searchResult?.hits?.map(({ document }) => {
+        const article = normalizeArticle(document as RawArticleLike)
+        return filterArticleProperties(article)
+      }) ?? []
     articles.push(...currentPageArticles)
 
     hasMore = searchResult.found > searchResult.page * PER_PAGE
