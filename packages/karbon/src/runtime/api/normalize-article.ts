@@ -32,6 +32,7 @@ export interface RawArticleLike {
   tags: ArticleTag[]
   desk: ArticleDesk
   published_at: string | number
+  pathnames: string[]
 }
 
 export interface PaidContent {
@@ -143,6 +144,7 @@ const propertiesToKeep = [
   'authors',
   'desk',
   'tags',
+  'pathnames',
 ] as const
 type PropertiesToKeep = (typeof propertiesToKeep)[number]
 
