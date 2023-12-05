@@ -12,7 +12,7 @@ import { PER_PAGE, getSearchQuery, useTypesenseClient } from '../composables/typ
 import { splitPaidContent } from '../lib/split-paid-content'
 import type { NormalSegment } from '../lib/split-article'
 import { splitArticle } from '../lib/split-article'
-import { getStoripressConfig } from '../composables/storipress-base-client'
+import { _karbonClientHooks, getStoripressConfig } from '../composables/storipress-base-client'
 import { verboseInvariant } from '../utils/verbose-invariant'
 import type { PaidContent, RawArticleLike, _NormalizeArticle } from './normalize-article'
 import { normalizeArticle } from './normalize-article'
@@ -257,15 +257,36 @@ const GetArticle = gql`
 `
 
 export async function listArticles(filter?: TypesenseFilter) {
+  const storipress = getStoripressConfig()
   const typesenseClient = useTypesenseClient()
   const documents = typesenseClient.collections('articles').documents()
 
+  const groupId = crypto.randomUUID()
+  const site = storipress.clientId
+  const name = 'listArticles'
   const articles = []
+  const groupStartTime = Date.now()
   let hasMore = true
   let page = 1
   while (hasMore) {
+    const id = crypto.randomUUID()
+    const query = getSearchQuery(page, filter)
+    const isFirstRequest = page === 1
+    const ctx = { name, id, groupId, query, site, isFirstRequest, groupStartTime, requestTime: Date.now() }
+    _karbonClientHooks.callHookParallel('karbon:searchRequest', ctx)
+
     // `destr` is workaround for fetch adapter not automatically parse response
-    const searchResult = destr<SearchResponse<RawArticleLike>>(await documents.search(getSearchQuery(page, filter), {}))
+    const rawSearchResult = await documents.search(query, {}).catch((error: Error) => {
+      _karbonClientHooks.callHookParallel('karbon:searchResponse', {
+        ...ctx,
+        type: 'error',
+        responseTime: Date.now(),
+        hasMore,
+        error,
+      })
+      throw error
+    })
+    const searchResult = destr<SearchResponse<RawArticleLike>>(rawSearchResult)
     const currentPageArticles =
       searchResult?.hits?.map(({ document }) => {
         const article = normalizeArticle(document as RawArticleLike)
@@ -275,6 +296,13 @@ export async function listArticles(filter?: TypesenseFilter) {
 
     hasMore = searchResult.found > searchResult.page * PER_PAGE
     page = searchResult.page + 1
+
+    _karbonClientHooks.callHookParallel('karbon:searchResponse', {
+      ...ctx,
+      type: 'complete',
+      hasMore,
+      responseTime: Date.now(),
+    })
   }
   return articles
 }

@@ -5,6 +5,7 @@ import { fetch } from 'cross-fetch'
 import { withHttps } from 'ufo'
 import { Hookable } from 'hookable'
 import type { Subscription } from 'zen-observable-ts'
+import type { SearchParams, SearchParamsWithPreset } from 'typesense/lib/Typesense/Documents'
 import type { ModuleRuntimeConfig } from '../types'
 
 let c: any = null
@@ -23,11 +24,31 @@ export interface ResponseContext {
   data: any
 }
 
+export interface SearchRequestContext {
+  id: string
+  groupId: string
+  name: string
+  query: SearchParams | SearchParamsWithPreset
+  site: string
+  isFirstRequest: boolean
+  requestTime: number
+  groupStartTime: number
+}
+
+export interface SearchResponseContext extends SearchRequestContext {
+  type: 'error' | 'complete'
+  hasMore: boolean
+  responseTime: number
+  error?: Error
+}
+
 type HookResult = Promise<void> | void
 
 export const _karbonClientHooks = new Hookable<{
   'karbon:request': (ctx: RequestContext) => HookResult
   'karbon:response': (ctx: ResponseContext) => HookResult
+  'karbon:searchRequest': (ctx: SearchRequestContext) => HookResult
+  'karbon:searchResponse': (ctx: SearchResponseContext) => HookResult
 }>()
 
 export const storipressConfigCtx = {
