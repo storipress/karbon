@@ -42,12 +42,19 @@ import { getResources, payloadScopes } from './runtime/api/sitemap'
 import telemetry from './modules/telemetry'
 import feed from './modules/feed'
 import instantsearch from './modules/instantsearch'
-import type { RequestContext, ResponseContext } from './runtime/composables/storipress-base-client'
+import type {
+  RequestContext,
+  ResponseContext,
+  SearchRequestContext,
+  SearchResponseContext,
+} from './runtime/composables/storipress-base-client'
 
 declare module '#app' {
   interface RuntimeNuxtHooks {
     'karbon:request': (ctx: RequestContext) => HookResult
     'karbon:response': (ctx: ResponseContext) => HookResult
+    'karbon:searchRequest': (ctx: SearchRequestContext) => HookResult
+    'karbon:searchResponse': (ctx: SearchResponseContext) => HookResult
   }
 }
 
@@ -55,6 +62,8 @@ declare module 'nitropack' {
   interface NitroRuntimeHooks {
     'karbon:request': (ctx: RequestContext) => void
     'karbon:response': (ctx: ResponseContext) => void
+    'karbon:searchRequest': (ctx: SearchRequestContext) => HookResult
+    'karbon:searchResponse': (ctx: SearchResponseContext) => HookResult
   }
 }
 
