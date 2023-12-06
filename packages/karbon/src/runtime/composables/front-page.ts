@@ -55,6 +55,7 @@ export function getAllArticles(): AsyncData<UseArticleReturnWithURL[], true | nu
         }) ?? []
       )
     },
+    withoutAsyncData: true,
   })
 }
 
