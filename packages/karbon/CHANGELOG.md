@@ -5,6 +5,33 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # 0.1.0 (2023-03-15)
 
+## v0.1.100
+
+[compare changes](https://github.com/storipress/karbon/compare/v0.1.99...v0.1.100)
+
+### 🚀 Enhancements
+
+- Reduce karbon generated payload size ([a784b1e](https://github.com/storipress/karbon/commit/a784b1e))
+- Add pathnames property in listArticles ([31304e6](https://github.com/storipress/karbon/commit/31304e6))
+
+### 🩹 Fixes
+
+- Karbon cli config ([4a759b9](https://github.com/storipress/karbon/commit/4a759b9))
+- **deps:** Update dependency vite to v4.5.1 [security] ([9c08309](https://github.com/storipress/karbon/commit/9c08309))
+
+### 💅 Refactors
+
+- Fix deepSource issue ([4579818](https://github.com/storipress/karbon/commit/4579818))
+
+### 🎨 Styles
+
+- Format ([5f47007](https://github.com/storipress/karbon/commit/5f47007))
+
+### ❤️ Contributors
+
+- DanSnow <dododavid006@gmail.com>
+- Sid <sid@storipress.com>
+
 ## v0.1.99
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.98...v0.1.99)
