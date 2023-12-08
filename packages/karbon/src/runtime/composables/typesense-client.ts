@@ -46,7 +46,6 @@ export const propertiesToKeep = [
   'updated_at',
   'id',
   'plan',
-  'bio',
   'published_at',
   'title',
   'blurb',
