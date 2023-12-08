@@ -89,12 +89,13 @@ export function normalizeArticle({
       separator: /,? +/,
     }),
     cover: destr(cover),
-    authors: authors?.map(({ socials, id, ...rest }) => ({
-      ...rest,
-      id: String(id),
-      socials: destr(socials),
-      name: rest.full_name,
-    })),
+    authors:
+      authors?.map(({ socials, id, ...rest }) => ({
+        ...rest,
+        id: String(id),
+        socials: destr(socials),
+        name: rest.full_name,
+      })) ?? [],
     desk: {
       ...desk,
       ...rootDesk,
