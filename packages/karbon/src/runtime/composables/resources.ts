@@ -1,9 +1,17 @@
 import type { AsyncData } from 'nuxt/dist/app/composables'
 import type { Ref } from 'vue'
+import { useAsyncState } from '@vueuse/core'
 import type { BaseMeta, IdComparisonMap, MetaMap, PayloadScope, ResourceID, Resources } from '../types'
 import { invalidContext } from '../utils/invalid-context'
 import urls from '#build/storipress-urls.mjs'
-import { computed, loadStoripressPayload, loadStoripressPayloadWithURL, useAsyncData } from '#imports'
+import {
+  computed,
+  loadStoripressPayload,
+  loadStoripressPayloadWithURL,
+  onServerPrefetch,
+  ref,
+  useAsyncData,
+} from '#imports'
 
 const KEY_TO_SCOPE: Record<Resources, PayloadScope> = {
   article: 'posts',
@@ -17,16 +25,61 @@ type ResourceIDWithURL<Type extends Resources> = ResourceID & { url: string; met
 interface ResourceTransformOptions<Type extends Resources, Return = ResourceIDWithURL<Type>> {
   key: string
   transform: (x: ResourceIDWithURL<Resources>[]) => Return[]
+  withoutAsyncData?: boolean
 }
 
 type UseResourceListOptions<Type extends Resources, Return = ResourceIDWithURL<Type>> =
-  | { key?: string; transform?: undefined }
+  | { key?: string; transform?: undefined; withoutAsyncData?: boolean }
   | ResourceTransformOptions<Type, Return>
 
 export function useResourceList<Type extends Resources, Return = ResourceIDWithURL<Type>>(
   resource: Type,
   opt: UseResourceListOptions<Type, Return> = {},
 ): AsyncData<Return[], true | null> {
+  if (opt.withoutAsyncData) {
+    const getResourceList = async () => {
+      const list = await loadStoripressPayload<MetaMap[Type][]>(KEY_TO_SCOPE[resource], '__all')
+      const transform = opt.transform ?? ((x) => x)
+      const resourceList = list.map(
+        (meta) =>
+          ({
+            type: resource,
+            id: meta.id,
+            ...resolveFromResourceMetaSync(resource, meta),
+          }) as ResourceIDWithURL<Type>,
+      )
+      return transform(resourceList)
+    }
+    const _promise = getResourceList()
+    interface PromiseWithStatus extends Promise<Return[]> {
+      status: Ref<'idle' | 'pending' | 'success' | 'error'>
+      data: Ref<Return[]>
+      pending: Ref<boolean>
+      refresh: () => Promise<Return[]>
+      execute: () => Promise<Return[]>
+      error: Ref<true | null>
+    }
+    const promise = _promise as PromiseWithStatus
+    promise.status = ref('idle')
+
+    const asyncState = useAsyncState(promise, [])
+    onServerPrefetch(async () => {
+      await asyncState
+      await promise
+    })
+
+    const { state, error, isLoading, execute } = asyncState
+
+    promise.data = state
+    promise.pending = isLoading
+    promise.refresh = execute
+    promise.execute = execute
+    promise.error = error as Ref<true | null>
+    promise.status.value = isLoading ? 'pending' : error ? 'error' : 'success'
+
+    return promise as unknown as AsyncData<Return[], true | null>
+  }
+
   return useAsyncData(
     `sp-resource-list-${resource}${opt.key ? `:${opt.key}` : ''}`,
     async () => {

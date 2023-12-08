@@ -121,39 +121,3 @@ export function unwrapParagraph(input: string): string {
 
   return input.replace(/^<p>/, '').replace(/<\/p>$/, '')
 }
-
-// PropertiesList: 'headline', 'title', 'blurb', 'desk', 'deskUrl', 'url', 'authors', 'time'
-// headline: article.cover?.url
-// deskUrl: article.desk && `/desks/${getDesk(article.desk).slug}`
-// url: slug
-// time: new Date(article.published_at)
-const propertiesToKeep = [
-  'featured',
-  'order',
-  'slug',
-  'updated_at',
-  'id',
-  'plan',
-  'bio',
-  'published_at',
-  'title',
-  'blurb',
-  'seo',
-  'plaintext',
-  'cover',
-  'authors',
-  'desk',
-  'tags',
-  'pathnames',
-] as const
-type PropertiesToKeep = (typeof propertiesToKeep)[number]
-
-export function filterArticleProperties(article: _NormalizeArticle): Pick<_NormalizeArticle, PropertiesToKeep> {
-  const filteredArticle = { ...article }
-  for (const property in article) {
-    if (!propertiesToKeep.includes(property as PropertiesToKeep)) {
-      Reflect.deleteProperty(filteredArticle, property)
-    }
-  }
-  return filteredArticle as Pick<_NormalizeArticle, PropertiesToKeep>
-}

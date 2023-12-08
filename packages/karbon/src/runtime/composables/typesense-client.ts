@@ -34,6 +34,30 @@ export interface TypesenseFilter {
 
 export const PER_PAGE = 100
 
+// PropertiesList: 'headline', 'title', 'blurb', 'desk', 'deskUrl', 'url', 'authors', 'time'
+// headline: article.cover?.url
+// deskUrl: article.desk && `/desks/${getDesk(article.desk).slug}`
+// url: slug
+// time: new Date(article.published_at)
+export const propertiesToKeep = [
+  'featured',
+  'order',
+  'slug',
+  'updated_at',
+  'id',
+  'plan',
+  'published_at',
+  'title',
+  'blurb',
+  'seo',
+  'plaintext',
+  'cover',
+  'authors',
+  'desk',
+  'tags',
+  'pathnames',
+] as const
+
 export function getSearchQuery(page = 1, filter: TypesenseFilter = {}) {
   const { desk_ids, author_ids, author_names, tag_ids, tag_names } = filter
   let filterBy = 'published:=true'
@@ -50,6 +74,7 @@ export function getSearchQuery(page = 1, filter: TypesenseFilter = {}) {
     per_page: PER_PAGE,
     page,
     query_by: 'title',
+    include_fields: propertiesToKeep.join(','),
   }
 }
 
