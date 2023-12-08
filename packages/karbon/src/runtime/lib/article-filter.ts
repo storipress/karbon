@@ -71,10 +71,10 @@ export function evaluateCondition(article: Article, conditions: Condition[] = []
         return article.desk[key] === cond.value || article.desk?.desk?.[key] === value
       })
       .with({ type: 'author' }, ({ value }) => {
-        return article.authors.some((author) => author.id === value)
+        return article.authors?.some((author) => author.id === value)
       })
       .with({ type: 'tag' }, ({ key, value }) => {
-        return article.tags.some((tag) => tag[key] === value)
+        return article.tags?.some((tag) => tag[key] === value)
       })
       .with({ type: 'featured' }, ({ value = true }) => {
         return article.featured === value
