@@ -15,7 +15,7 @@ import { splitArticle } from '../lib/split-article'
 import { getStoripressConfig } from '../composables/storipress-base-client'
 import { verboseInvariant } from '../utils/verbose-invariant'
 import type { PaidContent, RawArticleLike, _NormalizeArticle } from './normalize-article'
-import { filterArticleProperties, normalizeArticle } from './normalize-article'
+import { normalizeArticle } from './normalize-article'
 
 export type { NormalizeArticle, PaidContent } from './normalize-article'
 
@@ -269,7 +269,7 @@ export async function listArticles(filter?: TypesenseFilter) {
     const currentPageArticles =
       searchResult?.hits?.map(({ document }) => {
         const article = normalizeArticle(document as RawArticleLike)
-        return filterArticleProperties(article)
+        return article
       }) ?? []
     articles.push(...currentPageArticles)
 

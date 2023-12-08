@@ -4,7 +4,14 @@ import { useAsyncState } from '@vueuse/core'
 import type { BaseMeta, IdComparisonMap, MetaMap, PayloadScope, ResourceID, Resources } from '../types'
 import { invalidContext } from '../utils/invalid-context'
 import urls from '#build/storipress-urls.mjs'
-import { computed, loadStoripressPayload, loadStoripressPayloadWithURL, useAsyncData } from '#imports'
+import {
+  computed,
+  loadStoripressPayload,
+  loadStoripressPayloadWithURL,
+  onServerPrefetch,
+  ref,
+  useAsyncData,
+} from '#imports'
 
 const KEY_TO_SCOPE: Record<Resources, PayloadScope> = {
   article: 'posts',
