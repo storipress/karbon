@@ -5,6 +5,22 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # 0.1.0 (2023-03-15)
 
+## v0.1.102
+
+[compare changes](https://github.com/storipress/karbon/compare/v0.1.101...v0.1.102)
+
+### 🩹 Fixes
+
+- Fix check author article count ([6b8c5e0](https://github.com/storipress/karbon/commit/6b8c5e0))
+
+### 🎨 Styles
+
+- Format ([10bb345](https://github.com/storipress/karbon/commit/10bb345))
+
+### ❤️ Contributors
+
+- DanSnow <dododavid006@gmail.com>
+
 ## v0.1.101
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.100...v0.1.101)
