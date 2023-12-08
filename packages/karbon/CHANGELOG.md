@@ -5,6 +5,23 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # 0.1.0 (2023-03-15)
 
+## v0.1.101
+
+[compare changes](https://github.com/storipress/karbon/compare/v0.1.100...v0.1.101)
+
+### 🚀 Enhancements
+
+- [SPMVP-6948] optimize payload performance ([#308](https://github.com/storipress/karbon/pull/308))
+
+### 🎨 Styles
+
+- Format ([543d715](https://github.com/storipress/karbon/commit/543d715))
+
+### ❤️ Contributors
+
+- DanSnow <dododavid006@gmail.com>
+- Sid Chang
+
 ## v0.1.100
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.99...v0.1.100)
