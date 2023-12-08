@@ -133,7 +133,7 @@ export function setupPage<Type extends PageType>({ type, seo = true }: SetupPage
     const authorId = meta.value.id
 
     onServerPrefetch(async () => {
-      const source = (await getAllArticles()).data.value ?? []
+      const source = (await getAllArticles()) ?? []
       const hasArticle = source.some(({ authors }) => {
         return authors.some((author) => author.id === authorId)
       })

@@ -43,7 +43,9 @@ if (import.meta.hot) {
   })
 }
 
-export function getAllArticles(): AsyncData<UseArticleReturnWithURL[], true | null> {
+export function getAllArticles(): Promise<UseArticleReturnWithURL[]> &
+  AsyncData<UseArticleReturnWithURL[], true | null> {
+  // @ts-expect-error unable to modal this type
   return useResourceList('article', {
     key: 'all',
     transform: (data) => {
