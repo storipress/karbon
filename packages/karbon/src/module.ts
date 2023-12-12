@@ -58,7 +58,8 @@ declare module '#app' {
   }
 }
 
-declare module 'nitropack' {
+// reference: https://github.com/harlan-zw/nuxt-simple-sitemap/blob/324719dff6bf5c4214a093adbac4d5105d35bcb3/src/module.ts#L236
+declare module 'nitropack/dist/runtime/types' {
   interface NitroRuntimeHooks {
     'karbon:request': (ctx: RequestContext) => void
     'karbon:response': (ctx: ResponseContext) => void
