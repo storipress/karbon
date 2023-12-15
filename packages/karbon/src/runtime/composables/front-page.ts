@@ -183,7 +183,7 @@ export function useArticleLoader<UseChunk extends false | number>({
     for (const id of [...articles.value.map(({ id }) => id), ...exclude]) {
       alreadyUsed.add(id)
     }
-    const source = (await getAllArticles()).data.value ?? []
+    const source = (await getAllArticles()) ?? []
     while (source.length) {
       const { result: nextChunk, skip } = getFillArticlesWithSkip(
         { conditions, count: chunk || 1, used: alreadyUsed, sourceCursor },
