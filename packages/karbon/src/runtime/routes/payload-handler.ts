@@ -95,7 +95,8 @@ export function definePayloadHandler<T extends Identifiable>({
       const items = await listAll(true)
       const initial = { slugs: {}, sids: {} }
 
-      return items.reduce((target, { id, slug, sid }) => {
+      return items.reduce((target, { id, slug: _slug, sid }) => {
+        const slug = decodeURIComponent(_slug ?? '')
         slug && Object.assign(target.slugs, { [slug]: id })
         sid && Object.assign(target.sids, { [sid]: id })
         return target

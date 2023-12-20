@@ -197,11 +197,12 @@ function getContextFor(type: Resources | string) {
 }
 
 async function convertToId(scope: PayloadScope, resourceID: any): Promise<string | null> {
-  const { id, slug, sid } = resourceID
+  const { id, slug: _slug, sid } = resourceID
   if (id) {
     return id
   }
   const idComparisonMap = await loadStoripressPayload<IdComparisonMap>(scope, '__map', true)
+  const slug = decodeURIComponent(_slug ?? '')
   return (slug ? idComparisonMap.slugs[slug] : idComparisonMap.sids[sid]) ?? null
 }
 
