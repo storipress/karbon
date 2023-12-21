@@ -5,6 +5,23 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # 0.1.0 (2023-03-15)
 
+## v0.1.106
+
+[compare changes](https://github.com/storipress/karbon/compare/v0.1.105...v0.1.106)
+
+### 🩹 Fixes
+
+- Payload __map.json with special character slugs ([d5d49c7](https://github.com/storipress/karbon/commit/d5d49c7))
+
+### 🎨 Styles
+
+- Format ([0eb965c](https://github.com/storipress/karbon/commit/0eb965c))
+
+### ❤️ Contributors
+
+- DanSnow <dododavid006@gmail.com>
+- Sid <sid@storipress.com>
+
 ## v0.1.105
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.104...v0.1.105)
