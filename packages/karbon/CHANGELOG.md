@@ -42,7 +42,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### 🩹 Fixes
 
-- Payload __map.json with special character slugs ([d5d49c7](https://github.com/storipress/karbon/commit/d5d49c7))
+- Payload \_\_map.json with special character slugs ([d5d49c7](https://github.com/storipress/karbon/commit/d5d49c7))
 
 ### 🎨 Styles
 
