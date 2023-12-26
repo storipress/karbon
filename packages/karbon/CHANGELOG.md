@@ -5,6 +5,25 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # 0.1.0 (2023-03-15)
 
+## v0.1.108
+
+[compare changes](https://github.com/storipress/karbon/compare/v0.1.106...v0.1.108)
+
+### 🩹 Fixes
+
+- [SPMVP-6981] blurb is not use as meta description ([#312](https://github.com/storipress/karbon/pull/312))
+- Release ([8ced175](https://github.com/storipress/karbon/commit/8ced175))
+
+### 🏡 Chore
+
+- Upgrade deps ([d7855e4](https://github.com/storipress/karbon/commit/d7855e4))
+- **release:** V0.1.107 ([90f33ff](https://github.com/storipress/karbon/commit/90f33ff))
+
+### ❤️ Contributors
+
+- DanSnow <dododavid006@gmail.com>
+- Sid Chang
+
 ## v0.1.107
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.106...v0.1.107)
