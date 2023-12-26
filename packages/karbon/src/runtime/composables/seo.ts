@@ -49,7 +49,7 @@ function createFirstFound(paths: string[][]) {
 
 const TITLE = [['seo', 'meta', 'title'], ['title'], ['name']]
 const DESK_DESCRIPTION = [['deskSEO', 'meta', 'description']]
-const DESCRIPTION = [['seo', 'meta', 'description'], ['plaintext'], ...DESK_DESCRIPTION]
+const DESCRIPTION = [['seo', 'meta', 'description'], ['blurb'], ['plaintext'], ...DESK_DESCRIPTION]
 const OG_TITLE = [['seo', 'og', 'title'], ...TITLE]
 const OG_DESK_DESCRIPTION = [['deskSEO', 'og', 'description']]
 const OG_DESCRIPTION = [['seo', 'og', 'description'], ...OG_DESK_DESCRIPTION, ...DESCRIPTION]
