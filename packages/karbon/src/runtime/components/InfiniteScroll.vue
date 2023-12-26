@@ -58,7 +58,7 @@ if (process.client) {
           </CustomFieldScope>
         </slot>
       </template>
-      <slot v-if="loading" name="loading">Loading...</slot>
+      <slot v-if="loading" name="loading" />
     </component>
   </ClientOnly>
 </template>
