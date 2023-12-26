@@ -24,7 +24,7 @@ export function useLoadMore<T>(GeneratorSource: () => AsyncGenerator<T>, option?
 
     if (done) {
       preload ? loadMoreEvent.trigger([value]) : loadMoreEvent.trigger(value)
-      list.push(value)
+      value && list.push(value)
       loading.value = false
 
       isDone.value = true
