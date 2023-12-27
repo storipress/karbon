@@ -1,6 +1,6 @@
 {
   "name": "@storipress/karbon",
-  "version": "0.1.109",
+  "version": "0.1.110",
   "license": "MIT",
   "repository": "git@github.com:storipress/karbon.git",
   "bugs": {
@@ -48,7 +48,7 @@
     "bundle:module": "tsup dist/module.mjs",
     "dev:build": "nuxi build playground",
     "dev:prepare": "JITI_ALIAS='{\"tslib\": \"tslib/tslib.es6.js\"}' nuxt-module-build --stub && JITI_ALIAS='{\"tslib\": \"tslib/tslib.es6.js\"}' nuxi prepare playground",
-    "release": "yarn run lint && yarn run prepack && changelogen --release && yarn npm publish && git push --follow-tags",
+    "release": "tsx scripts/release.mts",
     "lint": "eslint .",
     "test": "vitest",
     "test:watch": "vitest watch"
@@ -223,9 +223,10 @@
     "nx": "17.2.6",
     "prettier": "3.1.1",
     "tsup": "8.0.1",
-    "tsx": "4.7.0",
+    "tsx": "^4.7.0",
     "typescript": "5.3.3",
-    "vitest": "0.34.6"
+    "vitest": "0.34.6",
+    "zx": "^7.2.3"
   },
   "publishConfig": {
     "access": "public"
