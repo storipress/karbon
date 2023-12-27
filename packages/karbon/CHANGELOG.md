@@ -5,6 +5,22 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # 0.1.0 (2023-03-15)
 
+## v0.1.111
+
+[compare changes](https://github.com/storipress/karbon/compare/v0.1.110...v0.1.111)
+
+### 🏡 Chore
+
+- Update release script ([1926120](https://github.com/storipress/karbon/commit/1926120))
+
+### 🎨 Styles
+
+- Format package.json ([e242177](https://github.com/storipress/karbon/commit/e242177))
+
+### ❤️ Contributors
+
+- DanSnow <dododavid006@gmail.com>
+
 ## v0.1.110
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.108...v0.1.110)
