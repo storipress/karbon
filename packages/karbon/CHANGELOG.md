@@ -5,6 +5,22 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # 0.1.0 (2023-03-15)
 
+## v0.1.112
+
+[compare changes](https://github.com/storipress/karbon/compare/v0.1.111...v0.1.112)
+
+### 🩹 Fixes
+
+- Check custom tailwind path exist or not ([cb0de6f](https://github.com/storipress/karbon/commit/cb0de6f))
+
+### 🎨 Styles
+
+- Format package.json ([b820ade](https://github.com/storipress/karbon/commit/b820ade))
+
+### ❤️ Contributors
+
+- DanSnow <dododavid006@gmail.com>
+
 ## v0.1.111
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.110...v0.1.111)
