@@ -9,6 +9,7 @@ import tsconfigPaths from 'vite-tsconfig-paths'
 import { basename, join } from 'pathe'
 import Components from 'unplugin-vue-components/vite'
 import virtual from '@rollup/plugin-virtual'
+import fs from 'fs-extra'
 import consola from 'consola'
 import { loadNuxtConfig } from '@nuxt/kit'
 import { once } from 'remeda'
@@ -73,7 +74,8 @@ export async function bundle(path: string, vuefileName: string, layoutName: stri
   const rollupOptions = createConfig(name, dir, ssr)
   const config = await loadNuxtConfigOnce()
 
-  const tailwindConfigPath = `${process.cwd()}/tailwind.config.js`
+  const _tailwindConfigPath = `${process.cwd()}/tailwind.config.js`
+  const tailwindConfigPath = (await fs.pathExists(_tailwindConfigPath)) ? _tailwindConfigPath : undefined
 
   await viteBuild({
     clearScreen: false,
@@ -110,7 +112,9 @@ export async function bundle(path: string, vuefileName: string, layoutName: stri
                 },
               },
             ],
-            config: tailwindConfigPath,
+            config: tailwindConfigPath ?? {
+              content: [],
+            },
           }),
         ],
       },
