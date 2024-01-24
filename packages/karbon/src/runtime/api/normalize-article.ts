@@ -4,25 +4,59 @@ import type { Segment } from '../lib/split-article'
 import type { ArticleDesk, ArticlePlan, ArticleTag } from '../types'
 import { useArticleFilter } from '#imports'
 
-export interface RawUserLike {
+export interface TypesenseArticleLike {
   id: string
-  slug: string
-  first_name: string
-  last_name: string
-  full_name: string
-  socials: Record<string, string>
-}
-
-export interface RawArticleLike {
-  id: string
-  sid?: string
   slug: string
   featured: boolean
   order: number
   updated_at: number
   title: string
   blurb: string
+  seo: string
+  cover: string
+  plan: ArticlePlan
+  authors: {
+    id: number
+    slug: string
+    full_name: string
+    socials: string
+    avatar: string
+    bio: string
+    location: string
+  }[]
+  tags: {
+    id: number
+    name: string
+    slug: string
+  }[]
+  desk: {
+    id: number
+    name: string
+    slug: string
+    desk?: undefined
+  }
+  published_at: string | number
+  pathnames: string[]
+  html?: undefined
+  plaintext?: undefined
+}
+export interface RawUserLike {
+  id: string
+  slug: string
+  full_name: string
+  socials: string
+  avatar: string
   bio: string
+  location: string
+}
+
+export interface RawArticleLike {
+  id: string
+  slug: string
+  featured: boolean
+  updated_at: string | number
+  title: string
+  blurb: string
   seo: string
   cover: string
   html: string
@@ -32,7 +66,8 @@ export interface RawArticleLike {
   tags: ArticleTag[]
   desk: ArticleDesk
   published_at: string | number
-  pathnames: string[]
+  order?: undefined
+  pathnames?: undefined
 }
 
 export interface PaidContent {
@@ -51,24 +86,12 @@ export interface RawSEO {
   ogImage?: string
 }
 
-export function normalizeArticle({
-  title,
-  blurb,
-  bio,
-  seo,
-  cover,
-  plan,
-  plaintext,
-  html,
-  id,
-  authors,
-  desk,
-  tags,
-  published_at,
-  ...rest
-}: RawArticleLike) {
+export function normalizeArticle(article: RawArticleLike | TypesenseArticleLike) {
+  const { title, blurb, seo, cover, plan, id, authors, desk, tags, published_at, html, plaintext, ...rest } = article
+
   const articleFilter = useArticleFilter()
-  const rootDesk = desk.desk ? { desk: { ...desk.desk, id: String(desk.desk.id) } } : {}
+  const rootDesk = desk?.desk ? { desk: { ...desk.desk, id: String(desk.desk.id) } } : {}
+  const bio = authors?.[0]?.bio ?? ''
 
   return {
     ...rest,
@@ -81,7 +104,7 @@ export function normalizeArticle({
     title: unwrapParagraph(title),
     blurb: unwrapParagraph(blurb),
     seo: destr<RawSEO>(seo),
-    html,
+    html: html ?? '',
     plaintext: truncate(plaintext, {
       // description length
       length: 120,
@@ -110,7 +133,7 @@ export function normalizeArticle({
 
 export type _NormalizeArticle = ReturnType<typeof normalizeArticle>
 
-export interface NormalizeArticle extends ReturnType<typeof normalizeArticle> {
+export type NormalizeArticle = _NormalizeArticle & {
   paidContent?: PaidContent
   segments: Segment[]
 }

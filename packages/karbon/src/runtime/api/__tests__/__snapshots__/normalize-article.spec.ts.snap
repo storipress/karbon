@@ -1,0 +1,229 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`mockTypesenseArticle 1`] = `
+{
+  "authors": [
+    {
+      "avatar": "https://assets.stori.press/media/images/f3354bcf-a572-4fc0-8e3d-d19cbcfbc318.png",
+      "bio": "<p>Sid Test</p>",
+      "full_name": "Sidd Chang",
+      "id": "242",
+      "location": "T",
+      "name": "Sidd Chang",
+      "slug": "sidd-chang",
+      "socials": [],
+    },
+  ],
+  "bio": "Sid Test",
+  "bioHTML": "<p>Sid Test</p>",
+  "blurb": "This is a mock article",
+  "cover": {
+    "alt": null,
+    "caption": "<p>Photo by <a href=\\"https://unsplash.com/@kz29?utm_source=Storipress&utm_medium=referral&utm_campaign=api-credit?utm_source=storipress&utm_medium=referral&utm_campaign=api-credit\\">Keith Zhang</a> / <a href=\\"https://unsplash.com/?utm_source=storipress&utm_medium=referral&utm_campaign=api-credit\\">Unsplash</a></p>",
+    "crop": {
+      "height": 0,
+      "key": "",
+      "left": 50,
+      "realHeight": 3024,
+      "realWidth": 4032,
+      "top": 50,
+      "width": 0,
+      "zoom": 1,
+    },
+    "url": "https://images.unsplash.com/photo-1704461539031-e7c2145e5fc4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wyMzc2NzF8MHwxfGFsbHw5fHx8fHx8Mnx8MTcwNDc1ODc2Nnw&ixlib=rb-4.0.3&q=80&w=1080",
+  },
+  "desk": {
+    "id": "119",
+    "name": "test",
+    "slug": "test-32",
+  },
+  "featured": false,
+  "html": "",
+  "id": "619",
+  "order": 400,
+  "pathnames": [
+    "/posts/mock-article",
+    "/posts/mock-article",
+    "/posts/mock-article",
+    "/posts/new-mock-article",
+    "/posts/mock-article",
+  ],
+  "plaintext": "",
+  "plan": "free",
+  "published_at": "2024-01-08T23:46:33.000Z",
+  "seo": {
+    "hasSlug": true,
+    "meta": {
+      "description": "Discover expert tips for boosting your website's visibility and driving traffic with our comprehensive SEO strategies guide. strategies guide.",
+      "title": "SEO Title Tag: Essential Tips for Effective Article Writing Article Writing",
+    },
+    "og": {
+      "description": "",
+      "title": "",
+    },
+    "ogImage": "",
+  },
+  "slug": "mock-article-test",
+  "tags": [
+    {
+      "id": "44",
+      "name": "foo",
+      "slug": "foo",
+    },
+  ],
+  "title": "Mock Article",
+  "updated_at": 1704758778,
+}
+`;
+
+exports[`mockTypesenseArticle 2`] = `
+{
+  "authors": [
+    {
+      "avatar": "https://assets.stori.press/media/images/f3354bcf-a572-4fc0-8e3d-d19cbcfbc318.png",
+      "bio": "<p>Sid Test</p>",
+      "email": "sid+0705@storipress.com",
+      "first_name": "Sidd",
+      "full_name": "Sidd Chang",
+      "id": "242",
+      "last_name": "Chang",
+      "location": "T",
+      "name": "Sidd Chang",
+      "slug": "sidd-chang",
+      "socials": [],
+    },
+  ],
+  "bio": "Sid Test",
+  "bioHTML": "<p>Sid Test</p>",
+  "blurb": "This is a mock article",
+  "content_blocks": [],
+  "cover": {
+    "alt": null,
+    "caption": "<p>Photo by <a href=\\"https://unsplash.com/@kz29?utm_source=Storipress&utm_medium=referral&utm_campaign=api-credit?utm_source=storipress&utm_medium=referral&utm_campaign=api-credit\\">Keith Zhang</a> / <a href=\\"https://unsplash.com/?utm_source=storipress&utm_medium=referral&utm_campaign=api-credit\\">Unsplash</a></p>",
+    "crop": {
+      "height": 0,
+      "key": "",
+      "left": 50,
+      "realHeight": 3024,
+      "realWidth": 4032,
+      "top": 50,
+      "width": 0,
+      "zoom": 1,
+    },
+    "url": "https://images.unsplash.com/photo-1704461539031-e7c2145e5fc4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wyMzc2NzF8MHwxfGFsbHw5fHx8fHx8Mnx8MTcwNDc1ODc2Nnw&ixlib=rb-4.0.3&q=80&w=1080",
+  },
+  "desk": {
+    "desk": null,
+    "id": "119",
+    "layout": null,
+    "name": "test",
+    "slug": "test-32",
+  },
+  "featured": false,
+  "html": "<p>Mock Article Content</p>",
+  "id": "619",
+  "layout": null,
+  "metafields": [
+    {
+      "group": {
+        "id": "70",
+        "key": "__layoutmeta",
+        "type": "articleMetafield",
+      },
+      "id": "76",
+      "key": "layoutid",
+      "type": "text",
+      "values": [],
+    },
+    {
+      "group": {
+        "id": "81",
+        "key": "test",
+        "type": "articleMetafield",
+      },
+      "id": "100",
+      "key": "test",
+      "type": "text",
+      "values": [],
+    },
+    {
+      "group": {
+        "id": "82",
+        "key": "webflow",
+        "type": "articleMetafield",
+      },
+      "id": "104",
+      "key": "color",
+      "type": "color",
+      "values": [],
+    },
+    {
+      "group": {
+        "id": "82",
+        "key": "webflow",
+        "type": "articleMetafield",
+      },
+      "id": "103",
+      "key": "thumbnail-image",
+      "type": "file",
+      "values": [],
+    },
+  ],
+  "plaintext": "Mock Article Content",
+  "plan": "free",
+  "published_at": "2024-01-08T23:46:33+00:00",
+  "relevances": [
+    {
+      "id": "21",
+      "title": "When an editor thinks an article is",
+    },
+    {
+      "id": "20",
+      "title": "When a writer wants an editor to review their work, it goes here",
+    },
+    {
+      "id": "24",
+      "title": "Chris' First Article Chris' First ArticleChris' First ArticleChris' First ArticleChris' First ArticleChris' First Article",
+    },
+    {
+      "id": "43",
+      "title": "<p>&lt;c&gt;12345&lt;/c&gt;</p>",
+    },
+    {
+      "id": "596",
+      "title": "<p>New Article 2</p>",
+    },
+    {
+      "id": "597",
+      "title": "<p>New article 3</p>",
+    },
+    {
+      "id": "598",
+      "title": "<p>New article 4</p>",
+    },
+  ],
+  "seo": {
+    "hasSlug": true,
+    "meta": {
+      "description": "Discover expert tips for boosting your website's visibility and driving traffic with our comprehensive SEO strategies guide. strategies guide.",
+      "title": "SEO Title Tag: Essential Tips for Effective Article Writing Article Writing",
+    },
+    "og": {
+      "description": "",
+      "title": "",
+    },
+    "ogImage": "",
+  },
+  "shadow_authors": null,
+  "slug": "mock-article-test",
+  "tags": [
+    {
+      "id": "44",
+      "name": "foo",
+      "slug": "foo",
+    },
+  ],
+  "title": "Mock Article",
+  "updated_at": "2024-01-09T00:32:10+00:00",
+}
+`;
