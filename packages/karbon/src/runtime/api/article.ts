@@ -289,14 +289,20 @@ export async function listArticles(filter?: TypesenseFilter) {
       throw error
     })
     const searchResult = destr<SearchResponse<TypesenseArticleLike>>(rawSearchResult)
+
+    const failedDocument: TypesenseArticleLike[] = []
     const currentPageArticles =
       searchResult?.hits?.map(({ document }) => {
         if (process.env.NODE_ENV === 'development') {
-          ArticleSchema.parse(document)
+          const { success } = ArticleSchema.safeParse(document)
+          if (!success) failedDocument.push(document)
         }
         const article = normalizeArticle(document as TypesenseArticleLike)
         return article
       }) ?? []
+    if (failedDocument.length > 0) {
+      console.error(new Error(`Invalid article: ${JSON.stringify(failedDocument)}`))
+    }
     articles.push(...currentPageArticles)
 
     hasMore = searchResult.found > searchResult.page * PER_PAGE
@@ -320,7 +326,10 @@ export async function getArticle(id: string) {
   }
 
   if (process.env.NODE_ENV === 'development') {
-    QueryArticleSchema.parse(data.article)
+    const { success } = QueryArticleSchema.safeParse(document)
+    if (!success) {
+      console.error(new Error(`Invalid article: ${JSON.stringify(document)}`))
+    }
   }
   const res = await encryptArticle(normalizeArticle(data.article))
   return res
