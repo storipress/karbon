@@ -326,9 +326,9 @@ export async function getArticle(id: string) {
   }
 
   if (process.env.NODE_ENV === 'development') {
-    const { success } = QueryArticleSchema.safeParse(document)
+    const { success } = QueryArticleSchema.safeParse(data.article)
     if (!success) {
-      console.error(new Error(`Invalid article: ${JSON.stringify(document)}`))
+      console.error(new Error(`Invalid article: ${JSON.stringify(data.article)}`))
     }
   }
   const res = await encryptArticle(normalizeArticle(data.article))
