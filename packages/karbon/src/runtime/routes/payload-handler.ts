@@ -1,7 +1,10 @@
 import { filter, first, pipe } from 'remeda'
-import { setHeader } from 'h3'
+import { setHeader, setResponseStatus } from 'h3'
 import { FieldType } from '@storipress/custom-field'
-import type { Identifiable } from '../types'
+import type { ApolloError } from '@apollo/client/core/index.js'
+import type { Identifiable, PayloadScope } from '../types'
+import type { KarbonError, KarbonErrorMeta } from '../utils/error'
+import { KarbonErrorSymbol, isKarbonErrorMeta } from '../utils/error'
 import {
   ALL_RESOURCE_JSON_PATH,
   ALL_RESOURCE_PATH,
@@ -59,6 +62,7 @@ interface ValueMap {
 }
 
 export interface DefinePayloadHandlerInput<T extends Identifiable> {
+  payloadScope: PayloadScope
   listAll: (bypassCache: boolean) => Promise<T[]>
   getOne: (id: string) => Promise<T | undefined | null>
   /**
@@ -68,11 +72,31 @@ export interface DefinePayloadHandlerInput<T extends Identifiable> {
 }
 
 export function definePayloadHandler<T extends Identifiable>({
+  payloadScope,
   listAll,
   getOne,
   listHash,
 }: DefinePayloadHandlerInput<T>): any {
   return defineSnapshotHandler(async (name, event) => {
+    async function handleListAll(bypassCache: boolean): Promise<T[] | KarbonErrorMeta> {
+      return await listAll(bypassCache).catch((error: KarbonError | ApolloError) => {
+        const networkError = (error as ApolloError)?.networkError as { statusCode: number }
+        const statusCode = networkError?.statusCode
+        const httpStatus = (error as KarbonError)?.httpStatus ?? statusCode ?? 500
+        setResponseStatus(event, httpStatus, error?.message)
+
+        return {
+          payloadScope,
+          function: `defineSnapshotHandler > callback > handleListAll > name: ${name}`,
+          symbol: KarbonErrorSymbol,
+          httpStatus,
+          message: error.message,
+          stack: error.stack,
+          error,
+        }
+      })
+    }
+
     function setEtag(items: T[]) {
       if (listHash) {
         const hash = listHash(items)
@@ -82,17 +106,23 @@ export function definePayloadHandler<T extends Identifiable>({
 
     const bypassCache = shouldBypassCache(event)
     if (name === ALL_RESOURCE_JSON_PATH) {
-      const items = await listAll(bypassCache)
+      const items = await handleListAll(bypassCache)
+      if (isKarbonErrorMeta(items)) return items
+
       setEtag(items)
       return items
     }
     if (name === ALL_RESOURCE_PATH) {
-      const items = await listAll(bypassCache)
+      const items = await handleListAll(bypassCache)
+      if (isKarbonErrorMeta(items)) return items
+
       setEtag(items)
       return items.map(({ id }) => id)
     }
     if (name === ID_COMPARISON_MAP) {
-      const items = await listAll(true)
+      const items = await handleListAll(true)
+      if (isKarbonErrorMeta(items)) return items
+
       const initial = { slugs: {}, sids: {} }
 
       return items.reduce((target, { id, slug: _slug, sid }) => {
