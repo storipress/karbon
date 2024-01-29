@@ -5,6 +5,7 @@ import { defineCachedEventHandler } from '#imports'
 
 export default defineCachedEventHandler(
   definePayloadHandler({
+    payloadScope: 'tags',
     listAll: listTags,
     getOne: getTag,
   }),

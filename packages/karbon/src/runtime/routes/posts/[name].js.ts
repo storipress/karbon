@@ -21,6 +21,7 @@ interface CacheEntry<T = any> {
 
 export default defineCachedEventHandler(
   definePayloadHandler({
+    payloadScope: 'posts',
     listAll: cachedFunction(listArticles, {
       name: 'article-list',
       swr: true,

@@ -3,6 +3,7 @@ import type { Ref } from 'vue'
 import { useAsyncState } from '@vueuse/core'
 import type { BaseMeta, IdComparisonMap, MetaMap, PayloadScope, ResourceID, Resources } from '../types'
 import { invalidContext } from '../utils/invalid-context'
+import { KarbonError } from '../utils/error'
 import urls from '#build/storipress-urls.mjs'
 import {
   computed,
@@ -144,18 +145,29 @@ function resolveAsRef(key: string, resourceID: ResourceID) {
 }
 
 async function resolveResource(resourceID: ResourceID, params?: Record<string, string>, resourceName?: string) {
-  const { type } = resourceID
-  const resource = resourceName || type
-  const id = await resolveAsID(resourceID)
-  if (!id) {
-    return null
+  try {
+    const { type } = resourceID
+    const resource = resourceName || type
+    const id = await resolveAsID(resourceID)
+    if (!id) {
+      return null
+    }
+    const meta = await getResourceMeta(KEY_TO_SCOPE[type], id)
+    if (!meta) {
+      return null
+    }
+    return resolveFromResourceMeta(resource, meta, params)
+  } catch (error) {
+    throw new KarbonError('resolveResource fail', { cause: error })
   }
-  const meta = await getResourceMeta(KEY_TO_SCOPE[type], id)
-  return resolveFromResourceMeta(resource, meta, params)
 }
 
 async function resolveAsID(resourceID: ResourceID): Promise<string | null> {
-  return convertToId(KEY_TO_SCOPE[resourceID.type], resourceID)
+  try {
+    return await convertToId(KEY_TO_SCOPE[resourceID.type], resourceID)
+  } catch (error) {
+    throw new KarbonError('convertToId fail', { cause: error })
+  }
 }
 
 async function resolveFromResourceMeta(type: Resources | string, meta: BaseMeta, params?: Record<string, string>) {
@@ -186,8 +198,9 @@ function resolveFromResourceMetaSync(type: Resources | string, meta: BaseMeta, p
   }
 }
 
-async function getResourceMeta<Meta extends BaseMeta>(scope: PayloadScope, id: string): Promise<Meta> {
+async function getResourceMeta<Meta extends BaseMeta>(scope: PayloadScope, id: string): Promise<Meta | null> {
   const meta = await loadStoripressPayload<Meta>(scope, id)
+  if (typeof meta === 'string') return null
 
   return meta
 }

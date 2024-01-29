@@ -37,6 +37,7 @@ const fetchMeta = defineNuxtRouteMiddleware(async (to) => {
   const resourceID = urls[urlKey].getIdentity(to.params as Record<string, string>, ctx, desksMeta)
   const res = await resolveID(resourceID, to.params as Record<string, string>, to.meta.resourceName as string)
   if (!res) {
+    setResponseStatus(event, 404)
     return
   }
 
@@ -54,7 +55,7 @@ const abortIfNoMeta = defineNuxtRouteMiddleware(() => {
       return
     }
 
-    setResponseStatus(404)
+    setResponseStatus(event, 404)
     // skipcq: JS-0045
     return abortNavigation()
   }
