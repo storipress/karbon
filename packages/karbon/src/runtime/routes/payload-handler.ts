@@ -2,9 +2,10 @@ import { filter, first, pipe } from 'remeda'
 import { setHeader, setResponseStatus } from 'h3'
 import { FieldType } from '@storipress/custom-field'
 import type { ApolloError } from '@apollo/client/core/index.js'
+import type { Errors } from 'typesense'
 import type { Identifiable, PayloadScope } from '../types'
-import type { KarbonError, KarbonErrorMeta } from '../utils/error'
-import { KarbonErrorSymbol, isKarbonErrorMeta } from '../utils/error'
+import type { KarbonErrorMeta } from '../utils/error'
+import { isKarbonErrorMeta } from '../utils/error'
 import {
   ALL_RESOURCE_JSON_PATH,
   ALL_RESOURCE_PATH,
@@ -79,16 +80,16 @@ export function definePayloadHandler<T extends Identifiable>({
 }: DefinePayloadHandlerInput<T>): any {
   return defineSnapshotHandler(async (name, event) => {
     async function handleListAll(bypassCache: boolean): Promise<T[] | KarbonErrorMeta> {
-      return await listAll(bypassCache).catch((error: KarbonError | ApolloError) => {
+      return await listAll(bypassCache).catch((error: ApolloError | Errors.TypesenseError) => {
         const networkError = (error as ApolloError)?.networkError as { statusCode: number }
         const statusCode = networkError?.statusCode
-        const httpStatus = (error as KarbonError)?.httpStatus ?? statusCode ?? 500
+        const httpStatus = (error as Errors.TypesenseError)?.httpStatus ?? statusCode ?? 500
         setResponseStatus(event, httpStatus, error?.message)
 
         return {
+          __isKarbonError: true,
           payloadScope,
           function: `defineSnapshotHandler > callback > handleListAll > name: ${name}`,
-          symbol: KarbonErrorSymbol,
           httpStatus,
           message: error.message,
           stack: error.stack,

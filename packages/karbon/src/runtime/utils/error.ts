@@ -13,12 +13,10 @@ export function isKarbonError(error: unknown): error is KarbonError {
   return error instanceof KarbonError
 }
 
-export const KarbonErrorSymbol = Symbol('KarbonError')
-
 export interface KarbonErrorMeta {
+  __isKarbonError: true
   payloadScope?: PayloadScope
   function?: string
-  symbol: typeof KarbonErrorSymbol
   httpStatus?: number
   message: string
   stack?: string
@@ -27,5 +25,5 @@ export interface KarbonErrorMeta {
 
 export function isKarbonErrorMeta(error: unknown): error is KarbonErrorMeta {
   const _error = error as KarbonErrorMeta
-  return _error?.symbol === KarbonErrorSymbol
+  return Boolean(_error.__isKarbonError)
 }
