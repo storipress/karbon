@@ -164,7 +164,7 @@ async function resolveResource(resourceID: ResourceID, params?: Record<string, s
 
 async function resolveAsID(resourceID: ResourceID): Promise<string | null> {
   try {
-    return convertToId(KEY_TO_SCOPE[resourceID.type], resourceID)
+    return await convertToId(KEY_TO_SCOPE[resourceID.type], resourceID)
   } catch (error) {
     throw new KarbonError('convertToId fail', { cause: error })
   }

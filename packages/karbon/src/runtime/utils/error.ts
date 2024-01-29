@@ -1,13 +1,8 @@
-import { symbol } from 'zod'
 import type { PayloadScope } from '../types'
 
 export class KarbonError extends Error {
-  name: string = 'KarbonError'
-  httpStatus: number = 500
-
-  constructor(message: string, errorOptions?: ErrorOptions) {
-    super(message, errorOptions)
-  }
+  name = 'KarbonError'
+  httpStatus = 500
 
   setHttpStatus(code: number) {
     this.httpStatus = code
@@ -27,9 +22,10 @@ export interface KarbonErrorMeta {
   httpStatus?: number
   message: string
   stack?: string
-  error?: any
+  error?: unknown
 }
 
-export function isKarbonErrorMeta(error: any): error is KarbonErrorMeta {
-  return error?.symbol === KarbonErrorSymbol
+export function isKarbonErrorMeta(error: unknown): error is KarbonErrorMeta {
+  const _error = error as KarbonErrorMeta
+  return _error?.symbol === KarbonErrorSymbol
 }
