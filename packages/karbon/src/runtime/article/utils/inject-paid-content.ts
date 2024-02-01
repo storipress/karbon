@@ -11,7 +11,7 @@ const decryptedSet = new WeakSet()
 
 export async function decryptPaidContent(
   contentKey: string,
-  rawIv: number[],
+  rawIv: string,
   segments: Segment[],
   getDecryptKey: (key: string) => Promise<ViewableApiResult>,
 ) {
@@ -21,7 +21,7 @@ export async function decryptPaidContent(
       return segments
     }
     const key = base64ToUint8Array(verifyResult._key ?? '')
-    const iv = new Uint8Array(rawIv)
+    const iv = base64ToUint8Array(rawIv)
     // passing the third parameter is to avoid the TypeError: additionalData: Not a BufferSource
     const cipher = gcm(key, iv, new Uint8Array(0))
     const decryptSegment = await Promise.all(

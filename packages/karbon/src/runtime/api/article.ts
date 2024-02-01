@@ -363,7 +363,7 @@ async function encryptArticle({ plan, html, id, ...rest }: _NormalizeArticle) {
     paidContent = {
       key: encryptedKey,
       content: Buffer.from(content).toString('base64'),
-      iv: Array.from(iv),
+      iv: Buffer.from(iv).toString('base64'),
     }
 
     segments = await Promise.all(

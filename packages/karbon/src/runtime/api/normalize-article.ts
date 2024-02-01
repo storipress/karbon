@@ -73,7 +73,7 @@ export interface RawArticleLike {
 export interface PaidContent {
   content: string
   key: string
-  iv: number[]
+  iv: string
 }
 
 export interface RawSEOItem {
