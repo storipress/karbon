@@ -1,4 +1,4 @@
-import { decrypt } from 'micro-aes-gcm'
+import { gcm } from '@noble/ciphers/webcrypto/aes'
 import type { ViewableApiResult } from '../../composables/viewable'
 import type { PaidSegment, Segment } from '../../lib/split-article'
 import { executeScriptElements } from './execute-script'
@@ -11,6 +11,7 @@ const decryptedSet = new WeakSet()
 
 export async function decryptPaidContent(
   contentKey: string,
+  rawIv: number[],
   segments: Segment[],
   getDecryptKey: (key: string) => Promise<ViewableApiResult>,
 ) {
@@ -20,12 +21,15 @@ export async function decryptPaidContent(
       return segments
     }
     const key = base64ToUint8Array(verifyResult._key ?? '')
+    const iv = new Uint8Array(rawIv)
+    // passing the third parameter is to avoid the TypeError: additionalData: Not a BufferSource
+    const cipher = gcm(key, iv, new Uint8Array(0))
     const decryptSegment = await Promise.all(
       segments.map(async (segment) => {
         if (segment.id !== 'paid') return segment
 
         const content = base64ToUint8Array((segment as PaidSegment).paidContent)
-        const decrypted = await decrypt(key, content)
+        const decrypted = await cipher.decrypt(content)
         const decoder = new TextDecoder('utf-8')
         const html = decoder.decode(decrypted)
         return {
