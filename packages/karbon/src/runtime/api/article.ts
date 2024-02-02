@@ -1,7 +1,8 @@
 import { Buffer } from 'node:buffer'
 import { gql } from '@apollo/client/core/index.js'
-import { encrypt } from 'micro-aes-gcm'
 import { destr } from 'destr'
+import { gcm } from '@noble/ciphers/webcrypto/aes'
+import { randomBytes } from '@noble/ciphers/webcrypto/utils'
 
 // This file contains global crypto polyfill
 import { CompactEncrypt } from '@storipress/jose-browser'
@@ -347,10 +348,14 @@ async function encryptArticle({ plan, html, id, ...rest }: _NormalizeArticle) {
     const previewParagraph = storipress.previewParagraph ?? 3
     const [preview, paid] = splitPaidContent(html, storipress.previewParagraph ?? 3)
     freeHTML = preview
+    const encoder = new TextEncoder()
 
     const cryptoKey = await crypto.subtle.generateKey({ name: 'AES-GCM', length: 256 }, true, ['encrypt'])
     const key = await crypto.subtle.exportKey('raw', cryptoKey)
-    const content = await encrypt(new Uint8Array(key), paid)
+    const iv = randomBytes(12)
+    const cipher = gcm(new Uint8Array(key), iv)
+    const content = await cipher.encrypt(encoder.encode(paid))
+
     const compactEncrypter = new CompactEncrypt(
       Buffer.from(JSON.stringify({ id, plan, key: Buffer.from(key).toString('base64') })),
     ).setProtectedHeader({ enc: 'A256GCM', alg: 'dir' })
@@ -358,6 +363,7 @@ async function encryptArticle({ plan, html, id, ...rest }: _NormalizeArticle) {
     paidContent = {
       key: encryptedKey,
       content: Buffer.from(content).toString('base64'),
+      iv: Buffer.from(iv).toString('base64'),
     }
 
     segments = await Promise.all(
@@ -366,7 +372,7 @@ async function encryptArticle({ plan, html, id, ...rest }: _NormalizeArticle) {
         const noEncrypt = html === undefined || (index < previewParagraph && source.length > previewParagraph)
         if (noEncrypt) return segment
 
-        const content = await encrypt(new Uint8Array(key), html)
+        const content = await cipher.encrypt(encoder.encode(html))
         return {
           id: 'paid',
           type: segment.type,

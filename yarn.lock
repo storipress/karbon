@@ -1488,6 +1488,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@noble/ciphers@npm:^0.4.1":
+  version: 0.4.1
+  resolution: "@noble/ciphers@npm:0.4.1"
+  checksum: f3787b00c9486d0e23afd3c3aeab288f18c895f7d0ae6395bfaeb80e1a02e20b258c1bcf264d6db568c135512095eb2731438ee229987479c457cbc5186bb720
+  languageName: node
+  linkType: hard
+
 "@nodelib/fs.scandir@npm:2.1.5":
   version: 2.1.5
   resolution: "@nodelib/fs.scandir@npm:2.1.5"
@@ -2691,7 +2698,7 @@ __metadata:
     "@headlessui/vue": "npm:^1.7.16"
     "@stripe/stripe-js": "npm:^2.1.6"
     "@types/lodash-es": "npm:^4.17.9"
-    "@vue/apollo-composable": "npm:^4.0.0-beta.11"
+    "@vue/apollo-composable": "npm:^4.0.1"
     "@vueuse/core": "npm:^10.2.1"
     dayjs: "npm:^1.11.9"
     graphql: "npm:^16.7.1"
@@ -2768,6 +2775,7 @@ __metadata:
     "@apollo/client": "npm:^3.8.8"
     "@babel/runtime": "npm:^7.23.9"
     "@iframely/embed.js": "npm:^1.10.3"
+    "@noble/ciphers": "npm:^0.4.1"
     "@nuxt/devalue": "npm:^2.0.2"
     "@nuxt/image": "npm:1.0.0-rc.1"
     "@nuxt/kit": "npm:3.6.5"
@@ -2806,7 +2814,6 @@ __metadata:
     knitwork: "npm:^1.0.0"
     lodash.sortby: "npm:^4.7.0"
     lodash.truncate: "npm:^4.4.2"
-    micro-aes-gcm: "npm:^0.3.3"
     msw: "npm:1.3.2"
     node-fetch-native: "npm:^1.4.1"
     npm-run-all2: "npm:5.0.0"
@@ -2848,6 +2855,7 @@ __metadata:
     "@apollo/client": "npm:^3.8.8"
     "@babel/runtime": "npm:^7.23.9"
     "@iframely/embed.js": "npm:^1.10.3"
+    "@noble/ciphers": "npm:^0.4.1"
     "@nuxt/devalue": "npm:^2.0.2"
     "@nuxt/devtools": "npm:0.8.0"
     "@nuxt/image": "npm:1.0.0-rc.1"
@@ -2891,7 +2899,6 @@ __metadata:
     knitwork: "npm:^1.0.0"
     lodash.sortby: "npm:^4.7.0"
     lodash.truncate: "npm:^4.4.2"
-    micro-aes-gcm: "npm:^0.3.3"
     msw: "npm:1.3.2"
     node-fetch-native: "npm:^1.4.1"
     npm-run-all2: "npm:5.0.0"
@@ -2932,6 +2939,7 @@ __metadata:
     "@babel/runtime": "npm:^7.23.9"
     "@haverstack/axios-fetch-adapter": "npm:0.8.0"
     "@iframely/embed.js": "npm:^1.10.3"
+    "@noble/ciphers": "npm:^0.4.1"
     "@nuxt/devalue": "npm:^2.0.2"
     "@nuxt/eslint-config": "npm:0.2.0"
     "@nuxt/image": "npm:^1.0.0-rc.1"
@@ -2989,7 +2997,6 @@ __metadata:
     jszip: "npm:^3.10.1"
     knitwork: "npm:^1.0.0"
     lodash.truncate: "npm:^4.4.2"
-    micro-aes-gcm: "npm:^0.3.3"
     minimist: "npm:^1.2.8"
     msw: "npm:1.3.2"
     node-fetch-native: "npm:^1.4.1"
@@ -4103,9 +4110,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vue/apollo-composable@npm:^4.0.0-beta.11":
-  version: 4.0.0-beta.11
-  resolution: "@vue/apollo-composable@npm:4.0.0-beta.11"
+"@vue/apollo-composable@npm:^4.0.1":
+  version: 4.0.1
+  resolution: "@vue/apollo-composable@npm:4.0.1"
   dependencies:
     throttle-debounce: "npm:^5.0.0"
     ts-essentials: "npm:^9.4.0"
@@ -4118,7 +4125,7 @@ __metadata:
   peerDependenciesMeta:
     "@vue/composition-api":
       optional: true
-  checksum: a053b179e197a0a42c81c4aaf883dc1d02cd95c6cf0544e46d33e8160158219403c5a3e4c958f4b7e8c38b44127a014014c2ced4e5275a4536a96c8492d3c948
+  checksum: 59948c8ba431e4c796f564fa76ede395c5b5cda85e19c3356c723c5aae259297f916deb8d41b68188738151d11749fa257543d170551697ae01f0c3064d3b9fa
   languageName: node
   linkType: hard
 
@@ -10148,13 +10155,6 @@ __metadata:
   version: 1.1.2
   resolution: "methods@npm:1.1.2"
   checksum: a385dd974faa34b5dd021b2bbf78c722881bf6f003bfe6d391d7da3ea1ed625d1ff10ddd13c57531f628b3e785be38d3eed10ad03cebd90b76932413df9a1820
-  languageName: node
-  linkType: hard
-
-"micro-aes-gcm@npm:^0.3.3":
-  version: 0.3.3
-  resolution: "micro-aes-gcm@npm:0.3.3"
-  checksum: b1a1fcd7f8dc9b6320e3f0087c28c7a922d207dfcc7e95c800bfda6004c94a67effef74de8a409e8a617c651f7e979fd451581ded30e0d3ef0f6cd6f30594f47
   languageName: node
   linkType: hard
 

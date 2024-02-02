@@ -46,7 +46,12 @@ watchEffect(() => {
 
 const { state: articleSegments, execute } = useAsyncState<Segment[]>(
   async () => {
-    return await decryptPaidContent(article?.paidContent?.key ?? '', article?.segments ?? [], getDecryptKey)
+    return await decryptPaidContent(
+      article?.paidContent?.key ?? '',
+      article?.paidContent?.iv ?? '',
+      article?.segments ?? [],
+      getDecryptKey,
+    )
   },
   article?.segments ?? [],
 )
