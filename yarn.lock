@@ -1830,22 +1830,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nuxt/module-builder@npm:0.5.4":
-  version: 0.5.4
-  resolution: "@nuxt/module-builder@npm:0.5.4"
+"@nuxt/module-builder@npm:0.5.5":
+  version: 0.5.5
+  resolution: "@nuxt/module-builder@npm:0.5.5"
   dependencies:
-    citty: "npm:^0.1.4"
+    citty: "npm:^0.1.5"
     consola: "npm:^3.2.3"
     mlly: "npm:^1.4.2"
     pathe: "npm:^1.1.1"
     unbuild: "npm:^2.0.0"
   peerDependencies:
-    "@nuxt/kit": ^3.8.1
-    nuxi: ^3.9.1
+    "@nuxt/kit": ^3.8.2
+    nuxi: ^3.10.0
   bin:
     nuxt-build-module: dist/cli.mjs
     nuxt-module-build: dist/cli.mjs
-  checksum: 6c4f9f56bd41d910c72402deed5b9b7a997b9e6b1563df4cdbabd8ea76999b1244ec30f996b5760d3d621c2c65a17eea30f65a3424af445f139f796a6085ec35
+  checksum: f83f51bcf6c87d161ec3912762b365ca55dd65da28f615d6c837152e3f486183b85993a4497e9144cc4f69db6dfd10dbfcf7e7096b20f4c6e7e56b74e0e5b2d8
   languageName: node
   linkType: hard
 
@@ -2944,7 +2944,7 @@ __metadata:
     "@nuxt/eslint-config": "npm:0.2.0"
     "@nuxt/image": "npm:^1.0.0-rc.1"
     "@nuxt/kit": "npm:3.6.5"
-    "@nuxt/module-builder": "npm:0.5.4"
+    "@nuxt/module-builder": "npm:0.5.5"
     "@nuxt/schema": "npm:~3.6.5"
     "@nuxt/test-utils": "npm:3.9.0"
     "@nuxtjs/html-validator": "npm:^1.5.1"
@@ -5565,12 +5565,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"citty@npm:^0.1.2, citty@npm:^0.1.3, citty@npm:^0.1.4":
-  version: 0.1.4
-  resolution: "citty@npm:0.1.4"
+"citty@npm:^0.1.2, citty@npm:^0.1.3, citty@npm:^0.1.5":
+  version: 0.1.5
+  resolution: "citty@npm:0.1.5"
   dependencies:
     consola: "npm:^3.2.3"
-  checksum: 680c27790722a456c9312510079f0cc44c1e8e2f31130ad1376c6dabb2b9b07ad24fd4ad1f7e0bd985e0226a2cabf69138d81365faeaac1bedf1c64f1b09e1a6
+  checksum: ae577a1ff425f7483676358fd70269e43d585f080ab23cfad565d062d6615d469c7e1fdf1b7040858efa7ee6ccb89fc7497b28d4e0d6236cdce16b37c638993f
   languageName: node
   linkType: hard
 
