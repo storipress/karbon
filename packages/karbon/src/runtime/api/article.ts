@@ -1,4 +1,6 @@
 import { Buffer } from 'node:buffer'
+import util from 'node:util'
+import type { ZodError } from 'zod'
 import { gql } from '@apollo/client/core/index.js'
 import { destr } from 'destr'
 import { gcm } from '@noble/ciphers/webcrypto/aes'
@@ -260,19 +262,33 @@ const GetArticle = gql`
   }
 `
 
+const depthObject = (myObject: unknown) => util.inspect(myObject, { depth: null })
+
+interface FailedDocumentObject {
+  document: TypesenseArticleLike
+  error: ZodError['errors']
+  id: string
+}
 function getCurrentPageArticles(searchResult: SearchResponse<TypesenseArticleLike>) {
-  const failedDocument: TypesenseArticleLike[] = []
+  const failedDocuments: FailedDocumentObject[] = []
   const currentPageArticles =
     searchResult?.hits?.map(({ document }) => {
       if (process.env.NODE_ENV === 'development') {
-        const { success } = ArticleSchema.safeParse(document)
-        if (!success) failedDocument.push(document)
+        const parse = ArticleSchema.safeParse(document)
+        if (!parse.success) {
+          failedDocuments.push({ id: document.id, error: parse.error.errors, document })
+        }
       }
       const article = normalizeArticle(document as TypesenseArticleLike)
       return article
     }) ?? []
-  if (failedDocument.length > 0) {
-    console.error(new Error(`Invalid article: ${JSON.stringify(failedDocument)}`))
+  if (failedDocuments.length > 0) {
+    const ids = failedDocuments.map((item) => item.id).join(', ')
+    console.error(
+      '\x1B[33m%s\x1B[0m',
+      `Karbon WARN: Invalid articles (count: ${failedDocuments.length}, id: [${ids}]):`,
+      depthObject(failedDocuments),
+    )
   }
 
   return currentPageArticles
@@ -366,9 +382,18 @@ export async function getArticle(id: string) {
   }
 
   if (process.env.NODE_ENV === 'development') {
-    const { success } = QueryArticleSchema.safeParse(data.article)
-    if (!success) {
-      console.error(new Error(`Invalid article: ${JSON.stringify(data.article)}`))
+    const parse = QueryArticleSchema.safeParse(data.article)
+    if (!parse.success) {
+      const failedDocument = {
+        id: data.article.id,
+        error: parse.error.errors,
+        document: data.article,
+      }
+      console.error(
+        '\x1B[33m%s\x1B[0m',
+        `Karbon WARN: Invalid article (id: ${data.article.id}):`,
+        depthObject(failedDocument),
+      )
     }
   }
   const res = await encryptArticle(normalizeArticle(data.article))
