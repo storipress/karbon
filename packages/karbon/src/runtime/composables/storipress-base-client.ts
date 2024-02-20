@@ -28,7 +28,7 @@ export interface SearchRequestContext {
   id: string
   groupId: string
   name: string
-  query: SearchParams | SearchParamsWithPreset
+  query: SearchParams | SearchParamsWithPreset | SearchParams[]
   site: string
   isFirstRequest: boolean
   requestTime: number

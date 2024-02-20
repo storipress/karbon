@@ -1,11 +1,11 @@
 import { z } from 'zod'
 
-export const DeskSchema = z.object({
+export const MetaSchema = z.object({
   id: z.number(),
   name: z.string(),
   slug: z.string(),
 })
-export type Desk = z.infer<typeof DeskSchema>
+export type Desk = z.infer<typeof MetaSchema>
 
 export const AuthorSchema = z.object({
   avatar: z.string(),
@@ -20,18 +20,18 @@ export type Author = z.infer<typeof AuthorSchema>
 
 export const ArticleSchema = z.object({
   authors: z.array(AuthorSchema),
-  blurb: z.string(),
+  blurb: z.string().optional(),
   cover: z.string().optional(),
-  desk: DeskSchema,
+  desk: MetaSchema,
   featured: z.boolean(),
   id: z.string(),
   order: z.number(),
-  pathnames: z.array(z.string()),
+  pathnames: z.array(z.string()).optional(),
   plan: z.string(),
   published_at: z.number(),
   seo: z.string().optional(),
   slug: z.string(),
-  tags: z.array(DeskSchema),
+  tags: z.array(MetaSchema).optional(),
   title: z.string(),
   updated_at: z.number(),
 })

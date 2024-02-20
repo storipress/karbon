@@ -1,4 +1,6 @@
 import { Buffer } from 'node:buffer'
+import util from 'node:util'
+import type { ZodError } from 'zod'
 import { gql } from '@apollo/client/core/index.js'
 import { destr } from 'destr'
 import { gcm } from '@noble/ciphers/webcrypto/aes'
@@ -7,6 +9,7 @@ import { randomBytes } from '@noble/ciphers/webcrypto/utils'
 // This file contains global crypto polyfill
 import { CompactEncrypt } from '@storipress/jose-browser'
 import type { SearchResponse } from 'typesense/lib/Typesense/Documents'
+import type { MultiSearchResponse } from 'typesense/lib/Typesense/MultiSearch'
 import { useStoripressClient } from '../composables/storipress-client'
 import type { TypesenseFilter } from '../composables/typesense-client'
 import { PER_PAGE, getSearchQuery, useTypesenseClient } from '../composables/typesense-client'
@@ -259,6 +262,38 @@ const GetArticle = gql`
   }
 `
 
+const depthObject = (myObject: unknown) => util.inspect(myObject, { depth: null })
+
+interface FailedDocumentObject {
+  document: TypesenseArticleLike
+  error: ZodError['errors']
+  id: string
+}
+function getCurrentPageArticles(searchResult: SearchResponse<TypesenseArticleLike>) {
+  const failedDocuments: FailedDocumentObject[] = []
+  const currentPageArticles =
+    searchResult?.hits?.map(({ document }) => {
+      if (process.env.NODE_ENV === 'development') {
+        const parse = ArticleSchema.safeParse(document)
+        if (!parse.success) {
+          failedDocuments.push({ id: document.id, error: parse.error.errors, document })
+        }
+      }
+      const article = normalizeArticle(document as TypesenseArticleLike)
+      return article
+    }) ?? []
+  if (failedDocuments.length > 0) {
+    const ids = failedDocuments.map((item) => item.id).join(', ')
+    console.error(
+      '\x1B[33m%s\x1B[0m',
+      `Karbon WARN: Invalid articles (count: ${failedDocuments.length}, id: [${ids}]):`,
+      depthObject(failedDocuments),
+    )
+  }
+
+  return currentPageArticles
+}
+
 export async function listArticles(filter?: TypesenseFilter) {
   const storipress = getStoripressConfig()
   const typesenseClient = useTypesenseClient()
@@ -269,53 +304,73 @@ export async function listArticles(filter?: TypesenseFilter) {
   const name = 'listArticles'
   const articles = []
   const groupStartTime = Date.now()
-  let hasMore = true
-  let page = 1
-  while (hasMore) {
-    const id = crypto.randomUUID()
-    const query = getSearchQuery(page, filter)
-    const isFirstRequest = page === 1
-    const ctx = { name, id, groupId, query, site, isFirstRequest, groupStartTime, requestTime: Date.now() }
-    _karbonClientHooks.callHookParallel('karbon:searchRequest', ctx)
+  const id = crypto.randomUUID()
+  const query = getSearchQuery(1, filter)
 
-    // `destr` is workaround for fetch adapter not automatically parse response
-    const rawSearchResult = await documents.search(query, {}).catch((error: Error) => {
+  const ctx = { name, id, groupId, query, site, groupStartTime, isFirstRequest: true, requestTime: Date.now() }
+  _karbonClientHooks.callHookParallel('karbon:searchRequest', ctx)
+
+  // `destr` is workaround for fetch adapter not automatically parse response
+  const rawSearchResult = await documents.search(query, {}).catch((error: Error) => {
+    _karbonClientHooks.callHookParallel('karbon:searchResponse', {
+      ...ctx,
+      type: 'error',
+      responseTime: Date.now(),
+      hasMore: true,
+      error,
+    })
+    throw error
+  })
+  const searchResult = destr<SearchResponse<TypesenseArticleLike>>(rawSearchResult)
+
+  const currentPageArticles = getCurrentPageArticles(searchResult)
+  articles.push(...currentPageArticles)
+
+  const hasMore = searchResult.found > searchResult.page * PER_PAGE
+
+  _karbonClientHooks.callHookParallel('karbon:searchResponse', {
+    ...ctx,
+    type: 'complete',
+    hasMore,
+    responseTime: Date.now(),
+  })
+
+  if (hasMore) {
+    const totalPage = Math.ceil(searchResult.found / PER_PAGE)
+    // `index + 2` is used to skip the first page.
+    // Assuming `totalPage === 3` , it will query [2, 3] pages.
+    const searches = Array.from({ length: totalPage - 1 }, (_, index) => getSearchQuery(index + 2, filter))
+
+    const multiSearchCtx = {
+      ...ctx,
+      id: crypto.randomUUID(),
+      hasMore: false,
+      isFirstRequest: false,
+      query: searches,
+      requestTime: Date.now(),
+    }
+    _karbonClientHooks.callHookParallel('karbon:searchRequest', multiSearchCtx)
+
+    const rawMultiSearchResult = await typesenseClient.multiSearch.perform({ searches }).catch((error: Error) => {
       _karbonClientHooks.callHookParallel('karbon:searchResponse', {
-        ...ctx,
+        ...multiSearchCtx,
         type: 'error',
         responseTime: Date.now(),
-        hasMore,
         error,
       })
       throw error
     })
-    const searchResult = destr<SearchResponse<TypesenseArticleLike>>(rawSearchResult)
-
-    const failedDocument: TypesenseArticleLike[] = []
-    const currentPageArticles =
-      searchResult?.hits?.map(({ document }) => {
-        if (process.env.NODE_ENV === 'development') {
-          const { success } = ArticleSchema.safeParse(document)
-          if (!success) failedDocument.push(document)
-        }
-        const article = normalizeArticle(document as TypesenseArticleLike)
-        return article
-      }) ?? []
-    if (failedDocument.length > 0) {
-      console.error(new Error(`Invalid article: ${JSON.stringify(failedDocument)}`))
-    }
-    articles.push(...currentPageArticles)
-
-    hasMore = searchResult.found > searchResult.page * PER_PAGE
-    page = searchResult.page + 1
+    const multiSearchResult = destr<MultiSearchResponse<TypesenseArticleLike[]>>(rawMultiSearchResult)
+    const otherArticles = multiSearchResult.results.flatMap((searchResult) => getCurrentPageArticles(searchResult))
+    articles.push(...otherArticles)
 
     _karbonClientHooks.callHookParallel('karbon:searchResponse', {
-      ...ctx,
+      ...multiSearchCtx,
       type: 'complete',
-      hasMore,
       responseTime: Date.now(),
     })
   }
+
   return articles
 }
 
@@ -327,9 +382,18 @@ export async function getArticle(id: string) {
   }
 
   if (process.env.NODE_ENV === 'development') {
-    const { success } = QueryArticleSchema.safeParse(data.article)
-    if (!success) {
-      console.error(new Error(`Invalid article: ${JSON.stringify(data.article)}`))
+    const parse = QueryArticleSchema.safeParse(data.article)
+    if (!parse.success) {
+      const failedDocument = {
+        id: data.article.id,
+        error: parse.error.errors,
+        document: data.article,
+      }
+      console.error(
+        '\x1B[33m%s\x1B[0m',
+        `Karbon WARN: Invalid article (id: ${data.article.id}):`,
+        depthObject(failedDocument),
+      )
     }
   }
   const res = await encryptArticle(normalizeArticle(data.article))
