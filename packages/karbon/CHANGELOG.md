@@ -34,7 +34,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 ### ❤️ Contributors
 
 - DanSnow <dododavid006@gmail.com>
-- Sid Chang 
+- Sid Chang
 - Ariel Lin
 
 ## v0.1.112
