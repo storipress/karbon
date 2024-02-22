@@ -44,17 +44,14 @@ watchEffect(() => {
   processingArticles(root.value, fixArticleEmbed)
 })
 
-const { state: articleSegments, execute } = useAsyncState<Segment[]>(
-  async () => {
-    return await decryptPaidContent(
-      article?.paidContent?.key ?? '',
-      article?.paidContent?.iv ?? '',
-      article?.segments ?? [],
-      getDecryptKey,
-    )
-  },
-  article?.segments ?? [],
-)
+const { state: articleSegments, execute } = useAsyncState<Segment[]>(async () => {
+  return await decryptPaidContent(
+    article?.paidContent?.key ?? '',
+    article?.paidContent?.iv ?? '',
+    article?.segments ?? [],
+    getDecryptKey,
+  )
+}, article?.segments ?? [])
 
 const wrapArticleSegments = computed(() => {
   let findedFirst = false
