@@ -5,6 +5,38 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # 0.1.0 (2023-03-15)
 
+## v0.1.113
+
+[compare changes](https://github.com/storipress/karbon/compare/v0.1.112...v0.1.113)
+
+### 🚀 Enhancements
+
+- Replace `micro-aes-gcm` with `@noble/chipers` [SPMVP-6208] ([#324](https://github.com/storipress/karbon/pull/324))
+- [SPMVP-7100] [SPMVP-7114] Typesense multi search and fix ArticleSchema ([#328](https://github.com/storipress/karbon/pull/328))
+
+### 🩹 Fixes
+
+- **deps:** Update dependency vite to v4.5.2 [security] ([8c8b4a5](https://github.com/storipress/karbon/commit/8c8b4a5))
+- Tested and verified the article data transformation ([#317](https://github.com/storipress/karbon/pull/317))
+- Fix document undefined ([2ec1fff](https://github.com/storipress/karbon/commit/2ec1fff))
+- Return 404 if Storipress API return 404 ([#321](https://github.com/storipress/karbon/pull/321))
+
+### 🏡 Chore
+
+- Upgrade deps ([eab6e89](https://github.com/storipress/karbon/commit/eab6e89))
+- Update script ([46c9a9b](https://github.com/storipress/karbon/commit/46c9a9b))
+- Add prettier ignore ([16f84e1](https://github.com/storipress/karbon/commit/16f84e1))
+
+### 🎨 Styles
+
+- Format ([62ec842](https://github.com/storipress/karbon/commit/62ec842))
+
+### ❤️ Contributors
+
+- DanSnow <dododavid006@gmail.com>
+- Sid Chang 
+- Ariel Lin
+
 ## v0.1.112
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.111...v0.1.112)
