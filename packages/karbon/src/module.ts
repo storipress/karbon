@@ -478,7 +478,11 @@ const karbon = defineNuxtModule<ModuleOptions>({
       flags.lazySearch
         ? './runtime/plugins/storipress-search-client-noop'
         : './runtime/plugins/storipress-search-client',
-      './runtime/plugins/storipress-client',
+      {
+        src: './runtime/plugins/storipress-client',
+        mode: 'server',
+      },
+      // './runtime/plugins/storipress-client',
       './runtime/plugins/debug-info.client',
       './runtime/plugins/track.client',
       './runtime/plugins/iframely.client',
