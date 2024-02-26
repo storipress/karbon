@@ -1,11 +1,13 @@
 import { createSubscriberClient } from './storipress-client'
-import type { Apollo } from './storipress-base-client'
+import { ref } from '#imports'
 
 export function useSubscriberClient() {
   type SubscriberClient = ReturnType<typeof createSubscriberClient>
   const subscriberClient = ref<SubscriberClient>()
-  // const subscriberClient = ref()
-  onMounted(async () => {
+
+  if (process.server) return subscriberClient
+
+  async function createClient() {
     const { ApolloClient, ApolloLink, HttpLink, InMemoryCache, Observable } = await import(
       '@apollo/client/core/index.js'
     )
@@ -17,6 +19,7 @@ export function useSubscriberClient() {
       Observable,
     }
     subscriberClient.value = createSubscriberClient(apollo)
-  })
+  }
+  createClient()
   return subscriberClient
 }
