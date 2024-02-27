@@ -1,5 +1,5 @@
 import { gql } from '@apollo/client/core/index.js'
-import { useStorage } from '@vueuse/core'
+import { until, useStorage } from '@vueuse/core'
 import { useSubscriberClient } from '../composables/subscriber-client'
 
 type JSONValue = string | number | boolean | JSONObject | Array<JSONValue>
@@ -34,9 +34,9 @@ export async function track(input: TrackSubscriberActivityInput) {
 
   try {
     const client = useSubscriberClient()
-    if (!client.value) return false
+    await until(client).toBeTruthy()
 
-    const { data } = await client.value.mutate({
+    const { data } = await client.value!.mutate({
       mutation: TrackMutation,
       variables: {
         input,
