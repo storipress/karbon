@@ -34,9 +34,10 @@ export async function track(input: TrackSubscriberActivityInput) {
 
   try {
     const client = useSubscriberClient()
-    await until(client).toBeTruthy()
+    await until(client).toBeTruthy({ timeout: 2000 })
+    if (!client.value) return false
 
-    const { data } = await client.value!.mutate({
+    const { data } = await client.value.mutate({
       mutation: TrackMutation,
       variables: {
         input,

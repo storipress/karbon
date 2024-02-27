@@ -87,11 +87,13 @@ export default defineNuxtPlugin((_nuxtApp) => {
         query,
       },
     }
-    await until(client).toBeTruthy()
+    await until(client).toBeTruthy({ timeout: 2000 })
+    if (!client.value) return
+
     paywall.value = mountPaywall({
       el: '#paywall',
       router: routerLink,
-      client: client.value!,
+      client: client.value,
       favicon: runtimeConfig.public.storipress.paywall.logo,
       logo: paywallLogo,
       token,
