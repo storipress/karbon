@@ -482,7 +482,6 @@ const karbon = defineNuxtModule<ModuleOptions>({
         src: './runtime/plugins/storipress-client',
         mode: 'server',
       },
-      // './runtime/plugins/storipress-client',
       './runtime/plugins/debug-info.client',
       './runtime/plugins/track.client',
       './runtime/plugins/iframely.client',

@@ -1,6 +1,3 @@
-// import type { Operation } from '@apollo/client/core/index.js'
-
-// import type * as apollo from '@apollo/client/core/index.js'
 import type {
   ApolloClient,
   ApolloLink,
@@ -101,7 +98,6 @@ export function createStoripressBaseClient(
   opt: CreateBaseClientInput = {},
 ) {
   const { ApolloClient, ApolloLink, HttpLink, InMemoryCache, Observable } = apollo
-  // import { ApolloClient, ApolloLink, HttpLink, InMemoryCache, Observable } from '@apollo/client/core/index.js'
   const tapClient = new ApolloLink((operation, forward) => {
     const id = crypto.randomUUID()
 
