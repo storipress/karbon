@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client/core/index.js'
+import { gql } from 'graphql-tag'
 import { until, useStorage } from '@vueuse/core'
 import { useSubscriberClient } from '../composables/subscriber-client'
 

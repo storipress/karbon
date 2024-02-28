@@ -147,6 +147,7 @@
     "find-cache-dir": "^5.0.0",
     "fs-extra": "^11.2.0",
     "graphql": "^16.7.1",
+    "graphql-tag": "^2.12.6",
     "hookable": "^5.5.3",
     "js-yaml": "^4.1.0",
     "jszip": "^3.10.1",

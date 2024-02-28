@@ -2992,6 +2992,7 @@ __metadata:
     fs-extra: "npm:11.2.0"
     globby: "npm:14.0.1"
     graphql: "npm:^16.7.1"
+    graphql-tag: "npm:^2.12.6"
     hookable: "npm:^5.5.3"
     js-yaml: "npm:^4.1.0"
     jszip: "npm:^3.10.1"
