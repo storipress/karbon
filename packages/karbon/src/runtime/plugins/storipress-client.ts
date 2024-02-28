@@ -1,4 +1,4 @@
-import { createStoripressClient, createSubscriberClient, storipressClientCtx } from '../composables/storipress-client'
+import { createStoripressClient, storipressClientCtx } from '../composables/storipress-client'
 import { storipressConfigCtx } from '../composables/storipress-base-client'
 import { defineNuxtPlugin, useRuntimeConfig } from '#imports'
 
@@ -7,7 +7,6 @@ export default defineNuxtPlugin((_nuxtApp) => {
   storipressConfigCtx.set({ ...runtimeConfig.public.storipress, ...runtimeConfig.storipress })
 
   const apolloClient = createStoripressClient()
-  const subscriberClient = createSubscriberClient()
 
   storipressClientCtx.set(apolloClient, true)
 
@@ -15,7 +14,6 @@ export default defineNuxtPlugin((_nuxtApp) => {
     provide: {
       storipress: {
         client: apolloClient,
-        subscriberClient,
       },
     },
   }

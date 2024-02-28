@@ -1,4 +1,4 @@
-import { useEventBus, useStorage } from '@vueuse/core'
+import { until, useEventBus, useStorage } from '@vueuse/core'
 import { once } from 'remeda'
 import '@storipress/builder-component/dist/style.css'
 import { waitFirstInteractive } from '../utils/defer-load'
@@ -87,11 +87,13 @@ export default defineNuxtPlugin((_nuxtApp) => {
         query,
       },
     }
+    await until(client).toBeTruthy({ timeout: 2000 })
+    if (!client.value) return
 
     paywall.value = mountPaywall({
       el: '#paywall',
       router: routerLink,
-      client,
+      client: client.value,
       favicon: runtimeConfig.public.storipress.paywall.logo,
       logo: paywallLogo,
       token,

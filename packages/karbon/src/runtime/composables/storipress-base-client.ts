@@ -1,5 +1,11 @@
-import type { Operation } from '@apollo/client/core/index.js'
-import { ApolloClient, ApolloLink, HttpLink, InMemoryCache, Observable } from '@apollo/client/core/index.js'
+import type {
+  ApolloClient,
+  ApolloLink,
+  HttpLink,
+  InMemoryCache,
+  Observable,
+  Operation,
+} from '@apollo/client/core/index.js'
 import { setContext } from '@apollo/client/link/context/index.js'
 import { fetch } from 'cross-fetch'
 import { withHttps } from 'ufo'
@@ -78,11 +84,20 @@ export interface CreateBaseClientInput {
   name?: string
 }
 
+export interface Apollo {
+  ApolloClient: typeof ApolloClient
+  ApolloLink: typeof ApolloLink
+  HttpLink: typeof HttpLink
+  InMemoryCache: typeof InMemoryCache
+  Observable: typeof Observable
+}
 export function createStoripressBaseClient(
+  apollo: Apollo,
   getHeaders: () => Record<string, string | null | undefined>,
   uri: string,
   opt: CreateBaseClientInput = {},
 ) {
+  const { ApolloClient, ApolloLink, HttpLink, InMemoryCache, Observable } = apollo
   const tapClient = new ApolloLink((operation, forward) => {
     const id = crypto.randomUUID()
 
