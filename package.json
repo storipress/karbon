@@ -62,7 +62,7 @@
   },
   "devDependencies": {
     "@antfu/eslint-config-vue": "0.42.1",
-    "@moonrepo/cli": "^1.22.8",
+    "@moonrepo/cli": "1.22.8",
     "@nuxt/image": "1.0.0-rc.1",
     "@nuxtjs/tailwindcss": "6.8.0",
     "@rollup/plugin-virtual": "3.0.2",
