@@ -1,0 +1,8 @@
+tasks:
+  build:
+    command: unbuild
+    platform: node
+    inputs:
+      - '@group(sources)'
+    outputs:
+      - '@group(outputs)'

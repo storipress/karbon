@@ -28,3 +28,6 @@ functions
 
 
 .nx/cache
+# moon
+.moon/cache
+.moon/docker

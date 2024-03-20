@@ -9,7 +9,7 @@
   },
   "bin": "./dist/index.mjs",
   "scripts": {
-    "build": "unbuild",
+    "build": "moon run build",
     "prepack": "unbuild"
   },
   "dependencies": {

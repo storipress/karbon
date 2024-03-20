@@ -1,0 +1,38 @@
+tasks:
+  build:
+    command:
+      - vite
+      - build
+    platform: node
+    inputs:
+      - '@group(sources)'
+    outputs:
+      - '@group(outputs)'
+  lint:
+    command:
+      - eslint
+      - .
+    platform: node
+  release:
+    command:
+      - git
+      - push
+      - --follow-tags
+    deps:
+      - ~:publish
+    platform: system
+  generate-changelog:
+    command:
+      - changelogen
+      - --release
+    deps:
+      - ~:lint
+    platform: node
+  publish:
+    command:
+      - yarn
+      - npm
+      - publish
+    deps:
+      - ~:generate-changelog
+    platform: node

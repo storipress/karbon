@@ -22,7 +22,7 @@
     "node": ">=16.7.0"
   },
   "scripts": {
-    "build": "unbuild",
+    "build": "moon run build",
     "prepack": "unbuild"
   },
   "dependencies": {

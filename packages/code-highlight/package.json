@@ -13,10 +13,10 @@
     "dist"
   ],
   "scripts": {
-    "build": "vite build",
-    "prepack": "yarn build",
-    "lint": "eslint .",
-    "release": "yarn run lint && yarn run prepack && changelogen --release && yarn npm publish && git push --follow-tags"
+    "build": "moon run build",
+    "lint": "moon run lint",
+    "release": "moon run release",
+    "prepack": "yarn build"
   },
   "dependencies": {
     "@types/prismjs": "^1.26.3"
