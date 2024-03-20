@@ -2791,7 +2791,7 @@ __metadata:
     "@types/uuid": "npm:9.0.8"
     "@vitejs/plugin-vue": "npm:4.5.2"
     "@vueuse/core": "npm:^10.1.2"
-    "@vueuse/head": "npm:^1.1.26"
+    "@vueuse/head": "npm:^2.0.0"
     "@vueuse/nuxt": "npm:^10.1.2"
     "@zhead/schema": "npm:^1.1.0"
     chalk: "npm:^5.3.0"
@@ -2875,7 +2875,7 @@ __metadata:
     "@types/uuid": "npm:9.0.8"
     "@vitejs/plugin-vue": "npm:4.5.2"
     "@vueuse/core": "npm:^10.1.2"
-    "@vueuse/head": "npm:^1.1.26"
+    "@vueuse/head": "npm:^2.0.0"
     "@vueuse/nuxt": "npm:^10.1.2"
     "@zhead/schema": "npm:^1.1.0"
     chalk: "npm:^5.3.0"
@@ -2964,7 +2964,7 @@ __metadata:
     "@types/uuid": "npm:9.0.8"
     "@vitejs/plugin-vue": "npm:4.5.2"
     "@vueuse/core": "npm:^10.1.2"
-    "@vueuse/head": "npm:^1.1.26"
+    "@vueuse/head": "npm:^2.0.0"
     "@vueuse/math": "npm:^10.1.2"
     "@vueuse/nuxt": "npm:^10.1.2"
     "@zhead/schema": "npm:^1.1.0"
@@ -3618,13 +3618,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@unhead/dom@npm:1.5.2, @unhead/dom@npm:^1.1.26":
-  version: 1.5.2
-  resolution: "@unhead/dom@npm:1.5.2"
+"@unhead/dom@npm:1.8.20, @unhead/dom@npm:^1.7.0":
+  version: 1.8.20
+  resolution: "@unhead/dom@npm:1.8.20"
   dependencies:
-    "@unhead/schema": "npm:1.5.2"
-    "@unhead/shared": "npm:1.5.2"
-  checksum: 10/0888a913717a290ab92349995ca506de4dace0e0ef1fb3469e20451589151ee371ac3198b568757a09c07cee093f08c81792008de25853d17eed5420a161fe32
+    "@unhead/schema": "npm:1.8.20"
+    "@unhead/shared": "npm:1.8.20"
+  checksum: 10/b8c2cf7495695d9ebd054cb03b4d59c4aa088fe9bc873be7700f247bcebe4184b547e617cc47d5765bd9bf6fc0990d85f7d2f7594b3d252d50e3d013efc1c922
   languageName: node
   linkType: hard
 
@@ -3637,46 +3637,46 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@unhead/schema@npm:1.5.2, @unhead/schema@npm:^1.1.26":
-  version: 1.5.2
-  resolution: "@unhead/schema@npm:1.5.2"
+"@unhead/schema@npm:1.8.20, @unhead/schema@npm:^1.7.0":
+  version: 1.8.20
+  resolution: "@unhead/schema@npm:1.8.20"
   dependencies:
     hookable: "npm:^5.5.3"
-    zhead: "npm:^2.0.10"
-  checksum: 10/4ec770065b646619cc548ad1c85b83b33e1d70294b858eb1bd7dd0003234aa66ea3561019c03e6cfc08da238e7115ca48c2982ccaae20efb4bcee8951ad5eb82
+    zhead: "npm:^2.2.4"
+  checksum: 10/aca569ee1f7362735e555e84ba30eca5ded7941cb73540498aff3dd3fe23e4a6ca40316535f25b6ecf031011db6aed387ba41d8e9303cce515625dbeb0695c91
   languageName: node
   linkType: hard
 
-"@unhead/shared@npm:1.5.2":
-  version: 1.5.2
-  resolution: "@unhead/shared@npm:1.5.2"
+"@unhead/shared@npm:1.8.20":
+  version: 1.8.20
+  resolution: "@unhead/shared@npm:1.8.20"
   dependencies:
-    "@unhead/schema": "npm:1.5.2"
-  checksum: 10/7b83b9e55865f3225628785c79e94c81ea20c913e42db92e9acc605f4a48d40f77f56f2cdae95881e00424435fc5e2b88e7e74738f8ef9123b78650446f1e4ef
+    "@unhead/schema": "npm:1.8.20"
+  checksum: 10/ec3b2cb3928527599f431cde19a660e19dd674bc843ce70bcd065c20b04893114a2a8dfeee141a8846df361665178d19e8becaeaae435980c27e7b5ec2186c88
   languageName: node
   linkType: hard
 
-"@unhead/ssr@npm:^1.1.26, @unhead/ssr@npm:^1.1.30":
-  version: 1.5.2
-  resolution: "@unhead/ssr@npm:1.5.2"
+"@unhead/ssr@npm:^1.1.30, @unhead/ssr@npm:^1.7.0":
+  version: 1.8.20
+  resolution: "@unhead/ssr@npm:1.8.20"
   dependencies:
-    "@unhead/schema": "npm:1.5.2"
-    "@unhead/shared": "npm:1.5.2"
-  checksum: 10/bfa5354cf02f427cc38faa932f51522c1ea5643b9de45fce02515023da308cabe61ff64005da5ff574a805734651916817f66f4e210442bac8bc15dd066e362c
+    "@unhead/schema": "npm:1.8.20"
+    "@unhead/shared": "npm:1.8.20"
+  checksum: 10/b223f6514576ebc7a9775c273cd22b25cea9bffb33a89e6782b800f8cf63c9ac578664a5122ddc1267e81878d217b92ed02ae0c78dae892da9a1bca1ff70dfc3
   languageName: node
   linkType: hard
 
-"@unhead/vue@npm:^1.1.26, @unhead/vue@npm:^1.1.30":
-  version: 1.5.2
-  resolution: "@unhead/vue@npm:1.5.2"
+"@unhead/vue@npm:^1.1.30, @unhead/vue@npm:^1.7.0":
+  version: 1.8.20
+  resolution: "@unhead/vue@npm:1.8.20"
   dependencies:
-    "@unhead/schema": "npm:1.5.2"
-    "@unhead/shared": "npm:1.5.2"
+    "@unhead/schema": "npm:1.8.20"
+    "@unhead/shared": "npm:1.8.20"
     hookable: "npm:^5.5.3"
-    unhead: "npm:1.5.2"
+    unhead: "npm:1.8.20"
   peerDependencies:
     vue: ">=2.7 || >=3"
-  checksum: 10/8a0f846a7db5bc89036f8e56aa47c02e4b66cc7ef08b19efa680b7622367ec03ea4b07524125ac8b4d2beeb5e849b482c56805d3348d9c46993745e87f04c3f6
+  checksum: 10/176d4d350f9217ea16e8a68289f3fcff8618ed31ed05513c51f207034c4c2db61d4035d3b8b25c0f6f80dd138772ed687d01ee2ed0c0582ea35c88c186eea0e0
   languageName: node
   linkType: hard
 
@@ -4294,17 +4294,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vueuse/head@npm:^1.1.26":
-  version: 1.1.26
-  resolution: "@vueuse/head@npm:1.1.26"
+"@vueuse/head@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "@vueuse/head@npm:2.0.0"
   dependencies:
-    "@unhead/dom": "npm:^1.1.26"
-    "@unhead/schema": "npm:^1.1.26"
-    "@unhead/ssr": "npm:^1.1.26"
-    "@unhead/vue": "npm:^1.1.26"
+    "@unhead/dom": "npm:^1.7.0"
+    "@unhead/schema": "npm:^1.7.0"
+    "@unhead/ssr": "npm:^1.7.0"
+    "@unhead/vue": "npm:^1.7.0"
   peerDependencies:
     vue: ">=2.7 || >=3"
-  checksum: 10/59cac909130d7e5f7e77b2943a1c08a388c1a835e953de883bdccb21d45afba5633815f7bed283b57719c5002ce8c298a926cc40ad49e177bef7102c9d564156
+  checksum: 10/21e1465174acfcfb9ab64fdf558d524ba43ba28129eec6401c41d0dbca09ed7ee07ed4ade75ee0f65a225d68d7ae0417a615881ddc87c690b8aaa91d2a6a56e6
   languageName: node
   linkType: hard
 
@@ -14619,15 +14619,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"unhead@npm:1.5.2":
-  version: 1.5.2
-  resolution: "unhead@npm:1.5.2"
+"unhead@npm:1.8.20":
+  version: 1.8.20
+  resolution: "unhead@npm:1.8.20"
   dependencies:
-    "@unhead/dom": "npm:1.5.2"
-    "@unhead/schema": "npm:1.5.2"
-    "@unhead/shared": "npm:1.5.2"
+    "@unhead/dom": "npm:1.8.20"
+    "@unhead/schema": "npm:1.8.20"
+    "@unhead/shared": "npm:1.8.20"
     hookable: "npm:^5.5.3"
-  checksum: 10/8e3e783cec0a2ad94608b03312508448007643fe20dd446ddb328f338fd6e8eb1262455dd54a565687f9160df5d9a977a2fc16944f9ccec58901c936a5cf2748
+  checksum: 10/b29d9ff514838abf7de6d824cff22598ab660a2767d3aa09c52a51f670fb87bbc869e529e5e2f6e3f25b1615783c931a69521c985cd29c873930b14c488a6f01
   languageName: node
   linkType: hard
 
@@ -15957,10 +15957,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"zhead@npm:^2.0.10":
-  version: 2.0.10
-  resolution: "zhead@npm:2.0.10"
-  checksum: 10/8838dfd0f7335d45fa04a716dc975e59bbec7f2a6cb3b9018f87db855d462181bb3773b0ddb3a4e442cf464a4129accb63af1e4f24a5af2bb83a12b898b2e202
+"zhead@npm:^2.2.4":
+  version: 2.2.4
+  resolution: "zhead@npm:2.2.4"
+  checksum: 10/cfa2ba81bf936fd4f5ba19360412c7017a164250823f22e575e1956b20c73d76b989985c02a4f89e2e02f3fb203fbe8857072cf5fbece59a374d1a6bf588555b
   languageName: node
   linkType: hard
 
