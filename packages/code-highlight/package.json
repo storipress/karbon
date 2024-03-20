@@ -25,10 +25,10 @@
     "access": "public"
   },
   "devDependencies": {
-    "@babel/core": "7.23.9",
+    "@babel/core": "7.24.1",
     "babel-plugin-prismjs": "2.1.0",
     "changelogen": "0.5.5",
-    "eslint": "8.56.0",
+    "eslint": "8.57.0",
     "vite": "4.5.2",
     "vite-plugin-babel": "1.2.0"
   }
