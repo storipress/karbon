@@ -1,0 +1,38 @@
+dependsOn:
+  - custom-field
+  - karbon
+
+tasks:
+  build:
+    command:
+      - nuxt
+      - build
+    platform: node
+    deps:
+      - ^:build
+  bundle:
+    command: karbon
+    platform: node
+    deps:
+      - ^:build
+  dev:
+    command:
+      - nuxt
+      - dev
+    local: true
+    platform: node
+    deps:
+      - dev-prepare
+      - ^:build
+  dev-prepare:
+    command:
+      - nuxt
+      - prepare
+    platform: node
+    deps:
+      - ^:build
+  generate:
+    command:
+      - nuxt
+      - generate
+    platform: node

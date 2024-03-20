@@ -38,76 +38,11 @@
     "node": ">=16.7.0"
   },
   "scripts": {
-    "prepack": "yarn build",
-    "dev": "nuxi dev playground",
-    "build": "nx run @storipress/karbon:build-nx",
-    "build-nx": "true",
-    "build:module": "nuxt-module-build build",
-    "bundle:cli": "POLYFILL_CRYPTO=true tsup src/cli/karbon.ts -d bin",
-    "bundle:helper": "tsup dist/helper.mjs",
-    "bundle:module": "tsup dist/module.mjs",
-    "dev:build": "nuxi build playground",
-    "dev:prepare": "JITI_ALIAS='{\"tslib\": \"tslib/tslib.es6.js\"}' nuxt-module-build build --stub && JITI_ALIAS='{\"tslib\": \"tslib/tslib.es6.js\"}' nuxi prepare playground",
-    "release": "tsx scripts/release.mts",
-    "lint": "eslint .",
-    "test": "vitest",
-    "test:watch": "vitest watch"
-  },
-  "nx": {
-    "namedInputs": {
-      "dist": [
-        "{projectRoot}/dist"
-      ]
-    },
-    "targets": {
-      "build-nx": {
-        "dependsOn": [
-          "dev:prepare",
-          "bundle:cli",
-          "bundle:helper",
-          "bundle:module"
-        ]
-      },
-      "bundle:helper": {
-        "inputs": [
-          "{projectRoot}/dist/helper.mjs"
-        ],
-        "outputs": [
-          "{projectRoot}/dist/helper.mjs"
-        ],
-        "dependsOn": [
-          "dev:prepare",
-          "build:module"
-        ]
-      },
-      "bundle:module": {
-        "inputs": [
-          "{projectRoot}/dist/module.mjs"
-        ],
-        "outputs": [
-          "{projectRoot}/dist/module.mjs"
-        ],
-        "dependsOn": [
-          "dev:prepare",
-          "build:module"
-        ]
-      },
-      "bundle:cli": {
-        "outputs": [
-          "{projectRoot}/bin/karbon.mjs"
-        ]
-      },
-      "build:module": {
-        "outputs": [
-          "{projectRoot}/dist/**",
-          "{workspaceRoot}/!{projectRoot}/dist/module.mjs",
-          "{workspaceRoot}/!{projectRoot}/dist/helper.mjs"
-        ],
-        "dependsOn": [
-          "dev:prepare"
-        ]
-      }
-    }
+    "build": "moon run build",
+    "lint": "moon run lint",
+    "test": "moon run test",
+    "release": "moon run release",
+    "prepack": "yarn build"
   },
   "dependencies": {
     "@apollo/client": "^3.8.8",
@@ -221,7 +156,6 @@
     "globby": "14.0.1",
     "msw": "1.3.2",
     "nuxt": "3.6.5",
-    "nx": "17.2.8",
     "prettier": "3.2.4",
     "tsup": "8.0.1",
     "tsx": "4.7.0",

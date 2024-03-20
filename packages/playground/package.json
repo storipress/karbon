@@ -8,12 +8,10 @@
     "url": "https://github.com/storipress/karbon"
   },
   "scripts": {
-    "build": "nuxt build",
-    "bundle": "karbon",
-    "dev": "nuxt dev",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "dev:prepare": "nuxt prepare"
+    "dev": "moon run dev"
+  },
+  "msw": {
+    "workerDirectory": "public"
   },
   "dependencies": {
     "@apollo/client": "^3.8.8",
@@ -95,8 +93,5 @@
     "tsx": "4.7.0",
     "typescript": "5.3.3",
     "vitest": "0.34.6"
-  },
-  "msw": {
-    "workerDirectory": "public"
   }
 }

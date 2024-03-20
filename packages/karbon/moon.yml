@@ -1,0 +1,118 @@
+id: karbon
+
+dependsOn:
+  - code-highlight
+  - custom-field
+  - jose-browser
+
+tasks:
+  build:
+    command: noop
+    platform: node
+    deps:
+      - dev-prepare
+      - bundle-cli
+      - bundle-module
+      - bundle-helper
+  build-module:
+    command:
+      - nuxt-module-build
+      - build
+    platform: node
+    inputs: 
+      - '@group(sources)'
+    outputs:
+      - dist/**/*
+      # - '!dist/module.mjs'
+      # - '!dist/helper.mjs'
+    deps:
+      - ^:build
+      - dev-prepare
+  bundle-cli:
+    command:
+      - tsup
+      - src/cli/karbon.ts
+      - -d
+      - bin
+    env:
+      POLYFILL_CRYPTO: 'true'
+    platform: node
+    inputs: 
+      - '@group(sources)'
+    outputs:
+      - bin/**/*
+  bundle-helper:
+    command:
+      - tsup
+      - dist/helper.mjs
+    platform: node
+    inputs: 
+      - 'dist/helper.mjs'
+    outputs: 
+      - 'dist/helper.mjs'
+    deps:
+      - dev-prepare
+      - bundle-module
+  bundle-module:
+    command:
+      - tsup
+      - dist/module.mjs
+    platform: node
+    inputs: 
+      - 'dist/module.mjs'
+    outputs: 
+      - 'dist/module.mjs'
+    deps:
+      - dev-prepare
+      - build-module
+  dev:
+    command:
+      - nuxi
+      - dev
+      - playground
+    local: true
+    platform: node
+  dev-build:
+    command:
+      - nuxi
+      - build
+      - playground
+    platform: node
+  dev-prepare:
+    command:
+      - nuxi
+      - prepare
+      - playground
+    deps:
+      - ~:dev-stub
+    env:
+      JITI_ALIAS: '{"tslib": "tslib/tslib.es6.js"}'
+    platform: node
+  dev-stub:
+    command:
+      - nuxt-module-build
+      - build
+      - --stub
+    env:
+      JITI_ALIAS: '{"tslib": "tslib/tslib.es6.js"}'
+    platform: node
+    deps:
+     - ^:build
+  lint:
+    command:
+      - eslint
+      - .
+    platform: node
+  release:
+    command:
+      - tsx
+      - scripts/release.mts
+    platform: node
+  test:
+    command: vitest
+    platform: node
+  test-watch:
+    command:
+      - vitest
+      - watch
+    platform: node
