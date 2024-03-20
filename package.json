@@ -64,7 +64,7 @@
     "@antfu/eslint-config-vue": "0.42.1",
     "@moonrepo/cli": "1.22.8",
     "@nuxt/image": "1.0.0-rc.1",
-    "@nuxtjs/tailwindcss": "6.8.0",
+    "@nuxtjs/tailwindcss": "6.11.4",
     "@rollup/plugin-virtual": "3.0.2",
     "@types/fs-extra": "11.0.4",
     "@types/jszip": "3.4.1",
