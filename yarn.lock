@@ -2968,7 +2968,7 @@ __metadata:
     "@vueuse/math": "npm:^10.1.2"
     "@vueuse/nuxt": "npm:^10.1.2"
     "@zhead/schema": "npm:^1.1.0"
-    axios: "npm:0.26.1"
+    axios: "npm:0.28.0"
     chalk: "npm:^5.3.0"
     changelogen: "npm:0.5.5"
     cross-fetch: "npm:^4.0.0"
@@ -4914,7 +4914,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:0.26.1, axios@npm:^0.26.0":
+"axios@npm:0.28.0":
+  version: 0.28.0
+  resolution: "axios@npm:0.28.0"
+  dependencies:
+    follow-redirects: "npm:^1.15.0"
+    form-data: "npm:^4.0.0"
+    proxy-from-env: "npm:^1.1.0"
+  checksum: 10/3bc408a75530cdccfa2537a8713f66d4b84cb1d93a31b59c0f1a247ffce955d8a739862365135b687bcef83763b8c3a42330dc3628b406c9ffca320bce608f0a
+  languageName: node
+  linkType: hard
+
+"axios@npm:^0.26.0":
   version: 0.26.1
   resolution: "axios@npm:0.26.1"
   dependencies:
@@ -7760,7 +7771,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"follow-redirects@npm:^1.14.8, follow-redirects@npm:^1.14.9":
+"follow-redirects@npm:^1.14.8, follow-redirects@npm:^1.14.9, follow-redirects@npm:^1.15.0":
   version: 1.15.6
   resolution: "follow-redirects@npm:1.15.6"
   peerDependenciesMeta:
@@ -12405,6 +12416,13 @@ __metadata:
   version: 2.0.1
   resolution: "protocols@npm:2.0.1"
   checksum: 10/0cd08a55b9cb7cc96fed7a528255320428a7c86fd5f3f35965845285436433b7836178893168f80584efdf86391cd7c0a837b6f6bc5ddac3029c76be61118ba5
+  languageName: node
+  linkType: hard
+
+"proxy-from-env@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "proxy-from-env@npm:1.1.0"
+  checksum: 10/f0bb4a87cfd18f77bc2fba23ae49c3b378fb35143af16cc478171c623eebe181678f09439707ad80081d340d1593cd54a33a0113f3ccb3f4bc9451488780ee23
   languageName: node
   linkType: hard
 
