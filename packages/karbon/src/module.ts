@@ -171,6 +171,7 @@ const karbon = defineNuxtModule<ModuleOptions>({
 
     nuxt.options.alias ??= {}
     nuxt.options.alias['@storipress/sdk'] = resolver.resolve('.')
+    nuxt.options.alias['@storipress/karbon/route-helper'] = resolver.resolve('./route-helper')
 
     nuxt.options.runtimeConfig.storipress = {
       // @ts-expect-error default
@@ -317,6 +318,8 @@ const karbon = defineNuxtModule<ModuleOptions>({
     const userPath = await resolvePath(isViewablePath)
     nuxt.hook('nitro:config', async (nitroConfig) => {
       nitroConfig.virtual!['#sp-internal/storipress-urls.mjs'] = () => serializedURLs
+      nitroConfig.alias ??= {}
+      nitroConfig.alias['@storipress/karbon/route-helper'] = resolver.resolve('./route-helper')
 
       const resolvedIsViewable = fs.existsSync(userPath)
         ? userPath

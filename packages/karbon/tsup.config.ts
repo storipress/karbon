@@ -2,7 +2,7 @@ import { defineConfig } from 'tsup'
 
 export default defineConfig({
   entry: ['./src/cli/enter.ts'],
-  target: 'node16',
+  target: 'node18',
   format: 'esm',
   esbuildOptions(options) {
     options.allowOverwrite = true

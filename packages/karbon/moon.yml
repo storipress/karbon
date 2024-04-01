@@ -38,6 +38,7 @@ tasks:
       POLYFILL_CRYPTO: 'true'
     platform: node
     inputs: 
+      - tsup.config.ts
       - '@group(sources)'
     outputs:
       - bin/**/*
@@ -47,6 +48,7 @@ tasks:
       - dist/helper.mjs
     platform: node
     inputs: 
+      - tsup.config.ts
       - 'dist/helper.mjs'
     outputs: 
       - 'dist/helper.mjs'
@@ -59,6 +61,7 @@ tasks:
       - dist/module.mjs
     platform: node
     inputs: 
+      - tsup.config.ts
       - 'dist/module.mjs'
     outputs: 
       - 'dist/module.mjs'
