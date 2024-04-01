@@ -227,10 +227,11 @@ const karbon = defineNuxtModule<ModuleOptions>({
       src: resolver.resolve('./runtime/templates/storipress-urls.mjs.d.ts'),
     })
 
+    const routeHelperPath = await resolver.resolvePath('./route-helper', { cwd: resolver.resolve('.') })
     // Expose url generating logic to client-side js
     const serializedURLs = `
       ${genImport('ufo', ['normalizeURL', 'cleanDoubleSlashes'])}
-      ${genImport(resolver.resolve('./route-helper'), ['extractURLParam', 'paramNameToParamKey'])}
+      ${genImport(routeHelperPath, ['extractURLParam', 'paramNameToParamKey'])}
       export default ${serialize(resources)}
     `
     addTemplate({
