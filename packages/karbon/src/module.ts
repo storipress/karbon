@@ -171,7 +171,6 @@ const karbon = defineNuxtModule<ModuleOptions>({
 
     nuxt.options.alias ??= {}
     nuxt.options.alias['@storipress/sdk'] = resolver.resolve('.')
-    nuxt.options.alias['@storipress/karbon/route-helper'] = resolver.resolve('./route-helper')
 
     nuxt.options.runtimeConfig.storipress = {
       // @ts-expect-error default
@@ -231,7 +230,7 @@ const karbon = defineNuxtModule<ModuleOptions>({
     // Expose url generating logic to client-side js
     const serializedURLs = `
       ${genImport('ufo', ['normalizeURL', 'cleanDoubleSlashes'])}
-      ${genImport('@storipress/karbon/route-helper', ['extractURLParam', 'paramNameToParamKey'])}
+      ${genImport(resolver.resolve('./route-helper'), ['extractURLParam', 'paramNameToParamKey'])}
       export default ${serialize(resources)}
     `
     addTemplate({
@@ -319,7 +318,6 @@ const karbon = defineNuxtModule<ModuleOptions>({
     nuxt.hook('nitro:config', async (nitroConfig) => {
       nitroConfig.virtual!['#sp-internal/storipress-urls.mjs'] = () => serializedURLs
       nitroConfig.alias ??= {}
-      nitroConfig.alias['@storipress/karbon/route-helper'] = resolver.resolve('./route-helper')
 
       const resolvedIsViewable = fs.existsSync(userPath)
         ? userPath
