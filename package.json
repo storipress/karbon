@@ -4,8 +4,7 @@
   "packageManager": "yarn@4.1.1",
   "scripts": {
     "build": "moon run playground:dev-prepare",
-    "test": "vitest",
-    "postinstall": "yarn build"
+    "test": "vitest"
   },
   "workspaces": [
     "packages/*"

@@ -56,7 +56,7 @@ tasks:
       - 'dist/helper.mjs'
     deps:
       - dev-prepare
-      - bundle-module
+      - build-module
   bundle-module:
     command:
       - tsup
