@@ -38,7 +38,7 @@ Spin up a Karbon app in your browser with our [playground](https://karbon.new/) 
 **Requirements:**
 
 - `yarn` or `pnpm`
-- Node.js version 16.14.0 or higher
+- Node.js version 18.19.0 or higher
 
 **Installation:**
 
