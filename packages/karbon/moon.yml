@@ -42,6 +42,8 @@ tasks:
       - '@group(sources)'
     outputs:
       - bin/**/*
+    deps:
+      - dev-prepare
   bundle-helper:
     command:
       - tsup
