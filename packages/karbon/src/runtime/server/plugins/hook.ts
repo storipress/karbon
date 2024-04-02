@@ -1,5 +1,5 @@
 import { clientHooks } from '@storipress/karbon/internal'
-import { type _karbonClientHooks } from '../../composables/storipress-base-client'
+import type { _karbonClientHooks } from '../../composables/storipress-base-client'
 import { defineNitroPlugin } from '#imports'
 
 const hooks: typeof _karbonClientHooks = clientHooks

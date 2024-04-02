@@ -1,12 +1,11 @@
 import type { Buffer } from 'node:buffer'
-import { gql } from '@apollo/client/core/index.js'
+import { ApolloClient, ApolloLink, HttpLink, InMemoryCache, Observable, gql } from '@apollo/client/core/index.js'
 import invariant from 'tiny-invariant'
 import fetch from 'node-fetch-native'
 import consola from 'consola'
 import type { ZodError } from 'zod'
 import { z } from 'zod'
 import { fromZodError } from 'zod-validation-error'
-import { ApolloClient, ApolloLink, HttpLink, InMemoryCache, Observable } from '@apollo/client/core/index.js'
 import { createStoripressBaseClient } from '../composables/storipress-base-client'
 
 export enum TemplateType {

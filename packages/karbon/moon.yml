@@ -51,9 +51,9 @@ tasks:
     platform: node
     inputs: 
       - tsup.config.ts
-      - 'dist/helper.mjs'
+      - dist/helper.mjs
     outputs: 
-      - 'dist/helper.mjs'
+      - dist/helper.mjs
     deps:
       - dev-prepare
       - build-module
@@ -64,9 +64,9 @@ tasks:
     platform: node
     inputs: 
       - tsup.config.ts
-      - 'dist/module.mjs'
+      - dist/module.mjs
     outputs: 
-      - 'dist/module.mjs'
+      - dist/module.mjs
     deps:
       - dev-prepare
       - build-module

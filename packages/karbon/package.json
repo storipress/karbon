@@ -131,7 +131,6 @@
     "zod-validation-error": "^3.0.3"
   },
   "devDependencies": {
-    "@antfu/eslint-config-vue": "0.42.1",
     "@nuxt/eslint-config": "0.2.0",
     "@nuxt/kit": "3.6.5",
     "@nuxt/module-builder": "0.5.5",
