@@ -625,27 +625,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@dprint/formatter@npm:^0.2.0":
-  version: 0.2.1
-  resolution: "@dprint/formatter@npm:0.2.1"
-  checksum: 10/c50661089585bd41c44fdb01581280dbdf653ad7c493b8b33acb7b66543e1d86ba83493cdfa9d03026e8d3e615b185f2b3df3d861381df57108a428f5da169e5
-  languageName: node
-  linkType: hard
-
-"@dprint/markdown@npm:^0.16.3":
-  version: 0.16.4
-  resolution: "@dprint/markdown@npm:0.16.4"
-  checksum: 10/aeccffeb0f47add63c0b277f85bfd63f9eb1fe4e37480e62738439940df50545ed5bef44307ac2594c230c29b75442ce7c28784b3c5437dbde38c22596695ff1
-  languageName: node
-  linkType: hard
-
-"@dprint/toml@npm:^0.5.4":
-  version: 0.5.4
-  resolution: "@dprint/toml@npm:0.5.4"
-  checksum: 10/0227a169774c6eb3a4caccb789459f10ac566a3a45a56e0f2a747baeea6653af43b8bc5cd6185e177590e2274726bab61d1ab863c25d107c3375445ad2bd2e22
-  languageName: node
-  linkType: hard
-
 "@es-joy/jsdoccomment@npm:~0.42.0":
   version: 0.42.0
   resolution: "@es-joy/jsdoccomment@npm:0.42.0"
@@ -2875,8 +2854,6 @@ __metadata:
     cross-fetch: "npm:^4.0.0"
     destr: "npm:^2.0.3"
     eslint: "npm:8.57.0"
-    eslint-config-prettier: "npm:9.1.0"
-    eslint-plugin-format: "npm:^0.1.0"
     eslint-plugin-prettier: "npm:5.1.3"
     events: "npm:^3.3.0"
     fast-deep-equal: "npm:^3.1.3"
@@ -7332,17 +7309,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-formatting-reporter@npm:^0.0.0":
-  version: 0.0.0
-  resolution: "eslint-formatting-reporter@npm:0.0.0"
-  dependencies:
-    prettier-linter-helpers: "npm:^1.0.0"
-  peerDependencies:
-    eslint: ">=8.40.0"
-  checksum: 10/c129a6464c846c6871660b24e2f99a279d863346535b94438fce86627763d1e69ada46bd47b3389439b1e97ef07759a229f274a001f3168b91e00fe8ce59d362
-  languageName: node
-  linkType: hard
-
 "eslint-import-resolver-node@npm:^0.3.9":
   version: 0.3.9
   resolution: "eslint-import-resolver-node@npm:0.3.9"
@@ -7360,13 +7326,6 @@ __metadata:
   peerDependencies:
     eslint: "*"
   checksum: 10/428ae746f4b60e7ad2b05bc12f3724244d601a3e2d8e0fe20f3c213752a6852603b1ed098048bd98b1ad028a834b68e36b3878d87506ec11a5c7baeee9582afd
-  languageName: node
-  linkType: hard
-
-"eslint-parser-plain@npm:^0.1.0":
-  version: 0.1.0
-  resolution: "eslint-parser-plain@npm:0.1.0"
-  checksum: 10/8a6b61dd8335f2b0aac609256d4f03faf021aa5b96a64478da1f9304ece2935b2ed9ce0f529a082b14281061ec40f642b2ae01b5b4c4dd32d744085abb5cc030
   languageName: node
   linkType: hard
 
@@ -7401,23 +7360,6 @@ __metadata:
   peerDependencies:
     eslint: ">=4.19.1"
   checksum: 10/4aa0d31a78ac7746002e37ca0cb436f3e5b481a97d28be07bad831e161a2ffcc4dedff44820edef9a1e80f6a0ab1ef44ed9a46e3a4c4a050350438451908972b
-  languageName: node
-  linkType: hard
-
-"eslint-plugin-format@npm:^0.1.0":
-  version: 0.1.0
-  resolution: "eslint-plugin-format@npm:0.1.0"
-  dependencies:
-    "@dprint/formatter": "npm:^0.2.0"
-    "@dprint/markdown": "npm:^0.16.3"
-    "@dprint/toml": "npm:^0.5.4"
-    eslint-formatting-reporter: "npm:^0.0.0"
-    eslint-parser-plain: "npm:^0.1.0"
-    prettier: "npm:^3.1.0"
-    synckit: "npm:^0.8.6"
-  peerDependencies:
-    eslint: ^8.40.0
-  checksum: 10/1168a00874005e06d8bdf1e641a8414729f6869f144af1e1d0387c114a36b73ff82d91231dadc9731df9979937d5abec5b13d50a3a229713fbda19c17940061b
   languageName: node
   linkType: hard
 
@@ -12805,7 +12747,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:3.2.5, prettier@npm:^3.1.0":
+"prettier@npm:3.2.5":
   version: 3.2.5
   resolution: "prettier@npm:3.2.5"
   bin:
