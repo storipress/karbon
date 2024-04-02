@@ -118,6 +118,7 @@ export interface IdComparisonMap {
 }
 
 export interface URLGenerators {
+  // @ts-expect-error no idea only this will have error
   article: ResourcePage<ArticleMeta>
   desk: ResourcePage<DeskMeta>
   author: ResourcePage<AuthorMeta>

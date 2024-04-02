@@ -26,7 +26,7 @@ import type { HookResult, NuxtPlugin } from '@nuxt/schema'
 import { resolveSEOProviders } from './seo-provider'
 import { versionSafe } from './cli/checkFile'
 import type {
-  ArticleMeta,
+  BaseMeta,
   DeskMeta,
   ModuleOptions,
   ModulePublicRuntimeConfig,
@@ -81,7 +81,7 @@ const resources: ModuleOptions['resources'] = {
     enable: true,
     getIdentity: ({ id }) => ({ type: 'article', id }),
     isValid: stubTrue,
-    toURL: ({ id }: ArticleMeta) => `/posts/${id}`,
+    toURL: ({ id }: BaseMeta) => `/posts/${id}`,
   },
   desk: {
     route: '/desks/:id',
