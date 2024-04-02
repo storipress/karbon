@@ -1,14 +1,14 @@
-import { expect, test, vi } from 'vitest'
+import { expect, it, vi } from 'vitest'
 import type { PaginationData } from '../helper'
 import { getAllWithPaginationViaGetPage, getRemainingPages } from '../helper'
 
-test('getRemainingPage', () => {
+it('getRemainingPage', () => {
   expect(getRemainingPages(3)).toEqual([2, 3])
   expect(getRemainingPages(4)).toEqual([2, 3, 4])
   expect(getRemainingPages(1)).toEqual([])
 })
 
-test('getAllWithPaginationViaGetPage', async () => {
+it('getAllWithPaginationViaGetPage', async () => {
   const fn = vi.fn(async (page: number): Promise<PaginationData> => {
     if (page === 1) {
       return {

@@ -1,10 +1,10 @@
-import { expect, test, vi } from 'vitest'
+import { expect, it, vi } from 'vitest'
 import { normalizeArticle } from '../normalize-article'
 import { mockQueryArticle, mockTypesenseArticle } from './article.mock'
 
 vi.mock('#imports', async () => await vi.importActual('../../../normalize-helper'))
 
-test('mockTypesenseArticle', () => {
+it('mockTypesenseArticle', () => {
   expect(normalizeArticle(mockTypesenseArticle)).toMatchSnapshot()
   expect(normalizeArticle(mockQueryArticle)).toMatchSnapshot()
 })

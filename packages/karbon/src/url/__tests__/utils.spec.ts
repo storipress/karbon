@@ -1,7 +1,7 @@
-import { expect, test } from 'vitest'
+import { expect, it } from 'vitest'
 import { paramNameToParamKey } from '../utils'
 
-test('paramNameToParamKey', () => {
+it('paramNameToParamKey', () => {
   expect(paramNameToParamKey(':foo')).toBe('foo')
   expect(paramNameToParamKey(':foo?')).toBe('foo')
 })

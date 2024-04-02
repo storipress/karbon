@@ -1,7 +1,7 @@
-import { expect, test } from 'vitest'
+import { expect, it } from 'vitest'
 import { createResourceRoute } from '..'
 
-test('createResourceRoute', () => {
+it('createResourceRoute', () => {
   const route = createResourceRoute({
     resource: 'article',
     url: '/posts/{desk.slug}/{slug}',
@@ -23,7 +23,7 @@ test('createResourceRoute', () => {
   )
 })
 
-test('createResourceRoute with optional', () => {
+it('createResourceRoute with optional', () => {
   const route = createResourceRoute({
     resource: 'article',
     url: '/posts/{root_desk.slug}/{?sub_desk.slug}/{slug}',
@@ -58,7 +58,7 @@ test('createResourceRoute with optional', () => {
   expect(route.toURL(metaWithoutSubdesk, route._context)).toBe('/posts/root-slug/article-slug')
 })
 
-test('with static param', () => {
+it('with static param', () => {
   const route = createResourceRoute({
     resource: 'article',
     url: '/{#foo}/{id}',

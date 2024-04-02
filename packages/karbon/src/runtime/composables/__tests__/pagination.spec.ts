@@ -1,9 +1,9 @@
 import type { Mock } from 'vitest'
-import { afterEach, beforeEach, describe, expect, test, vi } from 'vitest'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { ref } from 'vue'
 import { usePagination } from '../pagination'
 
-test('usePagination with remaining page', () => {
+it('usePagination with remaining page', () => {
   const res = usePagination(ref([1, 2, 3]), 2)
   expect(res.page.value).toBe(1)
   expect(res.total.value).toBe(2)
@@ -45,7 +45,7 @@ test('usePagination with remaining page', () => {
   expect(res.page.value).toBe(2)
 })
 
-test('usePagination with exactly page', () => {
+it('usePagination with exactly page', () => {
   const res = usePagination(ref([1, 2, 3, 4]), 2)
   expect(res.page.value).toBe(1)
   expect(res.total.value).toBe(2)
@@ -79,7 +79,7 @@ test('usePagination with exactly page', () => {
   expect(res.page.value).toBe(2)
 })
 
-test('usePagination with empty list', () => {
+it('usePagination with empty list', () => {
   const res = usePagination(ref([]), 2)
   expect(res.page.value).toBe(0)
   expect(res.total.value).toBe(0)
@@ -102,13 +102,13 @@ describe('preconditon validation', () => {
     vi.restoreAllMocks()
   })
 
-  test('usePagination throw when limit is 0', () => {
+  it('usePagination throw when limit is 0', () => {
     expect(() => {
       usePagination(ref([]), 0)
     }).toThrowErrorMatchingInlineSnapshot('"Invariant failed: `limit` must not be negative or 0"')
   })
 
-  test('usePagination throw when limit is < 0', () => {
+  it('usePagination throw when limit is < 0', () => {
     expect(() => {
       usePagination(ref([]), -1)
     }).toThrowErrorMatchingInlineSnapshot('"Invariant failed: `limit` must not be negative or 0"')

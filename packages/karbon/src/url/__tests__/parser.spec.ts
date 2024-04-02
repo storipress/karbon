@@ -1,7 +1,7 @@
-import { expect, test } from 'vitest'
+import { expect, it } from 'vitest'
 import { parse, toRoute } from '../parser'
 
-test('parse url work', () => {
+it('parse url work', () => {
   expect(parse('/posts/{slug}')).toMatchInlineSnapshot(`
     [
       {
@@ -195,7 +195,7 @@ test('parse url work', () => {
   `)
 })
 
-test('toRoute', () => {
+it('toRoute', () => {
   expect(
     toRoute([
       {

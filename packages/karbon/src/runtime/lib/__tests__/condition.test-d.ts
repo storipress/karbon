@@ -1,7 +1,7 @@
-import { assertType, test } from 'vitest'
+import { assertType, it } from 'vitest'
 import type { ConditionInput } from '../article-filter'
 
-test('ConditionInput', () => {
+it('conditionInput', () => {
   assertType<ConditionInput>({ type: 'featured' })
   assertType<ConditionInput>({ key: 'slug', value: 'foo' })
   assertType<ConditionInput>({ type: 'desk', key: 'id', value: 'foo' })

@@ -1,7 +1,7 @@
-import { expect, test } from 'vitest'
+import { expect, it } from 'vitest'
 import { convertToOption } from '../to-options'
 
-test('convertToOption basic', () => {
+it('convertToOption basic', () => {
   const opt = convertToOption('article', [
     {
       type: 'static',
@@ -86,7 +86,7 @@ test('convertToOption basic', () => {
   expect(opt.toURL({ desk: { slug: 'desk' }, slug: 'article-slug' }, opt._context)).toBe('/desk/article-slug')
 })
 
-test('convertToOption with optional and optional param exist', () => {
+it('convertToOption with optional and optional param exist', () => {
   const opt = convertToOption('article', [
     {
       type: 'static',
@@ -199,7 +199,7 @@ test('convertToOption with optional and optional param exist', () => {
   expect(opt.toURL(meta, opt._context)).toBe('/parent-desk/sub-desk/article-slug')
 })
 
-test('convertToOption with optional and optional param non-exist', () => {
+it('convertToOption with optional and optional param non-exist', () => {
   const opt = convertToOption('article', [
     {
       type: 'static',
