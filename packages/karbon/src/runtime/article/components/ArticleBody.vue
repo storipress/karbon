@@ -28,7 +28,7 @@ import {
 // @ts-expect-error virtual file
 import { editorBlocks } from '#build/editor-blocks.mjs'
 
-const { $paywall } = useNuxtApp()
+const { $paywall, isHydrating } = useNuxtApp()
 const { loadAll: fixArticleEmbed } = useEmbed()
 
 const root = ref<HTMLElement>()
@@ -39,10 +39,12 @@ const paywallID = computed(() => `paywall-${articleID.value || crypto.randomUUID
 const articlePlan = computed(() => article?.plan || ArticlePlan.Free)
 
 const getDecryptKey = useDecryptClient<ViewableApiResult>()
-watchEffect(() => {
-  if (!root.value) return
-  processingArticles(root.value, fixArticleEmbed)
-})
+if (!isHydrating) {
+  watchEffect(() => {
+    if (!root.value) return
+    processingArticles(root.value, fixArticleEmbed)
+  })
+}
 
 const { state: articleSegments, execute } = useAsyncState<Segment[]>(async () => {
   return await decryptPaidContent(
