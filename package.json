@@ -60,7 +60,7 @@
     "vue3-lazy-hydration": "^1.2.1"
   },
   "devDependencies": {
-    "@antfu/eslint-config-vue": "0.42.1",
+    "@antfu/eslint-config-vue": "0.43.1",
     "@moonrepo/cli": "1.22.8",
     "@nuxt/image": "1.0.0-rc.1",
     "@nuxtjs/tailwindcss": "6.8.0",
