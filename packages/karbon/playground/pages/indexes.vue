@@ -14,9 +14,7 @@ const resourceKey = ['articles', 'desks', 'tags', 'authors'] as const
       <ul>
         <li v-for="item in resources[resource].value" :key="item.meta.id">
           <NuxtLink :href="item.url" class="underline text-teal-500">
-            {{
-              (item.meta as any).title || (item.meta as any).name || (item.meta as any).full_name
-            }}
+            {{ (item.meta as any).title || (item.meta as any).name || (item.meta as any).full_name }}
           </NuxtLink>
         </li>
       </ul>
