@@ -237,6 +237,7 @@ const karbon = defineNuxtModule<ModuleOptions>({
     addTemplate({
       filename: 'storipress-urls.mjs',
       getContents: () => serializedURLs,
+      write: true,
     })
 
     // Type declaration for seo
