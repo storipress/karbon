@@ -26,7 +26,7 @@
   },
   "dependencies": {
     "hookable": "^5.5.3",
-    "remeda": "^1.57.0",
+    "remeda": "^1.55.0",
     "unctx": "^2.3.1",
     "vue": "^3.3.13"
   },
