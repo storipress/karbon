@@ -19,7 +19,7 @@ tasks:
       - nuxt-module-build
       - build
     platform: node
-    inputs: 
+    inputs:
       - '@group(sources)'
     outputs:
       - dist/**/*
@@ -37,7 +37,7 @@ tasks:
     env:
       POLYFILL_CRYPTO: 'true'
     platform: node
-    inputs: 
+    inputs:
       - tsup.config.ts
       - '@group(sources)'
     outputs:
@@ -49,10 +49,10 @@ tasks:
       - tsup
       - dist/helper.mjs
     platform: node
-    inputs: 
+    inputs:
       - tsup.config.ts
       - dist/helper.mjs
-    outputs: 
+    outputs:
       - dist/helper.mjs
     deps:
       - dev-prepare
@@ -62,10 +62,10 @@ tasks:
       - tsup
       - dist/module.mjs
     platform: node
-    inputs: 
+    inputs:
       - tsup.config.ts
       - dist/module.mjs
-    outputs: 
+    outputs:
       - dist/module.mjs
     deps:
       - dev-prepare
@@ -102,7 +102,7 @@ tasks:
       JITI_ALIAS: '{"tslib": "tslib/tslib.es6.js"}'
     platform: node
     deps:
-     - ^:build
+      - ^:build
   lint:
     command:
       - eslint
