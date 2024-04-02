@@ -23,8 +23,8 @@ tasks:
       - '@group(sources)'
     outputs:
       - dist/**/*
-      # - '!dist/module.mjs'
-      # - '!dist/helper.mjs'
+      - '!dist/module.mjs'
+      - '!dist/helper.mjs'
     deps:
       - ^:build
       - dev-prepare
