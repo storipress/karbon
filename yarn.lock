@@ -2777,7 +2777,7 @@ __metadata:
     babel-plugin-prismjs: "npm:2.1.0"
     changelogen: "npm:0.5.5"
     eslint: "npm:8.57.0"
-    vite: "npm:4.5.2"
+    vite: "npm:4.5.3"
     vite-plugin-babel: "npm:1.2.0"
   languageName: unknown
   linkType: soft
@@ -2890,7 +2890,7 @@ __metadata:
     unplugin-vue-components: "npm:^0.25.2"
     unstorage: "npm:^1.9.0"
     uuid: "npm:^9.0.1"
-    vite: "npm:^4.5.1"
+    vite: "npm:^4.5.3"
     vite-plugin-css-injected-by-js: "npm:^3.3.1"
     vitest: "npm:0.34.6"
     vue-instantsearch: "npm:^4.13.2"
@@ -2972,7 +2972,7 @@ __metadata:
     unplugin-vue-components: "npm:^0.25.2"
     unstorage: "npm:^1.9.0"
     uuid: "npm:^9.0.1"
-    vite: "npm:^4.5.1"
+    vite: "npm:^4.5.3"
     vite-plugin-css-injected-by-js: "npm:^3.3.1"
     vitest: "npm:0.34.6"
     vue-instantsearch: "npm:^4.13.2"
@@ -3085,7 +3085,7 @@ __metadata:
     unplugin-vue-components: "npm:^0.25.2"
     unstorage: "npm:^1.9.0"
     uuid: "npm:^9.0.1"
-    vite: "npm:^4.5.1"
+    vite: "npm:^4.5.3"
     vite-plugin-css-injected-by-js: "npm:^3.3.1"
     vite-tsconfig-paths: "npm:^4.2.2"
     vitest: "npm:0.34.6"
@@ -15682,7 +15682,47 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:4.5.2, vite@npm:^3.0.0 || ^4.0.0, vite@npm:^4.5.1":
+"vite@npm:4.5.3, vite@npm:^4.5.3":
+  version: 4.5.3
+  resolution: "vite@npm:4.5.3"
+  dependencies:
+    esbuild: "npm:^0.18.10"
+    fsevents: "npm:~2.3.2"
+    postcss: "npm:^8.4.27"
+    rollup: "npm:^3.27.1"
+  peerDependencies:
+    "@types/node": ">= 14"
+    less: "*"
+    lightningcss: ^1.21.0
+    sass: "*"
+    stylus: "*"
+    sugarss: "*"
+    terser: ^5.4.0
+  dependenciesMeta:
+    fsevents:
+      optional: true
+  peerDependenciesMeta:
+    "@types/node":
+      optional: true
+    less:
+      optional: true
+    lightningcss:
+      optional: true
+    sass:
+      optional: true
+    stylus:
+      optional: true
+    sugarss:
+      optional: true
+    terser:
+      optional: true
+  bin:
+    vite: bin/vite.js
+  checksum: 10/82efe1bc6d6848f8c97b71f1dc5b2fba2c3f30b2207ef2451c8df1a0ed5903c55714d7cd8ecb75879b488661d97f6e01a4ad758b5ef6a50a14338f916233bfa4
+  languageName: node
+  linkType: hard
+
+"vite@npm:^3.0.0 || ^4.0.0":
   version: 4.5.2
   resolution: "vite@npm:4.5.2"
   dependencies:
