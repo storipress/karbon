@@ -88,7 +88,22 @@ export interface RawSEO {
 }
 
 export function normalizeArticle(article: RawArticleLike | TypesenseArticleLike) {
-  const { title, blurb, seo, cover, plan, id, authors, desk, tags, published_at, html, plaintext, ...rest } = article
+  const {
+    title,
+    blurb,
+    seo,
+    cover,
+    plan,
+    id,
+    authors,
+    desk,
+    tags,
+    published_at,
+    updated_at,
+    html,
+    plaintext,
+    ...rest
+  } = article
 
   const articleFilter = useArticleFilter()
   const rootDesk = desk?.desk ? { desk: { ...desk.desk, id: String(desk.desk.id) } } : {}
@@ -101,7 +116,8 @@ export function normalizeArticle(article: RawArticleLike | TypesenseArticleLike)
     bio: articleFilter(bio),
     bioHTML: bio,
     // published_at could be unix timestamp
-    published_at: typeof published_at === 'string' ? published_at : new Date(published_at * 1000).toISOString(),
+    published_at: normalizeMaybeUnixTimestamp(published_at),
+    updated_at: normalizeMaybeUnixTimestamp(updated_at),
     title: unwrapParagraph(title),
     blurb: unwrapParagraph(blurb),
     seo: destr<RawSEO>(seo),
@@ -137,6 +153,10 @@ export type _NormalizeArticle = ReturnType<typeof normalizeArticle>
 export type NormalizeArticle = _NormalizeArticle & {
   paidContent?: PaidContent
   segments: Segment[]
+}
+
+function normalizeMaybeUnixTimestamp(date: number | string): string {
+  return typeof date === 'string' ? date : new Date(date * 1000).toISOString()
 }
 
 export function unwrapParagraph(input: string): string {
