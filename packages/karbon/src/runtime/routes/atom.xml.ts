@@ -18,6 +18,7 @@ interface TArticle {
   plaintext: string
   html: string
   published_at: string
+  updated_at: string
 }
 
 export default defineEventHandler(async (e) => {
@@ -56,7 +57,8 @@ export default defineEventHandler(async (e) => {
         id: joinURL(siteUrl, id),
         link: joinURL(siteUrl, id),
         description: article.plaintext.slice(0, 120),
-        date: new Date(article.published_at),
+        date: new Date(article.updated_at),
+        published: new Date(article.published_at),
         author:
           article.author?.map((author) => ({
             name: author.name,
