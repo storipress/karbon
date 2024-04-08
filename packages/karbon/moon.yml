@@ -113,6 +113,9 @@ tasks:
       - tsx
       - scripts/release.mts
     platform: node
+    options:
+      interactive: true
+    local: true
   test:
     command: vitest
     platform: node

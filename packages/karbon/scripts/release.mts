@@ -1,5 +1,7 @@
 import { $ } from 'zx'
 
+$.verbose = true
+
 await $`git pull --rebase --autostash`
 
 const res = await $`yarn prettier --check package.json`.nothrow()
