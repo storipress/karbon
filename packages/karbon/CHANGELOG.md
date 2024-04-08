@@ -5,6 +5,23 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # 0.1.0 (2023-03-15)
 
+## v0.1.115
+
+[compare changes](https://github.com/storipress/karbon/compare/v0.1.114...v0.1.115)
+
+### 🚀 Enhancements
+
+- Add published date to feed ([#350](https://github.com/storipress/karbon/pull/350))
+
+### 🏡 Chore
+
+- Upgrade deps ([67a2fce](https://github.com/storipress/karbon/commit/67a2fce))
+
+### ❤️ Contributors
+
+- DanSnow <dododavid006@gmail.com>
+- David Peng <dododavid006@gmail.com>
+
 ## v0.1.114
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.113...v0.1.114)
