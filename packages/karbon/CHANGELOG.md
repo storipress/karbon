@@ -5,6 +5,18 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # 0.1.0 (2023-03-15)
 
+## v0.1.117
+
+[compare changes](https://github.com/storipress/karbon/compare/v0.1.116...v0.1.117)
+
+### 🩹 Fixes
+
+- Fix axios incompatible with edge runtime ([#357](https://github.com/storipress/karbon/pull/357))
+
+### ❤️ Contributors
+
+- David Peng <dododavid006@gmail.com>
+
 ## v0.1.116
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.115...v0.1.116)
