@@ -56,12 +56,12 @@
     "uuid": "^9.0.1",
     "vite": "^4.5.3",
     "vite-plugin-css-injected-by-js": "^3.5.0",
-    "vue-instantsearch": "^4.13.2",
+    "vue-instantsearch": "^4.15.0",
     "vue3-lazy-hydration": "^1.2.1"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "2.12.2",
-    "@moonrepo/cli": "1.23.3",
+    "@antfu/eslint-config": "2.13.0",
+    "@moonrepo/cli": "1.23.4",
     "@nuxt/image": "1.0.0-rc.1",
     "@nuxtjs/tailwindcss": "6.8.0",
     "@rollup/plugin-virtual": "3.0.2",

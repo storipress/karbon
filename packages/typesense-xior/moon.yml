@@ -1,0 +1,8 @@
+tasks:
+  build:
+    command: vite build
+    inputs:
+      - src/**/*
+      - vite.config.ts
+    outputs:
+      - dist/**/*
