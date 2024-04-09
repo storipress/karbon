@@ -3274,9 +3274,9 @@ __metadata:
   resolution: "@storipress/typesense-xior@workspace:packages/typesense-xior"
   dependencies:
     "@moonrepo/cli": "npm:1.23.4"
-    builtin-modules: "npm:^3.3.0"
+    builtin-modules: "npm:3.3.0"
     typesense: "npm:1.8.1"
-    vite: "npm:^5.2.8"
+    vite: "npm:5.2.8"
     xior: "npm:0.3.9"
   languageName: unknown
   linkType: soft
@@ -5573,7 +5573,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"builtin-modules@npm:^3.3.0":
+"builtin-modules@npm:3.3.0, builtin-modules@npm:^3.3.0":
   version: 3.3.0
   resolution: "builtin-modules@npm:3.3.0"
   checksum: 10/62e063ab40c0c1efccbfa9ffa31873e4f9d57408cb396a2649981a0ecbce56aabc93c28feaccbc5658c95aab2703ad1d11980e62ec2e5e72637404e1eb60f39e
@@ -15846,7 +15846,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:^3.0.0 || ^4.0.0 || ^5.0.0-0, vite@npm:^3.1.0 || ^4.0.0 || ^5.0.0-0, vite@npm:^5.2.8":
+"vite@npm:5.2.8, vite@npm:^3.0.0 || ^4.0.0 || ^5.0.0-0, vite@npm:^3.1.0 || ^4.0.0 || ^5.0.0-0":
   version: 5.2.8
   resolution: "vite@npm:5.2.8"
   dependencies:
