@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    /* AND if you're building for a library in a monorepo: */
+    "composite": true,
+    "target": "es2022",
+    /* If your code runs in the DOM: */
+    /* If your code doesn't run in the DOM: */
+    "lib": ["es2022"],
+    "moduleDetection": "force",
+    "baseUrl": ".",
+    /* If NOT transpiling with TypeScript: */
+    "module": "ES2022",
+    "moduleResolution": "Bundler",
+    "resolveJsonModule": true,
+    "allowJs": true,
+    /* Strictness */
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    /* AND if you're building for a library: */
+    "declaration": true,
+    "declarationMap": true,
+    "noEmit": true,
+    "outDir": "dist",
+    "sourceMap": true,
+    /* Base Options: */
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "skipLibCheck": true
+  },
+  "include": ["src/**/*", "tsup.config.ts"]
+}

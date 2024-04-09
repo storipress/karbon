@@ -45,7 +45,6 @@ if (import.meta.hot) {
 
 export function getAllArticles(): Promise<UseArticleReturnWithURL[]> &
   AsyncData<UseArticleReturnWithURL[], true | null> {
-  // @ts-expect-error unable to modal this type
   return useResourceList('article', {
     key: 'all',
     transform: (data) => {
@@ -62,7 +61,7 @@ export function getAllArticles(): Promise<UseArticleReturnWithURL[]> &
 }
 
 export const useGetAllArticles = useEventOnce(() => {
-  const promise = getAllArticles()
+  const promise = getAllArticles() as AsyncData<UseArticleReturnWithURL[], unknown>
   onServerPrefetch(() => promise)
   return promise
 })

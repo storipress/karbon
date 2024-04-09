@@ -1,4 +1,7 @@
 {
   "extends": "./playground/.nuxt/tsconfig.json",
+  "compilerOptions": {
+    "moduleResolution": "Bundler"
+  },
   "include": ["./src/**/*", "./playground/**/*.ts"]
 }

@@ -63,7 +63,7 @@
     "uuid": "^9.0.1",
     "vite": "^4.5.3",
     "vite-plugin-css-injected-by-js": "^3.5.0",
-    "vue-instantsearch": "^4.13.2",
+    "vue-instantsearch": "^4.15.0",
     "vue3-lazy-hydration": "^1.2.1"
   },
   "devDependencies": {

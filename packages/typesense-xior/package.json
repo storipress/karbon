@@ -1,0 +1,24 @@
+{
+  "name": "@storipress/typesense-xior",
+  "type": "module",
+  "version": "1.8.1",
+  "packageManager": "yarn@4.1.1",
+  "exports": {
+    ".": {
+      "types": "./dist/typesense-xior.d.ts",
+      "import": "./dist/typesense-xior.js"
+    }
+  },
+  "scripts": {
+    "build": "moon run build"
+  },
+  "dependencies": {
+    "typesense": "1.8.1",
+    "xior": "0.3.9"
+  },
+  "devDependencies": {
+    "@moonrepo/cli": "1.23.4",
+    "builtin-modules": "^3.3.0",
+    "vite": "^5.2.8"
+  }
+}

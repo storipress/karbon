@@ -4,6 +4,7 @@ dependsOn:
   - code-highlight
   - custom-field
   - jose-browser
+  - typesense-xior
 
 tasks:
   build:
