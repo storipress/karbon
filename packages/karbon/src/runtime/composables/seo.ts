@@ -2,7 +2,7 @@ import type { MaybeRefOrGetter } from '@vueuse/core'
 import { toRef } from '@vueuse/core'
 import { watchSyncEffect } from 'vue'
 import type { Resources } from '../types'
-import type { PresetConfigInput, SEOContext } from './seo-preset'
+import type { PresetConfigInput, RawSEOInput, SEOContext } from './seo-preset'
 import { getSite, useArticleFilter, useHead, useNuxtApp, useRuntimeConfig, useSeoMeta } from '#imports'
 import urls from '#build/storipress-urls.mjs'
 
