@@ -11,7 +11,7 @@ import { fetch } from 'cross-fetch'
 import { withHttps } from 'ufo'
 import { Hookable } from 'hookable'
 import type { Subscription } from 'zen-observable-ts'
-import type { SearchParams, SearchParamsWithPreset } from 'typesense/lib/Typesense/Documents'
+import type { SearchParams, SearchParamsWithPreset } from '@storipress/typesense-xior'
 import type { ModuleRuntimeConfig } from '../types'
 
 let c: any = null

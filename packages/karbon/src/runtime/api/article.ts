@@ -5,11 +5,10 @@ import { gql } from '@apollo/client/core/index.js'
 import { destr } from 'destr'
 import { gcm } from '@noble/ciphers/webcrypto/aes'
 import { randomBytes } from '@noble/ciphers/webcrypto/utils'
+import type { MultiSearchResponse, SearchResponse } from '@storipress/typesense-xior'
 
 // This file contains global crypto polyfill
 import { CompactEncrypt } from '@storipress/jose-browser'
-import type { SearchResponse } from 'typesense/lib/Typesense/Documents'
-import type { MultiSearchResponse } from 'typesense/lib/Typesense/MultiSearch'
 import { useStoripressClient } from '../composables/storipress-client'
 import type { TypesenseFilter } from '../composables/typesense-client'
 import { PER_PAGE, getSearchQuery, useTypesenseClient } from '../composables/typesense-client'
