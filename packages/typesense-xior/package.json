@@ -1,26 +1,26 @@
 {
   "name": "@storipress/typesense-xior",
   "type": "module",
-  "version": "1.8.1",
+  "version": "1.8.2",
   "packageManager": "yarn@4.1.1",
-  "files": [
-    "./dist/*"
-  ],
-  "publishConfig": {
-    "access": "public"
-  },
   "exports": {
     ".": {
       "types": "./dist/typesense-xior.d.ts",
       "import": "./dist/typesense-xior.js"
     }
   },
+  "files": [
+    "./dist/*"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "moon run build",
     "prepack": "moon run build"
   },
   "dependencies": {
-    "typesense": "1.8.1",
+    "typesense": "1.8.2",
     "xior": "0.3.9"
   },
   "devDependencies": {

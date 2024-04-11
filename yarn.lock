@@ -3172,7 +3172,7 @@ __metadata:
     "@storipress/code-highlight": "npm:^0.0.3"
     "@storipress/custom-field": "npm:^1.1.7"
     "@storipress/jose-browser": "npm:^1.1.5"
-    "@storipress/typesense-xior": "workspace:^"
+    "@storipress/typesense-xior": "workspace:*"
     "@storipress/vue-advertising": "npm:^1.1.0"
     "@types/fs-extra": "npm:11.0.4"
     "@types/js-yaml": "npm:4.0.9"
@@ -3245,7 +3245,6 @@ __metadata:
     tsx: "npm:4.7.2"
     type-fest: "npm:^4.15.0"
     typescript: "npm:5.4.4"
-    typesense: "npm:^1.8.1"
     typesense-instantsearch-adapter: "npm:^2.8.0"
     unbuild: "npm:^2.0.0"
     unenv: "npm:^1.9.0"
@@ -3269,13 +3268,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@storipress/typesense-xior@workspace:^, @storipress/typesense-xior@workspace:packages/typesense-xior":
+"@storipress/typesense-xior@workspace:*, @storipress/typesense-xior@workspace:packages/typesense-xior":
   version: 0.0.0-use.local
   resolution: "@storipress/typesense-xior@workspace:packages/typesense-xior"
   dependencies:
     "@moonrepo/cli": "npm:1.23.4"
     builtin-modules: "npm:3.3.0"
-    typesense: "npm:1.8.1"
+    typesense: "npm:1.8.2"
     vite: "npm:5.2.8"
     xior: "npm:0.3.9"
   languageName: unknown
@@ -15077,15 +15076,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typesense@npm:1.8.1, typesense@npm:^1.7.2, typesense@npm:^1.8.1":
-  version: 1.8.1
-  resolution: "typesense@npm:1.8.1"
+"typesense@npm:1.8.2, typesense@npm:^1.7.2":
+  version: 1.8.2
+  resolution: "typesense@npm:1.8.2"
   dependencies:
     axios: "npm:^1.6.0"
     loglevel: "npm:^1.8.1"
   peerDependencies:
     "@babel/runtime": ^7.23.2
-  checksum: 10/628c2f97823e53c101e557f25cb15b00dedd4963402df446628535ceecb01b9f406425d59968c7969451b8f092721ddc7d3a1fe5327c76a804e9cc336dd628dc
+  checksum: 10/a9630454078a2071022914bb79a56c1bf568c8f478d55e28f8e3884237c0c51b828c2728e8ae30f12cb5fe4c3468e5cb0e0caf6627ba0e4732d315c6705766ca
   languageName: node
   linkType: hard
 

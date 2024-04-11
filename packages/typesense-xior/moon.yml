@@ -3,6 +3,7 @@ tasks:
     command: vite build
     inputs:
       - src/**/*
+      - public/**/*
       - vite.config.ts
     outputs:
       - dist/**/*
