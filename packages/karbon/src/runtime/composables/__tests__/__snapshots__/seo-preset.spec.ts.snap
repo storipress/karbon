@@ -15,3 +15,19 @@ exports[`can handle article 1`] = `
   "twitterTitle": "title",
 }
 `;
+
+exports[`can handle real article 1`] = `
+{
+  "description": "meta_description",
+  "ogDescription": "og_description",
+  "ogImage": "https://example.com/cover.png",
+  "ogTitle": "og_title",
+  "ogType": "article",
+  "ogUrl": "/article_url",
+  "title": "meta_title",
+  "twitterCard": "summary_large_image",
+  "twitterDescription": "og_description",
+  "twitterImage": "https://example.com/cover.png",
+  "twitterTitle": "og_title",
+}
+`;
