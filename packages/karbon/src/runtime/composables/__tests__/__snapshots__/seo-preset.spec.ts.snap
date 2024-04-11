@@ -1,0 +1,17 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`can handle article 1`] = `
+{
+  "description": "blurb",
+  "ogDescription": "blurb",
+  "ogImage": "cover_url",
+  "ogTitle": "title",
+  "ogType": "website",
+  "ogUrl": "/article_url",
+  "title": "title",
+  "twitterCard": "summary_large_image",
+  "twitterDescription": "blurb",
+  "twitterImage": "cover_url",
+  "twitterTitle": "title",
+}
+`;
