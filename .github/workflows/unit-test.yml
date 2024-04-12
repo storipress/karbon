@@ -10,6 +10,8 @@ jobs:
       NODE_OPTIONS: --max-old-space-size=6144
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - name: Cache Moonrepo
         uses: actions/cache@v4
         with:
@@ -24,5 +26,5 @@ jobs:
           node-version: '18'
           cache: yarn
       - uses: moonrepo/setup-toolchain@v0
-      - run: moon ci karbon:build
+      - run: moon run karbon:build
       - run: yarn test
