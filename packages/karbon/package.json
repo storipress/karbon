@@ -63,7 +63,7 @@
     "@storipress/typesense-xior": "workspace:*",
     "@storipress/vue-advertising": "^1.1.0",
     "@vueuse/core": "^10.1.2",
-    "@vueuse/head": "^1.1.26",
+    "@vueuse/head": "^2.0.0",
     "@vueuse/math": "^10.1.2",
     "@vueuse/nuxt": "^10.1.2",
     "@zhead/schema": "^1.1.0",
