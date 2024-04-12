@@ -10,7 +10,7 @@ jobs:
       NODE_OPTIONS: --max-old-space-size=6144
     steps:
       - uses: actions/checkout@v4
-      - name: Cache Nx
+      - name: Cache Moonrepo
         uses: actions/cache@v4
         with:
           path: |
