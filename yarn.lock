@@ -3000,7 +3000,6 @@ __metadata:
     "@types/uuid": "npm:9.0.8"
     "@vitejs/plugin-vue": "npm:5.0.4"
     "@vueuse/core": "npm:^10.1.2"
-    "@vueuse/head": "npm:^1.1.26"
     "@vueuse/math": "npm:^10.1.2"
     "@vueuse/nuxt": "npm:^10.1.2"
     "@zhead/schema": "npm:^1.1.0"
@@ -3698,7 +3697,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@unhead/dom@npm:1.9.4, @unhead/dom@npm:^1.1.26, @unhead/dom@npm:^1.7.2":
+"@unhead/dom@npm:1.9.4, @unhead/dom@npm:^1.7.2":
   version: 1.9.4
   resolution: "@unhead/dom@npm:1.9.4"
   dependencies:
@@ -3717,7 +3716,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@unhead/schema@npm:1.9.4, @unhead/schema@npm:^1.1.26":
+"@unhead/schema@npm:1.9.4":
   version: 1.9.4
   resolution: "@unhead/schema@npm:1.9.4"
   dependencies:
@@ -3736,7 +3735,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@unhead/ssr@npm:^1.1.26, @unhead/ssr@npm:^1.7.2":
+"@unhead/ssr@npm:^1.7.2":
   version: 1.9.4
   resolution: "@unhead/ssr@npm:1.9.4"
   dependencies:
@@ -3746,7 +3745,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@unhead/vue@npm:^1.1.26, @unhead/vue@npm:^1.7.2":
+"@unhead/vue@npm:^1.7.2":
   version: 1.9.4
   resolution: "@unhead/vue@npm:1.9.4"
   dependencies:
@@ -4370,20 +4369,6 @@ __metadata:
     "@vueuse/shared": "npm:9.13.0"
     vue-demi: "npm:*"
   checksum: 10/4a4d8b715ad8ad40582d3c999271a331a3fd964c616dda3a0605eff299d74ee9e5e5b8ccbd228107af024da9d3b3b818e992dcebc3f6047e7b110ccdf206f4d7
-  languageName: node
-  linkType: hard
-
-"@vueuse/head@npm:^1.1.26":
-  version: 1.1.26
-  resolution: "@vueuse/head@npm:1.1.26"
-  dependencies:
-    "@unhead/dom": "npm:^1.1.26"
-    "@unhead/schema": "npm:^1.1.26"
-    "@unhead/ssr": "npm:^1.1.26"
-    "@unhead/vue": "npm:^1.1.26"
-  peerDependencies:
-    vue: ">=2.7 || >=3"
-  checksum: 10/59cac909130d7e5f7e77b2943a1c08a388c1a835e953de883bdccb21d45afba5633815f7bed283b57719c5002ce8c298a926cc40ad49e177bef7102c9d564156
   languageName: node
   linkType: hard
 
