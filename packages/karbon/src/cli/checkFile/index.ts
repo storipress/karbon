@@ -1,7 +1,7 @@
 import process from 'node:process'
 import consola from 'consola'
 import fs from 'fs-extra'
-import { fileTypeFromFile } from 'file-type'
+import { fileTypeFromBuffer } from 'file-type'
 import type { Tblock, Tlayout } from '../bundle/types'
 import { extErrorMsg, karbonMsg, safeExt } from './setting'
 
@@ -34,7 +34,7 @@ function jsonSafe() {
 }
 
 async function typeSafe() {
-  const result = await fileTypeFromFile(fileName)
+  const result = await fileTypeFromBuffer(await fs.readFile(fileName))
   if (result?.ext !== safeExt) {
     consola.error(extErrorMsg)
     throw new Error(karbonMsg.uploadError)

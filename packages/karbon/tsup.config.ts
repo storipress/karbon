@@ -17,6 +17,6 @@ export default defineConfig({
     js: `
 import { createRequire as _createRequire } from 'module';
 const require = _createRequire(import.meta.url);
-${process.env.POLYFILL_CRYPTO ? "globalThis.crypto = require('crypto').webcrypto;" : ''}`,
+${process.env.POLYFILL_CRYPTO ? "if (!globalThis.crypto) { globalThis.crypto = require('crypto').webcrypto; }" : ''}`,
   },
 })
