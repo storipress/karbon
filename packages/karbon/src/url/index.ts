@@ -70,4 +70,4 @@ export function createAuthorRoute(url: string, opt: SimpleResourceRouteOption = 
   return createResourceRoute(option)
 }
 
-export { GetResourcesOptionParams, UrlParams, getDeskTree, getResourcesOption } from './resources-option'
+export { type GetResourcesOptionParams, UrlParams, getDeskTree, getResourcesOption } from './resources-option'

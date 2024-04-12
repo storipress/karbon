@@ -26,9 +26,9 @@
   },
   "dependencies": {
     "hookable": "^5.5.3",
-    "remeda": "^1.57.2",
+    "remeda": "^1.58.1",
     "unctx": "^2.3.1",
-    "vue": "^3.3.13"
+    "vue": "^3.4.21"
   },
   "devDependencies": {
     "unbuild": "2.0.0"
