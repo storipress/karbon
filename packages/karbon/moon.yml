@@ -94,6 +94,12 @@ tasks:
     env:
       JITI_ALIAS: '{"tslib": "tslib/tslib.es6.js"}'
     platform: node
+    inputs:
+      - playground/**/*
+      - '!playground/.nuxt/**/*'
+      - src/**/*
+    outputs:
+      - playground/.nuxt/**/*
   dev-stub:
     command:
       - nuxt-module-build

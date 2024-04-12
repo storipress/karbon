@@ -5,6 +5,7 @@ tasks:
     command: noop
     deps:
       - playground:dev-prepare
+      - karbon:build
   test:
     command: vitest
     inputs:
