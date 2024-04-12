@@ -48,7 +48,7 @@
     "@apollo/client": "^3.9.11",
     "@babel/runtime": "^7.24.4",
     "@iframely/embed.js": "^1.10.3",
-    "@noble/ciphers": "^0.4.1",
+    "@noble/ciphers": "^0.5.0",
     "@nuxt/devalue": "^2.0.2",
     "@nuxt/image": "^1.0.0-rc.1",
     "@nuxt/kit": "~3.7.3",
