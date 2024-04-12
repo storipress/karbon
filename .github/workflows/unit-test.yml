@@ -13,16 +13,16 @@ jobs:
       - name: Cache Nx
         uses: actions/cache@v4
         with:
-          path: node_modules/.cache/nx
-          key: cache-nx-${{ hashFiles('yarn.lock') }}-${{ github.sha }}
+          path: |
+            .moon/cache/hashes
+            .moon/cache/outputs
+          key: cache-moon-${{ github.sha }}
           restore-keys: |
-            cache-nx-${{ hashFiles('yarn.lock') }}-
+            cache-moon-
       - uses: actions/setup-node@v4
         with:
           node-version: '18'
           cache: yarn
-      - run: yarn install --inline-builds
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - run: yarn build
+      - uses: moonrepo/setup-toolchain@v0
+      - run: moon ci karbon:build
       - run: yarn test
