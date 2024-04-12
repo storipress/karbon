@@ -2831,7 +2831,7 @@ __metadata:
     "@types/tailwindcss": "npm:3.1.0"
     "@types/tar": "npm:6.1.12"
     "@types/uuid": "npm:9.0.8"
-    "@vitejs/plugin-vue": "npm:4.5.2"
+    "@vitejs/plugin-vue": "npm:4.6.2"
     "@vueuse/core": "npm:^10.1.2"
     "@vueuse/head": "npm:^1.1.26"
     "@vueuse/nuxt": "npm:^10.1.2"
@@ -2913,7 +2913,7 @@ __metadata:
     "@types/tailwindcss": "npm:3.1.0"
     "@types/tar": "npm:6.1.12"
     "@types/uuid": "npm:9.0.8"
-    "@vitejs/plugin-vue": "npm:4.5.2"
+    "@vitejs/plugin-vue": "npm:4.6.2"
     "@vueuse/core": "npm:^10.1.2"
     "@vueuse/head": "npm:^1.1.26"
     "@vueuse/nuxt": "npm:^10.1.2"
@@ -3000,7 +3000,7 @@ __metadata:
     "@types/tailwindcss": "npm:3.1.0"
     "@types/tar": "npm:6.1.12"
     "@types/uuid": "npm:9.0.8"
-    "@vitejs/plugin-vue": "npm:4.5.2"
+    "@vitejs/plugin-vue": "npm:4.6.2"
     "@vueuse/core": "npm:^10.1.2"
     "@vueuse/head": "npm:^1.1.26"
     "@vueuse/math": "npm:^10.1.2"
@@ -4107,17 +4107,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vitejs/plugin-vue@npm:4.5.2":
-  version: 4.5.2
-  resolution: "@vitejs/plugin-vue@npm:4.5.2"
-  peerDependencies:
-    vite: ^4.0.0 || ^5.0.0
-    vue: ^3.2.25
-  checksum: 10/4d01d5222e5b96f5c90ef34260c57ff296d141a76011f9a41af0c4583a52b8666a8e14aed703fac7f53e0120fe3316f208c22d65af4a94efa92c7a53c36993c1
-  languageName: node
-  linkType: hard
-
-"@vitejs/plugin-vue@npm:^4.3.4":
+"@vitejs/plugin-vue@npm:4.6.2, @vitejs/plugin-vue@npm:^4.3.4":
   version: 4.6.2
   resolution: "@vitejs/plugin-vue@npm:4.6.2"
   peerDependencies:
