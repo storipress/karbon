@@ -19,7 +19,7 @@ exports[`mockTypesenseArticle 1`] = `
   "blurb": "This is a mock article",
   "cover": {
     "alt": null,
-    "caption": "<p>Photo by <a href=\\"https://unsplash.com/@kz29?utm_source=Storipress&utm_medium=referral&utm_campaign=api-credit?utm_source=storipress&utm_medium=referral&utm_campaign=api-credit\\">Keith Zhang</a> / <a href=\\"https://unsplash.com/?utm_source=storipress&utm_medium=referral&utm_campaign=api-credit\\">Unsplash</a></p>",
+    "caption": "<p>Photo by <a href="https://unsplash.com/@kz29?utm_source=Storipress&utm_medium=referral&utm_campaign=api-credit?utm_source=storipress&utm_medium=referral&utm_campaign=api-credit">Keith Zhang</a> / <a href="https://unsplash.com/?utm_source=storipress&utm_medium=referral&utm_campaign=api-credit">Unsplash</a></p>",
     "crop": {
       "height": 0,
       "key": "",
@@ -99,7 +99,7 @@ exports[`mockTypesenseArticle 2`] = `
   "content_blocks": [],
   "cover": {
     "alt": null,
-    "caption": "<p>Photo by <a href=\\"https://unsplash.com/@kz29?utm_source=Storipress&utm_medium=referral&utm_campaign=api-credit?utm_source=storipress&utm_medium=referral&utm_campaign=api-credit\\">Keith Zhang</a> / <a href=\\"https://unsplash.com/?utm_source=storipress&utm_medium=referral&utm_campaign=api-credit\\">Unsplash</a></p>",
+    "caption": "<p>Photo by <a href="https://unsplash.com/@kz29?utm_source=Storipress&utm_medium=referral&utm_campaign=api-credit?utm_source=storipress&utm_medium=referral&utm_campaign=api-credit">Keith Zhang</a> / <a href="https://unsplash.com/?utm_source=storipress&utm_medium=referral&utm_campaign=api-credit">Unsplash</a></p>",
     "crop": {
       "height": 0,
       "key": "",

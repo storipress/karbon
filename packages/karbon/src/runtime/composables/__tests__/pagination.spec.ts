@@ -105,16 +105,16 @@ describe('preconditon validation', () => {
   it('usePagination throw when limit is 0', () => {
     expect(() => {
       usePagination(ref([]), 0)
-    }).toThrowErrorMatchingInlineSnapshot('"Invariant failed: `limit` must not be negative or 0"')
+    }).toThrowErrorMatchingInlineSnapshot(`[Error: Invariant failed: \`limit\` must not be negative or 0]`)
   })
 
   it('usePagination throw when limit is < 0', () => {
     expect(() => {
       usePagination(ref([]), -1)
-    }).toThrowErrorMatchingInlineSnapshot('"Invariant failed: `limit` must not be negative or 0"')
+    }).toThrowErrorMatchingInlineSnapshot(`[Error: Invariant failed: \`limit\` must not be negative or 0]`)
 
     expect(() => {
       usePagination(ref([]), -2)
-    }).toThrowErrorMatchingInlineSnapshot('"Invariant failed: `limit` must not be negative or 0"')
+    }).toThrowErrorMatchingInlineSnapshot(`[Error: Invariant failed: \`limit\` must not be negative or 0]`)
   })
 })
