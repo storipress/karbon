@@ -1,0 +1,49 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`can handle article 1`] = `
+{
+  "description": "blurb",
+  "ogDescription": "blurb",
+  "ogImage": "cover_url",
+  "ogTitle": "title",
+  "ogType": "website",
+  "ogUrl": "/article_url",
+  "title": "title",
+  "twitterCard": "summary_large_image",
+  "twitterDescription": "blurb",
+  "twitterImage": "cover_url",
+  "twitterTitle": "title",
+}
+`;
+
+exports[`can handle author page 1`] = `
+{
+  "description": "<p>Hello world</p>",
+  "ogDescription": "<p>Hello world</p>",
+  "ogImage": "https://example.com/profile.png",
+  "ogTitle": "User Name",
+  "ogType": "website",
+  "ogUrl": "/author_url",
+  "title": "User Name",
+  "twitterCard": "summary_large_image",
+  "twitterDescription": "<p>Hello world</p>",
+  "twitterImage": "https://example.com/profile.png",
+  "twitterTitle": "User Name",
+}
+`;
+
+exports[`can handle real article 1`] = `
+{
+  "description": "meta_description",
+  "ogDescription": "og_description",
+  "ogImage": "https://example.com/cover.png",
+  "ogTitle": "og_title",
+  "ogType": "article",
+  "ogUrl": "/article_url",
+  "title": "meta_title",
+  "twitterCard": "summary_large_image",
+  "twitterDescription": "og_description",
+  "twitterImage": "https://example.com/cover.png",
+  "twitterTitle": "og_title",
+}
+`;
