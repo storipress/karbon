@@ -197,3 +197,76 @@ it('can handle real article', () => {
 
   expect(reduce(results, (acc, cur) => Object.assign(acc, cur), {})).toMatchSnapshot()
 })
+
+const USER_FIXTURE = {
+  __typename: 'User',
+  id: '16',
+  slug: 'user_slug',
+  email: 'user@example.com',
+  first_name: 'User',
+  last_name: 'Name',
+  full_name: 'User Name',
+  avatar: 'https://example.com/profile.png',
+  location: 'Earth',
+  bio: '<p>Hello world</p>',
+  website: 'example.com',
+  socials: {
+    Twitter: 'twitter.example.com',
+    Facebook: 'fb.example.com',
+    LinkedIn: 'linkedin.example.com',
+    YouTube: 'www.youtube.com/example',
+    Pinterest: 'www.example.com/a',
+  },
+  created_at: '2024-01-01T00:00:00+00:00',
+  updated_at: '2024-01-01T00:00:00+00:00',
+  desks: [],
+  name: 'User Name',
+  __sp_cf: {},
+  __sp_cf_editor_block: {},
+}
+
+it('can handle author page', () => {
+  const handlers = resolveSEOPresets([{ preset: 'basic' }])
+  const results: unknown[] = []
+  const resourceURL: ResourcePage<BaseMeta> = {
+    enable: true,
+    isValid: () => true,
+    getIdentity: () => ({ type: 'article', id: '1' }),
+    toURL: () => '',
+    route: '',
+  }
+  const context: SEOContext = {
+    metaType: 'author',
+    runtimeConfig: {} as any,
+    site: {
+      name: 'site_name',
+    },
+    articleFilter: identity,
+    useHead: (input) => void results.push(input),
+    useSeoMeta: (input) => void results.push(input),
+    resourceUrls: {
+      article: {
+        ...resourceURL,
+        toURL: () => 'article_url',
+      },
+      desk: {
+        ...resourceURL,
+        toURL: () => 'desk_url',
+      },
+      author: {
+        ...resourceURL,
+        toURL: () => 'author_url',
+      },
+      tag: {
+        ...resourceURL,
+        toURL: () => 'tag_url',
+      },
+    },
+  }
+
+  for (const handler of handlers) {
+    handler(USER_FIXTURE, context)
+  }
+
+  expect(reduce(results, (acc, cur) => Object.assign(acc, cur), {})).toMatchSnapshot()
+})

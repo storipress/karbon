@@ -16,6 +16,22 @@ exports[`can handle article 1`] = `
 }
 `;
 
+exports[`can handle author page 1`] = `
+{
+  "description": "<p>Hello world</p>",
+  "ogDescription": "<p>Hello world</p>",
+  "ogImage": "https://example.com/profile.png",
+  "ogTitle": "User Name",
+  "ogType": "website",
+  "ogUrl": "/author_url",
+  "title": "User Name",
+  "twitterCard": "summary_large_image",
+  "twitterDescription": "<p>Hello world</p>",
+  "twitterImage": "https://example.com/profile.png",
+  "twitterTitle": "User Name",
+}
+`;
+
 exports[`can handle real article 1`] = `
 {
   "description": "meta_description",
