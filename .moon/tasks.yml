@@ -1,5 +1,5 @@
 fileGroups:
   sources:
-    - src/**/* 
+    - src/**/*
   outputs:
     - dist/**/*

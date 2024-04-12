@@ -7,7 +7,7 @@ tasks:
     inputs:
       - '@group(sources)'
     outputs:
-      - '@group(outputs)'
+      - dist/**/*
   lint:
     command:
       - eslint

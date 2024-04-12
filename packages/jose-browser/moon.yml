@@ -5,5 +5,4 @@ tasks:
     inputs:
       - '@group(sources)'
     outputs:
-      - '@group(outputs)'
-
+      - dist/**/*
