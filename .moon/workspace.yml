@@ -12,7 +12,14 @@ $schema: 'https://moonrepo.dev/schemas/workspace.json'
 # path to the project folder as the map value. File paths are relative from the workspace root,
 # and cannot reference projects located outside the workspace boundary.
 projects:
-  - 'packages/*'
+  karbon-mono: .
+  code-highlight: packages/code-highlight
+  create-karbon: packages/create-karbon
+  custom-field: packages/custom-field
+  jose-browser: packages/jose-browser
+  karbon: packages/karbon
+  playground: packages/playground
+  typesense-xior: packages/typesense-xior
 
 # Configures the version control system to utilize within the workspace. A VCS
 # is required for determining touched (added, modified, etc) files, calculating file hashes,
@@ -20,9 +27,9 @@ projects:
 vcs:
   # The client to use when managing the repository.
   # Accepts "git". Defaults to "git".
-  manager: 'git'
+  manager: git
 
   # The default branch (master/main/trunk) in the repository for comparing the
   # local branch against. For git, this is is typically "master" or "main",
   # and must include the remote prefix (before /).
-  defaultBranch: 'main'
+  defaultBranch: main

@@ -9,12 +9,14 @@ tasks:
       - build
     platform: node
     deps:
-      - ^:build
+      - karbon:build
+      - custom-field:build
   bundle:
     command: karbon
     platform: node
     deps:
-      - ^:build
+      - karbon:build
+      - custom-field:build
   dev:
     command:
       - nuxt
@@ -23,14 +25,16 @@ tasks:
     platform: node
     deps:
       - dev-prepare
-      - ^:build
+      - karbon:build
+      - custom-field:build
   dev-prepare:
     command:
       - nuxt
       - prepare
     platform: node
     deps:
-      - ^:build
+      - karbon:build
+      - custom-field:build
   generate:
     command:
       - nuxt

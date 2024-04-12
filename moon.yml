@@ -1,0 +1,14 @@
+id: karbon-monorepo
+
+tasks:
+  build:
+    command: noop
+    deps:
+      - playground:dev-prepare
+  test:
+    command: vitest
+    inputs:
+      - packages/**/*
+      - vitest.workspace.ts
+    deps:
+      - ~:build

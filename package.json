@@ -3,8 +3,8 @@
   "private": true,
   "packageManager": "yarn@4.1.1",
   "scripts": {
-    "build": "moon run playground:dev-prepare",
-    "test": "vitest"
+    "build": "moon run build",
+    "test": "moon run test"
   },
   "workspaces": [
     "packages/*"
