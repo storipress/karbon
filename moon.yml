@@ -13,3 +13,9 @@ tasks:
       - vitest.workspace.ts
     deps:
       - ~:build
+  test-coverage:
+    extends: test
+    outputs:
+      - coverage/**/*
+    args:
+      - --coverage

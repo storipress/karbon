@@ -6,6 +6,7 @@ node_modules
 .output
 .env
 dist
+coverage
 .DS_Store
 ### yarn
 # https://yarnpkg.com/getting-started/qa#which-files-should-be-gitignored
@@ -26,8 +27,6 @@ dist
 siteTemplate.zip
 functions
 
-
-.nx/cache
 # moon
 .moon/cache
 .moon/docker
