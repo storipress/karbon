@@ -9,4 +9,9 @@ function notImplemented(name: string) {
 
 export const useAsyncData = notImplemented('useAsyncData')
 export const useNuxtApp = notImplemented('useNuxtApp')
-export const useRuntimeConfig = notImplemented('useRuntimeConfig')
+export const useRuntimeConfig = () => ({
+  storipress: {
+    apiHost: 'api.stori.press',
+    clientId: 'client_id',
+  },
+})
