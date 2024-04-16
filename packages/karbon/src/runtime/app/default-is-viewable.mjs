@@ -1,7 +1,15 @@
-import { gql } from '@apollo/client/core/index.js'
 import { defineIsViewable } from '@storipress/karbon/helper'
 import { createStoripressBaseClient, createTenantURL } from '@storipress/karbon/internal'
+import { ApolloClient, ApolloLink, HttpLink, InMemoryCache, Observable, gql } from '@apollo/client/core/index.js'
 import { useRuntimeConfig } from '#imports'
+
+const apollo = {
+  ApolloClient,
+  ApolloLink,
+  HttpLink,
+  InMemoryCache,
+  Observable,
+}
 
 const SubscriberProfileQuery = gql`
   query SubscriberProfile {
@@ -21,9 +29,14 @@ export default defineIsViewable(async ({ meta, auth }) => {
   }
 
   const { storipress } = useRuntimeConfig()
+
   const client = createStoripressBaseClient(
-    () => ({ authorization: `Bearer ${auth.token}` }),
+    apollo,
+    () => ({
+      authorization: `Bearer ${auth.token}`,
+    }),
     createTenantURL(storipress),
+    { name: 'subscriber' },
   )
   let profile
 
