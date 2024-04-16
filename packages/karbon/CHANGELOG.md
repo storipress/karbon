@@ -5,6 +5,26 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # 0.1.0 (2023-03-15)
 
+## v0.1.119
+
+[compare changes](https://github.com/storipress/karbon/compare/v0.1.118...v0.1.119)
+
+### 🩹 Fixes
+
+- Fix paywall not decrypt article ([66d1db1](https://github.com/storipress/karbon/commit/66d1db1))
+
+### 🏡 Chore
+
+- Dedupe ([819bd6b](https://github.com/storipress/karbon/commit/819bd6b))
+
+### ✅ Tests
+
+- Add more test ([8ceef95](https://github.com/storipress/karbon/commit/8ceef95))
+
+### ❤️ Contributors
+
+- DanSnow <dododavid006@gmail.com>
+
 ## v0.1.118
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.117...v0.1.118)
