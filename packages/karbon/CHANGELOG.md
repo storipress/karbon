@@ -5,6 +5,51 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # 0.1.0 (2023-03-15)
 
+## v0.1.118
+
+[compare changes](https://github.com/storipress/karbon/compare/v0.1.117...v0.1.118)
+
+### 🩹 Fixes
+
+- Upgrade typesense + expose more type ([e5cbcaa](https://github.com/storipress/karbon/commit/e5cbcaa))
+- Use expose type ([9d232b0](https://github.com/storipress/karbon/commit/9d232b0))
+- Should not use bio as description ([#363](https://github.com/storipress/karbon/pull/363))
+- Fix import ([30ef08d](https://github.com/storipress/karbon/commit/30ef08d))
+
+### 🏡 Chore
+
+- **release:** V0.1.117 ([912161d](https://github.com/storipress/karbon/commit/912161d))
+- Upgrade tar ([b79b906](https://github.com/storipress/karbon/commit/b79b906))
+- Upgrade deps ([8b31719](https://github.com/storipress/karbon/commit/8b31719))
+- Upgrade deps ([4162fc8](https://github.com/storipress/karbon/commit/4162fc8))
+- Remove @vueuse/head ([5c841c2](https://github.com/storipress/karbon/commit/5c841c2))
+- Remove @vueuse/head ([579397d](https://github.com/storipress/karbon/commit/579397d))
+- Remove @vueuse/head ([2025031](https://github.com/storipress/karbon/commit/2025031))
+- Setup root moon project ([9ace905](https://github.com/storipress/karbon/commit/9ace905))
+- Update config ([2c7aae7](https://github.com/storipress/karbon/commit/2c7aae7))
+- Update config ([6a353ee](https://github.com/storipress/karbon/commit/6a353ee))
+- Cleanup duplicate dependency ([806bd7c](https://github.com/storipress/karbon/commit/806bd7c))
+- Remove unused deps ([dab0b39](https://github.com/storipress/karbon/commit/dab0b39))
+- Update config ([a0a4942](https://github.com/storipress/karbon/commit/a0a4942))
+- Add prettier ([62e4c80](https://github.com/storipress/karbon/commit/62e4c80))
+
+### ✅ Tests
+
+- Approve snapshot ([8b7c492](https://github.com/storipress/karbon/commit/8b7c492))
+
+### 🤖 CI
+
+- Update config ([522c51c](https://github.com/storipress/karbon/commit/522c51c))
+- Update name ([cafe4bd](https://github.com/storipress/karbon/commit/cafe4bd))
+- Update config ([88a2430](https://github.com/storipress/karbon/commit/88a2430))
+- Update config ([0f3cfec](https://github.com/storipress/karbon/commit/0f3cfec))
+- Update config ([867e2d5](https://github.com/storipress/karbon/commit/867e2d5))
+
+### ❤️ Contributors
+
+- DanSnow <dododavid006@gmail.com>
+- David Peng <dododavid006@gmail.com>
+
 ## v0.1.117
 
 [compare changes](https://github.com/storipress/karbon/compare/v0.1.116...v0.1.117)
