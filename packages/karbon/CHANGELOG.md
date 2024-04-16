@@ -134,7 +134,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 ### 🩹 Fixes
 
 - **deps:** Update dependency jose to v4.15.5 [security] ([eac9874](https://github.com/storipress/karbon/commit/eac9874))
-- Fix _routeHelper is not defined ([b5a50e5](https://github.com/storipress/karbon/commit/b5a50e5))
+- Fix \_routeHelper is not defined ([b5a50e5](https://github.com/storipress/karbon/commit/b5a50e5))
 - Import absolute path in generated file ([e1d2417](https://github.com/storipress/karbon/commit/e1d2417))
 - Include extension ([b0adab3](https://github.com/storipress/karbon/commit/b0adab3))
 - JavaScript repeats execution during hydration [SPMVP-7194] ([18b3d31](https://github.com/storipress/karbon/commit/18b3d31))
