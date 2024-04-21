@@ -1,0 +1,13 @@
+tasks:
+  build:
+    command: tsup
+    inputs:
+      - src/**/*
+      - tsup.config.ts
+    outputs:
+      - dist/**/*
+  test:
+    command: vitest
+    inputs:
+      - src/**/*
+      - vitest.config.ts
