@@ -1,6 +1,8 @@
+import type { H3Event } from 'h3'
 import { defineEventHandler, getQuery, setHeader } from 'h3'
 import { Feed } from 'feed'
 import { XMLBuilder, XMLParser } from 'fast-xml-parser'
+import type { RuntimeConfig } from '@nuxt/schema'
 import { encodePath, joinURL, withQuery, withTrailingSlash, withoutTrailingSlash } from 'ufo'
 import { listFeedArticles } from '@storipress/karbon/internal'
 import type { Author } from '../composables/page-meta'
@@ -21,11 +23,14 @@ interface TArticle {
   updated_at: string
 }
 
-export default defineEventHandler(async (e) => {
-  setHeader(e, 'Content-Type', 'text/xml; charset=UTF-8')
-  if (!process.dev) setHeader(e, 'Cache-Control', 'max-age=600, must-revalidate')
+export default defineEventHandler(async (event) => {
+  setHeader(event, 'Content-Type', 'text/xml; charset=UTF-8')
+  if (!process.dev) setHeader(event, 'Cache-Control', 'max-age=600, must-revalidate')
 
   const runtimeConfig = useRuntimeConfig()
+  return await generateAtomFeed(runtimeConfig, event)
+})
+async function generateAtomFeed(runtimeConfig: RuntimeConfig, event: H3Event) {
   const articles = await listFeedArticles()
 
   const siteUrl = runtimeConfig.public.siteUrl as string
@@ -42,7 +47,7 @@ export default defineEventHandler(async (e) => {
   })
 
   const ARTICLES_PER_PAGE = Number(process.env.NUXT_KARBON_RSS_PAGE_COUNT) || 100
-  const queryString = getQuery(e)
+  const queryString = getQuery(event)
   const page = Number(queryString.page) || 1
   const maxPage = Math.ceil(articles.length / ARTICLES_PER_PAGE)
   const currentPage = page > maxPage ? maxPage : page
@@ -69,6 +74,11 @@ export default defineEventHandler(async (e) => {
 
   const atomXml = feed.atom1()
 
+  const buildAtomXml = addPageLinks(atomXml, siteUrl, currentPage, maxPage)
+  return buildAtomXml
+}
+
+function addPageLinks(atomXml: string, siteUrl: string, currentPage: number, maxPage: number) {
   const option = {
     ignoreAttributes: false,
     attributeNamePrefix: '@_',
@@ -94,4 +104,4 @@ export default defineEventHandler(async (e) => {
     },
   })
   return buildAtomXml
-})
+}
