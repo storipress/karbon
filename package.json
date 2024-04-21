@@ -12,6 +12,7 @@
   ],
   "devDependencies": {
     "@antfu/eslint-config": "2.13.3",
+    "@changesets/cli": "^2.27.1",
     "@moonrepo/cli": "1.23.4",
     "@nuxt/image": "1.0.0-rc.1",
     "@nuxtjs/tailwindcss": "6.8.0",

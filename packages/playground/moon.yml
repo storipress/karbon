@@ -3,6 +3,14 @@ dependsOn:
   - karbon
 
 tasks:
+  analyze:
+    command:
+      - nuxt
+      - analyze
+    platform: node
+    deps:
+      - karbon:build
+      - custom-field:build
   build:
     command:
       - nuxt

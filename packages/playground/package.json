@@ -8,6 +8,7 @@
     "url": "https://github.com/storipress/karbon"
   },
   "scripts": {
+    "analyze": "moon run analyze",
     "dev": "moon run dev"
   },
   "msw": {

@@ -457,14 +457,6 @@ const karbon = defineNuxtModule<ModuleOptions>({
       './runtime/plugins/storipress-payload',
       './runtime/plugins/custom-field',
       './runtime/plugins/html-attribute',
-      {
-        src: './runtime/plugins/entities.client',
-        mode: 'client',
-      },
-      {
-        src: './runtime/plugins/entities.server',
-        mode: 'server',
-      },
       // Nuxt will remove same plugin
       // ref: https://github.com/nuxt/nuxt/blob/main/packages/kit/src/plugin.ts#L67
       enablePaywall && {
