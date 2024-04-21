@@ -1,0 +1,8 @@
+tasks:
+  build:
+    command: tsup src/index.ts
+    inputs:
+      - src/**/*
+      - tsup.config.ts
+    outputs:
+      - dist/**/*

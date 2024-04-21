@@ -18,6 +18,7 @@ projects:
   custom-field: packages/custom-field
   jose-browser: packages/jose-browser
   karbon: packages/karbon
+  karbon-utils: packages/karbon-utils
   playground: packages/playground
   typesense-xior: packages/typesense-xior
 
@@ -33,3 +34,8 @@ vcs:
   # local branch against. For git, this is is typically "master" or "main",
   # and must include the remote prefix (before /).
   defaultBranch: main
+
+generator:
+  templates:
+    - templates
+    - .moon/templates
