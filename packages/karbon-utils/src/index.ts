@@ -3,4 +3,4 @@ import { createHTMLFilter } from './html-filter'
 
 export const htmlFilter = createHTMLFilter(decode)
 
-export { filterHTMLTag } from './html-filter'
+export * from './shared'
