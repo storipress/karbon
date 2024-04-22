@@ -4,7 +4,14 @@ export default defineConfig({
   test: {
     coverage: {
       provider: 'v8',
-      exclude: ['packages/playground', '.yarn/**/*', 'packages/*/public', 'packages/karbon/bin'],
+      exclude: [
+        'packages/playground',
+        '.yarn/**/*',
+        'packages/*/public',
+        'packages/karbon/bin',
+        'packages/karbon/playground',
+        '.moon/**/*',
+      ],
     },
   },
 })
