@@ -1,7 +1,7 @@
 import '../crypto-polyfill'
 import { describe, expect } from 'vitest'
 import { fc, it } from '@fast-check/vitest'
-import { createEncryptJWT, decryptJWT, textToUint8Array, uint8ArrayToText } from '../jwt'
+import { createEncryptJWT, decryptJWT } from '../jwt'
 
 describe('createEncryptJWT', () => {
   // Returns an encrypted JWT string when given a valid key and plaintext
@@ -35,12 +35,4 @@ describe('createEncryptJWT & decryptJWT', () => {
       expect(decrypted).toBe(plaintext)
     },
   )
-})
-
-describe('textToUint8Array & uint8ArrayToText', () => {
-  it.prop({ text: fc.string() })('can convert text to and from uint8array', ({ text }) => {
-    const array = textToUint8Array(text)
-    const result = uint8ArrayToText(array)
-    expect(result).toBe(text)
-  })
 })

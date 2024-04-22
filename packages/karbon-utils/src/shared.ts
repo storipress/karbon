@@ -1,2 +1,4 @@
-export { createEncrypt, base64ToUint8Array, createDecrypt } from './cipher'
+export { createEncrypt, createDecrypt } from './cipher'
 export { filterHTMLTag } from './html-filter'
+export * from './jwt'
+export * from './encoding'
