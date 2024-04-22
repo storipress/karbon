@@ -3181,7 +3181,7 @@ __metadata:
   resolution: "@storipress/jose-browser@workspace:packages/jose-browser"
   dependencies:
     "@types/node": "npm:20.12.7"
-    jose: "npm:^4.15.5"
+    jose: "npm:^5.0.0"
     typescript: "npm:5.4.5"
     unbuild: "npm:2.0.0"
   languageName: unknown
@@ -3253,7 +3253,7 @@ __metadata:
     fs-extra: "npm:11.2.0"
     globby: "npm:14.0.1"
     graphql: "npm:^16.8.1"
-    jose: "npm:^4.15.5"
+    jose: "npm:^5.0.0"
     jszip: "npm:^3.10.1"
     knitwork: "npm:^1.1.0"
     lodash.sortby: "npm:^4.7.0"
@@ -10402,10 +10402,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jose@npm:^4.15.5":
-  version: 4.15.5
-  resolution: "jose@npm:4.15.5"
-  checksum: 10/17944fcc0d9afa07387eef23127c30ecfcc77eafddc4b4f1a349a8eee0536bee9b08ecd745406eaa0af65d531f738b94d2467976479cbfe8b3b60f8fc8082b8d
+"jose@npm:^5.0.0":
+  version: 5.2.4
+  resolution: "jose@npm:5.2.4"
+  checksum: 10/0b09df51d70dad34d301f444dfe44681a157c5e166df88e4a05892ddd7181e42e883c83ed7fae8a41960237343dd4c72282c4aeb10ec94801782be47e3f62170
   languageName: node
   linkType: hard
 
