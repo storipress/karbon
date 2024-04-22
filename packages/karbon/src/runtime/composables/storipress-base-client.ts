@@ -48,14 +48,18 @@ export interface SearchResponseContext extends SearchRequestContext {
   error?: Error
 }
 
-type HookResult = Promise<void> | void
+export type HookResult = Promise<void> | void
 
-export const _karbonClientHooks = new Hookable<{
+export interface ClientHooks {
   'karbon:request': (ctx: RequestContext) => HookResult
   'karbon:response': (ctx: ResponseContext) => HookResult
   'karbon:searchRequest': (ctx: SearchRequestContext) => HookResult
   'karbon:searchResponse': (ctx: SearchResponseContext) => HookResult
-}>()
+}
+
+export type ClientHookable = Hookable<ClientHooks>
+
+export const _karbonClientHooks: ClientHookable = new Hookable<ClientHooks>()
 
 export const storipressConfigCtx = {
   use: () => {

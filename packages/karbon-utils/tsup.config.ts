@@ -20,4 +20,10 @@ export default defineConfig([
     outDir: 'dist/client',
     tsconfig: 'tsconfig.json',
   },
+  {
+    ...base,
+    entry: ['src/index.polyfill.ts'],
+    outDir: 'dist/polyfill',
+    tsconfig: 'tsconfig.json',
+  },
 ])
