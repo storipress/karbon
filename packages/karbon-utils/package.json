@@ -3,6 +3,9 @@
   "type": "module",
   "version": "0.1.0",
   "packageManager": "yarn@4.1.1",
+  "publishConfig": {
+    "access": "public"
+  },
   "exports": {
     ".": {
       "browser": "./dist/client/index.browser.js",
