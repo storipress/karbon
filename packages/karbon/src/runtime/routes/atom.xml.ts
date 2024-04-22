@@ -1,10 +1,8 @@
 import type { H3Event } from 'h3'
 import { defineEventHandler, getQuery, setHeader } from 'h3'
-import { Feed } from 'feed'
-import { XMLBuilder, XMLParser } from 'fast-xml-parser'
 import type { RuntimeConfig } from '@nuxt/schema'
-import { encodePath, joinURL, withQuery, withTrailingSlash, withoutTrailingSlash } from 'ufo'
-import { listFeedArticles } from '@storipress/karbon/internal'
+import { encodePath, joinURL } from 'ufo'
+import { addFeedPageLinks, createFeed, listFeedArticles } from '@storipress/karbon/internal'
 import type { Author } from '../composables/page-meta'
 import { useRuntimeConfig } from '#imports'
 import urls from '#sp-internal/storipress-urls.mjs'
@@ -71,58 +69,6 @@ async function generateAtomFeed(runtimeConfig: RuntimeConfig, event: H3Event) {
 
   const atomXml = feed.atom1()
 
-  const buildAtomXml = addPageLinks(atomXml, siteUrl, currentPage, maxPage)
-  return buildAtomXml
-}
-
-function createFeed({
-  siteUrl,
-  siteName,
-  siteDescription,
-  feedUrl,
-}: {
-  siteUrl: string
-  siteName: string
-  siteDescription: string
-  feedUrl: string
-}) {
-  return new Feed({
-    id: withTrailingSlash(siteUrl),
-    link: withTrailingSlash(siteUrl),
-    title: siteName,
-    description: siteDescription,
-    updated: new Date(),
-    feedLinks: {
-      atom: joinURL(siteUrl, feedUrl),
-    },
-    copyright: `© ${siteName} ${new Date().getFullYear()} All Rights Reserved`,
-  })
-}
-
-function addPageLinks(atomXml: string, siteUrl: string, currentPage: number, maxPage: number) {
-  const option = {
-    ignoreAttributes: false,
-    attributeNamePrefix: '@_',
-    cdataPropName: '__cdata',
-    format: true,
-  }
-  const parser = new XMLParser(option)
-  const builder = new XMLBuilder(option)
-
-  const atomJson = parser.parse(atomXml)
-
-  const rssUrl = `${withoutTrailingSlash(siteUrl)}/atom.xml`
-  const previousLink =
-    currentPage > 1 ? [{ '@_rel': 'previous', '@_href': withQuery(rssUrl, { page: currentPage - 1 }) }] : []
-  const nextLink =
-    currentPage < maxPage ? [{ '@_rel': 'next', '@_href': withQuery(rssUrl, { page: currentPage + 1 }) }] : []
-
-  const buildAtomXml = builder.build({
-    ...atomJson,
-    feed: {
-      ...atomJson.feed,
-      link: [...atomJson.feed.link, ...previousLink, ...nextLink],
-    },
-  })
+  const buildAtomXml = addFeedPageLinks(atomXml, siteUrl, currentPage, maxPage)
   return buildAtomXml
 }
