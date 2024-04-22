@@ -1,6 +1,7 @@
 import { Feed } from 'feed'
-import { joinURL, withQuery, withTrailingSlash, withoutTrailingSlash } from 'ufo'
+import { encodePath, joinURL, withQuery, withTrailingSlash, withoutTrailingSlash } from 'ufo'
 import { XMLBuilder, XMLParser } from 'fast-xml-parser'
+import type { _NormalizeArticle } from '../api/normalize-article'
 
 export function createFeed({
   siteUrl,
@@ -26,7 +27,7 @@ export function createFeed({
   })
 }
 
-export function addFeedPageLinks(atomXml: string, siteUrl: string, currentPage: number, maxPage: number) {
+export function addFeedPageLinks(atomXml: string, siteUrl: string, currentPage: number, maxPage: number): string {
   const option = {
     ignoreAttributes: false,
     attributeNamePrefix: '@_',
@@ -52,4 +53,55 @@ export function addFeedPageLinks(atomXml: string, siteUrl: string, currentPage: 
     },
   })
   return buildAtomXml
+}
+
+export type FeedArticle = Pick<
+  _NormalizeArticle,
+  'id' | 'slug' | 'plaintext' | 'authors' | 'updated_at' | 'published_at' | 'title' | 'html'
+>
+
+export interface GenerateAtomFeedInput {
+  articles: FeedArticle[]
+  siteUrl: string
+  siteName: string
+  siteDescription: string
+  feedUrl: string
+  getArticleURL: (article: FeedArticle) => string
+}
+
+export function generateAtomFeed({
+  articles,
+  siteUrl,
+  siteName,
+  siteDescription,
+  feedUrl,
+  getArticleURL,
+}: GenerateAtomFeedInput): string {
+  const feed = createFeed({
+    siteUrl,
+    siteName,
+    siteDescription,
+    feedUrl,
+  })
+
+  articles
+    .filter((article) => article.published_at)
+    .forEach((article) => {
+      const id = encodePath(getArticleURL(article))
+      feed.addItem({
+        title: article.title,
+        id: joinURL(siteUrl, id),
+        link: joinURL(siteUrl, id),
+        description: article.plaintext.slice(0, 120),
+        date: new Date(article.updated_at),
+        published: new Date(article.published_at),
+        author:
+          article.authors?.map((author) => ({
+            name: author.name,
+          })) || [],
+        content: article.html,
+      })
+    })
+
+  return feed.atom1()
 }

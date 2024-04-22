@@ -44,3 +44,29 @@ exports[`createFeed > can create feed with default config 1`] = `
     </entry>
 </feed>"
 `;
+
+exports[`generateAtomFeed > can generate atom feed 1`] = `
+"<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://example.com/</id>
+    <title>site name</title>
+    <updated>2024-04-24T00:00:00.000Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://example.com/"/>
+    <link rel="self" href="https://example.com/atom.xml"/>
+    <subtitle>site description</subtitle>
+    <rights>© site name 2024 All Rights Reserved</rights>
+    <entry>
+        <title type="html"><![CDATA[title]]></title>
+        <id>https://example.com/posts/slug</id>
+        <link href="https://example.com/posts/slug"/>
+        <updated>2024-04-24T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[plaintext]]></summary>
+        <content type="html"><![CDATA[html]]></content>
+        <author>
+            <name>author</name>
+        </author>
+        <published>2024-04-24T00:00:00.000Z</published>
+    </entry>
+</feed>"
+`;

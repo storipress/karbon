@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
-import { addFeedPageLinks, createFeed } from '../feed'
+import { addFeedPageLinks, createFeed, generateAtomFeed } from '../feed'
 
 beforeEach(() => {
   vi.useFakeTimers()
@@ -26,6 +26,32 @@ describe('createFeed', () => {
     })
 
     expect(feed.atom1()).toMatchSnapshot()
+  })
+})
+
+describe('generateAtomFeed', () => {
+  it('can generate atom feed', () => {
+    const atom = generateAtomFeed({
+      articles: [
+        {
+          id: '1',
+          slug: 'slug',
+          authors: [{ name: 'author' }] as any,
+          title: 'title',
+          html: 'html',
+          plaintext: 'plaintext',
+          updated_at: '2024-04-24T00:00:00.000Z',
+          published_at: '2024-04-24T00:00:00.000Z',
+        },
+      ],
+      getArticleURL: () => '/posts/slug',
+      siteName: 'site name',
+      siteDescription: 'site description',
+      siteUrl: 'https://example.com',
+      feedUrl: 'atom.xml',
+    })
+
+    expect(atom).toMatchSnapshot()
   })
 })
 
