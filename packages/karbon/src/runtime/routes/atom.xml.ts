@@ -30,23 +30,20 @@ export default defineEventHandler(async (event) => {
   const runtimeConfig = useRuntimeConfig()
   return await generateAtomFeed(runtimeConfig, event)
 })
+
+const ARTICLES_PER_PAGE = 100
+
 async function generateAtomFeed(runtimeConfig: RuntimeConfig, event: H3Event) {
   const articles = await listFeedArticles()
 
   const siteUrl = runtimeConfig.public.siteUrl as string
-  const feed = new Feed({
-    id: withTrailingSlash(siteUrl),
-    link: withTrailingSlash(siteUrl),
-    title: runtimeConfig.public.siteName as string,
-    description: runtimeConfig.public.siteDescription as string,
-    updated: new Date(),
-    feedLinks: {
-      atom: joinURL(siteUrl, 'atom.xml'),
-    },
-    copyright: `© ${runtimeConfig.public.siteName} ${new Date().getFullYear()} All Rights Reserved`,
+  const feed = createFeed({
+    siteUrl,
+    siteName: runtimeConfig.public.siteName as string,
+    siteDescription: runtimeConfig.public.siteDescription as string,
+    feedUrl: 'atom.xml',
   })
 
-  const ARTICLES_PER_PAGE = Number(process.env.NUXT_KARBON_RSS_PAGE_COUNT) || 100
   const queryString = getQuery(event)
   const page = Number(queryString.page) || 1
   const maxPage = Math.ceil(articles.length / ARTICLES_PER_PAGE)
@@ -76,6 +73,30 @@ async function generateAtomFeed(runtimeConfig: RuntimeConfig, event: H3Event) {
 
   const buildAtomXml = addPageLinks(atomXml, siteUrl, currentPage, maxPage)
   return buildAtomXml
+}
+
+function createFeed({
+  siteUrl,
+  siteName,
+  siteDescription,
+  feedUrl,
+}: {
+  siteUrl: string
+  siteName: string
+  siteDescription: string
+  feedUrl: string
+}) {
+  return new Feed({
+    id: withTrailingSlash(siteUrl),
+    link: withTrailingSlash(siteUrl),
+    title: siteName,
+    description: siteDescription,
+    updated: new Date(),
+    feedLinks: {
+      atom: joinURL(siteUrl, feedUrl),
+    },
+    copyright: `© ${siteName} ${new Date().getFullYear()} All Rights Reserved`,
+  })
 }
 
 function addPageLinks(atomXml: string, siteUrl: string, currentPage: number, maxPage: number) {
