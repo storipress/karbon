@@ -8,6 +8,14 @@
       "browser": "./dist/client/index.browser.js",
       "types": "./dist/server/index.d.ts",
       "import": "./dist/server/index.js"
+    },
+    "./polyfill": {
+      "types": "./dist/polyfill/index.polyfill.d.ts",
+      "import": "./dist/polyfill/index.polyfill.js"
+    },
+    "./browser": {
+      "types": "./dist/client/index.browser.d.ts",
+      "import": "./dist/client/index.browser.js"
     }
   },
   "files": [

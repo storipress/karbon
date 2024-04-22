@@ -2,15 +2,14 @@ import { Buffer } from 'node:buffer'
 import util from 'node:util'
 import type { ZodError } from 'zod'
 import { gql } from '@apollo/client/core/index.js'
-import { destr } from 'destr'
 import { createEncrypt } from '@storipress/karbon-utils'
-import type { MultiSearchResponse, SearchResponse } from '@storipress/typesense-xior'
+import type { SearchResponse } from '@storipress/typesense-xior'
 
 // This file contains global crypto polyfill
 import { CompactEncrypt } from '@storipress/jose-browser'
 import { useStoripressClient } from '../composables/storipress-client'
 import type { TypesenseFilter } from '../composables/typesense-client'
-import { PER_PAGE, getSearchQuery, useTypesenseClient } from '../composables/typesense-client'
+import { getSearchQuery, useTypesenseClient } from '../composables/typesense-client'
 import { splitPaidContent } from '../lib/split-paid-content'
 import type { NormalSegment } from '../lib/split-article'
 import { splitArticle } from '../lib/split-article'
@@ -20,6 +19,7 @@ import type { PaidContent, RawArticleLike, TypesenseArticleLike, _NormalizeArtic
 import { ArticleSchema } from './schema/typesense-article'
 import { QueryArticleSchema } from './schema/query-article'
 import { normalizeArticle } from './normalize-article'
+import { listArticlesFromTypesense } from './list-articles'
 
 export type { NormalizeArticle, PaidContent } from './normalize-article'
 
@@ -267,11 +267,11 @@ interface FailedDocumentObject {
   error: ZodError['errors']
   id: string
 }
-function getCurrentPageArticles(searchResult: SearchResponse<TypesenseArticleLike>) {
+function getCurrentPageArticles(searchResult: SearchResponse<TypesenseArticleLike>): _NormalizeArticle[] {
   const failedDocuments: FailedDocumentObject[] = []
-  const currentPageArticles =
-    searchResult?.hits?.map(({ document }) => {
-      if (process.env.NODE_ENV === 'development') {
+  const currentPageArticles: _NormalizeArticle[] =
+    searchResult?.hits?.map(({ document }): _NormalizeArticle => {
+      if (import.meta.dev) {
         const parse = ArticleSchema.safeParse(document)
         if (!parse.success) {
           failedDocuments.push({ id: document.id, error: parse.error.errors, document })
@@ -295,81 +295,19 @@ function getCurrentPageArticles(searchResult: SearchResponse<TypesenseArticleLik
 export async function listArticles(filter?: TypesenseFilter) {
   const storipress = getStoripressConfig()
   const typesenseClient = useTypesenseClient()
-  const documents = typesenseClient.collections('articles').documents()
 
-  const groupId = crypto.randomUUID()
   const site = storipress.clientId
-  const name = 'listArticles'
-  const articles = []
-  const groupStartTime = Date.now()
-  const id = crypto.randomUUID()
   const query = getSearchQuery(1, filter)
 
-  const ctx = { name, id, groupId, query, site, groupStartTime, isFirstRequest: true, requestTime: Date.now() }
-  _karbonClientHooks.callHookParallel('karbon:searchRequest', ctx)
-
-  // `destr` is workaround for fetch adapter not automatically parse response
-  const rawSearchResult = await documents.search(query, {}).catch((error: Error) => {
-    _karbonClientHooks.callHookParallel('karbon:searchResponse', {
-      ...ctx,
-      type: 'error',
-      responseTime: Date.now(),
-      hasMore: true,
-      error,
-    })
-    throw error
+  return await listArticlesFromTypesense({
+    typesenseClient,
+    hooks: _karbonClientHooks,
+    query,
+    site,
+    filter,
+    getSearchQuery,
+    getArticles: getCurrentPageArticles,
   })
-  const searchResult = destr<SearchResponse<TypesenseArticleLike>>(rawSearchResult)
-
-  const currentPageArticles = getCurrentPageArticles(searchResult)
-  articles.push(...currentPageArticles)
-
-  const hasMore = searchResult.found > searchResult.page * PER_PAGE
-
-  _karbonClientHooks.callHookParallel('karbon:searchResponse', {
-    ...ctx,
-    type: 'complete',
-    hasMore,
-    responseTime: Date.now(),
-  })
-
-  if (hasMore) {
-    const totalPage = Math.ceil(searchResult.found / PER_PAGE)
-    // `index + 2` is used to skip the first page.
-    // Assuming `totalPage === 3` , it will query [2, 3] pages.
-    const searches = Array.from({ length: totalPage - 1 }, (_, index) => getSearchQuery(index + 2, filter))
-
-    const multiSearchCtx = {
-      ...ctx,
-      id: crypto.randomUUID(),
-      hasMore: false,
-      isFirstRequest: false,
-      query: searches,
-      requestTime: Date.now(),
-    }
-    _karbonClientHooks.callHookParallel('karbon:searchRequest', multiSearchCtx)
-
-    const rawMultiSearchResult = await typesenseClient.multiSearch.perform({ searches }).catch((error: Error) => {
-      _karbonClientHooks.callHookParallel('karbon:searchResponse', {
-        ...multiSearchCtx,
-        type: 'error',
-        responseTime: Date.now(),
-        error,
-      })
-      throw error
-    })
-    const multiSearchResult = destr<MultiSearchResponse<TypesenseArticleLike[]>>(rawMultiSearchResult)
-    const otherArticles = multiSearchResult.results.flatMap((searchResult) => getCurrentPageArticles(searchResult))
-    articles.push(...otherArticles)
-
-    _karbonClientHooks.callHookParallel('karbon:searchResponse', {
-      ...multiSearchCtx,
-      type: 'complete',
-      responseTime: Date.now(),
-    })
-  }
-
-  return articles
 }
 
 export async function getArticle(id: string) {

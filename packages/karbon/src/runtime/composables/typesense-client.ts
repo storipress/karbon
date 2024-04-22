@@ -1,3 +1,4 @@
+import type { SearchParams } from '@storipress/typesense-xior'
 import { SearchClient } from '@storipress/typesense-xior'
 import { getStoripressConfig } from './storipress-base-client'
 
@@ -55,7 +56,7 @@ export const propertiesToKeep = [
   'pathnames',
 ] as const
 
-export function getSearchQuery(page = 1, filter: TypesenseFilter = {}) {
+export function getSearchQuery(page = 1, filter: TypesenseFilter = {}): SearchParams {
   const { desk_ids, author_ids, author_names, tag_ids, tag_names } = filter
   let filterBy = 'published:=true'
   if (desk_ids?.length) filterBy += ` && desk_id:=[${desk_ids.join()}]`
