@@ -10,7 +10,6 @@ import { getSearchQuery, useTypesenseClient } from '../composables/typesense-cli
 import { splitArticle } from '../lib/split-article'
 import { _karbonClientHooks, getStoripressConfig } from '../composables/storipress-base-client'
 import { verboseInvariant } from '../utils/verbose-invariant'
-import type { StoripressRuntimeConfig } from '../types'
 import type { PaidContent, RawArticleLike, TypesenseArticleLike, _NormalizeArticle } from './normalize-article'
 import { ArticleSchema } from './schema/typesense-article'
 import { QueryArticleSchema } from './schema/query-article'
