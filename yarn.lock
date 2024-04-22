@@ -1987,13 +1987,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@noble/ciphers@npm:^0.4.1":
-  version: 0.4.1
-  resolution: "@noble/ciphers@npm:0.4.1"
-  checksum: 10/f3787b00c9486d0e23afd3c3aeab288f18c895f7d0ae6395bfaeb80e1a02e20b258c1bcf264d6db568c135512095eb2731438ee229987479c457cbc5186bb720
-  languageName: node
-  linkType: hard
-
 "@noble/ciphers@npm:^0.5.2":
   version: 0.5.2
   resolution: "@noble/ciphers@npm:0.5.2"
@@ -3223,7 +3216,6 @@ __metadata:
     "@apollo/client": "npm:^3.9.11"
     "@babel/runtime": "npm:^7.24.4"
     "@iframely/embed.js": "npm:^1.10.3"
-    "@noble/ciphers": "npm:^0.4.1"
     "@nuxt/devalue": "npm:^2.0.2"
     "@nuxt/devtools": "npm:0.8.0"
     "@nuxt/image": "npm:1.0.0-rc.1"
@@ -3317,7 +3309,6 @@ __metadata:
     "@apollo/client": "npm:^3.9.11"
     "@babel/runtime": "npm:^7.24.4"
     "@iframely/embed.js": "npm:^1.10.3"
-    "@noble/ciphers": "npm:^0.4.1"
     "@nuxt/devalue": "npm:^2.0.2"
     "@nuxt/image": "npm:^1.0.0-rc.1"
     "@nuxt/kit": "npm:3.7.3"
