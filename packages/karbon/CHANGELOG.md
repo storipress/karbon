@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.1.122
+
+### Patch Changes
+
+- [`65e41a2`](https://github.com/storipress/karbon/commit/65e41a2798154b0549cbb6462e1c8a22238011d8) Thanks [@DanSnow](https://github.com/DanSnow)! - fix: release
+
 ## 0.1.121
 
 ### Patch Changes
