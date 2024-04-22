@@ -1,17 +1,12 @@
-import { Buffer } from 'node:buffer'
 import util from 'node:util'
 import type { ZodError } from 'zod'
 import { gql } from '@apollo/client/core/index.js'
-import { createEncrypt } from '@storipress/karbon-utils'
 import type { SearchResponse } from '@storipress/typesense-xior'
 
 // This file contains global crypto polyfill
-import { CompactEncrypt } from '@storipress/jose-browser'
 import { useStoripressClient } from '../composables/storipress-client'
 import type { TypesenseFilter } from '../composables/typesense-client'
 import { getSearchQuery, useTypesenseClient } from '../composables/typesense-client'
-import { splitPaidContent } from '../lib/split-paid-content'
-import type { NormalSegment } from '../lib/split-article'
 import { splitArticle } from '../lib/split-article'
 import { _karbonClientHooks, getStoripressConfig } from '../composables/storipress-base-client'
 import { verboseInvariant } from '../utils/verbose-invariant'
@@ -20,6 +15,7 @@ import { ArticleSchema } from './schema/typesense-article'
 import { QueryArticleSchema } from './schema/query-article'
 import { normalizeArticle } from './normalize-article'
 import { listArticlesFromTypesense } from './list-articles'
+import { encryptArticle } from './encrypt-article'
 
 export type { NormalizeArticle, PaidContent } from './normalize-article'
 
@@ -332,11 +328,11 @@ export async function getArticle(id: string) {
       )
     }
   }
-  const res = await encryptArticle(normalizeArticle(data.article))
+  const res = await maybeEncryptArticle(normalizeArticle(data.article))
   return res
 }
 
-async function encryptArticle({ plan, html, id, ...rest }: _NormalizeArticle) {
+async function maybeEncryptArticle({ plan, html, id, ...rest }: _NormalizeArticle) {
   let freeHTML = html
   let paidContent: PaidContent | undefined
 
@@ -346,35 +342,10 @@ async function encryptArticle({ plan, html, id, ...rest }: _NormalizeArticle) {
     const storipress = getStoripressConfig()
     verboseInvariant(storipress.encryptKey, 'No encrypt key')
     const previewParagraph = storipress.previewParagraph ?? 3
-    const [preview, paid] = splitPaidContent(html, storipress.previewParagraph ?? 3)
-    freeHTML = preview
-
-    const { key, content, iv, encrypt } = await createEncrypt(paid)
-
-    const compactEncrypt = new CompactEncrypt(
-      Buffer.from(JSON.stringify({ id, plan, key: Buffer.from(key).toString('base64') })),
-    ).setProtectedHeader({ enc: 'A256GCM', alg: 'dir' })
-    const encryptedKey = await compactEncrypt.encrypt(Buffer.from(storipress.encryptKey, 'base64'))
-    paidContent = {
-      key: encryptedKey,
-      content: Buffer.from(content).toString('base64'),
-      iv: Buffer.from(iv).toString('base64'),
-    }
-
-    segments = await Promise.all(
-      segments.map(async (segment, index, source) => {
-        const html = (segment as NormalSegment).html
-        const noEncrypt = html === undefined || (index < previewParagraph && source.length > previewParagraph)
-        if (noEncrypt) return segment
-
-        const content = await encrypt(html)
-        return {
-          id: 'paid',
-          type: segment.type,
-          paidContent: Buffer.from(content).toString('base64'),
-        }
-      }),
-    )
+    const res = await encryptArticle({ html, id, plan, segments, encryptKey: storipress.encryptKey, previewParagraph })
+    freeHTML = res.freeHTML
+    paidContent = res.paidContent
+    segments = res.segments
   }
 
   return {

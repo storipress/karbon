@@ -26,7 +26,3 @@ export function createDecrypt(key: Uint8Array, iv: Uint8Array) {
     },
   }
 }
-
-export function base64ToUint8Array(s: string) {
-  return Uint8Array.from(atob(s), (c) => c.charCodeAt(0))
-}

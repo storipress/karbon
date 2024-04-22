@@ -1,8 +1,7 @@
 import { Buffer } from 'node:buffer'
 import { destr } from 'destr'
-
-// @ts-expect-error self reference
-import { DECRYPT_AUTH_HEADER, DECRYPT_KEY_HEADER, compactDecrypt } from '@storipress/karbon/internal'
+import { base64ToUint8Array, decryptJWT } from '@storipress/karbon-utils'
+import { DECRYPT_AUTH_HEADER, DECRYPT_KEY_HEADER } from '@storipress/karbon/internal'
 import { defineEventHandler, getHeader, isMethod, readBody, setResponseStatus } from 'h3'
 import type {
   DetailedViewableResult,
@@ -53,11 +52,11 @@ export default defineEventHandler(async (event): Promise<ViewableApiResult> => {
   }
   let meta: DecryptedKey
   try {
+    const encryptKey = (storipress as any).encryptKey as string
     // eslint-disable-next-line no-console
-    console.log('encrypt key', storipress.encryptKey)
-    const { plaintext } = await compactDecrypt(key, Buffer.from(storipress.encryptKey, 'base64'))
-    const decoder = new TextDecoder()
-    meta = destr(decoder.decode(plaintext))
+    console.log('encrypt key', encryptKey)
+    const plaintext = await decryptJWT(base64ToUint8Array(encryptKey), key)
+    meta = destr(plaintext)
     // eslint-disable-next-line no-console
     console.log('decrypt meta:', meta)
     verboseInvariant(meta.id && meta.plan && meta.key, 'invalid body')

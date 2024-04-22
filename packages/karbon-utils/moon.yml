@@ -1,3 +1,6 @@
+dependsOn:
+  - jose-browser
+
 tasks:
   build:
     command: tsup
@@ -6,8 +9,12 @@ tasks:
       - tsup.config.ts
     outputs:
       - dist/**/*
+    deps:
+      - ^:build
   test:
     command: vitest
     inputs:
       - src/**/*
       - vitest.config.ts
+    deps:
+      - build
