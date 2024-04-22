@@ -1,5 +1,6 @@
 import { gql } from '@apollo/client/core/index.js'
 import { useStoripressClient } from '../composables/storipress-client'
+import type { _NormalizeArticle } from './normalize-article'
 
 const GetDesk = gql`
   query GetDesk($slug: String) {
@@ -21,7 +22,7 @@ const GetDesk = gql`
   }
 `
 
-export async function listFeedArticles() {
+export async function listFeedArticles(): Promise<_NormalizeArticle[]> {
   const allArticles = (await $fetch('/_storipress/posts/__all.json')) ?? []
   return allArticles
 }

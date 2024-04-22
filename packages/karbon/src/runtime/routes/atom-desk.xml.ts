@@ -1,8 +1,6 @@
 import { defineEventHandler, sendNoContent, setHeader } from 'h3'
-import { Feed } from 'feed'
-import { encodePath, joinURL, withTrailingSlash } from 'ufo'
 import path from 'pathe'
-import { getDeskWithSlug, listArticles } from '@storipress/karbon/internal'
+import { generateAtomFeed, getDeskWithSlug, listArticles } from '@storipress/karbon/internal'
 import { useRuntimeConfig } from '#imports'
 import urls from '#sp-internal/storipress-urls.mjs'
 
@@ -21,39 +19,20 @@ export default defineEventHandler(async (e) => {
     return sendNoContent(e, 404)
   }
 
-  const deskIds: string[] = desk.desks?.map(({ id }: { id: string }) => id) ?? []
+  const subDesks: string[] = desk.desks?.map(({ id }: { id: string }) => id) ?? []
 
   const runtimeConfig = useRuntimeConfig()
-  const articles = await listArticles({ desk_ids: deskIds })
+  const articles = await listArticles({ desk_ids: [desk.id, ...subDesks] })
 
   const siteUrl = runtimeConfig.public.siteUrl as string
-  const feed = new Feed({
-    id: withTrailingSlash(runtimeConfig.public.siteUrl as string),
-    link: withTrailingSlash(runtimeConfig.public.siteUrl as string),
-    title: runtimeConfig.public.siteName as string,
-    description: runtimeConfig.public.siteDescription as string,
-    updated: new Date(),
-    feedLinks: {
-      atom: joinURL(siteUrl, `/atom/${fileName}`),
-    },
-    copyright: `© ${runtimeConfig.public.siteName} ${new Date().getFullYear()} All Rights Reserved`,
-  })
 
-  articles.forEach((article) => {
-    const id = encodePath(urls.article.toURL(article, urls.article._context))
-    feed.addItem({
-      title: article.title,
-      id: joinURL(siteUrl, id),
-      link: joinURL(siteUrl, id),
-      description: article.plaintext.slice(0, 120),
-      date: new Date(article.published_at),
-      author:
-        article.authors?.map((author) => ({
-          name: author.name,
-        })) || [],
-      content: article.html,
-    })
+  const atomXml = generateAtomFeed({
+    articles,
+    siteUrl,
+    siteName: runtimeConfig.public.siteName as string,
+    siteDescription: runtimeConfig.public.siteDescription as string,
+    feedUrl: `/atom/${fileName}`,
+    getArticleURL: (article) => urls.article.toURL(article, urls.article._context),
   })
-
-  return feed.atom1()
+  return atomXml
 })
