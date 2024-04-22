@@ -16,7 +16,7 @@ interface TArticle {
   description: string
   content: string
   date: Date
-  author: Author[]
+  authors: Author[]
   plaintext: string
   html: string
   published_at: string
@@ -62,7 +62,7 @@ async function generateAtomFeed(runtimeConfig: RuntimeConfig, event: H3Event) {
         date: new Date(article.updated_at),
         published: new Date(article.published_at),
         author:
-          article.author?.map((author) => ({
+          article.authors?.map((author) => ({
             name: author.name,
           })) || [],
         content: article.html,
