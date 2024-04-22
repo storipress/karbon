@@ -3,8 +3,7 @@ import util from 'node:util'
 import type { ZodError } from 'zod'
 import { gql } from '@apollo/client/core/index.js'
 import { destr } from 'destr'
-import { gcm } from '@noble/ciphers/webcrypto/aes'
-import { randomBytes } from '@noble/ciphers/webcrypto/utils'
+import { createEncrypt } from '@storipress/karbon-utils'
 import type { MultiSearchResponse, SearchResponse } from '@storipress/typesense-xior'
 
 // This file contains global crypto polyfill
@@ -411,18 +410,13 @@ async function encryptArticle({ plan, html, id, ...rest }: _NormalizeArticle) {
     const previewParagraph = storipress.previewParagraph ?? 3
     const [preview, paid] = splitPaidContent(html, storipress.previewParagraph ?? 3)
     freeHTML = preview
-    const encoder = new TextEncoder()
 
-    const cryptoKey = await crypto.subtle.generateKey({ name: 'AES-GCM', length: 256 }, true, ['encrypt'])
-    const key = await crypto.subtle.exportKey('raw', cryptoKey)
-    const iv = randomBytes(12)
-    const cipher = gcm(new Uint8Array(key), iv)
-    const content = await cipher.encrypt(encoder.encode(paid))
+    const { key, content, iv, encrypt } = await createEncrypt(paid)
 
-    const compactEncrypter = new CompactEncrypt(
+    const compactEncrypt = new CompactEncrypt(
       Buffer.from(JSON.stringify({ id, plan, key: Buffer.from(key).toString('base64') })),
     ).setProtectedHeader({ enc: 'A256GCM', alg: 'dir' })
-    const encryptedKey = await compactEncrypter.encrypt(Buffer.from(storipress.encryptKey, 'base64'))
+    const encryptedKey = await compactEncrypt.encrypt(Buffer.from(storipress.encryptKey, 'base64'))
     paidContent = {
       key: encryptedKey,
       content: Buffer.from(content).toString('base64'),
@@ -435,7 +429,7 @@ async function encryptArticle({ plan, html, id, ...rest }: _NormalizeArticle) {
         const noEncrypt = html === undefined || (index < previewParagraph && source.length > previewParagraph)
         if (noEncrypt) return segment
 
-        const content = await cipher.encrypt(encoder.encode(html))
+        const content = await encrypt(html)
         return {
           id: 'paid',
           type: segment.type,
