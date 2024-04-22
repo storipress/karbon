@@ -1,7 +1,6 @@
 import { destr } from 'destr'
 import type { MultiSearchResponse, SearchClient, SearchParams, SearchResponse } from '@storipress/typesense-xior'
 import { filter as arrayFilter, chunk, flatMap, map, pipe, times } from 'remeda'
-import type { Hookable } from 'hookable'
 import type { TypesenseFilter } from '../composables/typesense-client'
 import type { ClientHookable } from '../composables/storipress-base-client'
 import type { TypesenseArticleLike } from './normalize-article'
