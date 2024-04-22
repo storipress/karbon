@@ -1,5 +1,11 @@
 # @storipress/karbon-utils
 
+## 0.2.0
+
+### Minor Changes
+
+- [#379](https://github.com/storipress/karbon/pull/379) [`3d1cf04`](https://github.com/storipress/karbon/commit/3d1cf04324f7a4edf9a3db6e32510f72ddb49d0e) Thanks [@DanSnow](https://github.com/DanSnow)! - feat: add jwt utils
+
 ## 0.1.0
 
 ### Minor Changes

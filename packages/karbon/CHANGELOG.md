@@ -1,5 +1,16 @@
 # Change Log
 
+## 0.1.123
+
+### Patch Changes
+
+- [#383](https://github.com/storipress/karbon/pull/383) [`8206a23`](https://github.com/storipress/karbon/commit/8206a23b56fc3b2c43018fb0cb570f6ba8931d52) Thanks [@DanSnow](https://github.com/DanSnow)! - fix: missing author in atom feed
+
+- [#379](https://github.com/storipress/karbon/pull/379) [`3d1cf04`](https://github.com/storipress/karbon/commit/3d1cf04324f7a4edf9a3db6e32510f72ddb49d0e) Thanks [@DanSnow](https://github.com/DanSnow)! - refactor: use jwt utils
+
+- Updated dependencies [[`3d1cf04`](https://github.com/storipress/karbon/commit/3d1cf04324f7a4edf9a3db6e32510f72ddb49d0e)]:
+  - @storipress/karbon-utils@0.2.0
+
 ## 0.1.122
 
 ### Patch Changes
