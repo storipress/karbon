@@ -48,7 +48,7 @@ export const propertiesToKeep = [
   'title',
   'blurb',
   'seo',
-  'plaintext',
+  'content',
   'cover',
   'authors',
   'desk',

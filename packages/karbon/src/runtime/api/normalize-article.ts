@@ -38,6 +38,8 @@ export interface TypesenseArticleLike {
   published_at: string | number
   pathnames: string[]
   html?: undefined
+  content?: string
+  // make it compatibility with RawArticleLike
   plaintext?: undefined
 }
 export interface RawUserLike {
@@ -68,6 +70,8 @@ export interface RawArticleLike {
   published_at: string | number
   order?: undefined
   pathnames?: undefined
+  // make it compatibility with TypesenseArticleLike
+  content?: undefined
 }
 
 export interface PaidContent {
@@ -102,6 +106,7 @@ export function normalizeArticle(article: RawArticleLike | TypesenseArticleLike)
     updated_at,
     html,
     plaintext,
+    content,
     ...rest
   } = article
 
@@ -122,7 +127,7 @@ export function normalizeArticle(article: RawArticleLike | TypesenseArticleLike)
     blurb: unwrapParagraph(blurb),
     seo: destr<RawSEO>(seo),
     html: html ?? '',
-    plaintext: truncate(plaintext, {
+    plaintext: truncate(plaintext ?? content, {
       // description length
       length: 120,
       // don't cut on word
