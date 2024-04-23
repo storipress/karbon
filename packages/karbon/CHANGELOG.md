@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.1.124
+
+### Patch Changes
+
+- [`f8ac24b`](https://github.com/storipress/karbon/commit/f8ac24b80db7a3083309ffd66c531fe11a33b2d0) Thanks [@DanSnow](https://github.com/DanSnow)! - fix: fix wrong field name
+
 ## 0.1.123
 
 ### Patch Changes
