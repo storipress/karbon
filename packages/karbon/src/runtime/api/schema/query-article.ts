@@ -29,23 +29,31 @@ export const MetafieldSchema = z.object({
 })
 export type Metafield = z.infer<typeof MetafieldSchema>
 
-export const DeskSchema = z.object({
+const LayoutSchema = z.object({
+  id: z.string(),
+  name: z.string(),
+})
+
+const BaseDeskSchema = z.object({
   id: z.string(),
   name: z.string(),
   slug: z.string(),
-  layout: z.null(),
-  desk: z.null(),
+  layout: LayoutSchema.nullable(),
+})
+
+export const DeskSchema = BaseDeskSchema.extend({
+  desk: BaseDeskSchema.nullable(),
 })
 export type Desk = z.infer<typeof DeskSchema>
 
 export const AuthorSchema = z.object({
   id: z.string(),
-  bio: z.string(),
+  bio: z.string().nullable(),
   slug: z.string(),
-  socials: z.string(),
+  socials: z.string().nullable(),
   avatar: z.string(),
   email: z.string(),
-  location: z.string(),
+  location: z.string().nullable(),
   first_name: z.string(),
   last_name: z.string(),
   full_name: z.string(),

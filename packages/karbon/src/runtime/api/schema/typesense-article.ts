@@ -34,5 +34,6 @@ export const ArticleSchema = z.object({
   tags: z.array(MetaSchema).optional(),
   title: z.string(),
   updated_at: z.number(),
+  content: z.string().optional(),
 })
 export type Article = z.infer<typeof ArticleSchema>
