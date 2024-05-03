@@ -21,6 +21,7 @@ projects:
   karbon-utils: packages/karbon-utils
   playground: packages/playground
   typesense-xior: packages/typesense-xior
+  worker-playground: packages/worker-playground
 
 # Configures the version control system to utilize within the workspace. A VCS
 # is required for determining touched (added, modified, etc) files, calculating file hashes,

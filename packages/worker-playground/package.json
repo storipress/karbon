@@ -1,0 +1,17 @@
+{
+  "name": "worker-playground",
+  "private": true,
+  "packageManager": "yarn@4.1.1",
+  "scripts": {
+    "test": "moon run test --"
+  },
+  "dependencies": {
+    "@storipress/karbon-utils": "workspace:^"
+  },
+  "devDependencies": {
+    "@cloudflare/vitest-pool-workers": "0.2.6",
+    "@cloudflare/workers-types": "^4.20240502.0",
+    "@tsconfig/node18": "^18.2.4",
+    "vitest": "1.3.0"
+  }
+}

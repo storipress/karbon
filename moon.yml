@@ -13,6 +13,7 @@ tasks:
       - vitest.workspace.ts
     deps:
       - ~:build
+      - worker-playground:test-run # It require a different vitest version
   test-coverage:
     extends: test
     outputs:

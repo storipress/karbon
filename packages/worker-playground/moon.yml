@@ -1,0 +1,15 @@
+dependsOn:
+  - karbon-utils
+
+tasks:
+  test:
+    command: vitest
+    inputs:
+      - tests/**/*
+      - vitest.config.ts
+      - wrangler.toml
+    deps:
+      - ^:build
+  test-run:
+    extends: test
+    args: run
