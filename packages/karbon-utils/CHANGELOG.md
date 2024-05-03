@@ -1,5 +1,11 @@
 # @storipress/karbon-utils
 
+## 0.2.1
+
+### Patch Changes
+
+- [#386](https://github.com/storipress/karbon/pull/386) [`bc6bb26`](https://github.com/storipress/karbon/commit/bc6bb26b43ac1239680df1762788675e9ab32252) Thanks [@DanSnow](https://github.com/DanSnow)! - fix: support large array for base64 encoding
+
 ## 0.2.0
 
 ### Minor Changes
