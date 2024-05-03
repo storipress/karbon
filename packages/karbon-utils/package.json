@@ -31,6 +31,7 @@
   "dependencies": {
     "@noble/ciphers": "^0.5.2",
     "@storipress/jose-browser": "workspace:*",
+    "base64-js": "^1.5.1",
     "entities": "^4.5.0"
   },
   "devDependencies": {

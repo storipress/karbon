@@ -24,3 +24,17 @@ describe('base64ToUint8Array & uint8ArrayToBase64', () => {
     expect(uint8ArrayToBase64(base64ToUint8Array(base64))).toEqual(base64)
   })
 })
+
+describe('uint8ArrayToBase64 & base64ToUint8Array', () => {
+  it.prop(
+    {
+      array: fc.uint8Array({
+        minLength: 157223,
+      }),
+    },
+    // This is a large test, make it faster
+    { numRuns: 5 },
+  )('can convert base64 string from and to uint8array', ({ array }) => {
+    expect(base64ToUint8Array(uint8ArrayToBase64(array))).toEqual(array)
+  })
+})
