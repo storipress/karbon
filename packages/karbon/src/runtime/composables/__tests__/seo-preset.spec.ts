@@ -63,7 +63,7 @@ it('can handle article', () => {
   expect(reduce(results, (acc, cur) => Object.assign(acc, cur), {})).toMatchSnapshot()
 })
 
-it.only('can handle article with html', () => {
+it('can handle article with html', () => {
   const handlers = resolveSEOPresets([{ preset: 'basic' }])
   const results: unknown[] = []
   const resourceURL: ResourcePage<BaseMeta> = {
