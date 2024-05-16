@@ -1,7 +1,7 @@
 {
   "name": "@storipress/karbon-mono-repo",
   "private": true,
-  "packageManager": "yarn@4.1.1",
+  "packageManager": "yarn@4.2.2",
   "scripts": {
     "build": "moon run build",
     "test": "moon run test --",
