@@ -36,11 +36,11 @@
   },
   "devDependencies": {
     "@fast-check/vitest": "0.1.1",
-    "@moonrepo/cli": "1.24.3",
+    "@moonrepo/cli": "1.24.5",
     "fast-check": "3.18.0",
-    "happy-dom": "14.7.1",
+    "happy-dom": "14.11.0",
     "tsup": "8.0.2",
     "typescript": "5.4.5",
-    "vitest": "1.5.3"
+    "vitest": "1.6.0"
   }
 }
