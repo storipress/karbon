@@ -2,7 +2,7 @@
   "name": "@storipress/karbon-playground",
   "version": "0.0.0",
   "private": true,
-  "packageManager": "yarn@4.1.1",
+  "packageManager": "yarn@4.2.2",
   "license": "MIT",
   "repository": "git@github.com:storipress/karbon.git",
   "bugs": {
