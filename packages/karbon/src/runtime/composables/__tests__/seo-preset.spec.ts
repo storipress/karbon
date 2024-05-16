@@ -81,8 +81,8 @@ const ARTICLE_FIXTURE = {
   bioHTML: '<p>My bio</p>',
   published_at: '2024-01-01T00:00:00+00:00',
   updated_at: '2024-01-01T00:00:00+00:00',
-  title: 'title',
-  blurb: 'blurb',
+  title: '<p>title</p>',
+  blurb: '<p>blurb</p>',
   seo: {
     og: {
       title: 'og_title',
