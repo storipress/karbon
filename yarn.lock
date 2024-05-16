@@ -916,7 +916,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@cloudflare/workers-types@npm:^4.20240512.0":
+"@cloudflare/workers-types@npm:4.20240512.0":
   version: 4.20240512.0
   resolution: "@cloudflare/workers-types@npm:4.20240512.0"
   checksum: 10/672ad11a2cb81dae1794bc01547fea82273353e15a0fc238989bf527e4df46edba137e0a9c8776af6074c08d8e4073e015e6a6e2fa805f77cdd1fd1c8aa7eac1
@@ -3834,7 +3834,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tsconfig/node18@npm:^18.2.4":
+"@tsconfig/node18@npm:18.2.4":
   version: 18.2.4
   resolution: "@tsconfig/node18@npm:18.2.4"
   checksum: 10/80623cb9c129c78d51fe6c4a256ba986f12f02ff02dc2a1e5b33dd13a7983f767b6792cfcd51b3dd1c8256ea105f1fea31f64a2070564e37787ab3d9a1a1e7e3
@@ -18158,9 +18158,9 @@ __metadata:
   resolution: "worker-playground@workspace:packages/worker-playground"
   dependencies:
     "@cloudflare/vitest-pool-workers": "npm:0.2.6"
-    "@cloudflare/workers-types": "npm:^4.20240512.0"
+    "@cloudflare/workers-types": "npm:4.20240512.0"
     "@storipress/karbon-utils": "workspace:^"
-    "@tsconfig/node18": "npm:^18.2.4"
+    "@tsconfig/node18": "npm:18.2.4"
     vitest: "npm:1.3.0"
   languageName: unknown
   linkType: soft
