@@ -21,8 +21,8 @@ it('can handle article', () => {
       name: 'site_name',
     },
     articleFilter: identity,
-    useHead: (input) => void results.push(input),
-    useSeoMeta: (input) => void results.push(input),
+    useHead: (input: unknown) => void results.push(input),
+    useSeoMeta: (input: unknown) => void results.push(input),
     resourceUrls: {
       article: {
         ...resourceURL,
@@ -169,8 +169,8 @@ it('can handle real article', () => {
       name: 'site_name',
     },
     articleFilter: identity,
-    useHead: (input) => void results.push(input),
-    useSeoMeta: (input) => void results.push(input),
+    useHead: (input: unknown) => void results.push(input),
+    useSeoMeta: (input: unknown) => void results.push(input),
     resourceUrls: {
       article: {
         ...resourceURL,
@@ -242,8 +242,8 @@ it('can handle author page', () => {
       name: 'site_name',
     },
     articleFilter: identity,
-    useHead: (input) => void results.push(input),
-    useSeoMeta: (input) => void results.push(input),
+    useHead: (input: unknown) => void results.push(input),
+    useSeoMeta: (input: unknown) => void results.push(input),
     resourceUrls: {
       article: {
         ...resourceURL,
