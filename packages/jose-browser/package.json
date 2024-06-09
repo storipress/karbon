@@ -29,7 +29,7 @@
     "jose": "^5.0.0"
   },
   "devDependencies": {
-    "@types/node": "20.12.8",
+    "@types/node": "20.14.2",
     "typescript": "5.4.5",
     "unbuild": "2.0.0"
   },
