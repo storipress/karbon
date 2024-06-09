@@ -4,6 +4,7 @@ import { defineConfig } from 'tsup'
 const base: Options = {
   dts: true,
   clean: true,
+  noExternal: ['base64-js'],
   format: ['esm'],
 }
 
