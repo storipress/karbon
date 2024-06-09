@@ -64,7 +64,7 @@ export async function trackProject(options: any) {
       if (!resources[resource].enable) {
         return
       }
-      const matches = resources[resource].route.match(/:[\w_]+/g)
+      const matches = resources[resource].route.match(/:\w+/g)
       route.push({
         resource,
         params: Array.from(matches || []),

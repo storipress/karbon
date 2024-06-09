@@ -15,6 +15,12 @@ export default antfu(
     },
   },
   {
+    files: ['packages/playground/**/*.vue', 'packages/playground/**/*.ts'],
+    rules: {
+      'no-console': 'off',
+    },
+  },
+  {
     ignores: ['**/dist/**', 'packages/karbon/bin/**', '**/*.md', '**/*.toml', '.moon/templates/**'],
   },
 )

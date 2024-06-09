@@ -12,8 +12,8 @@ export type UseFieldReturn<Type, IsAll extends boolean> = Type extends FieldType
     ? Ref<FieldTypeMap[Type][]>
     : Ref<FieldTypeMap[Type]>
   : IsAll extends true
-  ? Ref<unknown[]>
-  : Ref<unknown>
+    ? Ref<unknown[]>
+    : Ref<unknown>
 
 export interface UseFieldOptions<Type extends FieldType, IsAll extends boolean> {
   type?: Type

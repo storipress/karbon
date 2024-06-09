@@ -50,9 +50,9 @@ const gptConfig = {
     <div class="test-tailwind">test css</div>
     <ul class="flex overflow-x-auto">
       <li v-for="recommendArticle of recommendArticles" :key="recommendArticle.id" class="border">
-        <NuxtLink class="underline text-teal-400" :to="recommendArticle.url"
-          >{{ recommendArticle.id }} / {{ recommendArticle.title }}</NuxtLink
-        >
+        <NuxtLink class="underline text-teal-400" :to="recommendArticle.url">
+          {{ recommendArticle.id }} / {{ recommendArticle.title }}
+        </NuxtLink>
       </li>
     </ul>
     <div class="my-12 mx-auto max-w-full">

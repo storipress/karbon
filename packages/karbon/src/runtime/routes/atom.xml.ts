@@ -2,7 +2,6 @@ import type { H3Event } from 'h3'
 import { defineEventHandler, getQuery, setHeader } from 'h3'
 import type { FeedArticle } from '@storipress/karbon/internal'
 import { addFeedPageLinks, generateAtomFeed, listFeedArticles } from '@storipress/karbon/internal'
-import type { _NormalizeArticle } from '../api/normalize-article'
 import { useRuntimeConfig } from '#imports'
 import urls from '#sp-internal/storipress-urls.mjs'
 

@@ -12,10 +12,8 @@ async function* GenSource() {
   }
 }
 
-// eslint-disable-next-line no-console
 const onMoreLoaded = (article: Article) => console.log(`article ${article.id} is added.`, article)
 
-// eslint-disable-next-line no-console
 const onDone = () => console.log('all articles added')
 const queryBy = 'title'
 const searchInput = ref('')

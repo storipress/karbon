@@ -4,7 +4,6 @@ const { createLoadMore, preload } = useArticleLoader({
   preload: 4,
 })
 
-// eslint-disable-next-line no-console
 const onDone = () => console.log(`all articles added`)
 </script>
 

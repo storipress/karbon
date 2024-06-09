@@ -1,18 +1,5 @@
-import { decodeHTML } from 'entities'
+import { htmlFilter } from '@storipress/karbon-utils'
 
 export function useArticleFilter() {
-  return (html: string) => {
-    if (!html) {
-      return ''
-    }
-    return decodeHTML(filterHTMLTag(html))
-  }
-}
-
-export function filterHTMLTag(text: string) {
-  if (!text) {
-    return ''
-  }
-
-  return text.replace(/<\/?[^>]*>/g, '').trim()
+  return htmlFilter
 }

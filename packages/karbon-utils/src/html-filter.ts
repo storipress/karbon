@@ -12,5 +12,6 @@ export function filterHTMLTag(text: string) {
     return ''
   }
 
+  // eslint-disable-next-line regexp/optimal-quantifier-concatenation
   return text.replace(/<\/?[^>]*>/g, '').trim()
 }

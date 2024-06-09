@@ -12,7 +12,7 @@ node:
 
   # The package manager to use when managing dependencies.
   # Accepts "npm" (default), "pnpm", "yarn", or "bun".
-  packageManager: 'yarn'
+  packageManager: yarn
 
   # The version of the package manager (above) to use.
   yarn: {}
