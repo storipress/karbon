@@ -33,7 +33,7 @@
 - 🔦 Instant-search, baked in
 - And [a bunch more][documentation]
 
-Spin up a Karbon app in your browser with our [playground](https://karbon.new/) or set up your local environment with the instructions below ⬇️
+Set up a Karbon app in your local environment with the instructions below ⬇️
 
 ## Getting Started
 
