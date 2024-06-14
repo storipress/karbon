@@ -16,14 +16,14 @@
     "workerDirectory": "public"
   },
   "dependencies": {
-    "@apollo/client": "^3.9.11",
+    "@apollo/client": "^3.10.5",
     "@babel/runtime": "^7.24.7",
     "@iframely/embed.js": "^1.10.3",
     "@nuxt/devalue": "^2.0.2",
     "@nuxt/kit": "3.7.3",
     "@nuxtjs/html-validator": "^1.5.1",
-    "@sentry/node": "^7.114.0",
-    "@sentry/tracing": "^7.114.0",
+    "@sentry/node": "^7.117.0",
+    "@sentry/tracing": "^7.117.0",
     "@storipress/builder-component": "^1.4.3",
     "@storipress/custom-field": "workspace:*",
     "@storipress/karbon": "workspace:*",
@@ -49,7 +49,7 @@
     "ora": "^8.0.1",
     "parse5": "^7.1.2",
     "pathe": "^1.1.2",
-    "sass": "^1.77.4",
+    "sass": "^1.77.5",
     "scule": "^1.3.0",
     "serialize-javascript": "^6.0.2",
     "tailwindcss": "^3.4.4",
@@ -60,7 +60,7 @@
     "unplugin-vue-components": "^0.26.0",
     "unstorage": "^1.10.2",
     "uuid": "^9.0.1",
-    "vite": "^5.2.13",
+    "vite": "^5.3.1",
     "vite-plugin-css-injected-by-js": "^3.5.1",
     "vue-instantsearch": "^4.15.0",
     "vue3-lazy-hydration": "^1.2.1"
@@ -85,8 +85,8 @@
     "fs-extra": "11.2.0",
     "globby": "14.0.1",
     "nuxt": "3.7.3",
-    "prettier": "3.3.1",
-    "tsx": "4.15.0",
+    "prettier": "3.3.2",
+    "tsx": "4.15.4",
     "typescript": "5.4.5",
     "vitest": "1.6.0"
   }
