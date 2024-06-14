@@ -1,5 +1,11 @@
 # @storipress/karbon-utils
 
+## 0.2.2
+
+### Patch Changes
+
+- [`4b4dd5a`](https://github.com/storipress/karbon/commit/4b4dd5af52cabb222f1329b658dac4b8deb35880) Thanks [@DanSnow](https://github.com/DanSnow)! - fix: bundle base64-js
+
 ## 0.2.1
 
 ### Patch Changes
