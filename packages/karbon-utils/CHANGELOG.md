@@ -1,5 +1,11 @@
 # @storipress/karbon-utils
 
+## 0.2.3
+
+### Patch Changes
+
+- [`bc69d0a`](https://github.com/storipress/karbon/commit/bc69d0a57a6d277cea5f56161166605a64ef4883) Thanks [@DanSnow](https://github.com/DanSnow)! - fix: enforce to use server version decode in helper
+
 ## 0.2.2
 
 ### Patch Changes
