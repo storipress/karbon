@@ -1,5 +1,12 @@
 # Change Log
 
+## 0.1.126
+
+### Patch Changes
+
+- Updated dependencies [[`4b4dd5a`](https://github.com/storipress/karbon/commit/4b4dd5af52cabb222f1329b658dac4b8deb35880)]:
+  - @storipress/karbon-utils@0.2.2
+
 ## 0.1.125
 
 ### Patch Changes
