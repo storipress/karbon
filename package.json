@@ -1,7 +1,11 @@
 {
   "name": "@storipress/karbon-mono-repo",
   "private": true,
-  "packageManager": "yarn@4.2.2",
+  "resolutions": {
+    "@nuxt/kit": "3.7.3",
+    "@nuxt/schema": "3.7.3",
+    "nuxt": "3.7.3"
+  },
   "scripts": {
     "build": "moon run build",
     "test": "moon run test --",
@@ -27,9 +31,5 @@
     "typescript": "5.4.5",
     "vitest": "1.6.0"
   },
-  "resolutions": {
-    "@nuxt/kit": "3.7.3",
-    "@nuxt/schema": "3.7.3",
-    "nuxt": "3.7.3"
-  }
+  "packageManager": "yarn@4.3.0"
 }
