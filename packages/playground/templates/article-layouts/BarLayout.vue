@@ -10,6 +10,7 @@ const foo = computed(() => site.foo)
 <template>
   <div>
     This is bar layout
+    <div>id: {{ article.id }}</div>
     <div>article id from custom field: {{ currentID }}</div>
     <div>
       Content:

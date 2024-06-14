@@ -16,6 +16,7 @@ const socialLinks = {}
       <div class="my-[50px] mx-auto w-[1140px] max-w-[min(calc(100vw-30px),100%)]">
         <!-- article -->
         <div class="my-[50px] mx-auto w-[43.75rem] max-w-full">
+          <div>id: {{ article.id }}</div>
           <!-- article image -->
           <ArticleHeroPhoto
             v-if="cover?.url"
