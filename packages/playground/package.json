@@ -66,7 +66,7 @@
     "vue3-lazy-hydration": "^1.2.1"
   },
   "devDependencies": {
-    "@nuxt/devtools": "0.8.0",
+    "@nuxt/devtools": "0.8.5",
     "@nuxt/image": "1.0.0-rc.1",
     "@nuxtjs/tailwindcss": "6.8.0",
     "@rollup/plugin-virtual": "3.0.2",
