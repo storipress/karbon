@@ -19,6 +19,10 @@ tasks:
     deps:
       - karbon:build
       - custom-field:build
+  build-worker:
+    extends: build
+    env:
+      NITRO_PRESET: cloudflare-pages
   bundle:
     command: karbon
     platform: node

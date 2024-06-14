@@ -27,6 +27,9 @@ export default defineNuxtConfig({
   build: {
     transpile: ['@storipress/vue-advertising'],
   },
+  nitro: {
+    minify: false,
+  },
   routeRules: {
     '/posts/*': { swr: true },
   },

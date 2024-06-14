@@ -9,6 +9,7 @@
   "exports": {
     ".": {
       "browser": "./dist/client/index.browser.js",
+      "workerd": "./dist/server/index.js",
       "types": "./dist/server/index.d.ts",
       "import": "./dist/server/index.js"
     },
@@ -19,6 +20,10 @@
     "./browser": {
       "types": "./dist/client/index.browser.d.ts",
       "import": "./dist/client/index.browser.js"
+    },
+    "./server": {
+      "types": "./dist/server/index.d.ts",
+      "import": "./dist/server/index.js"
     }
   },
   "files": [
