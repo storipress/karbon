@@ -112,7 +112,7 @@ async function extractParam(event: any) {
 }
 
 function normalizeViewableResult(res: ViewableResult): DetailedViewableResult {
-  if (res == null) {
+  if (res === null) {
     console.error(
       "defineIsViewable return `null` or `undefined` will be implicit convert to `{ pass: false }`, but it's not recommend to rely on this behavior",
     )
