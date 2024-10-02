@@ -14,7 +14,7 @@
     "@changesets/changelog-github": "0.5.0",
     "@changesets/cli": "2.27.5",
     "@moonrepo/cli": "1.25.6",
-    "@nuxt/image": "1.0.0-rc.1",
+    "@nuxt/image": "1.8.1",
     "@nuxtjs/tailwindcss": "6.8.0",
     "@rollup/plugin-virtual": "3.0.2",
     "@vitest/coverage-v8": "1.6.0",
