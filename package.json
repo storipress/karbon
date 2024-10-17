@@ -15,7 +15,7 @@
     "@changesets/cli": "2.27.5",
     "@moonrepo/cli": "1.25.6",
     "@nuxt/image": "1.0.0-rc.1",
-    "@nuxtjs/tailwindcss": "6.8.0",
+    "@nuxtjs/tailwindcss": "6.12.2",
     "@rollup/plugin-virtual": "3.0.2",
     "@vitest/coverage-v8": "1.6.0",
     "eslint": "9.4.0",
