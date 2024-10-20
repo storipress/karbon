@@ -128,7 +128,7 @@
   "devDependencies": {
     "@nuxt/kit": "3.7.3",
     "@nuxt/module-builder": "0.5.2",
-    "@nuxt/test-utils": "3.9.0",
+    "@nuxt/test-utils": "3.14.4",
     "@nuxtjs/tailwindcss": "6.8.0",
     "@types/fs-extra": "11.0.4",
     "@types/js-yaml": "4.0.9",
