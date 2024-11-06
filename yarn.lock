@@ -3753,7 +3753,7 @@ __metadata:
     base64-js: "npm:^1.5.1"
     entities: "npm:^4.5.0"
     fast-check: "npm:3.19.0"
-    happy-dom: "npm:14.12.0"
+    happy-dom: "npm:15.10.2"
     tsup: "npm:8.1.0"
     typescript: "npm:5.4.5"
     vitest: "npm:1.6.0"
@@ -9978,14 +9978,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"happy-dom@npm:14.12.0":
-  version: 14.12.0
-  resolution: "happy-dom@npm:14.12.0"
+"happy-dom@npm:15.10.2":
+  version: 15.10.2
+  resolution: "happy-dom@npm:15.10.2"
   dependencies:
     entities: "npm:^4.5.0"
     webidl-conversions: "npm:^7.0.0"
     whatwg-mimetype: "npm:^3.0.0"
-  checksum: 10/59aaea73f6127825194ed3ef076b18a4e6be233d9aaffebc667faf1f1ea8af040b07a21cccbb211faecde7ed65351e197ff4b894d4b24118f23ea664cc5c6392
+  checksum: 10/045caf1b2657162db8bfb27b298120795c3ea766d3b853e5aa1bb653b1b08bf6ea1f0945008afc88502b28355fc26276cf29784f220384bb0eddd902e52d73cd
   languageName: node
   linkType: hard
 
